@@ -1,0 +1,6 @@
+export { getHome } from './index.parameters'
+export * from './index.models'
+export * from './subcomponents/welcome'
+export * from './subcomponents/services'
+export * from './subcomponents/results'
+export * from './subcomponents/pricing'
