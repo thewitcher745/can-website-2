@@ -1,9 +1,0 @@
-.env
-.prettierignore
-.gitignore
-*.otf
-*.png
-*.jpg
-*.jpeg
-*.svg
-yarn.lock

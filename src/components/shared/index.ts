@@ -1,6 +1,0 @@
-export * from './layout/index'
-export * from './typography/index'
-export * from './buttons/index'
-export * from './containers/index'
-export * from './cards/index'
-export * from './forms/index'
