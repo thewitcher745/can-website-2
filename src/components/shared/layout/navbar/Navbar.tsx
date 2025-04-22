@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Button } from 'components/shared/buttons';
 import { NavItem } from 'components/shared/typography';
 import { routes, colors } from 'parameters';
+import { imageLoader } from 'utils/imageLoader';
 import { 
     NavbarContainer, 
     LogoContainer, 
@@ -37,7 +38,13 @@ export const Navbar: React.FC = () => {
             <LogoContainer>
                 <Link href={routes.home} passHref>
                     <a>
-                        <LogoImage src="/images/logos/can-logo.png" alt="CAN Logo" width={60} height={60} />
+                        <Image 
+                            loader={imageLoader}
+                            src="/images/logos/can-logo.png" 
+                            alt="CAN Logo" 
+                            width={60} 
+                            height={60} 
+                        />
                         <LogoText>
                             <LogoAccent>CAN</LogoAccent> Trading Solutions
                         </LogoText>

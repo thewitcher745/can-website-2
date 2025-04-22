@@ -13,6 +13,13 @@ const nextConfig = {
 		// !! WARN !!
 		ignoreBuildErrors: true,
 	},
+	// Target serverless deployment (for Netlify)
+	target: 'serverless',
+	// Configure images for Netlify
+	images: {
+		loader: 'custom',
+		disableStaticImages: false,
+	},
 }
 
 module.exports = withBundleAnalyzer(nextConfig);

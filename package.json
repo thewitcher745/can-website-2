@@ -18,6 +18,7 @@
 	},
 	"devDependencies": {
 		"@emotion/babel-plugin": "11.9.2",
+		"@netlify/plugin-nextjs": "^4.41.3",
 		"@next/bundle-analyzer": "12.1.6",
 		"@types/formidable": "^2.0.5",
 		"@types/node": "18.0.0",
@@ -47,6 +48,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
+		"build:netlify": "node scripts/build.js",
 		"start": "next start -p 3400",
 		"analyze": "cross-env ANALYZE=true next build",
 		"analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
