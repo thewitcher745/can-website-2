@@ -10,32 +10,32 @@ import {
 
 const services = [
   {
-    icon: <FaBell className="w-8 h-8 text-text-muted" />,
+    icon: <FaBell className="w-8 h-8 text-primary" />,
     title: "Trading Signals",
     desc: "Get high-quality signals tailored to your style—daily scalps with tight stoplosses, swing trades for steady weekly gains, and breakout alerts to catch major market moves.",
   },
   {
-    icon: <FaRobot className="w-8 h-8 text-text-muted" />,
+    icon: <FaRobot className="w-8 h-8 text-primary" />,
     title: "Algorithmic Trading",
     desc: "Algorithmic Trading Signals designed for quick profit with high leverage and tight risk management strategies.",
   },
   {
-    icon: <FaShieldAlt className="w-8 h-8 text-text-muted" />,
+    icon: <FaShieldAlt className="w-8 h-8 text-primary" />,
     title: "Risk Management",
     desc: "Comprehensive risk management strategies for different types of signals to reduce your risk exposure in crypto market and minimize potential losses.",
   },
   {
-    icon: <FaChartPie className="w-8 h-8 text-text-muted" />,
+    icon: <FaChartPie className="w-8 h-8 text-primary" />,
     title: "Crypto Market Insight",
     desc: "In-depth market analysis and insights to help you make informed trading decisions and ride the market in the right direction.",
   },
   {
-    icon: <FaBalanceScale className="w-8 h-8 text-text-muted" />,
+    icon: <FaBalanceScale className="w-8 h-8 text-primary" />,
     title: "Portfolio Optimization",
     desc: "Strategically diversify your capital between Futures trading and Spot trading to maximize your profit while balancing risk.",
   },
   {
-    icon: <FaGraduationCap className="w-8 h-8 text-text-muted" />,
+    icon: <FaGraduationCap className="w-8 h-8 text-primary" />,
     title: "Trading Education",
     desc: "Join the conversation with our team of analysts in a chat group designed to explain and discuss your own trading setups and analysis.",
   },
