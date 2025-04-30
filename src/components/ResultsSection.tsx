@@ -68,13 +68,13 @@ const ResultsSection: React.FC = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section id="results" className="py-16 bg-gray-900">
+    <section id="results" className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4">
             Monthly Results
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-text-muted max-w-3xl mx-auto">
             View our monthly equity curve and performance results. Select a
             month to see its chart.
           </p>
@@ -83,7 +83,7 @@ const ResultsSection: React.FC = () => {
           {/* Mobile dropdown menu */}
           <div className="md:hidden mb-4">
             <select
-              className="w-full p-2 rounded-lg bg-[#181b20] border border-gray-800 text-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full p-2 rounded-lg bg-background border border-border-strong text-text-main focus:outline-none focus:ring-2 focus:ring-primary"
               value={selected}
               onChange={(e) => setSelected(Number(e.target.value))}
             >
@@ -96,14 +96,14 @@ const ResultsSection: React.FC = () => {
           </div>
           {/* Desktop sidebar */}
           <aside className="hidden md:block md:w-1/4 h-full">
-            <div className="flex flex-col gap-2 bg-[#181b20] rounded-xl border border-gray-800 p-3 shadow-inner h-full overflow-y-auto">
+            <div className="flex flex-col gap-2 bg-background rounded-xl border border-border-strong p-3 shadow-inner h-full overflow-y-auto">
               {months.map((m, i) => (
                 <button
                   key={m.label}
-                  className={`w-full px-4 py-2 rounded-lg font-medium transition text-left whitespace-nowrap border-2 border-l-4 border-l-orange-400 border-orange-400/30 bg-gray-800 hover:bg-orange-400/10 focus:outline-none ${
+                  className={`w-full px-4 py-2 rounded-lg font-medium transition text-left whitespace-nowrap border-2 border-l-4 border-l-primary border-primary/30 bg-surface hover:bg-primary/10 focus:outline-none ${
                     selected === i
-                      ? "bg-orange-400/20 border-orange-400 text-orange-300"
-                      : "text-gray-200"
+                      ? "bg-primary/20 border-primary text-primary-soft"
+                      : "text-text-main"
                   }`}
                   onClick={() => setSelected(i)}
                 >
@@ -120,33 +120,33 @@ const ResultsSection: React.FC = () => {
                 src={months[selected].img}
                 alt={months[selected].label + " equity curve"}
                 fill
-                className="object-contain rounded-lg bg-gray-800"
+                className="object-contain rounded-lg bg-surface"
                 sizes="(max-width: 768px) 100vw, 600px"
                 priority
               />
             </div>
             {/* Monthly stats section */}
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
-              <div className="bg-[#181b20] p-6 rounded-xl border border-gray-800">
+              <div className="bg-background p-6 rounded-xl border border-border-strong">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-orange-300">Win Rate</h3>
-                  <span className="text-2xl font-bold text-green-400">{months[selected].winrate !== undefined ? months[selected].winrate + '%' : '-'}</span>
+                  <h3 className="text-lg font-semibold text-primary-soft">Win Rate</h3>
+                  <span className="text-2xl font-bold text-success">{months[selected].winrate !== undefined ? months[selected].winrate + '%' : '-'}</span>
                 </div>
-                <p className="text-sm text-gray-400">Percentage of profitable trades</p>
+                <p className="text-sm text-text-muted">Percentage of profitable trades</p>
               </div>
-              <div className="bg-[#181b20] p-6 rounded-xl border border-gray-800">
+              <div className="bg-background p-6 rounded-xl border border-border-strong">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-orange-300">Net Profit</h3>
-                  <span className="text-2xl font-bold text-green-400">{months[selected].netProfit !== undefined ? (months[selected].netProfit > 0 ? '+' : '') + months[selected].netProfit + '%' : '-'}</span>
+                  <h3 className="text-lg font-semibold text-primary-soft">Net Profit</h3>
+                  <span className="text-2xl font-bold text-success">{months[selected].netProfit !== undefined ? (months[selected].netProfit > 0 ? '+' : '') + months[selected].netProfit + '%' : '-'}</span>
                 </div>
-                <p className="text-sm text-gray-400">Total profit for the month</p>
+                <p className="text-sm text-text-muted">Total profit for the month</p>
               </div>
-              <div className="bg-[#181b20] p-6 rounded-xl border border-gray-800">
+              <div className="bg-background p-6 rounded-xl border border-border-strong">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-orange-300">Max Drawdown</h3>
-                  <span className="text-2xl font-bold text-red-400">{months[selected].drawdown !== undefined ? '-' + months[selected].drawdown + '%' : '-'}</span>
+                  <h3 className="text-lg font-semibold text-primary-soft">Max Drawdown</h3>
+                  <span className="text-2xl font-bold text-error-light">{months[selected].drawdown !== undefined ? '-' + months[selected].drawdown + '%' : '-'}</span>
                 </div>
-                <p className="text-sm text-gray-400">Largest peak-to-trough decline</p>
+                <p className="text-sm text-text-muted">Largest peak-to-trough decline</p>
               </div>
             </div>
           </div>

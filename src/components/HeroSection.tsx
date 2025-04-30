@@ -21,14 +21,14 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="pt-28 pb-20 md:pt-36 md:pb-28 bg-gradient-to-br from-gray-900 to-gray-800"
+      className="pt-28 pb-20 md:pt-36 md:pb-28 bg-gradient-to-br from-gray-900 to-gray-800 text-text-muted"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="md:flex items-center gap-8">
           <div className="md:w-1/2 mb-14 md:mb-0">
             {/* Animated Title */}
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl py-2 font-bold text-white leading-tight mb-6 animate-hero-title"
+              className="text-4xl md:text-5xl lg:text-6xl py-2 font-bold text-primary leading-tight mb-6 animate-hero-title"
               style={{
                 background: "linear-gradient(90deg, #fe9a00, #ff6b00)",
                 WebkitBackgroundClip: "text",
@@ -39,24 +39,24 @@ const HeroSection: React.FC = () => {
               CAN Trading Signals
             </h1>
             {/* Subtitle with fade-in */}
-            <p className="text-lg text-orange-300 font-semibold mb-2 animate-fade-in-delay-1">
+            <p className="text-lg text-primary-soft font-semibold mb-2 animate-fade-in-delay-1">
               Expert Financial Technical Analysis
             </p>
             {/* Description with fade-in */}
-            <p className="text-lg text-orange-100 mb-8 animate-fade-in-delay-2">
+            <p className="text-lg text-primary-light mb-8 animate-fade-in-delay-2">
               Providing professional trading signals and risk management
               strategies for individuals.
             </p>
             <div className="flex space-x-4 animate-fade-in-delay-3">
               <a
                 href="#services"
-                className="bg-orange-400 text-gray-900 px-6 py-3 border-1 border-orange-400 rounded-md font-semibold hover:bg-transparent hover:text-orange-400 hover:border-orange-400 hover:border-1 transition shadow-sm"
+                className="bg-primary text-black px-6 py-3 border-1 border-primary rounded-md font-semibold hover:bg-transparent hover:text-primary hover:border-primary hover:border-1 transition shadow-sm"
               >
                 Get Started
               </a>
               <a
                 href="#results"
-                className="py-3 px-6 text-white font-semibold underline"
+                className="py-3 px-6 text-text-main font-semibold underline"
               >
                 Learn More
               </a>

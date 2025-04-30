@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 shadow-lg border-b-2 border-orange-400 transition-colors duration-300 bg-gray-900`}
+      className={`fixed w-full z-50 shadow-lg border-b-2 border-orange-400 transition-colors duration-300 bg-background`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
             <div className="flex sm:translate-x-0 sm:relative flex-shrink-0 items-center absolute left-1/2 transform -translate-x-1/2">
               <Link
                 href="/"
-                className="flex items-center gap-2 text-2xl font-bold gradient-text text-orange-400"
+                className="flex items-center gap-2 text-2xl font-bold gradient-text text-primary"
                 onClick={closeMenu}
               >
                 <Image
@@ -38,37 +38,37 @@ const Navbar: React.FC = () => {
           <div className="hidden md:ml-6 md:flex md:items-center md:space-x-8">
             <Link
               href="/#home"
-              className="text-gray-300 hover:text-orange px-3 py-2 text-sm font-medium"
+              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
             >
               Home
             </Link>
             <Link
               href="/#services"
-              className="text-gray-300 hover:text-orange px-3 py-2 text-sm font-medium"
+              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
             >
               Services
             </Link>
             <Link
               href="/#results"
-              className="text-gray-300 hover:text-orange px-3 py-2 text-sm font-medium"
+              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
             >
               Results
             </Link>
             <Link
               href="/#pricing"
-              className="text-gray-300 hover:text-orange px-3 py-2 text-sm font-medium"
+              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
             >
               Pricing
             </Link>
             <Link
               href="/blog"
-              className="text-gray-300 hover:text-orange px-3 py-2 text-sm font-medium"
+              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
             >
               Blog
             </Link>
             <Link
               href="/#contact"
-              className="text-orange-400 hover:text-orange-500 underline text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:bg-orange transition"
+              className="text-primary hover:text-orange-500 underline text-text-main px-4 py-2 rounded-md text-sm font-medium hover:bg-orange transition"
             >
               Contact Us
             </Link>
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
             <button
               aria-label="Open main menu"
               onClick={handleToggle}
-              className="text-gray-300 hover:text-orange focus:outline-none flex justify-center items-center"
+              className="text-text-main hover:text-orange focus:outline-none flex justify-center items-center"
             >
               {menuOpen ? (
                 <HiX className="h-6 w-6" />
@@ -91,46 +91,46 @@ const Navbar: React.FC = () => {
       </div>
       {/* Mobile Nav */}
       {menuOpen && (
-        <div className="md:hidden bg-off-black px-4 pb-4 pt-2 shadow-lg border-b border-gray-800 animate-slideDownFadeIn">
+        <div className="md:hidden bg-off-black px-4 pb-4 pt-2 shadow-lg border-b border-border-strong animate-slideDownFadeIn">
           <div className="flex flex-col space-y-2">
             <Link
               href="/#home"
-              className="text-gray-300 hover:text-orange py-2 text-base font-medium"
+              className="text-text-main hover:text-orange py-2 text-base font-medium"
               onClick={closeMenu}
             >
               Home
             </Link>
             <Link
               href="/#services"
-              className="text-gray-300 hover:text-orange py-2 text-base font-medium"
+              className="text-text-main hover:text-orange py-2 text-base font-medium"
               onClick={closeMenu}
             >
               Services
             </Link>
             <Link
               href="/#results"
-              className="text-gray-300 hover:text-orange py-2 text-base font-medium"
+              className="text-text-main hover:text-orange py-2 text-base font-medium"
               onClick={closeMenu}
             >
               Results
             </Link>
             <Link
               href="/#pricing"
-              className="text-gray-300 hover:text-orange py-2 text-base font-medium"
+              className="text-text-main hover:text-orange py-2 text-base font-medium"
               onClick={closeMenu}
             >
               Pricing
             </Link>
             <Link
               href="/blog"
-              className="text-gray-300 hover:text-orange py-2 pb-4 text-base font-medium"
+              className="text-text-main hover:text-orange py-2 pb-4 text-base font-medium"
               onClick={closeMenu}
             >
               Blog
             </Link>
             <Link
               href="/#contact"
-              className="text-orange-400 hover:text-orange-300 text-gray-900 py-2 pt-4 border-t-1 text-center text-base font-medium hover:bg-orange transition"
+              className="text-primary hover:text-orange-500 text-text-main py-2 pt-4 border-t-1 text-center text-base font-medium hover:bg-orange transition"
               onClick={closeMenu}
             >
               Contact Us
