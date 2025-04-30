@@ -76,14 +76,14 @@ const PricingSection: React.FC = () => (
               key={pkg.duration}
               className={`flex flex-col gap-4 items-center rounded-xl p-6 border-2 transition duration-300 bg-surface relative ${
                 pkg.highlight
-                  ? "border-border-strong text-primary shadow-lg"
+                  ? "border-primary text-primary shadow-lg"
                   : "border-border"
               }`}
             >
               {pkg.highlight && (
                 <div className="absolute lg:-top-5 md:-top-5 -top-3 left-1/2 -translate-x-1/2 bg-primary text-text-main text-xs font-bold text-center px-7 py-1 rounded-full shadow">
-                MOST POPULAR!
-              </div>
+                  MOST POPULAR!
+                </div>
               )}
               <div className="w-full text-center mb-2">
                 <span
