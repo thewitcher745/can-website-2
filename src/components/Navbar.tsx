@@ -25,9 +25,9 @@ const Navbar: React.FC = () => {
                 <Image
                   src="/images/logos/can-logo.png"
                   alt="CAN Logo"
-                  width={60}
-                  height={60}
-                  className="h-16 w-16 object-contain"
+                  width={40}
+                  height={40}
+                  className="object-contain"
                   priority
                 />
                 <span>CAN</span>
