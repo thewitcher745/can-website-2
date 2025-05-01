@@ -5,8 +5,6 @@ import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-import styles from "./slug.module.css";
-
 interface BlogPost {
   author: string;
   content_html: string;

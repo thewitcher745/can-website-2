@@ -1,67 +1,135 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-const months = [
+type MonthResult = {
+  label: string;
+  img: string;
+  winrate?: number;
+  grossProfit?: number;
+  drawdown?: number;
+};
+
+const months: MonthResult[] = [
   {
-    label: "November 2024",
-    img: "/images/results/nov-2024.png",
-    winrate: 72,
-    netProfit: 14.2,
-    drawdown: 5.1,
+    label: "February 2025",
+    img: "/images/results/feb-2025.png",
+    winrate: 63,
+    grossProfit: 302.6,
+  },
+  {
+    label: "January 2025",
+    img: "/images/results/jan-2025.png",
+    winrate: 80,
+    grossProfit: 631.41,
   },
   {
     label: "December 2024",
     img: "/images/results/dec-2024.png",
+    winrate: 68,
+    grossProfit: 364.01,
+  },
+  {
+    label: "November 2024",
+    img: "/images/results/nov-2024.png",
+    winrate: 89,
+    grossProfit: 759.06,
+  },
+  {
+    label: "October 2024",
+    img: "/images/results/oct-2024.png",
+    winrate: 78,
+    grossProfit: 303.49,
+  },
+  {
+    label: "September 2024",
+    img: "/images/results/sep-2024.png",
+    winrate: 81,
+    grossProfit: 609.79,
+  },
+  {
+    label: "August 2024",
+    img: "/images/results/aug-2024.png",
+    winrate: 65,
+    grossProfit: 331.98,
+  },
+  {
+    label: "July 2024",
+    img: "/images/results/jul-2024.png",
+    winrate: 64,
+    grossProfit: 625.54,
+  },
+  {
+    label: "June 2024",
+    img: "/images/results/jun-2024.png",
+    winrate: 72,
+    grossProfit: 283.5,
+  },
+  {
+    label: "May 2024",
+    img: "/images/results/may-2024.png",
+    winrate: 83,
+    grossProfit: 546.95,
+  },
+  {
+    label: "April 2024",
+    img: "/images/results/apr-2024.png",
+    winrate: 65,
+    grossProfit: 483.86,
+  },
+  {
+    label: "March 2024",
+    img: "/images/results/mar-2024.png",
+    winrate: 67,
+    grossProfit: 487.2,
+  },
+  {
+    label: "February 2024",
+    img: "/images/results/feb-2024.png",
     winrate: 80,
-    netProfit: 19.7,
-    drawdown: 3.8,
+    grossProfit: 751.89,
   },
   {
-    label: "February 2025",
-    img: "/images/results/feb-2025.png",
-    winrate: 75,
-    netProfit: 16.5,
-    drawdown: 4.2,
+    label: "January 2024",
+    img: "/images/results/jan-2024.png",
+    winrate: 76,
+    grossProfit: 396.76,
   },
   {
-    label: "January 2025",
-    img: "/images/results/jan-2025.png",
-    winrate: 68,
-    netProfit: 11.3,
-    drawdown: 6.4,
+    label: "December 2023",
+    img: "/images/results/dec-2023.png",
+    winrate: 90,
+    grossProfit: 391.24,
   },
   {
-    label: "January 2025",
-    img: "/images/results/jan-2025.png",
-    winrate: 68,
-    netProfit: 11.3,
-    drawdown: 6.4,
+    label: "November 2023",
+    img: "/images/results/nov-2023.png",
+    winrate: 63,
+    grossProfit: 332.68,
   },
   {
-    label: "January 2025",
-    img: "/images/results/jan-2025.png",
-    winrate: 68,
-    netProfit: 11.3,
-    drawdown: 6.4,
+    label: "October 2023",
+    img: "/images/results/oct-2023.png",
+    winrate: 67,
+    grossProfit: 323.12,
   },
   {
-    label: "January 2025",
-    img: "/images/results/jan-2025.png",
+    label: "September 2023",
+    img: "/images/results/sep-2023.png",
+    winrate: 71,
+    grossProfit: 163.46,
   },
   {
-    label: "January 2025",
-    img: "/images/results/jan-2025.png",
+    label: "August 2023",
+    img: "/images/results/aug-2023.png",
+    winrate: 70,
+    grossProfit: 220,
   },
   {
-    label: "January 2025",
-    img: "/images/results/jan-2025.png",
+    label: "July 2023",
+    img: "/images/results/jul-2023.png",
+    winrate: 77,
+    grossProfit: 556,
   },
-  {
-    label: "January 2025",
-    img: "/images/results/jan-2025.png",
-  },
-
-  // Add more months as needed
 ];
 
 const ResultsSection: React.FC = () => {
@@ -79,7 +147,7 @@ const ResultsSection: React.FC = () => {
             month to see its chart.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-8 md:items-start">
+        <div className="flex flex-col md:flex-row gap-8 md:items-start h-[600px] md:h-[600px] min-h-0">
           {/* Mobile dropdown menu */}
           <div className="md:hidden mb-4">
             <select
@@ -95,7 +163,7 @@ const ResultsSection: React.FC = () => {
             </select>
           </div>
           {/* Desktop sidebar */}
-          <aside className="hidden md:block md:w-1/4 h-full">
+          <aside className="hidden md:block md:w-1/4 h-full min-h-0">
             <div className="flex flex-col gap-2 bg-background rounded-xl border border-border-strong p-3 shadow-inner h-full overflow-y-auto">
               {months.map((m, i) => (
                 <button
@@ -113,7 +181,7 @@ const ResultsSection: React.FC = () => {
             </div>
           </aside>
           {/* Monthly data display */}
-          <div className="flex-1 flex flex-col items-center justify-center">
+          <div className="flex-1 flex flex-col items-center justify-center h-full min-h-0">
             {/* Chart/image display */}
             <div className="w-full max-w-4xl aspect-video relative">
               <Image
@@ -126,27 +194,38 @@ const ResultsSection: React.FC = () => {
               />
             </div>
             {/* Monthly stats section */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
-              <div className="bg-background p-6 rounded-xl border border-border-strong">
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+              <div className="bg-background p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-primary-soft">Win Rate</h3>
-                  <span className="text-2xl font-bold text-success">{months[selected].winrate !== undefined ? months[selected].winrate + '%' : '-'}</span>
+                  <h3 className="text-lg font-semibold text-primary-soft">
+                    Win Rate
+                  </h3>
+                  <span className="text-2xl font-bold text-success">
+                    {months[selected].winrate !== undefined
+                      ? months[selected].winrate + "%"
+                      : "-"}
+                  </span>
                 </div>
-                <p className="text-sm text-text-muted">Percentage of profitable trades</p>
+                <p className="text-sm text-text-muted">
+                  Percentage of profitable trades
+                </p>
               </div>
-              <div className="bg-background p-6 rounded-xl border border-border-strong">
+              <div className="bg-background p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-primary-soft">Net Profit</h3>
-                  <span className="text-2xl font-bold text-success">{months[selected].netProfit !== undefined ? (months[selected].netProfit > 0 ? '+' : '') + months[selected].netProfit + '%' : '-'}</span>
+                  <h3 className="text-lg font-semibold text-primary-soft">
+                    Net Profit
+                  </h3>
+                  <span className="text-2xl font-bold text-success">
+                    {months[selected].grossProfit !== undefined
+                      ? (months[selected].grossProfit > 0 ? "+" : "") +
+                        months[selected].grossProfit +
+                        "%"
+                      : "-"}
+                  </span>
                 </div>
-                <p className="text-sm text-text-muted">Total profit for the month</p>
-              </div>
-              <div className="bg-background p-6 rounded-xl border border-border-strong">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-primary-soft">Max Drawdown</h3>
-                  <span className="text-2xl font-bold text-error-light">{months[selected].drawdown !== undefined ? '-' + months[selected].drawdown + '%' : '-'}</span>
-                </div>
-                <p className="text-sm text-text-muted">Largest peak-to-trough decline</p>
+                <p className="text-sm text-text-muted">
+                  Total profit for the month
+                </p>
               </div>
             </div>
           </div>
