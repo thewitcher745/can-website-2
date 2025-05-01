@@ -16,7 +16,7 @@ const Blog: React.FC = () => {
   const [posts, setPosts] = useState<BlogPostMeta[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [filterTag, setFilterTag] = useState<string | null>(null);
+  const [filterTags, setFilterTags] = useState<string[] | null>(null);
 
   useEffect(() => {
     fetch("https://can.up.railway.app/api/blog/")
@@ -29,12 +29,63 @@ const Blog: React.FC = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const filteredPosts = filterTag
-    ? posts.filter((post) => post.tags.includes(filterTag))
+  const removeTag = (tag: string) => {
+    if (filterTags?.length === 1) {
+      setFilterTags(null);
+    } else {
+      setFilterTags((prev) => prev?.filter((t) => t !== tag));
+    }
+  };
+
+  const filteredPosts = filterTags
+    ? posts.filter((post) => filterTags?.some((tag) => post.tags.includes(tag)))
     : posts;
 
-  if (loading) return <div className="p-8 text-center">Loading...</div>;
-  if (error) return <div className="p-8 text-center text-error">{error}</div>;
+  if (loading)
+    return (
+      <>
+        <Navbar />
+        <main className="bg-background min-h-screen">
+          <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-primary border-opacity-60 mb-4"></div>
+            <span className="text-text-muted text-lg tracking-wide">
+              Loading...
+            </span>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  if (error)
+    return (
+      <>
+        <Navbar />
+        <main className="bg-background min-h-screen">
+          <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
+            <div className="mb-4">
+              <svg
+                className="w-12 h-12 text-error animate-pulse"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <span className="text-error text-lg tracking-wide font-semibold mb-2">
+              Error
+            </span>
+            <span className="text-text-muted text-base">{error}</span>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
 
   return (
     <>
@@ -42,16 +93,21 @@ const Blog: React.FC = () => {
       <main className="bg-background min-h-screen">
         <div className="max-w-2xl mx-auto py-8 px-4 pt-24">
           <h1 className="text-3xl font-bold mb-8 text-primary">Blog</h1>
-          {filterTag && (
-            <div className="mb-6 flex items-center gap-2">
-              <span className="bg-primary text-white text-xs px-3 py-1 rounded-full">
-                {filterTag}
-              </span>
+          {filterTags && (
+            <div className="mb-6 flex items-center gap-2 flex-wrap flex-col items-start sm:flex-row">
+              {filterTags.map((tag) => (
+                <button
+                  onClick={() => removeTag(tag)}
+                  className="bg-primary text-white text-xs px-3 py-1 rounded-full hover:bg-error-light"
+                >
+                  {tag}
+                </button>
+              ))}
               <button
                 className="ml-2 text-xs text-error-light hover:text-error underline"
-                onClick={() => setFilterTag(null)}
+                onClick={() => setFilterTags(null)}
               >
-                Clear Filter
+                Clear Filters
               </button>
             </div>
           )}
@@ -65,9 +121,11 @@ const Blog: React.FC = () => {
                   className="bg-surface border border-border rounded-lg p-6 shadow transition hover:shadow-lg"
                 >
                   <h2 className="text-2xl font-semibold mb-2 text-text-main hover:text-primary transition-colors">
-  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-</h2>
-<p className="text-text-muted mb-3 line-clamp-3">{post.desc}</p>
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h2>
+                  <p className="text-text-muted mb-3 line-clamp-3">
+                    {post.desc}
+                  </p>
                   <div className="text-xs text-text-muted mb-3">
                     {new Date(post.time).toLocaleDateString(undefined, {
                       year: "numeric",
@@ -85,7 +143,9 @@ const Blog: React.FC = () => {
                       <button
                         key={tag}
                         className={`bg-secondary-light text-secondary hover:bg-secondary hover:text-white text-xs px-2 py-1 rounded transition`}
-                        onClick={() => setFilterTag(tag)}
+                        onClick={() =>
+                          setFilterTags((prev) => [...(prev || []), tag])
+                        }
                         type="button"
                       >
                         {tag}
