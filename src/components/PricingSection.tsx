@@ -81,7 +81,7 @@ const PricingSection: React.FC = () => (
               }`}
             >
               {pkg.highlight && (
-                <div className="absolute lg:-top-5 md:-top-5 -top-3 left-1/2 -translate-x-1/2 bg-primary text-text-main text-xs font-bold text-center px-7 py-1 rounded-full shadow">
+                <div className="absolute lg:-top-5 md:-top-5 -top-3 left-1/2 -translate-x-1/2 bg-primary text-surface text-xs font-bold text-center px-7 py-1 rounded-full shadow">
                   MOST POPULAR!
                 </div>
               )}

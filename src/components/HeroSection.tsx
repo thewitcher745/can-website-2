@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const heroImages = [
+  "/images/showcase/can-banner.png",
   "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
   "https://images.unsplash.com/photo-1651341050677-24dba59ce0fd?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2ZpdHxlbnwwfHwwfHx8MA%3D%3D",
@@ -30,7 +31,7 @@ const HeroSection: React.FC = () => {
             <h1
               className="text-4xl md:text-5xl lg:text-6xl py-2 font-bold text-primary leading-tight mb-6 animate-hero-title"
               style={{
-                background: "linear-gradient(90deg, #fe9a00, #ff6b00)",
+                background: "linear-gradient(90deg, #fe9a00, #ffcb37)",
                 WebkitBackgroundClip: "text",
                 color: "transparent",
                 display: "inline-block",
@@ -39,7 +40,7 @@ const HeroSection: React.FC = () => {
               CAN Trading Signals
             </h1>
             {/* Subtitle with fade-in */}
-            <p className="text-lg text-primary-soft font-semibold mb-2 animate-fade-in-delay-1">
+            <p className="text-lg text-primary font-semibold mb-2 animate-fade-in-delay-1">
               Expert Financial Technical Analysis
             </p>
             {/* Description with fade-in */}

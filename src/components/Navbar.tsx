@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
             <div className="flex sm:translate-x-0 sm:relative flex-shrink-0 items-center absolute left-1/2 transform -translate-x-1/2">
               <Link
                 href="/"
-                className="flex items-center gap-2 text-2xl font-bold gradient-text text-primary"
+                className="flex items-center gap-2 text-2xl font-bold gradient-text text-text-muted"
                 onClick={closeMenu}
               >
                 <Image

@@ -213,7 +213,7 @@ const ResultsSection: React.FC = () => {
               <div className="bg-background p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-lg font-semibold text-primary-soft">
-                    Net Profit
+                    Gross Profit
                   </h3>
                   <span className="text-2xl font-bold text-success">
                     {months[selected].grossProfit !== undefined
