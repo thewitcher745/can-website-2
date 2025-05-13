@@ -53,7 +53,18 @@ const breakpointColumnsObj = {
 
 const ResultsPage: React.FC = () => {
   const [selectedMonth, setSelectedMonth] = useState(availableMonths[0]);
+  const [modalImg, setModalImg] = useState<string | null>(null);
   const images = imagesPerMonth[selectedMonth] || [];
+
+  // Close modal on ESC key
+  React.useEffect(() => {
+    if (!modalImg) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setModalImg(null);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [modalImg]);
 
   return (
     <>
@@ -82,12 +93,45 @@ const ResultsPage: React.FC = () => {
             columnClassName="my-masonry-grid_column"
           >
             {images.map((src, idx) => (
-              <div key={idx} className="masonry-item">
-                <img src={src} alt={`Result ${selectedMonth} ${idx + 1}`} />
+              <div
+                key={idx}
+                className="transition-transform duration-300 ease-in-out hover:scale-103 hover:z-10 hover:shadow-xl masonry-item cursor-pointer"
+                onClick={() => setModalImg(src)}
+              >
+                <img
+                  src={src}
+                  alt={`Result ${selectedMonth} ${idx + 1}`}
+                  className="masonry-thumb-zoomable"
+                />
               </div>
             ))}
           </Masonry>
         </div>
+        {/* Modal Overlay */}
+        {modalImg && (
+          <div
+            className="fixed inset-0 bg-[#000000cc] flex items-center justify-center z-50"
+            onClick={() => setModalImg(null)}
+          >
+            <div
+              className="relative max-w-3xl w-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-2 right-2 text-white rounded-full p-2 text-2xl hover:bg-opacity-80 focus:outline-none"
+                onClick={() => setModalImg(null)}
+                aria-label="Close"
+              >
+                &times;
+              </button>
+              <img
+                src={modalImg}
+                alt="Full size result"
+                className="max-h-[80vh] w-auto max-w-full rounded shadow-lg"
+              />
+            </div>
+          </div>
+        )}
       </main>
       <Footer />
     </>
