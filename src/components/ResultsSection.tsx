@@ -126,7 +126,7 @@ const months: MonthResult[] = [
   },
   {
     label: "July 2023",
-    img: "/images/results/jul-2023.png",
+    img: "/images/results/svg/Sample 9.svg",
     winrate: 77,
     grossProfit: 556,
   },
@@ -168,10 +168,10 @@ const ResultsSection: React.FC = () => {
               {months.map((m, i) => (
                 <button
                   key={m.label}
-                  className={`w-full px-4 py-2 rounded-lg font-medium transition text-left whitespace-nowrap border-2 border-l-4 border-l-primary border-primary/30 bg-surface hover:bg-primary/10 focus:outline-none ${
+                  className={`w-full px-4 py-2 rounded-lg font-medium transition text-left whitespace-nowrap border-2 bg-surface hover:bg-primary/10 focus:outline-none ${
                     selected === i
-                      ? "bg-primary/20 border-primary text-primary-soft"
-                      : "text-text-main"
+                      ? "bg-primary/20 border-primary text-text-main border-l-10 pl-5"
+                      : "text-text-muted"
                   }`}
                   onClick={() => setSelected(i)}
                 >
@@ -183,7 +183,7 @@ const ResultsSection: React.FC = () => {
           {/* Monthly data display */}
           <div className="flex-1 flex flex-col items-center justify-center h-full min-h-0">
             {/* Chart/image display */}
-            <div className="w-full max-w-4xl aspect-video relative">
+            <div className="w-full max-w-4xl aspect-video relative border shadow rounded">
               <Image
                 src={months[selected].img}
                 alt={months[selected].label + " equity curve"}
@@ -197,7 +197,7 @@ const ResultsSection: React.FC = () => {
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
               <div className="bg-background p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-primary-soft">
+                  <h3 className="text-lg font-semibold text-text-main">
                     Win Rate
                   </h3>
                   <span className="text-2xl font-bold text-success">
@@ -212,7 +212,7 @@ const ResultsSection: React.FC = () => {
               </div>
               <div className="bg-background p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-primary-soft">
+                  <h3 className="text-lg font-semibold text-text-main">
                     Gross Profit
                   </h3>
                   <span className="text-2xl font-bold text-success">
@@ -229,6 +229,15 @@ const ResultsSection: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+        {/* Link to full results page */}
+        <div className="flex justify-center mt-12">
+          <a
+            href="/results"
+            className="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-primary-dark transition text-lg"
+          >
+            View Full Results Gallery
+          </a>
         </div>
       </div>
     </section>

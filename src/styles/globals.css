@@ -17,4 +17,32 @@
   --color-border: #374151;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-offwhite: #e9e9e9;
+}
+
+.results-page {
+  padding: 32px 16px;
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -16px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 16px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.masonry-item {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #fff;
+}
+.masonry-item img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
