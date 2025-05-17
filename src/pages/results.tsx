@@ -56,14 +56,31 @@ const ResultsPage: React.FC = () => {
   const [modalImg, setModalImg] = useState<string | null>(null);
   const images = imagesPerMonth[selectedMonth] || [];
 
-  // Close modal on ESC key
+  // Close modal on ESC key or mobile back
   React.useEffect(() => {
     if (!modalImg) return;
+
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") setModalImg(null);
     };
     window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
+
+    // Handle mobile back (popstate)
+    const onPopState = () => {
+      setModalImg(null);
+    };
+    window.addEventListener("popstate", onPopState);
+    // Push a new state when modal opens
+    window.history.pushState({ modal: true }, "");
+
+    return () => {
+      window.removeEventListener("keydown", handler);
+      window.removeEventListener("popstate", onPopState);
+      // When closing modal, go back if last state was modal
+      if (window.history.state && window.history.state.modal) {
+        window.history.back();
+      }
+    };
   }, [modalImg]);
 
   return (
@@ -95,7 +112,7 @@ const ResultsPage: React.FC = () => {
             {images.map((src, idx) => (
               <div
                 key={idx}
-                className="transition-transform duration-300 ease-in-out hover:scale-103 hover:z-10 hover:shadow-xl masonry-item cursor-pointer"
+                className="transition-transform duration-100 ease-in-out hover:scale-102 hover:z-10 masonry-item cursor-pointer"
                 onClick={() => setModalImg(src)}
               >
                 <img
@@ -118,7 +135,7 @@ const ResultsPage: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-2 right-2 text-white rounded-full p-2 text-2xl hover:bg-opacity-80 focus:outline-none"
+                className="absolute px-0 py-0 top-0 right-2 text-white cursor-pointer p-2 text-3xl opacity-80 transition-all hover:opacity-100 focus:outline-none"
                 onClick={() => setModalImg(null)}
                 aria-label="Close"
               >
