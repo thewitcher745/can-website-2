@@ -99,7 +99,7 @@ const BlogPostPage: React.FC = () => {
     <>
       <Navbar />
       <main className="bg-background min-h-screen">
-        <div className="max-w-2xl mx-auto py-8 px-4 pt-24">
+        <div className="max-w-4xl mx-auto py-8 px-4 pt-24">
           <Link href="/blog" className="text-primary hover:underline text-sm">
             ← Back to Blog
           </Link>
@@ -137,40 +137,6 @@ const BlogPostPage: React.FC = () => {
         </div>
       </main>
       <Footer />
-      <style jsx global>
-        {`
-          .blog-article {
-            padding: 1rem 0;
-          }
-          .blog-article h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            padding: 0.5rem 0;
-          }
-          .blog-article h1 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            padding: 0.5rem 0;
-          }
-          .blog-article img {
-            padding: 1rem;
-          }
-          .blog-article p {
-            background-color: transparent;
-          }
-          .blog-article hr {
-            margin-top: 2rem;
-          }
-          .blog-article li {
-            list-style-type: "- ";
-            margin-left: 2rem;
-          }
-          .blog-article ul,
-          ol {
-            padding: 0.5rem 1rem;
-          }
-        `}
-      </style>
     </>
   );
 };

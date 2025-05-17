@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 interface BlogPostMeta {
   author: string;
@@ -127,6 +127,7 @@ const Blog: React.FC = () => {
                     {post.desc}
                   </p>
                   <div className="text-xs text-text-muted mb-3">
+                    Posted at{" "}
                     {new Date(post.time).toLocaleDateString(undefined, {
                       year: "numeric",
                       month: "2-digit",
@@ -144,7 +145,11 @@ const Blog: React.FC = () => {
                         key={tag}
                         className={`bg-secondary-light text-secondary hover:bg-secondary hover:text-white text-xs px-2 py-1 rounded transition`}
                         onClick={() =>
-                          setFilterTags((prev) => [...(prev || []), tag])
+                          setFilterTags((prev) =>
+                            prev && prev.includes(tag)
+                              ? prev
+                              : [...(prev || []), tag]
+                          )
                         }
                         type="button"
                       >
