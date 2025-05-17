@@ -125,16 +125,6 @@ const AnalysisPostPage: React.FC = () => {
                 hour12: false,
               })}
             </div>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {mainPost.tags?.map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-secondary-light text-secondary text-xs px-2 py-1 rounded"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
             <article
               className="analysis-article prose prose-invert max-w-none text-text-main"
               dangerouslySetInnerHTML={{ __html: mainPost.content_html }}
