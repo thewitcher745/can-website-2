@@ -91,6 +91,10 @@ const ResultsPage: React.FC = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
             Full Results Gallery
           </h1>
+          <p className="text-text-main text-xl mb-6 px-2">
+            Browse through the full gallery of our results and review our
+            performance in prior periods.
+          </p>
           <div className="flex justify-center mb-8">
             <select
               className="border rounded px-4 py-2 text-lg bg-surface text-text-main"

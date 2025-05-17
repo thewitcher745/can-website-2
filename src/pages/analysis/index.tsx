@@ -80,9 +80,12 @@ const Analysis: React.FC = () => {
     <>
       <Navbar />
       <main className="bg-background min-h-screen">
-        <div className="max-w-2xl mx-auto py-8 px-4 pt-24">
+        <div className="max-w-4xl mx-auto py-8 px-4 pt-24">
           <h1 className="text-3xl font-bold mb-8 text-primary">Analysis</h1>
-
+          <p className="text-text-main text-xl mb-6 px-2">
+            You can find our reliable, accurate and profitable premium analysis
+            for different coins here.
+          </p>
           <div className="space-y-8">
             {filteredPosts.length === 0 ? (
               <div className="text-center text-text-muted">No posts found.</div>

@@ -91,8 +91,12 @@ const Blog: React.FC = () => {
     <>
       <Navbar />
       <main className="bg-background min-h-screen">
-        <div className="max-w-2xl mx-auto py-8 px-4 pt-24">
+        <div className="max-w-4xl mx-auto py-8 px-4 pt-24">
           <h1 className="text-3xl font-bold mb-8 text-primary">Blog</h1>
+          <p className="text-text-main text-xl mb-6 px-2">
+            Browse and read through the educational and informative blog posts
+            made by the CAN team. Learn how we do what we do.
+          </p>
           {filterTags && (
             <div className="mb-6 flex items-center gap-2 flex-wrap flex-col items-start sm:flex-row">
               {filterTags.map((tag) => (

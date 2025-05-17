@@ -47,6 +47,11 @@
   text-decoration: underline;
 }
 
+.analysis-article a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
 .analysis-article hr {
   margin-top: 2rem;
 }
@@ -79,6 +84,10 @@ ol {
 }
 .blog-article p {
   background-color: transparent;
+}
+.article a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
 }
 .blog-article hr {
   margin-top: 2rem;
