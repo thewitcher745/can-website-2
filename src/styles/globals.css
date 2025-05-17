@@ -20,6 +20,47 @@
   --color-offwhite: #e9e9e9;
 }
 
+/* --------------------- Analysis section styles */
+
+.analysis-article {
+  padding: 1rem 0;
+}
+.analysis-article h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+}
+.analysis-article h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  padding: 0.5rem 0;
+}
+.analysis-article img {
+  padding: 1rem;
+}
+.analysis-article p {
+  background-color: transparent;
+  padding: 0.4rem 0;
+}
+
+.analysis-article a {
+  text-decoration: underline;
+}
+
+.analysis-article hr {
+  margin-top: 2rem;
+}
+.analysis-article li {
+  list-style-type: "- ";
+  margin-left: 2rem;
+}
+.analysis-article ul,
+ol {
+  padding: 0.5rem 1rem;
+}
+
+/* --------------------- Results section styles */
+
 .results-page {
   padding: 32px 16px;
 }

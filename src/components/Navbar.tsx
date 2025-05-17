@@ -67,6 +67,12 @@ const Navbar: React.FC = () => {
               Blog
             </Link>
             <Link
+              href="/analysis"
+              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
+            >
+              Analysis
+            </Link>
+            <Link
               href="/#contact"
               className="text-primary hover:text-orange-500 underline text-text-main px-4 py-2 rounded-md text-sm font-medium hover:bg-orange transition"
             >
@@ -127,6 +133,13 @@ const Navbar: React.FC = () => {
               onClick={closeMenu}
             >
               Blog
+            </Link>
+            <Link
+              href="/analysis"
+              className="text-text-main hover:text-orange py-2 pb-4 text-base font-medium"
+              onClick={closeMenu}
+            >
+              Analysis
             </Link>
             <Link
               href="/#contact"
