@@ -41,7 +41,7 @@ availableMonths.forEach((month) => {
   const count = imagesCountPerMonth[month] || 0;
   imagesPerMonth[month] = Array.from(
     { length: count },
-    (_, i) => `/images/results/full-reports/${month}/${i + 1}.jpg`
+    (_, i) => `/images/results/full-reports/${month}/${i + 1}.svg`
   );
 });
 
@@ -114,7 +114,7 @@ const ResultsPage: React.FC = () => {
             onClick={() => setModalImg(null)}
           >
             <div
-              className="relative max-w-3xl w-full flex items-center justify-center"
+              className="relative max-w-3xl bg-gray-800 flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <button
