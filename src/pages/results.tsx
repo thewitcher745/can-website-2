@@ -131,7 +131,7 @@ const ResultsPage: React.FC = () => {
             onClick={() => setModalImg(null)}
           >
             <div
-              className="relative max-w-3xl bg-gray-800 flex items-center justify-center"
+              className="relative max-w-3xl bg-gray-800 flex items-center justify-center animate-modal-fadein"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -151,6 +151,21 @@ const ResultsPage: React.FC = () => {
         )}
       </main>
       <Footer />
+      <style jsx global>{`
+        @keyframes modal-fadein {
+          0% {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .animate-modal-fadein {
+          animation: modal-fadein 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      `}</style>
     </>
   );
 };
