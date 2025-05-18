@@ -21,7 +21,7 @@ const availableMonths = [
 
 // Specify how many images each month has
 const imagesCountPerMonth: Record<string, number> = {
-  "apr-2025": 7,
+  "apr-2025": 5,
   "mar-2025": 7,
   "feb-2025": 6,
   "jan-2025": 8,
