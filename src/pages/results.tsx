@@ -5,42 +5,34 @@ import Footer from "../components/Footer";
 
 // Hardcoded list of available months (folder names)
 const availableMonths = [
-  "apr-2025",
-  "mar-2025",
-  "feb-2025",
+  "jul-2023",
+  "aug-2023",
+  "sep-2023",
+  "oct-2023",
+  "nov-2023",
+  "dec-2023",
+  "jan-2024",
+  "feb-2024",
+  "mar-2024",
+  "apr-2024",
+  "may-2024",
+  "jun-2024",
+  "jul-2024",
+  "aug-2024",
+  "sep-2024",
+  "oct-2024",
+  "nov-2024",
+  "dec-2024",
   "jan-2025",
-  // "dec-2024",
-  // "nov-2024",
-  // "oct-2024",
-  // "sep-2024",
-  // "aug-2024",
-  // "jul-2024",
-  // "jun-2024",
-  // "may-2024",
+  "feb-2025",
+  "mar-2025",
 ];
-
-// Specify how many images each month has
-const imagesCountPerMonth: Record<string, number> = {
-  "apr-2025": 5,
-  "mar-2025": 7,
-  "feb-2025": 6,
-  "jan-2025": 8,
-  "dec-2024": 9,
-  "nov-2024": 8,
-  "oct-2024": 4,
-  "sep-2024": 7,
-  "aug-2024": 6,
-  "jul-2024": 5,
-  "jun-2024": 8,
-  "may-2024": 8,
-};
 
 // Generate image file names for each month using imagesCountPerMonth
 const imagesPerMonth: Record<string, string[]> = {};
 availableMonths.forEach((month) => {
-  const count = imagesCountPerMonth[month] || 0;
   imagesPerMonth[month] = Array.from(
-    { length: count },
+    { length: 5 },
     (_, i) => `/images/results/full-reports/${month}/${i + 1}.svg`
   );
 });
