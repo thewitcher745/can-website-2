@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 type MonthResult = {
@@ -132,8 +132,72 @@ const months: MonthResult[] = [
   },
 ];
 
+const parseLabel = (label: string): { monthName: string; year: string } => {
+  const parts = label.split(" ");
+  return { monthName: parts[0], year: parts[1] };
+};
+
+// Helper to sort month names chronologically (January, February, ...)
+const monthOrder = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
 const ResultsSection: React.FC = () => {
-  const [selected, setSelected] = useState(0);
+  const [allYears, setAllYears] = useState<string[]>([]);
+  const [selectedYear, setSelectedYear] = useState<string>("");
+  const [monthsForSelectedYear, setMonthsForSelectedYear] = useState<string[]>([]);
+  const [selectedMonth, setSelectedMonth] = useState<string>("");
+  const [currentResult, setCurrentResult] = useState<MonthResult | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    const years = [
+      ...new Set(months.map((m) => parseLabel(m.label).year)),
+    ].sort((a, b) => parseInt(b) - parseInt(a)); // Sort years descending (e.g., 2025, 2024)
+    setAllYears(years);
+
+    if (years.length > 0) {
+      const initialYear = years[0];
+      setSelectedYear(initialYear);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (selectedYear) {
+      const availableMonths = [
+        ...new Set(
+          months
+            .filter((m) => parseLabel(m.label).year === selectedYear)
+            .map((m) => parseLabel(m.label).monthName)
+        ),
+      ];
+      // Sort months based on their appearance in the original `months` array for that year (newest first)
+      // The original `months` array is sorted globally newest to oldest.
+      // So, for a given year, months will appear in reverse chronological order.
+      setMonthsForSelectedYear(availableMonths);
+
+      if (availableMonths.length > 0) {
+        // If current selectedMonth is not in the new list OR if selectedMonth is not set yet for this year
+        if (!availableMonths.includes(selectedMonth) || selectedMonth === "") {
+            setSelectedMonth(availableMonths[0]); // Select the first (latest) month for the new year
+        }
+      } else {
+        setSelectedMonth(""); // No months available for this year
+      }
+    }
+  }, [selectedYear]);
+
+  useEffect(() => {
+    if (selectedYear && selectedMonth) {
+      const targetLabel = `${selectedMonth} ${selectedYear}`;
+      const result = months.find((m) => m.label === targetLabel);
+      setCurrentResult(result);
+    } else {
+      setCurrentResult(undefined);
+    }
+  }, [selectedYear, selectedMonth]);
 
   return (
     <section id="results" className="py-16 bg-background">
@@ -148,86 +212,141 @@ const ResultsSection: React.FC = () => {
           </p>
         </div>
         <div className="flex flex-col md:flex-row gap-8 md:items-start h-[600px] md:h-[600px] min-h-0">
-          {/* Mobile dropdown menu */}
+          {/* Mobile Year dropdown menu */}
           <div className="md:hidden mb-4">
+            <label htmlFor="year-select-mobile" className="block text-sm font-medium text-text-muted mb-1">Select Year:</label>
             <select
+              id="year-select-mobile"
               className="w-full p-2 rounded-lg bg-background border border-border-strong text-text-main focus:outline-none focus:ring-2 focus:ring-primary"
-              value={selected}
-              onChange={(e) => setSelected(Number(e.target.value))}
+              value={selectedYear}
+              onChange={(e) => setSelectedYear(e.target.value)}
             >
-              {months.map((m, i) => (
-                <option key={m.label} value={i}>
-                  {m.label}
+              {allYears.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Mobile Month dropdown menu */}
+          <div className="md:hidden mb-4">
+            <label htmlFor="month-select-mobile" className="block text-sm font-medium text-text-muted mb-1">Select Month:</label>
+            <select
+              id="month-select-mobile"
+              className="w-full p-2 rounded-lg bg-background border border-border-strong text-text-main focus:outline-none focus:ring-2 focus:ring-primary"
+              value={selectedMonth}
+              onChange={(e) => setSelectedMonth(e.target.value)}
+              disabled={!selectedYear || monthsForSelectedYear.length === 0}
+            >
+              {monthsForSelectedYear.map((month) => (
+                <option key={month} value={month}>
+                  {month}
                 </option>
               ))}
             </select>
           </div>
           {/* Desktop sidebar */}
           <aside className="hidden md:block md:w-1/4 h-full min-h-0">
-            <div className="flex flex-col gap-2 bg-background rounded-xl border border-border-strong p-3 shadow-inner h-full overflow-y-auto">
-              {months.map((m, i) => (
-                <button
-                  key={m.label}
-                  className={`w-full px-4 py-2 rounded-lg font-medium transition text-left whitespace-nowrap border-2 bg-surface hover:bg-primary/10 focus:outline-none ${
-                    selected === i
-                      ? "bg-primary/20 border-primary text-text-main border-l-10 pl-5"
-                      : "text-text-muted"
-                  }`}
-                  onClick={() => setSelected(i)}
-                >
-                  {m.label}
-                </button>
-              ))}
+            <div className="flex flex-col gap-6 bg-background rounded-xl border border-border-strong p-3 shadow-inner h-full overflow-y-auto">
+              {/* Year Selector */}
+              <div>
+                <h4 className="text-sm font-semibold text-text-main mb-2 px-1">Year</h4>
+                <div className="flex flex-col gap-1">
+                  {allYears.map((year) => (
+                    <button
+                      key={year}
+                      className={`w-full px-4 py-2 rounded-lg font-medium transition text-left whitespace-nowrap border-2 bg-surface hover:bg-primary/10 focus:outline-none ${
+                        selectedYear === year
+                          ? "bg-primary/20 border-primary text-text-main font-semibold"
+                          : "text-text-muted border-transparent"
+                      }`}
+                      onClick={() => setSelectedYear(year)}
+                    >
+                      {year}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Month Selector */}
+              <div>
+                <h4 className="text-sm font-semibold text-text-main mb-2 px-1">Month</h4>
+                <div className="flex flex-col gap-1">
+                  {monthsForSelectedYear.map((month) => (
+                    <button
+                      key={month}
+                      className={`w-full px-4 py-2 rounded-lg font-medium transition text-left whitespace-nowrap border-2 bg-surface hover:bg-primary/10 focus:outline-none ${
+                        selectedMonth === month
+                          ? "bg-primary/20 border-primary text-text-main font-semibold"
+                          : "text-text-muted border-transparent"
+                      }`}
+                      onClick={() => setSelectedMonth(month)}
+                      disabled={!selectedYear || monthsForSelectedYear.length === 0}
+                    >
+                      {month}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </aside>
           {/* Monthly data display */}
           <div className="flex-1 flex flex-col items-center justify-center h-full min-h-0">
-            {/* Chart/image display */}
-            <div className="w-full max-w-4xl aspect-video relative border shadow rounded">
-              <Image
-                src={months[selected].img}
-                alt={months[selected].label + " equity curve"}
-                fill
-                className="object-contain rounded-lg bg-surface"
-                sizes="(max-width: 768px) 100vw, 600px"
-                priority
-              />
-            </div>
-            {/* Monthly stats section */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
-              <div className="bg-background p-6 rounded-xl">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-text-main">
-                    Win Rate
-                  </h3>
-                  <span className="text-2xl font-bold text-success">
-                    {months[selected].winrate !== undefined
-                      ? months[selected].winrate + "%"
-                      : "-"}
-                  </span>
+            {currentResult ? (
+              <>
+                {/* Chart/image display */}
+                <div className="w-full max-w-4xl aspect-video relative border shadow rounded">
+                  <Image
+                    src={currentResult.img}
+                    alt={currentResult.label + " equity curve"}
+                    fill
+                    className="object-contain rounded-lg bg-surface"
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    priority
+                  />
                 </div>
-                <p className="text-sm text-text-muted">
-                  Percentage of profitable trades
-                </p>
-              </div>
-              <div className="bg-background p-6 rounded-xl">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-text-main">
-                    Gross Profit
-                  </h3>
-                  <span className="text-2xl font-bold text-success">
-                    {months[selected].grossProfit !== undefined
-                      ? (months[selected].grossProfit > 0 ? "+" : "") +
-                        months[selected].grossProfit +
-                        "%"
-                      : "-"}
-                  </span>
+                {/* Monthly stats section */}
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+                  <div className="bg-background p-6 rounded-xl">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-lg font-semibold text-text-main">
+                        Win Rate
+                      </h3>
+                    </div>
+                    {currentResult.winrate !== undefined && (
+                      <p className="text-3xl font-bold text-primary">
+                        {currentResult.winrate}%
+                      </p>
+                    )}
+                  </div>
+                  <div className="bg-background p-6 rounded-xl">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-lg font-semibold text-text-main">
+                        Gross Profit
+                      </h3>
+                    </div>
+                    {currentResult.grossProfit !== undefined && (
+                      <p className="text-3xl font-bold text-primary">
+                        ${currentResult.grossProfit.toLocaleString()}
+                      </p>
+                    )}
+                  </div>
+                  {/* Display Drawdown if available */}
+                  {currentResult.drawdown !== undefined && (
+                    <div className="bg-background p-6 rounded-xl">
+                      <h3 className="text-lg font-semibold text-text-main mb-2">Max Drawdown</h3>
+                      <p className="text-3xl font-bold text-primary">{currentResult.drawdown}%</p>
+                    </div>
+                  )}
                 </div>
-                <p className="text-sm text-text-muted">
-                  Total profit for the month
-                </p>
+              </>
+            ) : (
+              <div className="text-center text-text-muted py-10">
+                <p>Please select a year and month to view results.</p>
+                 { allYears.length > 0 && selectedYear === "" && <p>Loading initial data...</p>}
               </div>
-            </div>
+            )}
           </div>
         </div>
         {/* Link to full results page */}
