@@ -11,6 +11,18 @@ type MonthResult = {
 
 const months: MonthResult[] = [
   {
+    label: "April 2025",
+    img: "/images/results/full-reports/apr-2025/4.svg",
+    winrate: 75,
+    grossProfit: 505.88,
+  },
+  {
+    label: "March 2025",
+    img: "/images/results/full-reports/mar-2025/4.svg",
+    winrate: 72,
+    grossProfit: 474.81,
+  },
+  {
     label: "February 2025",
     img: "/images/results/full-reports/feb-2025/4.svg",
     winrate: 63,
@@ -104,7 +116,7 @@ const months: MonthResult[] = [
     label: "November 2023",
     img: "/images/results/full-reports/nov-2023/4.svg",
     winrate: 63,
-    grossProfit: 332.68,
+    grossProfit: 317.58,
   },
   {
     label: "October 2023",
@@ -122,7 +134,7 @@ const months: MonthResult[] = [
     label: "August 2023",
     img: "/images/results/full-reports/aug-2023/4.svg",
     winrate: 70,
-    grossProfit: 220,
+    grossProfit: 220.63,
   },
   {
     label: "July 2023",
@@ -328,7 +340,7 @@ const ResultsSection: React.FC = () => {
                     </div>
                     {currentResult.grossProfit !== undefined && (
                       <p className="text-3xl font-bold text-primary">
-                        ${currentResult.grossProfit.toLocaleString()}
+                        %{currentResult.grossProfit.toLocaleString()}
                       </p>
                     )}
                   </div>
