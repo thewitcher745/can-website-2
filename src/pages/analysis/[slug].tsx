@@ -23,7 +23,7 @@ const AnalysisPostPage: React.FC = () => {
 
   useEffect(() => {
     if (!slug) return;
-    fetch(`https://can.up.railway.app/api/analysis/${slug}`)
+    fetch(`http://127.0.0.1:5000/api/analysis/${slug}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch analysis post");
         return res.json();

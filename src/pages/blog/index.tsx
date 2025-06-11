@@ -19,7 +19,7 @@ const Blog: React.FC = () => {
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
 
   useEffect(() => {
-    fetch("https://can.up.railway.app/api/blog/")
+    fetch("http://127.0.0.1:5000/api/blog/")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch blog posts");
         return res.json();

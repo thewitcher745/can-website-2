@@ -23,7 +23,7 @@ const BlogPostPage: React.FC = () => {
 
   useEffect(() => {
     if (!slug) return;
-    fetch(`https://can.up.railway.app/api/blog/${slug}`)
+    fetch(`http://127.0.0.1:5000/api/blog/${slug}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch blog post");
         return res.json();

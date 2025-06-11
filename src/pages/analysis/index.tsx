@@ -20,7 +20,7 @@ const Analysis: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("https://can.up.railway.app/api/analysis/")
+    fetch("http://127.0.0.1:5000/api/analysis/")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch analysis posts");
         return res.json();
