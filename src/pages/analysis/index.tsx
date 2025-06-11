@@ -3,6 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import PostThumbnail from "./components/PostThumbnail";
+import PostTags from "./components/PostTags";
+import PostTitle from "./components/PostTitle";
+import PostDescription from "./components/PostDescription";
+import PostTime from "./components/PostTime";
 
 interface AnalysisPostMeta {
   thumbnail_link: string;
@@ -82,52 +87,43 @@ const Analysis: React.FC = () => {
     <>
       <Navbar />
       <main className="bg-background min-h-screen">
-        <div className="max-w-6xl mx-auto py-8 px-4 pt-24">
+        <div className="max-w-4xl lg:max-w-6xl mx-auto py-8 px-4 pt-24">
           <h1 className="text-3xl font-bold mb-8 text-primary">Analysis</h1>
           <p className="text-text-main text-xl mb-6 px-2">
             You can find our reliable, accurate and profitable premium analysis
             for different coins here.
           </p>
-          <div className="space-y-8">
+          <div className="space-y-4 lg:space-y-0 lg:grid grid-cols-2 gap-4">
             {filteredPosts.length === 0 ? (
               <div className="text-center text-text-muted">No posts found.</div>
             ) : (
               filteredPosts.map((post) => (
                 <div
                   key={post.slug}
-                  className="bg-surface border border-border rounded-lg p-6 shadow transition hover:shadow-lg flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center"
+                  className="bg-surface border border-border rounded-lg p-6 shadow transition hover:shadow-lg flex sm:flex-row gap-4 sm:gap-6 items-start sm:items-center"
                 >
-                  <div className="flex-grow">
-                    <div className="flex gap-2 mb-4">
-                      {post?.thumbnail_link?.length > 0 && (
-                        <div className="flex-shrink-0 w-30 h-30 mr-2 lg:w-40 lg:h-40 sm:w-30 sm:h-30 relative">
-                          <Image
-                            src={post.thumbnail_link}
-                            alt={`${post.title} logo`}
-                            fill
-                            className="object-contain backdrop-blur-sm rounded-xl sm:p-2 py-2"
-                          />
-                        </div>
-                      )}
-                      <h2 className="text-2xl lg:text-4xl sm:text-3xl font-semibold mb-2 text-text-main hover:text-primary transition-colors">
-                        <Link href={`/analysis/${post.slug}`}>{post.title}</Link>
-                      </h2>
+                  <div className="flex w-full flex-col">
+                    <PostThumbnail
+                      thumbnailLink={post.thumbnail_link}
+                      altText={`${post.title} logo`}
+                      className={"block sm:hidden flex-grow self-center"}
+                    />
+                    <div className="flex justify-evenly flex-grow">
+                      <PostThumbnail
+                        thumbnailLink={post.thumbnail_link}
+                        altText={`${post.title} logo`}
+                        hiddenOnMobile
+                      />
+                      <PostTitle
+                        title={post.title}
+                        slug={post.slug}
+                        className="self-center text-center sm:text-left"
+                      />
                     </div>
-                    <p className="text-text-muted lg:text-xl px-2 mb-3 line-clamp-3">
-                      {post.desc}
-                    </p>
-                    <div className="text-xs text-text-muted px-2 mb-3">
-                      {post.time}
-                    </div>
-                    <div className="flex flex-wrap px-2 gap-2">
-                      {post.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    <PostDescription description={post.desc} />
+                    <div className="flex flex gap-2 mb-4 flex-grow justify-between flex-wrap">
+                      <PostTags tags={post.tags} />
+                      <PostTime time={post.time} className="self-end" />
                     </div>
                   </div>
                 </div>
