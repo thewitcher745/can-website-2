@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PostThumbnail from "./components/PostThumbnail";
@@ -8,6 +6,7 @@ import PostTags from "./components/PostTags";
 import PostTitle from "./components/PostTitle";
 import PostDescription from "./components/PostDescription";
 import PostTime from "./components/PostTime";
+import { buildApiUrl } from "../../config";
 
 interface AnalysisPostMeta {
   thumbnail_link: string;
@@ -25,7 +24,7 @@ const Analysis: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/analysis/")
+    fetch(buildApiUrl(`/api/analysis`))
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch analysis posts");
         return res.json();

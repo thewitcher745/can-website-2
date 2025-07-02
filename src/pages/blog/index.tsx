@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { buildApiUrl } from "../../config";
 
 interface BlogPostMeta {
   author: string;
@@ -19,7 +20,7 @@ const Blog: React.FC = () => {
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/blog/")
+    fetch(buildApiUrl(`/api/blog/`))
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch blog posts");
         return res.json();

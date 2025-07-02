@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { buildApiUrl } from "../../config";
 
 interface AnalysisPost {
   author: string;
@@ -23,7 +24,7 @@ const AnalysisPostPage: React.FC = () => {
 
   useEffect(() => {
     if (!slug) return;
-    fetch(`http://127.0.0.1:5000/api/analysis/${slug}`)
+    fetch(buildApiUrl(`/api/analysis/${slug}`))
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch analysis post");
         return res.json();

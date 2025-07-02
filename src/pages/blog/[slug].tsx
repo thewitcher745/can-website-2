@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { buildApiUrl } from '../../config';
 import Link from "next/link";
 
 import Navbar from "../../components/Navbar";
@@ -23,7 +24,7 @@ const BlogPostPage: React.FC = () => {
 
   useEffect(() => {
     if (!slug) return;
-    fetch(`http://127.0.0.1:5000/api/blog/${slug}`)
+    fetch(buildApiUrl(`/api/blog/${slug}`))
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch blog post");
         return res.json();
