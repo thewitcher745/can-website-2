@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
 import Navbar from "../components/Navbar";
@@ -45,21 +47,38 @@ const breakpointColumnsObj = {
 };
 
 const monthOrder: { [key: string]: number } = {
-  jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6,
-  jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12,
+  jan: 1,
+  feb: 2,
+  mar: 3,
+  apr: 4,
+  may: 5,
+  jun: 6,
+  jul: 7,
+  aug: 8,
+  sep: 9,
+  oct: 10,
+  nov: 11,
+  dec: 12,
 };
 
-const parseMonthYearString = (monthYear: string): { monthKey: string; year: string; monthName: string } => {
+const parseMonthYearString = (
+  monthYear: string
+): { monthKey: string; year: string; monthName: string } => {
   const [monthKey, year] = monthYear.split("-");
-  const monthName = new Date(parseInt(year), monthOrder[monthKey] - 1, 1)
-    .toLocaleString('default', { month: 'long' });
+  const monthName = new Date(
+    parseInt(year),
+    monthOrder[monthKey] - 1,
+    1
+  ).toLocaleString("default", { month: "long" });
   return { monthKey, year, monthName };
 };
 
 const ResultsPage: React.FC = () => {
   const [allYears, setAllYears] = useState<string[]>([]);
   const [selectedYear, setSelectedYear] = useState<string>("");
-  const [monthsForDisplay, setMonthsForDisplay] = useState<{ label: string; value: string }[]>([]);
+  const [monthsForDisplay, setMonthsForDisplay] = useState<
+    { label: string; value: string }[]
+  >([]);
   const [currentMonthYearKey, setCurrentMonthYearKey] = useState<string>(""); // e.g., "mar-2025"
 
   const [modalImg, setModalImg] = useState<string | null>(null);
@@ -88,7 +107,7 @@ const ResultsPage: React.FC = () => {
         }))
         .sort((a, b) => monthOrder[b.monthKey] - monthOrder[a.monthKey]); // Sort months descending (Dec, Nov, ...)
 
-      const displayMonths = monthsInYear.map(m => ({
+      const displayMonths = monthsInYear.map((m) => ({
         label: parseMonthYearString(m.original).monthName.toUpperCase(), // "MARCH"
         value: m.original, // "mar-2025"
       }));
@@ -96,15 +115,17 @@ const ResultsPage: React.FC = () => {
 
       if (displayMonths.length > 0) {
         // If currentMonthYearKey's year is different or it's not set, update it
-        if (!currentMonthYearKey || parseMonthYearString(currentMonthYearKey).year !== selectedYear) {
-            setCurrentMonthYearKey(displayMonths[0].value); // Select the latest month of the new year
+        if (
+          !currentMonthYearKey ||
+          parseMonthYearString(currentMonthYearKey).year !== selectedYear
+        ) {
+          setCurrentMonthYearKey(displayMonths[0].value); // Select the latest month of the new year
         }
       } else {
         setCurrentMonthYearKey(""); // No months for this year
       }
     }
   }, [selectedYear, currentMonthYearKey]); // Added currentMonthYearKey to dependencies to handle initial load correctly
-
 
   // Close modal on ESC key or mobile back
   React.useEffect(() => {
@@ -135,6 +156,9 @@ const ResultsPage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>CAN Trading - Results</title>
+      </Head>
       <Navbar />
       <main className="results-page min-h-screen bg-background pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-4 pt-24">
@@ -147,7 +171,12 @@ const ResultsPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
             <div>
-              <label htmlFor="year-select" className="block text-sm font-medium text-text-muted mb-1 text-center sm:text-left">Year:</label>
+              <label
+                htmlFor="year-select"
+                className="block text-sm font-medium text-text-muted mb-1 text-center sm:text-left"
+              >
+                Year:
+              </label>
               <select
                 id="year-select"
                 className="border rounded px-4 py-2 text-lg bg-surface text-text-main focus:outline-none focus:ring-2 focus:ring-primary"
@@ -162,7 +191,12 @@ const ResultsPage: React.FC = () => {
               </select>
             </div>
             <div>
-              <label htmlFor="month-select" className="block text-sm font-medium text-text-muted mb-1 text-center sm:text-left">Month:</label>
+              <label
+                htmlFor="month-select"
+                className="block text-sm font-medium text-text-muted mb-1 text-center sm:text-left"
+              >
+                Month:
+              </label>
               <select
                 id="month-select"
                 className="border rounded px-4 py-2 text-lg bg-surface text-text-main focus:outline-none focus:ring-2 focus:ring-primary"

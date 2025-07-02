@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
@@ -45,6 +47,9 @@ const Blog: React.FC = () => {
   if (loading)
     return (
       <>
+        <Head>
+          <title>CAN Trading - Home</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">

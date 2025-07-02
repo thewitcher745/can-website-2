@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -39,6 +41,9 @@ const Analysis: React.FC = () => {
   if (loading)
     return (
       <>
+        <Head>
+          <title>CAN Trading - Analysis</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
