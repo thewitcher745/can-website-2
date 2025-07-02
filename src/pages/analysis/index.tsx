@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import PostThumbnail from "./components/PostThumbnail";
-import PostTags from "./components/PostTags";
-import PostTitle from "./components/PostTitle";
-import PostDescription from "./components/PostDescription";
-import PostTime from "./components/PostTime";
+import PostThumbnail from "../../components/analysis/PostThumbnail";
+import PostTags from "../../components/analysis/PostTags";
+import PostTitle from "../../components/analysis/PostTitle";
+import PostDescription from "../../components/analysis/PostDescription";
+import PostTime from "../../components/analysis/PostTime";
 import { buildApiUrl } from "../../config";
 
 interface AnalysisPostMeta {
