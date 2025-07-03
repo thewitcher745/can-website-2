@@ -49,6 +49,12 @@ const Navbar: React.FC = () => {
               Services
             </Link>
             <Link
+              href="/analysis"
+              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
+            >
+              Analysis
+            </Link>
+            <Link
               href="/#results"
               className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
             >
@@ -67,13 +73,7 @@ const Navbar: React.FC = () => {
               Blog
             </Link>
             <Link
-              href="/analysis"
-              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
-            >
-              Analysis
-            </Link>
-            <Link
-              href="/#contact"
+              href="https://t.me/CryptoANalysis_CAN"
               className="text-primary hover:text-orange-500 underline text-text-main px-4 py-2 rounded-md text-sm font-medium hover:bg-orange transition"
             >
               Contact Us
@@ -114,6 +114,13 @@ const Navbar: React.FC = () => {
               Services
             </Link>
             <Link
+              href="/analysis"
+              className="text-text-main hover:text-orange py-2 pb-4 text-base font-medium"
+              onClick={closeMenu}
+            >
+              Analysis
+            </Link>
+            <Link
               href="/#results"
               className="text-text-main hover:text-orange py-2 text-base font-medium"
               onClick={closeMenu}
@@ -135,14 +142,7 @@ const Navbar: React.FC = () => {
               Blog
             </Link>
             <Link
-              href="/analysis"
-              className="text-text-main hover:text-orange py-2 pb-4 text-base font-medium"
-              onClick={closeMenu}
-            >
-              Analysis
-            </Link>
-            <Link
-              href="/#contact"
+              href="https://t.me/CryptoANalysis_CAN"
               className="text-primary hover:text-orange-500 text-text-main py-2 pt-4 border-t-1 text-center text-base font-medium hover:bg-orange transition"
               onClick={closeMenu}
             >

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaCheck } from "react-icons/fa";
 
@@ -108,7 +109,8 @@ const PricingSection: React.FC = () => (
               <div className="text-sm text-primary-light text-center mb-4 min-h-[36px]">
                 {pkg.description}
               </div>
-              <button
+              <Link
+                href="https://t.me/CryptoANalysis_CAN"
                 className={`w-full flex-grow flex justify-center items-end px-4 py-2 rounded-lg font-semibold transition text-sm ${
                   pkg.highlight
                     ? "text-primary underline text-text-main hover:text-primary-soft"
@@ -116,7 +118,7 @@ const PricingSection: React.FC = () => (
                 }`}
               >
                 Get Started
-              </button>
+              </Link>
             </div>
           ))}
         </div>
