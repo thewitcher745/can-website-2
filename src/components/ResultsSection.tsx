@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { months, parseLabel, MonthResult } from "./results-section/data";
-import SectionHeader from "./results-section/SectionHeader";
-import MobileSelectors from "./results-section/MobileSelectors";
-import DesktopSidebar from "./results-section/DesktopSidebar";
-import ResultsDisplay from "./results-section/ResultsDisplay";
+import { months, parseLabel, MonthResult } from "./homepage-results-section/data";
+import SectionHeader from "./homepage-results-section/SectionHeader";
+import MobileSelectors from "./homepage-results-section/MobileSelectors";
+import DesktopSidebar from "./homepage-results-section/DesktopSidebar";
+import ResultsDisplay from "./homepage-results-section/ResultsDisplay";
 
 const ResultsSection: React.FC = () => {
   const [allYears, setAllYears] = useState<string[]>([]);
