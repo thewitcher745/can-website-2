@@ -2,3 +2,4 @@ node_modules
 .next/
 template.html
 ~*
+src/components/full-results/raw-data/

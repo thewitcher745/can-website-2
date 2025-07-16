@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ResultsTable from "../components/full-results/ResultsTable";
 
 // Hardcoded list of available months (folder names)
 const availableMonths = [
@@ -85,6 +86,7 @@ const ResultsPage: React.FC = () => {
   const images = imagesPerMonth[currentMonthYearKey] || [];
 
   useEffect(() => {
+    console.log(currentMonthYearKey);
     // Populate years, sorted descending
     const years = [
       ...new Set(availableMonths.map((my) => parseMonthYearString(my).year)),
@@ -231,6 +233,11 @@ const ResultsPage: React.FC = () => {
               </div>
             ))}
           </Masonry>
+
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 mt-12 text-center">
+            Detailed Trade Log
+          </h2>
+          <ResultsTable selectedMonth={currentMonthYearKey} />
         </div>
         {/* Modal Overlay */}
         {modalImg && (
