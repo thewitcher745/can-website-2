@@ -9,11 +9,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CAN Trading - Staging</title>
+        <title>CAN Trading - Home</title>
       </Head>
       <Navbar />
       <main>
         <HeroSection />
+        <FearAndGreed />
       </main>
       <Footer />
     </>
