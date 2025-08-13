@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import HeroSection from "../../components/HeroSection";
 import Footer from "../../components/Footer";
 import FearAndGreed from '../../components/technicals/FearAndGreed';
+import TopGainersTable from '../../components/technicals/TopGainersTable';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <FearAndGreed />
+        <TopGainersTable />
       </main>
       <Footer />
     </>

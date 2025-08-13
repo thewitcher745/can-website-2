@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/* Sticky column shadow effect */
+.sticky-shadow-visible::before {
+  box-shadow: inset 10px 0 8px -8px #00000026;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: -1px;
+  width: 30px;
+  transform: translate(100%);
+  transition: box-shadow .3s;
+  content: "";
+  pointer-events: none;
+}
+
+
 @theme {
   --color-primary: #ffcb37;
   --color-primary-light: #ffedd5;
