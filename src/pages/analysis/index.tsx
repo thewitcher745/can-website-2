@@ -125,7 +125,7 @@ const Analysis: React.FC = () => {
                       />
                     </div>
                     <PostDescription description={post.desc} />
-                    <div className="flex flex gap-2 mb-4 flex-grow justify-between flex-wrap">
+                    <div className="flex gap-2 mb-4 flex-grow justify-between flex-wrap">
                       <PostTags tags={post.tags} />
                       <PostTime time={post.time} className="self-end" />
                     </div>
