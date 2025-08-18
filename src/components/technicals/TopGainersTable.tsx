@@ -57,6 +57,9 @@ const TopGainersTable = () => {
       className="py-8 w-full bg-background flex justify-start sm:justify-center"
     >
       <div className="max-w-[1500px] bg-surface p-4 py-8 rounded radius-6 w-full">
+        <h2 className="text-2xl font-bold mb-6 pl-4 text-text-main">
+          Top Gainers
+        </h2>
         <div ref={tableContainerRef} className="overflow-x-auto relative">
           <table className="text-text-main w-full md:table-fixed table-auto">
             <thead>
