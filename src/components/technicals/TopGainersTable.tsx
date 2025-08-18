@@ -51,6 +51,22 @@ const TopGainersTable = () => {
     };
   }, []);
 
+  const formatNumber = (num: number) => {
+    // Remove any non-numeric characters except decimal point and minus sign
+
+    if (num >= 1000000000) {
+      return `$${(num / 1000000000).toFixed(2)}B`;
+    } 
+    else if (num >= 1000000) {
+      return `$${(num / 1000000).toFixed(2)}M`;
+    } 
+    else if (num >= 1000) {
+      return `$${(num / 1000).toFixed(2)}K`;
+    }
+
+    return `$${num.toFixed(2)}`;
+  };
+
   return (
     <section
       id="top-gainers"
@@ -111,7 +127,7 @@ const TopGainersTable = () => {
                     </svg>
                     {coin.change}%
                   </td>
-                  <td className="px-6 py-4">${coin.volume}</td>
+                  <td className="px-6 py-4">{formatNumber(coin.volume)}</td>
                 </tr>
               ))}
             </tbody>
