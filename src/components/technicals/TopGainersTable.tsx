@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { buildApiUrl } from "../../config";
 
 interface Gainer {
-  change: string;
+  change: number;
   name: string;
-  price: string;
+  price: number;
   symbol: string;
-  volume: string;
+  volume: number;
 }
 
 const TopGainersTable = () => {
@@ -106,7 +106,7 @@ const TopGainersTable = () => {
                         d="M5 15l7-7 7 7"
                       />
                     </svg>
-                    {coin.change}
+                    {coin.change}%
                   </td>
                   <td className="px-6 py-4">${coin.volume}</td>
                 </tr>

@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { buildApiUrl } from "../../config";
 
 interface TrendingCoin {
-  change_24h: string;
-  change_30d: string;
-  change_7d: string;
-  market_cap: string;
+  change_24h: number;
+  change_30d: number;
+  change_7d: number;
+  market_cap: number;
   name: string;
-  price: string;
+  price: number;
   symbol: string;
-  volume_24h: string;
+  volume_24h: number;
 }
 
 const TrendingCoinsTable = () => {
@@ -52,32 +52,25 @@ const TrendingCoinsTable = () => {
     };
   }, []);
 
-  const formatNumber = (num: string) => {
+  const formatNumber = (num: number) => {
     // Remove any non-numeric characters except decimal point and minus sign
-    const number = parseFloat(num.replace(/[^0-9.-]+/g, ""));
-    if (isNaN(number)) return num;
 
-    if (number >= 1000000000) {
-      return `$${(number / 1000000000).toFixed(2)}B`;
-    } else if (number >= 1000000) {
-      return `$${(number / 1000000).toFixed(2)}M`;
-    } else if (number >= 1000) {
-      return `$${(number / 1000).toFixed(2)}K`;
+    if (num >= 1000000000) {
+      return `$${(num / 1000000000).toFixed(2)}B`;
+    } else if (num >= 1000000) {
+      return `$${(num / 1000000).toFixed(2)}M`;
+    } else if (num >= 1000) {
+      return `$${(num / 1000).toFixed(2)}K`;
     }
-    return `$${number.toFixed(2)}`;
+    return `$${num.toFixed(2)}`;
   };
 
-  const getChangeColor = (change: string) => {
-    const value = parseFloat(change);
-    if (isNaN(value)) return "text-text-main";
-    return value >= 0 ? "text-success" : "text-error";
+  const getChangeColor = (change: number) => {
+    return change >= 0 ? "text-success" : "text-error";
   };
 
-  const renderChangeIcon = (change: string) => {
-    const value = parseFloat(change);
-    if (isNaN(value)) return null;
-
-    return value >= 0 ? (
+  const renderChangeIcon = (change: number) => {
+    return change >= 0 ? (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-4 w-4"
@@ -164,7 +157,7 @@ const TrendingCoinsTable = () => {
                   >
                     <div className="flex items-center gap-1">
                       {renderChangeIcon(coin.change_24h)}
-                      {coin.change_24h}
+                      {coin.change_24h}%
                     </div>
                   </td>
                   <td
@@ -174,7 +167,7 @@ const TrendingCoinsTable = () => {
                   >
                     <div className="flex items-center gap-1">
                       {renderChangeIcon(coin.change_7d)}
-                      {coin.change_7d}
+                      {coin.change_7d}%
                     </div>
                   </td>
                   <td
@@ -184,7 +177,7 @@ const TrendingCoinsTable = () => {
                   >
                     <div className="flex items-center gap-1">
                       {renderChangeIcon(coin.change_30d)}
-                      {coin.change_30d}
+                      {coin.change_30d}%
                     </div>
                   </td>
                   <td className="px-4 py-4 whitespace-nowrap">
