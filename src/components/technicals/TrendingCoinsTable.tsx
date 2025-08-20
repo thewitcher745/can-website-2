@@ -17,7 +17,7 @@ const TrendingCoinsTable = () => {
   const [trendingCoins, setTrendingCoins] = useState<TrendingCoin[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(5);
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
   // Calculate current items
@@ -280,13 +280,13 @@ const TrendingCoinsTable = () => {
                 })}
                 
                 {totalPages > 5 && currentPage < totalPages - 2 && (
-                  <span className="px-2 flex items-center">...</span>
+                  <span className="px-2 text-text-main flex items-center">...</span>
                 )}
                 
                 {totalPages > 5 && currentPage < totalPages - 2 && (
                   <button
                     onClick={() => paginate(totalPages)}
-                    className={`w-8 h-8 rounded-md flex items-center justify-center ${
+                    className={`w-8 h-8 rounded-md text-text-main flex items-center justify-center ${
                       currentPage === totalPages
                         ? 'bg-primary text-white'
                         : 'border border-border hover:bg-surface-hover'
