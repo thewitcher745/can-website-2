@@ -7,6 +7,7 @@ import FearAndGreed from "../../components/technicals/FearAndGreed";
 import TopGainersTable from "../../components/technicals/TopGainersTable";
 import TrendingCoinsTable from "../../components/technicals/TrendingCoinsTable";
 import TopLosersTable from "../../components/technicals/TopLosersTable";
+import Treemap from "../../components/technicals/Treemap";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <TopGainersTable />
         <TopLosersTable />
         <TrendingCoinsTable />
+        <Treemap />
       </main>
       <Footer />
     </>
