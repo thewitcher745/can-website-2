@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { buildApiUrl } from "../../config";
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from "lucide-react";
 
 interface TrendingCoin {
   change_24h: number;
@@ -32,14 +37,14 @@ const TrendingCoinsTable = () => {
   // Go to next page
   const nextPage = () => {
     if (currentPage < totalPages) {
-      setCurrentPage(prevPage => prevPage + 1);
+      setCurrentPage((prevPage) => prevPage + 1);
     }
   };
 
   // Go to previous page
   const prevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(prevPage => prevPage - 1);
+      setCurrentPage((prevPage) => prevPage - 1);
     }
   };
 
@@ -225,12 +230,14 @@ const TrendingCoinsTable = () => {
             </tbody>
           </table>
         </div>
-        
+
         {/* Pagination Controls */}
         {totalPages > 1 && (
           <div className="flex justify-between items-center mt-4 px-4 flex-col sm:flex-row">
             <div className="text-sm text-text-main my-2">
-              Showing {indexOfFirstItem + 1} to {Math.min(indexOfLastItem, trendingCoins.length)} of {trendingCoins.length} entries
+              Showing {indexOfFirstItem + 1} to{" "}
+              {Math.min(indexOfLastItem, trendingCoins.length)} of{" "}
+              {trendingCoins.length} entries
             </div>
             <div className="flex items-center justify-center sm:justify-end flex-wrap gap-2">
               <button
@@ -249,10 +256,10 @@ const TrendingCoinsTable = () => {
               >
                 <ChevronLeft className="h-4 w-4 text-text-main" />
               </button>
-              
+
               {/* Page numbers */}
               <div className="flex gap-1">
-                {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                {Array.from({ length: Math.min(3, totalPages) }, (_, i) => {
                   let pageNum;
                   if (totalPages <= 5) {
                     pageNum = i + 1;
@@ -263,40 +270,42 @@ const TrendingCoinsTable = () => {
                   } else {
                     pageNum = currentPage - 2 + i;
                   }
-                  
+
                   return (
                     <button
                       key={pageNum}
                       onClick={() => paginate(pageNum)}
                       className={`w-8 h-8 rounded-md flex items-center text-text-main justify-center ${
                         currentPage === pageNum
-                          ? 'bg-primary text-white'
-                          : 'border border-border hover:bg-surface-hover'
+                          ? "bg-primary text-white"
+                          : "border border-border hover:bg-surface-hover"
                       }`}
                     >
                       {pageNum}
                     </button>
                   );
                 })}
-                
+
                 {totalPages > 5 && currentPage < totalPages - 2 && (
-                  <span className="px-2 text-text-main flex items-center">...</span>
+                  <span className="px-2 text-text-main flex items-center">
+                    ...
+                  </span>
                 )}
-                
+
                 {totalPages > 5 && currentPage < totalPages - 2 && (
                   <button
                     onClick={() => paginate(totalPages)}
                     className={`w-8 h-8 rounded-md text-text-main flex items-center justify-center ${
                       currentPage === totalPages
-                        ? 'bg-primary text-white'
-                        : 'border border-border hover:bg-surface-hover'
+                        ? "bg-primary text-white"
+                        : "border border-border hover:bg-surface-hover"
                     }`}
                   >
                     {totalPages}
                   </button>
                 )}
               </div>
-              
+
               <button
                 onClick={nextPage}
                 disabled={currentPage === totalPages}
