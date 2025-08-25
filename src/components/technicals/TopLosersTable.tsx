@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { buildApiUrl } from "../../config";
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from "lucide-react";
 
 interface Loser {
   change: number;
@@ -25,10 +30,10 @@ const TopLosersTable = () => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
   const nextPage = () => {
-    if (currentPage < totalPages) setCurrentPage(prev => prev + 1);
+    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
   };
   const prevPage = () => {
-    if (currentPage > 1) setCurrentPage(prev => prev - 1);
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
   };
   const firstPage = () => setCurrentPage(1);
   const lastPage = () => setCurrentPage(totalPages);
@@ -72,11 +77,9 @@ const TopLosersTable = () => {
   const formatNumber = (num: number) => {
     if (num >= 1000000000) {
       return `$${(num / 1000000000).toFixed(2)}B`;
-    } 
-    else if (num >= 1000000) {
+    } else if (num >= 1000000) {
       return `$${(num / 1000000).toFixed(2)}M`;
-    } 
-    else if (num >= 1000) {
+    } else if (num >= 1000) {
       return `$${(num / 1000).toFixed(2)}K`;
     }
     return `$${num.toFixed(2)}`;
@@ -152,9 +155,11 @@ const TopLosersTable = () => {
         {totalPages > 1 && (
           <div className="flex justify-between items-center mt-4 px-4 flex-col sm:flex-row">
             <div className="text-sm text-text-main my-4">
-              Showing {indexOfFirstItem + 1} to {Math.min(indexOfLastItem, losers.length)} of {losers.length} entries
+              Showing {indexOfFirstItem + 1} to{" "}
+              {Math.min(indexOfLastItem, losers.length)} of {losers.length}{" "}
+              entries
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center sm:justify-end flex-wrap gap-2">
               <button
                 onClick={firstPage}
                 disabled={currentPage === 1}
@@ -190,8 +195,8 @@ const TopLosersTable = () => {
                       onClick={() => paginate(pageNum)}
                       className={`w-8 h-8 rounded-md flex items-center text-text-main justify-center ${
                         currentPage === pageNum
-                          ? 'bg-primary text-white'
-                          : 'border border-border hover:bg-surface-hover'
+                          ? "bg-primary text-white"
+                          : "border border-border hover:bg-surface-hover"
                       }`}
                     >
                       {pageNum}
@@ -199,15 +204,17 @@ const TopLosersTable = () => {
                   );
                 })}
                 {totalPages > 5 && currentPage < totalPages - 2 && (
-                  <span className="px-2 flex text-text-main items-center">...</span>
+                  <span className="px-2 flex text-text-main items-center">
+                    ...
+                  </span>
                 )}
                 {totalPages > 5 && currentPage < totalPages - 2 && (
                   <button
                     onClick={() => paginate(totalPages)}
                     className={`w-8 h-8 rounded-md text-text-main flex items-center justify-center ${
                       currentPage === totalPages
-                        ? 'bg-primary text-white'
-                        : 'border border-border hover:bg-surface-hover'
+                        ? "bg-primary text-white"
+                        : "border border-border hover:bg-surface-hover"
                     }`}
                   >
                     {totalPages}

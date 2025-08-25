@@ -229,10 +229,10 @@ const TrendingCoinsTable = () => {
         {/* Pagination Controls */}
         {totalPages > 1 && (
           <div className="flex justify-between items-center mt-4 px-4 flex-col sm:flex-row">
-            <div className="text-sm text-text-main my-4">
+            <div className="text-sm text-text-main my-2">
               Showing {indexOfFirstItem + 1} to {Math.min(indexOfLastItem, trendingCoins.length)} of {trendingCoins.length} entries
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center sm:justify-end flex-wrap gap-2">
               <button
                 onClick={firstPage}
                 disabled={currentPage === 1}
