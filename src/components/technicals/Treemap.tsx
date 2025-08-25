@@ -1,4 +1,5 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
+import Tooltip from "./Tooltip";
 // @ts-ignore
 import * as d3 from "d3";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -14,6 +15,11 @@ interface HeatmapNode {
 interface TreemapProps {}
 
 const Treemap: React.FC<TreemapProps> = () => {
+  const [tooltip, setTooltip] = useState<{
+    visible: boolean;
+    data: any;
+    position: { x: number; y: number };
+  }>({ visible: false, data: null, position: { x: 0, y: 0 } });
   const svgRef = useRef<SVGSVGElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 400 }); // Default height
@@ -131,7 +137,9 @@ const Treemap: React.FC<TreemapProps> = () => {
       .append("g")
       .attr("transform", (d: any) => `translate(${d.x0},${d.y0})`)
       .each(function (d: any) {
-        d3.select(this)
+        const group = d3.select(this);
+
+        group
           .append("rect")
           .attr("width", d.x1 - d.x0)
           .attr("height", d.y1 - d.y0)
@@ -140,33 +148,79 @@ const Treemap: React.FC<TreemapProps> = () => {
             getColor(d.data.price_change_percentage_24h || 0, d.data.symbol)
           );
 
-        // Use foreignObject to embed HTML content
-        d3.select(this)
+        const foreignObject = group
           .append("foreignObject")
           .attr("width", d.x1 - d.x0)
-          .attr("height", d.y1 - d.y0)
+          .attr("height", d.y1 - d.y0);
+
+        const xhtmlDiv = foreignObject
           .append("xhtml:div")
           .attr(
             "class",
             "h-full w-full flex justify-center items-center treemap-label p-1 text-white overflow-hidden"
-          ) // Add custom classes for styling
-          .html(
-            `<div class="w-full h-full z-100 absolute bg-gray-100 opacity-0 hover:opacity-20 transition duration-100"></div>
-            <div class="relative flex flex-col justify-center items-center">
-              <div class="cursor-default" style="font-size: ${getSymbolFontSize(
-                (d.x1 - d.x0) * (d.y1 - d.y0)
-              )}">${d.data.symbol}</div>
-              <div class="cursor-default" style="font-size: ${getPriceFontSize(
-                (d.x1 - d.x0) * (d.y1 - d.y0)
-              )}">$${stylizePriceText(d.data.current_price || 0)}</div>
-              <div class="cursor-default" style="font-size: ${getChangePercentageFontSize(
-                (d.x1 - d.x0) * (d.y1 - d.y0)
-              )}">
-              ${getChangePercentageCaret(d.data.price_change_percentage_24h)}
-              ${(Math.abs(d.data.price_change_percentage_24h) || 0).toFixed(
-                2
-              )}%</div>
-            </div>`
+          );
+
+        const overlay = xhtmlDiv
+          .append("div")
+          .attr(
+            "class",
+            "w-full h-full z-100 absolute bg-gray-100 opacity-0 hover:opacity-20 transition duration-100"
+          );
+
+        overlay.on("mouseover", (event) => {
+          if (!containerRef.current) return;
+          const containerBounds = containerRef.current.getBoundingClientRect();
+          const x = event.clientX - containerBounds.left;
+          const y = event.clientY - containerBounds.top;
+          setTooltip({
+            visible: true,
+            data: d.data,
+            position: { x, y },
+          });
+        });
+
+        overlay.on("mousemove", (event) => {
+          if (!containerRef.current) return;
+          const containerBounds = containerRef.current.getBoundingClientRect();
+          const x = event.clientX - containerBounds.left;
+          const y = event.clientY - containerBounds.top;
+          setTooltip((prev) => ({
+            ...prev,
+            position: { x, y },
+          }));
+        });
+
+        overlay.on("mouseout", () => {
+          setTooltip({ visible: false, data: null, position: { x: 0, y: 0 } });
+        });
+
+        const contentDiv = xhtmlDiv
+          .append("div")
+          .attr("class", "relative flex flex-col justify-center items-center");
+
+        contentDiv
+          .append("div")
+          .attr("class", "cursor-default")
+          .style("font-size", getSymbolFontSize((d.x1 - d.x0) * (d.y1 - d.y0)))
+          .text(d.data.symbol);
+
+        contentDiv
+          .append("div")
+          .attr("class", "cursor-default")
+          .style("font-size", getPriceFontSize((d.x1 - d.x0) * (d.y1 - d.y0)))
+          .text(`$${stylizePriceText(d.data.current_price || 0)}`);
+
+        contentDiv
+          .append("div")
+          .attr("class", "cursor-default")
+          .style(
+            "font-size",
+            getChangePercentageFontSize((d.x1 - d.x0) * (d.y1 - d.y0))
+          )
+          .text(
+            `${getChangePercentageCaret(d.data.price_change_percentage_24h)} ${(
+              Math.abs(d.data.price_change_percentage_24h) || 0
+            ).toFixed(2)}%`
           );
       });
   }, [data, dimensions]);
@@ -177,7 +231,10 @@ const Treemap: React.FC<TreemapProps> = () => {
         <h2 className="text-2xl font-bold mb-6 pl-4 text-text-main">
           Crypto Heatmap
         </h2>
-        <div ref={containerRef} className="w-full h-[400px]">
+        <div ref={containerRef} className="w-full h-[400px] relative">
+          {tooltip.visible && (
+            <Tooltip data={tooltip.data} position={tooltip.position} />
+          )}
           <svg
             ref={svgRef}
             width={dimensions.width}
