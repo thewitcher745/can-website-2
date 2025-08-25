@@ -11,13 +11,12 @@ interface HeatmapNode {
   children?: HeatmapNode[];
 }
 
-interface TreemapProps {
-  width?: number;
-  height?: number;
-}
+interface TreemapProps {}
 
-const Treemap: React.FC<TreemapProps> = ({ width = 600, height = 400 }) => {
-  const ref = useRef<SVGSVGElement | null>(null);
+const Treemap: React.FC<TreemapProps> = () => {
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 400 }); // Default height
   const [data, setData] = useState<HeatmapNode | null>(null);
 
   useEffect(() => {
@@ -35,8 +34,27 @@ const Treemap: React.FC<TreemapProps> = ({ width = 600, height = 400 }) => {
   }, []);
 
   useEffect(() => {
-    if (!data || !ref.current) return;
-    const svg = d3.select(ref.current);
+    const observer = new ResizeObserver((entries) => {
+      if (entries && entries.length > 0) {
+        const { width } = entries[0].contentRect;
+        setDimensions({ width, height: 400 }); // Keep height fixed or adjust as needed
+      }
+    });
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!data || !svgRef.current || dimensions.width === 0) return;
+    const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
 
     // Transform flat array to hierarchy structure if needed
@@ -58,11 +76,14 @@ const Treemap: React.FC<TreemapProps> = ({ width = 600, height = 400 }) => {
     d3
       .treemap<HeatmapNode>()
       .tile(d3.treemapBinary)
-      .size([width, height])
-      .padding(2)(root);
+      .size([dimensions.width, dimensions.height])
+      .padding(3)(root);
 
     // Custom color function based on price_change_percentage_24h
-    const getColor = (priceChange: number) => {
+    const getColor = (priceChange: number, coinSymbol: string) => {
+      // Returns gray for stablecoins
+      if (coinSymbol == "USDT" || coinSymbol == "USDC" || coinSymbol == "USD1")
+        return "#808A9D";
       if (priceChange > 0) return "#16C784"; // Positive - green
       if (priceChange < 0) return "#C5151F"; // Negative - red
       return "#808A9D"; // Zero or null - gray
@@ -114,7 +135,10 @@ const Treemap: React.FC<TreemapProps> = ({ width = 600, height = 400 }) => {
           .append("rect")
           .attr("width", d.x1 - d.x0)
           .attr("height", d.y1 - d.y0)
-          .attr("fill", getColor(d.data.price_change_percentage_24h || 0));
+          .attr(
+            "fill",
+            getColor(d.data.price_change_percentage_24h || 0, d.data.symbol)
+          );
 
         // Use foreignObject to embed HTML content
         d3.select(this)
@@ -127,14 +151,15 @@ const Treemap: React.FC<TreemapProps> = ({ width = 600, height = 400 }) => {
             "h-full w-full flex justify-center items-center treemap-label p-1 text-white overflow-hidden"
           ) // Add custom classes for styling
           .html(
-            `<div class="flex flex-col justify-center items-center">
-              <div style="font-size: ${getSymbolFontSize(
+            `<div class="w-full h-full z-100 absolute bg-gray-100 opacity-0 hover:opacity-20 transition duration-100"></div>
+            <div class="relative flex flex-col justify-center items-center">
+              <div class="cursor-default" style="font-size: ${getSymbolFontSize(
                 (d.x1 - d.x0) * (d.y1 - d.y0)
               )}">${d.data.symbol}</div>
-              <div style="font-size: ${getPriceFontSize(
+              <div class="cursor-default" style="font-size: ${getPriceFontSize(
                 (d.x1 - d.x0) * (d.y1 - d.y0)
               )}">$${stylizePriceText(d.data.current_price || 0)}</div>
-              <div style="font-size: ${getChangePercentageFontSize(
+              <div class="cursor-default" style="font-size: ${getChangePercentageFontSize(
                 (d.x1 - d.x0) * (d.y1 - d.y0)
               )}">
               ${getChangePercentageCaret(d.data.price_change_percentage_24h)}
@@ -144,15 +169,22 @@ const Treemap: React.FC<TreemapProps> = ({ width = 600, height = 400 }) => {
             </div>`
           );
       });
-  }, [data, width, height]);
+  }, [data, dimensions]);
 
   return (
     <section className="py-8 w-full bg-background flex justify-center">
-      <div className="max-w-[1500px] bg-surface p-4 py-8 rounded radius-6 w-full flex flex-col items-center">
+      <div className="max-w-[1000px] bg-surface p-4 py-8 rounded radius-6 w-full flex flex-col items-center">
         <h2 className="text-2xl font-bold mb-6 pl-4 text-text-main">
           Crypto Heatmap
         </h2>
-        <svg ref={ref} width={width} height={height} className="block" />
+        <div ref={containerRef} className="w-full h-[400px]">
+          <svg
+            ref={svgRef}
+            width={dimensions.width}
+            height={dimensions.height}
+            className="block"
+          />
+        </div>
         {!data && (
           <div className="mt-4 text-text-main">Loading heatmap data...</div>
         )}
