@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
             </div>
           </div>
           {/* Desktop Nav */}
-          <div className="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+          <div className="hidden lg:ml-6 lg:flex lg:items-center lg:space-x-8">
             <Link
               href="/#home"
               className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
           {/* Mobile menu button */}
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center lg:hidden">
             <button
               aria-label="Open main menu"
               onClick={handleToggle}
@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
       </div>
       {/* Mobile Nav */}
       {menuOpen && (
-        <div className="md:hidden bg-off-black px-4 pb-4 pt-2 shadow-lg border-b border-border-strong animate-slideDownFadeIn">
+        <div className="lg:hidden bg-off-black px-4 pb-4 pt-2 shadow-lg border-b border-border-strong animate-slideDownFadeIn">
           <div className="flex flex-col space-y-2">
             <Link
               href="/#home"
