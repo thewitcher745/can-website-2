@@ -226,7 +226,7 @@ const Treemap: React.FC<TreemapProps> = () => {
   }, [data, dimensions]);
 
   return (
-    <section className="py-8 w-full bg-background flex justify-center">
+    <section className="py-8 w-full bg-background flex justify-center overflow-x-hidden">
       <div className="max-w-[1000px] bg-surface p-4 py-8 rounded radius-6 w-full flex flex-col items-center">
         <h2 className="text-2xl font-bold mb-6 pl-4 text-text-main">
           Crypto Heatmap

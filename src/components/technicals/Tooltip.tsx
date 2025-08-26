@@ -20,7 +20,7 @@ const Tooltip: React.FC<TooltipProps> = ({ data, position }) => {
 
   return (
     <div
-      className="absolute bg-white border border-gray-200 rounded-lg shadow-lg p-4 text-sm text-gray-800 pointer-events-none"
+      className="absolute z-100 bg-white border border-gray-200 rounded-lg shadow-lg p-4 text-sm text-gray-800 pointer-events-none"
       style={{ left: position.x + 15, top: position.y + 15, minWidth: "250px" }}
     >
       <div className="flex items-center mb-3">
