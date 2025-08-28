@@ -1,10 +1,9 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
-import Tooltip from "./Tooltip";
-// @ts-ignore
 import * as d3 from "d3";
-import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { buildApiUrl } from "../../config";
+import Tooltip from "./subcomponents/Tooltip";
+import { HeatmapPlaceholder } from "./subcomponents/loaders";
 
 interface HeatmapNode {
   name: string;
@@ -12,9 +11,9 @@ interface HeatmapNode {
   children?: HeatmapNode[];
 }
 
-interface TreemapProps {}
+interface HeatmapProps {}
 
-const Treemap: React.FC<TreemapProps> = () => {
+const CryptoHeatmap: React.FC<HeatmapProps> = () => {
   const [tooltip, setTooltip] = useState<{
     visible: boolean;
     data: any;
@@ -239,19 +238,19 @@ const Treemap: React.FC<TreemapProps> = () => {
               containerRef={containerRef}
             />
           )}
-          <svg
-            ref={svgRef}
-            width={dimensions.width}
-            height={dimensions.height}
-            className="block"
-          />
+          {data && (
+            <svg
+              ref={svgRef}
+              width={dimensions.width}
+              height={dimensions.height}
+              className="block"
+            />
+          )}
+          {!data && <HeatmapPlaceholder />}
         </div>
-        {!data && (
-          <div className="mt-4 text-text-main">Loading heatmap data...</div>
-        )}
       </div>
     </section>
   );
 };
 
-export default Treemap;
+export default CryptoHeatmap;

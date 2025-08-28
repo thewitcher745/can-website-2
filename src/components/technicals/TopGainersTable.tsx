@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { buildApiUrl } from "../../config";
 import {
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
 } from "lucide-react";
+
+import { buildApiUrl } from "../../config";
+import { TopCoinsTableRowPlaceholer } from "./subcomponents/loaders";
 
 interface Gainer {
   change: number;
@@ -44,6 +46,7 @@ const TopGainersTable = () => {
         console.log(buildApiUrl(`/api/top_gainers`));
         const response = await fetch(buildApiUrl(`/api/top_gainers`));
         const data = await response.json();
+
         setGainers(data);
       } catch (error) {
         console.error("Error fetching top gainers:", error);
@@ -115,43 +118,47 @@ const TopGainersTable = () => {
               </tr>
             </thead>
             <tbody>
-              {currentItems.map((coin, index) => (
-                <tr key={index} className="border-b border-border">
-                  <td
-                    className={`sticky left-0 bg-surface px-6 py-4 ${
-                      isScrolled ? "sticky-shadow-visible" : ""
-                    }`}
-                  >
-                    <div className="flex sm:flex-row flex-col justify-start items-start">
-                      <span className="text-text-main pr-1 shrink-0">
-                        {coin.name}
-                      </span>
-                      <span className="text-secondary-light opacity-50 font-bold">
-                        {coin.symbol}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">${coin.price}</td>
-                  <td className="px-6 py-4 flex items-center gap-2 text-success font-bold">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 15l7-7 7 7"
-                      />
-                    </svg>
-                    {coin.change}%
-                  </td>
-                  <td className="px-6 py-4">{formatNumber(coin.volume)}</td>
-                </tr>
-              ))}
+              {gainers.length === 0
+                ? [...Array(5)].map((_, i) => (
+                    <TopCoinsTableRowPlaceholer key={i} />
+                  ))
+                : currentItems.map((coin, index) => (
+                    <tr key={index} className="border-b border-border">
+                      <td
+                        className={`sticky left-0 bg-surface px-6 py-4 ${
+                          isScrolled ? "sticky-shadow-visible" : ""
+                        }`}
+                      >
+                        <div className="flex sm:flex-row flex-col justify-start items-start">
+                          <span className="text-text-main pr-1 shrink-0">
+                            {coin.name}
+                          </span>
+                          <span className="text-secondary-light opacity-50 font-bold">
+                            {coin.symbol}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">${coin.price}</td>
+                      <td className="px-6 py-4 flex items-center gap-2 text-success font-bold">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 15l7-7 7 7"
+                          />
+                        </svg>
+                        {coin.change}%
+                      </td>
+                      <td className="px-6 py-4">{formatNumber(coin.volume)}</td>
+                    </tr>
+                  ))}
             </tbody>
           </table>
         </div>

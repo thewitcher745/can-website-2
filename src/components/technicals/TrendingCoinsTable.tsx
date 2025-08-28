@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { buildApiUrl } from "../../config";
 import {
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
 } from "lucide-react";
+
+import { buildApiUrl } from "../../config";
+import { TrendingCoinsTableRowPlaceholder } from "./subcomponents/loaders";
 
 interface TrendingCoin {
   change_24h: number;
@@ -63,6 +65,7 @@ const TrendingCoinsTable = () => {
       try {
         const response = await fetch(buildApiUrl(`/api/trending`));
         const data = await response.json();
+
         setTrendingCoins(data);
       } catch (error) {
         console.error("Error fetching trending coins:", error);
@@ -171,62 +174,70 @@ const TrendingCoinsTable = () => {
               </tr>
             </thead>
             <tbody>
-              {currentItems.map((coin, index) => (
-                <tr
-                  key={index}
-                  className="border-b border-border hover:bg-surface-hover"
-                >
-                  <td
-                    className={`sticky left-0 bg-surface px-6 py-4 ${
-                      isScrolled ? "sticky-shadow-visible" : ""
-                    }`}
-                  >
-                    <div className="flex flex-col sm:flex-row items-start">
-                      <span className="text-text-main pr-2">{coin.name}</span>
-                      <span className="text-secondary-light opacity-50 font-bold">
-                        {coin.symbol}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="px-4 py-4 whitespace-nowrap">${coin.price}</td>
-                  <td
-                    className={`px-4 py-4 whitespace-nowrap ${getChangeColor(
-                      coin.change_24h
-                    )}`}
-                  >
-                    <div className="flex items-center gap-1">
-                      {renderChangeIcon(coin.change_24h)}
-                      {coin.change_24h}%
-                    </div>
-                  </td>
-                  <td
-                    className={`px-4 py-4 whitespace-nowrap ${getChangeColor(
-                      coin.change_7d
-                    )}`}
-                  >
-                    <div className="flex items-center gap-1">
-                      {renderChangeIcon(coin.change_7d)}
-                      {coin.change_7d}%
-                    </div>
-                  </td>
-                  <td
-                    className={`px-4 py-4 whitespace-nowrap ${getChangeColor(
-                      coin.change_30d
-                    )}`}
-                  >
-                    <div className="flex items-center gap-1">
-                      {renderChangeIcon(coin.change_30d)}
-                      {coin.change_30d}%
-                    </div>
-                  </td>
-                  <td className="px-4 py-4 whitespace-nowrap">
-                    {formatNumber(coin.market_cap)}
-                  </td>
-                  <td className="px-4 py-4 whitespace-nowrap">
-                    {formatNumber(coin.volume_24h)}
-                  </td>
-                </tr>
-              ))}
+              {trendingCoins.length === 0
+                ? [...Array(5)].map((_, i) => (
+                    <TrendingCoinsTableRowPlaceholder key={i} />
+                  ))
+                : currentItems.map((coin, index) => (
+                    <tr
+                      key={index}
+                      className="border-b border-border hover:bg-surface-hover"
+                    >
+                      <td
+                        className={`sticky left-0 bg-surface px-6 py-4 ${
+                          isScrolled ? "sticky-shadow-visible" : ""
+                        }`}
+                      >
+                        <div className="flex flex-col sm:flex-row items-start">
+                          <span className="text-text-main pr-2">
+                            {coin.name}
+                          </span>
+                          <span className="text-secondary-light opacity-50 font-bold">
+                            {coin.symbol}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap">
+                        ${coin.price}
+                      </td>
+                      <td
+                        className={`px-4 py-4 whitespace-nowrap ${getChangeColor(
+                          coin.change_24h
+                        )}`}
+                      >
+                        <div className="flex items-center gap-1">
+                          {renderChangeIcon(coin.change_24h)}
+                          {coin.change_24h}%
+                        </div>
+                      </td>
+                      <td
+                        className={`px-4 py-4 whitespace-nowrap ${getChangeColor(
+                          coin.change_7d
+                        )}`}
+                      >
+                        <div className="flex items-center gap-1">
+                          {renderChangeIcon(coin.change_7d)}
+                          {coin.change_7d}%
+                        </div>
+                      </td>
+                      <td
+                        className={`px-4 py-4 whitespace-nowrap ${getChangeColor(
+                          coin.change_30d
+                        )}`}
+                      >
+                        <div className="flex items-center gap-1">
+                          {renderChangeIcon(coin.change_30d)}
+                          {coin.change_30d}%
+                        </div>
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap">
+                        {formatNumber(coin.market_cap)}
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap">
+                        {formatNumber(coin.volume_24h)}
+                      </td>
+                    </tr>
+                  ))}
             </tbody>
           </table>
         </div>
