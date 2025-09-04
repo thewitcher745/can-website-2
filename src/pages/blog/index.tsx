@@ -22,7 +22,7 @@ const Blog: React.FC = () => {
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
 
   useEffect(() => {
-    fetch(buildApiUrl(`/api/blog/`))
+    fetch(buildApiUrl(`/api/blog`))
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch blog posts");
         return res.json();
