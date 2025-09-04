@@ -79,6 +79,12 @@ const Navbar: React.FC = () => {
               News
             </Link>
             <Link
+              href="/fundamental"
+              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
+            >
+              Fundamental Analysis
+            </Link>
+            <Link
               href="https://t.me/CryptoANalysis_CAN"
               className="text-primary hover:text-orange-500 underline text-text-main px-4 py-2 rounded-md text-sm font-medium hover:bg-orange transition"
             >
@@ -153,6 +159,13 @@ const Navbar: React.FC = () => {
               onClick={closeMenu}
             >
               News
+            </Link>
+            <Link
+              href="/fundamental"
+              className="text-text-main hover:text-orange py-2 text-base font-medium"
+              onClick={closeMenu}
+            >
+              Fundamental Analysis
             </Link>
             <Link
               href="https://t.me/CryptoANalysis_CAN"
