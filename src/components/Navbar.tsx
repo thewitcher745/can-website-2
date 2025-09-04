@@ -73,6 +73,12 @@ const Navbar: React.FC = () => {
               Blog
             </Link>
             <Link
+              href="/news"
+              className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
+            >
+              News
+            </Link>
+            <Link
               href="https://t.me/CryptoANalysis_CAN"
               className="text-primary hover:text-orange-500 underline text-text-main px-4 py-2 rounded-md text-sm font-medium hover:bg-orange transition"
             >
@@ -136,10 +142,17 @@ const Navbar: React.FC = () => {
             </Link>
             <Link
               href="/blog"
-              className="text-text-main hover:text-orange py-2 pb-4 text-base font-medium"
+              className="text-text-main hover:text-orange py-2 text-base font-medium"
               onClick={closeMenu}
             >
               Blog
+            </Link>
+            <Link
+              href="/news"
+              className="text-text-main hover:text-orange py-2 text-base font-medium"
+              onClick={closeMenu}
+            >
+              News
             </Link>
             <Link
               href="https://t.me/CryptoANalysis_CAN"
