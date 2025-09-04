@@ -6,6 +6,9 @@ import Footer from "../../components/Footer";
 import FearAndGreed from "../../components/technicals/FearAndGreed";
 import TopGainersTable from "../../components/technicals/TopGainersTable";
 import TrendingCoinsTable from "../../components/technicals/TrendingCoinsTable";
+import TopLosersTable from "../../components/technicals/TopLosersTable";
+import CryptoHeatmap from "../../components/technicals/CryptoHeatmap";
+import TopCoinsTable from "../../components/homepage/gadgets/TopCoinsTable";
 
 export default function Home() {
   return (
@@ -16,9 +19,12 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <TopCoinsTable />
         <FearAndGreed />
         <TopGainersTable />
+        <TopLosersTable />
         <TrendingCoinsTable />
+        <CryptoHeatmap />
       </main>
       <Footer />
     </>
