@@ -156,10 +156,10 @@ const RecentArticlesTable = () => {
     tableSlug: string = "news"
   ) => {
     const rows = [] as React.ReactNode[];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 4; i++) {
       const item = items[i];
       rows.push(
-        <tr key={i} className="border-b border-border h-12">
+        <tr key={i} className="border-b border-border h-1/4">
           {item ? (
             <div className="py-2">
               <Link href={`/${tableSlug}/${item.slug}`}>
@@ -178,12 +178,12 @@ const RecentArticlesTable = () => {
 
                   <div className="w-5/6 flex flex-col items-start gap-1">
                     <span
-                      className="block truncate max-w-full text-sm sm:text-base"
+                      className="block truncate max-w-full text-sm"
                       title={item.title}
                     >
                       {item.title}
                     </span>
-                    <span className="py-1 w-1/4 text-left text-text-muted text-xs sm:text-sm">
+                    <span className="py-1 w-1/4 text-left text-text-muted text-xs">
                       {formatRelativeTime(item.publishedAt)}
                     </span>
                   </div>
@@ -203,47 +203,44 @@ const RecentArticlesTable = () => {
   };
 
   return (
-    <section
-      id="recent-article"
-      className="py-8 px-4 w-full bg-background flex justify-start sm:justify-center"
-    >
-      <div className="bg-surface p-4 rounded-lg w-full max-w-md mx-auto flex flex-col">
-        <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-4">
-          <Link href={`/${tables[currentIndex].slug}`}>
-            <div className="flex">
-              <h3 className="text-xl underline font-bold text-text-main">
-                {tables[currentIndex].title}
-              </h3>
-              <ChevronRight className="h-8 w-8 text-text-muted self-end" />
-            </div>
-          </Link>
-          <NavigationButtons className="hidden sm:block" />
-        </div>
-        <div className="overflow-hidden">
-          {loading ? (
-            <div className="w-full h-72 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
-            </div>
-          ) : error ? (
-            <div className="text-error text-center p-4">Error: {error}</div>
-          ) : (
-            <div
-              className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {tables.map((table, index) => (
-                <div key={index} className="w-full flex-shrink-0">
-                  <table className="w-full text-left text-text-main table-fixed">
-                    <tbody>{renderTableRows(table.data, table.slug)}</tbody>
-                  </table>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-        <NavigationButtons className="block sm:hidden self-center" />
+    <div className="bg-surface p-3 rounded-md w-full max-w-sm flex flex-col">
+      <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1">
+        <Link href={`/${tables[currentIndex].slug}`}>
+          <div className="flex">
+            <h3 className="text-lg underline font-bold text-text-main">
+              {tables[currentIndex].title}
+            </h3>
+            <ChevronRight className="h-8 w-8 text-text-muted self-end" />
+          </div>
+        </Link>
+        <NavigationButtons className="hidden sm:block" />
       </div>
-    </section>
+      <div className="overflow-hidden  h-full">
+        {loading ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        ) : error ? (
+          <div className="text-error w-full h-full text-center p-4">
+            Error: {error}
+          </div>
+        ) : (
+          <div
+            className="flex h-full transition-transform duration-300 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {tables.map((table, index) => (
+              <div key={index} className="w-full flex-shrink-0">
+                <table className="w-full text-left text-text-main table-fixed">
+                  <tbody>{renderTableRows(table.data, table.slug)}</tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <NavigationButtons className="block sm:hidden self-center" />
+    </div>
   );
 };
 

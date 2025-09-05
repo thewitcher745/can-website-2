@@ -159,16 +159,16 @@ const TopCoinsTable = () => {
     for (let i = 0; i < 5; i++) {
       const coin = coins[i];
       rows.push(
-        <tr key={i} className="border-b border-border h-12">
+        <tr key={i} className="border-b border-border h-1/5">
           {coin ? (
             <>
-              <td className="px-4 py-2 font-bold w-1/2">
+              <td className="px-4 py-2 w-1/2">
                 <div className="flex items-center gap-3">
                   <CoinLogo symbol={coin.symbol} />
-                  <span>{coin.name}</span>
+                  <span className="truncate">{coin.name}</span>
                 </div>
               </td>
-              <td className="px-4 py-2 w-1/4">${coin.price}</td>
+              <td className="opacity-80 px-4 py-2 w-1/4">${coin.price}</td>
               <td
                 className={`px-4 py-2 font-bold w-1/4 ${
                   coin.change >= 0 ? "text-success" : "text-error"
@@ -194,47 +194,44 @@ const TopCoinsTable = () => {
   };
 
   return (
-    <section
-      id="top-coins"
-      className="py-8 px-4 w-full bg-background flex justify-start sm:justify-center"
-    >
-      <div className="bg-surface p-4 rounded-lg w-full max-w-md mx-auto flex flex-col">
-        <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-4">
-          {/* <Link href={`/${tables[currentIndex].slug}`}> */}
-          <div className="flex">
-            <h3 className="text-xl font-bold text-text-main">
-              {tables[currentIndex].title}
-            </h3>
-            {/* <ChevronRight className="h-8 w-8 text-text-muted self-end" /> */}
-          </div>
-          {/* </Link> */}
-          <NavigationButtons className="hidden sm:block" />
+    <div className="bg-surface p-3 rounded-md w-full max-w-sm flex flex-col">
+      <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-4">
+        {/* <Link href={`/${tables[currentIndex].slug}`}> */}
+        <div className="flex">
+          <h3 className="text-lg font-bold text-text-main">
+            {tables[currentIndex].title}
+          </h3>
+          {/* <ChevronRight className="h-8 w-8 text-text-muted self-end" /> */}
         </div>
-        <div className="overflow-hidden">
-          {loading ? (
-            <div className="w-full h-72 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
-            </div>
-          ) : error ? (
-            <div className="text-error text-center p-4">Error: {error}</div>
-          ) : (
-            <div
-              className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {tables.map((table, index) => (
-                <div key={index} className="w-full flex-shrink-0">
-                  <table className="w-full text-left text-text-main table-fixed">
-                    <tbody>{renderTableRows(table.data)}</tbody>
-                  </table>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-        <NavigationButtons className="block sm:hidden self-center" />
+        {/* </Link> */}
+        <NavigationButtons className="hidden sm:block" />
       </div>
-    </section>
+      <div className="overflow-hidden h-full">
+        {loading ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        ) : error ? (
+          <div className="w-full h-full text-error text-center p-4">
+            Error: {error}
+          </div>
+        ) : (
+          <div
+            className="h-full flex transition-transform duration-300 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {tables.map((table, index) => (
+              <div key={index} className="w-full flex-shrink-0">
+                <table className="w-full h-full text-left text-text-main table-fixed">
+                  <tbody>{renderTableRows(table.data)}</tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <NavigationButtons className="block sm:hidden self-center" />
+    </div>
   );
 };
 
