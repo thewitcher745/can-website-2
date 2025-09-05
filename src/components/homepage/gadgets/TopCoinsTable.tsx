@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { buildApiUrl } from "../../../config";
-import { getCoinLogoLink } from "../../../utils";
 
 interface Coin {
   change: number;
@@ -53,9 +53,9 @@ const TopCoinsTable = () => {
   }, []);
 
   const tables = [
-    { title: "Top Gainers", data: data?.top_gainers || [] },
-    { title: "Top Losers", data: data?.top_losers || [] },
-    { title: "Trending", data: data?.trending || [] },
+    { title: "Top Gainers", data: data?.top_gainers || [], slug: "coins/top-gainers" },
+    { title: "Top Losers", data: data?.top_losers || [], slug: "coins/top-losers" },
+    { title: "Trending", data: data?.trending || [], slug: "coins/trending" },
   ];
 
   const nextSlide = () => {
@@ -65,6 +65,25 @@ const TopCoinsTable = () => {
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? tables.length - 1 : prevIndex - 1
+    );
+  };
+
+  const NavigationButtons = ({ className }: { className?: string }) => {
+    return (
+      <div className={`flex-nowrap ${className}`}>
+        <button
+          onClick={prevSlide}
+          className="p-3 rounded-full hover:bg-surface-hover cursor-pointer"
+        >
+          <ChevronLeft className="h-5 w-5 text-text-main" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="p-3 rounded-full hover:bg-surface-hover cursor-pointer"
+        >
+          <ChevronRight className="h-5 w-5 text-text-main" />
+        </button>
+      </div>
     );
   };
 
@@ -168,26 +187,20 @@ const TopCoinsTable = () => {
 
   return (
     <section
-      id="top-losers"
-      className="py-8 w-full bg-background flex justify-start sm:justify-center"
+      id="top-coins"
+      className="py-8 px-4 w-full bg-background flex justify-start sm:justify-center"
     >
-      <div className="bg-surface p-4 rounded-lg w-full max-w-md mx-auto">
-        <div className="flex justify-between items-center mb-4">
-          <button
-            onClick={prevSlide}
-            className="p-2 rounded-full hover:bg-surface-hover"
-          >
-            <ChevronLeft className="h-5 w-5 text-text-main" />
-          </button>
-          <h3 className="text-lg font-bold text-text-main">
-            {tables[currentIndex].title}
-          </h3>
-          <button
-            onClick={nextSlide}
-            className="p-2 rounded-full hover:bg-surface-hover"
-          >
-            <ChevronRight className="h-5 w-5 text-text-main" />
-          </button>
+      <div className="bg-surface p-4 rounded-lg w-full max-w-md mx-auto flex flex-col">
+        <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-4">
+          <Link href={`/${tables[currentIndex].slug}`}>
+            <div className="flex">
+              <h3 className="text-xl underline font-bold text-text-main">
+                {tables[currentIndex].title}
+              </h3>
+              <ChevronRight className="h-8 w-8 text-text-muted self-end" />
+            </div>
+          </Link>
+          <NavigationButtons className="hidden sm:block" />
         </div>
         <div className="overflow-hidden">
           {loading ? (
@@ -211,6 +224,7 @@ const TopCoinsTable = () => {
             </div>
           )}
         </div>
+        <NavigationButtons className="block sm:hidden self-center" />
       </div>
     </section>
   );
