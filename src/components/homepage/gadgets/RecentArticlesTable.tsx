@@ -230,8 +230,8 @@ const RecentArticlesTable = () => {
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {tables.map((table, index) => (
-              <div key={index} className="w-full flex-shrink-0">
-                <table className="w-full text-left text-text-main table-fixed">
+              <div key={index} className="w-full h-full flex-shrink-0">
+                <table className="w-full h-full text-left text-text-main table-fixed">
                   <tbody>{renderTableRows(table.data, table.slug)}</tbody>
                 </table>
               </div>

@@ -165,7 +165,12 @@ const TopCoinsTable = () => {
               <td className="px-4 py-2 w-1/2">
                 <div className="flex items-center gap-3">
                   <CoinLogo symbol={coin.symbol} />
-                  <span className="truncate">{coin.name}</span>
+                  <div className="flex flex-col">
+                    <span className="truncate">{coin.name}</span>
+                    <span className="text-xs text-text-muted">
+                      {coin.symbol}
+                    </span>
+                  </div>
                 </div>
               </td>
               <td className="opacity-80 px-4 py-2 w-1/4">${coin.price}</td>
@@ -221,8 +226,8 @@ const TopCoinsTable = () => {
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {tables.map((table, index) => (
-              <div key={index} className="w-full flex-shrink-0">
-                <table className="w-full h-full text-left text-text-main table-fixed">
+              <div key={index} className="w-full h-full flex-shrink-0">
+                <table className="h-full w-full text-left text-text-main table-fixed">
                   <tbody>{renderTableRows(table.data)}</tbody>
                 </table>
               </div>
