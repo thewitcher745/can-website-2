@@ -141,7 +141,7 @@ const TopCoinsTable = () => {
 
     // if (!logoUrl) {
     return (
-      <div className="w-6 h-6 bg-gray-700 rounded-full animate-pulse"></div>
+      <div className="w-4 h-4 bg-gray-700 rounded-full animate-pulse"></div>
     );
     // }
 
@@ -165,7 +165,7 @@ const TopCoinsTable = () => {
               <td className="px-4 py-2 w-1/2">
                 <div className="flex items-center gap-3">
                   <CoinLogo symbol={coin.symbol} />
-                  <div className="flex flex-col">
+                  <div className="flex flex-col truncate">
                     <span className="truncate">{coin.name}</span>
                     <span className="text-xs text-text-muted">
                       {coin.symbol}
