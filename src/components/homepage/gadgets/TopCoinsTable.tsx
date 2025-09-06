@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Link from "next/link";
+
 import { buildApiUrl } from "../../../config";
+import { getCoinLogoLink } from "../../../utils";
 
 interface Coin {
   change: number;
@@ -125,33 +126,33 @@ const TopCoinsTable = () => {
   };
 
   const CoinLogo = ({ symbol }: { symbol: string }) => {
-    // const [logoUrl, setLogoUrl] = useState<string | null>(null);
+    const [logoUrl, setLogoUrl] = useState<string | null>(null);
 
-    // useEffect(() => {
-    //   const fetchLogo = async () => {
-    //     const data = await getCoinLogoLink("btc");
-    //     // Assuming the API returns an object with a 'logo' property
-    //     if (data) {
-    //       setLogoUrl(data);
-    //     }
-    //   };
+    useEffect(() => {
+      const fetchLogo = async () => {
+        const data = await getCoinLogoLink(symbol);
+        // Assuming the API returns an object with a 'logo' property
+        if (data) {
+          setLogoUrl(data);
+        }
+      };
 
-    //   fetchLogo();
-    // }, [symbol]);
+      fetchLogo();
+    }, [symbol]);
 
-    // if (!logoUrl) {
+    if (!logoUrl) {
+      return (
+        <div className="w-8 h-8 bg-gray-700 rounded-full animate-pulse"></div>
+      );
+    }
+
     return (
-      <div className="w-4 h-4 bg-gray-700 rounded-full animate-pulse"></div>
+      <img
+        src={logoUrl}
+        alt={`${symbol} logo`}
+        className="w-8 h-8 rounded-full"
+      />
     );
-    // }
-
-    // return (
-    //   <img
-    //     src={logoUrl}
-    //     alt={`${symbol} logo`}
-    //     className="w-6 h-6 rounded-full"
-    //   />
-    // );
   };
 
   const renderTableRows = (coins: Coin[]) => {
@@ -168,7 +169,7 @@ const TopCoinsTable = () => {
                   <div className="flex flex-col truncate">
                     <span className="truncate">{coin.name}</span>
                     <span className="text-xs text-text-muted">
-                      {coin.symbol}
+                      {coin.symbol}USDT
                     </span>
                   </div>
                 </div>
