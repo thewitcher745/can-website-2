@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
+import Image from "next/image";
 
 import { buildApiUrl } from "../../../config";
 import { getCoinLogoLink } from "../../../utils";
@@ -100,28 +106,13 @@ const TopCoinsTable = () => {
     const isPositive = change >= 0;
     const colorClass = isPositive ? "text-success" : "text-danger";
     return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className={`h-4 w-4 ${colorClass}`}
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={3}
-      >
+      <div className={`h-4 w-4 ${colorClass} pr-3`}>
         {isPositive ? (
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M5 15l7-7 7 7"
-          />
+          <ChevronUp className="h-4 w-4" />
         ) : (
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19 9l-7 7-7-7"
-          />
+          <ChevronDown className="h-4 w-4" />
         )}
-      </svg>
+      </div>
     );
   };
 
@@ -147,9 +138,11 @@ const TopCoinsTable = () => {
     }
 
     return (
-      <img
+      <Image
         src={logoUrl}
         alt={`${symbol} logo`}
+        width={32}
+        height={32}
         className="w-8 h-8 rounded-full"
       />
     );
@@ -163,26 +156,32 @@ const TopCoinsTable = () => {
         <tr key={i} className="border-b border-border h-1/5">
           {coin ? (
             <>
-              <td className="px-4 py-2 w-1/2">
+              <td className="px-2 py-2 w-1/2">
                 <div className="flex items-center gap-3">
                   <CoinLogo symbol={coin.symbol} />
                   <div className="flex flex-col truncate">
-                    <span className="truncate">{coin.name}</span>
-                    <span className="text-xs text-text-muted">
+                    <span className="truncate font-semibold text-sm">
+                      {coin.name}
+                    </span>
+                    <span className="text-xs font-medium text-text-muted">
                       {coin.symbol}USDT
                     </span>
                   </div>
                 </div>
               </td>
-              <td className="opacity-80 px-4 py-2 w-1/4">${coin.price}</td>
+              <td className="opacity-80 text-md font-light px-4 py-2 w-1/4">
+                ${coin.price}
+              </td>
               <td
                 className={`px-4 py-2 font-bold w-1/4 ${
                   coin.change >= 0 ? "text-success" : "text-error"
                 }`}
               >
-                <div className="flex items-center justify-end gap-1">
+                <div className="flex items-center gap-1">
                   {renderCaret(coin.change)}
-                  {Math.abs(coin.change).toFixed(2)}%
+                  <span className="text-sm font-semibold text-nowrap">
+                    {Math.abs(coin.change).toFixed(2)} %
+                  </span>
                 </div>
               </td>
             </>
