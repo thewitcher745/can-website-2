@@ -24,7 +24,7 @@ interface ApiData {
   trending: Coin[];
 }
 
-const TopCoinsTable = () => {
+const TopCoinsTable = ({ className }: { className?: string }) => {
   const [data, setData] = useState<ApiData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -199,7 +199,9 @@ const TopCoinsTable = () => {
   };
 
   return (
-    <div className="bg-surface p-3 rounded-md w-full max-w-sm flex flex-col">
+    <div
+      className={`bg-surface p-3 rounded-md w-full max-w-md flex flex-col ${className}`}
+    >
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-4">
         {/* <Link href={`/${tables[currentIndex].slug}`}> */}
         <div className="flex">
