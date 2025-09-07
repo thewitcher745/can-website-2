@@ -13,6 +13,7 @@ interface BlogPostMeta {
   tags: string[];
   title: string;
   desc: string;
+  thumbnail?: string;
 }
 
 const Blog: React.FC = () => {
@@ -104,7 +105,7 @@ const Blog: React.FC = () => {
             made by the CAN team. Learn how we do what we do.
           </p>
           {filterTags && (
-            <div className="mb-6 flex items-center gap-2 flex-wrap flex-col items-start sm:flex-row">
+            <div className="mb-6 flex gap-2 flex-wrap flex-col items-start sm:flex-row">
               {filterTags.map((tag) => (
                 <button
                   onClick={() => removeTag(tag)}

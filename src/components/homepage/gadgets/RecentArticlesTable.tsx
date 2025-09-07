@@ -164,17 +164,17 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
             <div className="py-2">
               <Link href={`/${tableSlug}/${item.slug}`}>
                 <div className="flex h-full items-center gap-2 px-1 w-full">
-                  <Image
-                    width={160}
-                    height={120}
-                    src={
-                      item.thumbnail
-                        ? item.thumbnail
-                        : `http://static.photos/finance/320x240/${item.slug}`
-                    }
-                    className="flex-grow h-12 w-16"
-                    alt={item.title}
-                  />
+                  <div className="flex-grow h-14 w-20">
+                    <img
+                      src={
+                        item.thumbnail
+                          ? item.thumbnail
+                          : `http://static.photos/finance/320x240/${item.slug}`
+                      }
+                      className="rounded object-cover flex-grow h-14 w-20"
+                      alt={item.title}
+                    />
+                  </div>
 
                   <div className="w-5/6 flex flex-col items-start gap-1">
                     <span
@@ -232,7 +232,10 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {tables.map((table, index) => (
-              <div key={index} className="w-full h-full flex-shrink-0">
+              <div
+                key={index}
+                className="w-full h-full flex-shrink-0 overflow-hidden"
+              >
                 <div className="w-full h-full text-left text-text-main">
                   {renderTableRows(table.data, table.slug)}
                 </div>
