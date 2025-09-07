@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { buildApiUrl } from "../../config";
 
@@ -14,6 +14,8 @@ const SLOPE = (MAX_ANGLE - MIN_ANGLE) / 100;
 const FearAndGreed = ({ className }: { className?: string }) => {
   const [fngData, setFngData] = useState<FngData | null>(null);
   const [needleAngle, setNeedleAngle] = useState<string>("-170deg");
+  const [needleWidth, setNeedleWidth] = useState<number>(0);
+  const svgRef = useRef<SVGSVGElement>(null);
   const [loading, isLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,6 +26,9 @@ const FearAndGreed = ({ className }: { className?: string }) => {
         const data = await response.json();
         setFngData(data);
         setNeedleAngle(`${MIN_ANGLE + data.value * SLOPE}deg`);
+        if (svgRef.current) {
+          setNeedleWidth(svgRef.current.getBoundingClientRect().width);
+        }
       } catch (error) {
         setError(
           error instanceof Error
@@ -37,9 +42,22 @@ const FearAndGreed = ({ className }: { className?: string }) => {
     fetchData();
   }, []);
 
+  // A resize listener that updates the needle angle
+  useEffect(() => {
+    const handleResize = () => {
+      if (svgRef.current) {
+        setNeedleWidth(svgRef.current.getBoundingClientRect().width);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [svgRef]);
+
   return (
     <div
-      className={`bg-surface p-3 rounded-md w-full max-w-sm h-full flex flex-col justify-between items-center ${className}`}
+      className={`pt-3 rounded-md w-full h-full flex flex-col justify-between items-center ${className}`}
     >
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1 h-1/5">
         <div className="flex justify-center w-full">
@@ -49,10 +67,11 @@ const FearAndGreed = ({ className }: { className?: string }) => {
           {/* <ChevronRight className="h-8 w-8 text-text-muted self-end" /> */}
         </div>
       </div>
-      <div className="w-[150px] lg:w-[300px] relative">
+      <div id="fng-container" className="w-full relative flex justify-center">
         <svg
-          width="100%"
-          height="100%"
+          ref={svgRef}
+          width="80%"
+          height="80%"
           viewBox="0 0 233 116"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -85,18 +104,39 @@ const FearAndGreed = ({ className }: { className?: string }) => {
             transform: `rotate(${needleAngle})`,
           }}
         >
-          <div id="needle" className="w-[70px] lg:w-[142px] relative">
+          <div
+            id="needle"
+            className={`relative`}
+            style={{
+              width: `${0.47 * needleWidth}px`,
+            }}
+          >
             <div
               id="needle-pointer"
-              className="w-[20px] lg:w-[30px] h-[20px] lg:h-[30px] bg-white border-gray-950 border-3 lg:border-6 rounded-full absolute top-0 right-0 -translate-y-1/2 translate-x-1/2"
+              className="bg-white border-gray-950 rounded-full absolute top-0 right-0 -translate-y-1/2 translate-x-1/2"
+              style={{
+                width: `${0.1 * needleWidth}px`,
+                height: `${0.1 * needleWidth}px`,
+                border: `${0.01 * needleWidth}px solid black`,
+              }}
             />
           </div>
         </div>
-        <div className="absolute bottom-0 left-1/2 flex flex-col gap-2 lg:gap-4 items-center -translate-x-1/2">
-          <span className="text-text-main text-2xl lg:text-4xl font-bold">
+        <div className="absolute bottom-0 left-1/2 flex flex-col items-center -translate-x-1/2">
+          <span
+            className="text-text-main font-bold"
+            style={{
+              fontSize: `${0.15 * needleWidth}px`,
+            }}
+          >
             {fngData?.value}
           </span>
-          <span className="text-text-main text-sm lg:text-lg">
+          <span
+            className="text-text-main text-sm"
+            style={{
+              fontSize: `${Math.min(0.1 * needleWidth, 20)}px`,
+            }}
+          >
             {fngData?.value_classification}
           </span>
         </div>

@@ -199,9 +199,7 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
   };
 
   return (
-    <div
-      className={`bg-surface p-3 rounded-md w-full max-w-md flex flex-col ${className}`}
-    >
+    <div className={`p-3 rounded-md flex flex-col ${className}`}>
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-4">
         {/* <Link href={`/${tables[currentIndex].slug}`}> */}
         <div className="flex">
@@ -228,7 +226,10 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {tables.map((table, index) => (
-              <div key={index} className="w-full h-full flex-shrink-0">
+              <div
+                key={index}
+                className="w-full h-full flex-shrink-0 overflow-x-hidden"
+              >
                 <table className="h-full w-full text-left text-text-main table-fixed">
                   <tbody>{renderTableRows(table.data)}</tbody>
                 </table>

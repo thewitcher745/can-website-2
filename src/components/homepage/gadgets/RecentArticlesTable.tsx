@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { buildApiUrl } from "../../../config";
+import { formatRelativeTime } from "../../../utils";
 
 interface ArticleItemRaw {
   slug: string;
@@ -135,22 +135,6 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
     );
   };
 
-  const formatRelativeTime = (date: Date | null): string => {
-    if (!date) return "";
-    const now = Date.now();
-    const diffMs = now - date.getTime();
-    if (diffMs < 0) return date.toLocaleString();
-    const sec = Math.floor(diffMs / 1000);
-    if (sec < 60) return `${sec}s ago`;
-    const min = Math.floor(sec / 60);
-    if (min < 60) return `${min}m ago`;
-    const hr = Math.floor(min / 60);
-    if (hr < 24) return `${hr}h ago`;
-    const day = Math.floor(hr / 24);
-    if (day < 7) return `${day}d ago`;
-    return date.toLocaleDateString();
-  };
-
   const renderTableRows = (
     items: ArticleItem[],
     tableSlug: string = "news"
@@ -184,7 +168,7 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
                       {item.title}
                     </span>
                     <span className="py-1 w-1/4 text-left text-text-muted text-xs">
-                      {formatRelativeTime(item.publishedAt)}
+                      {formatRelativeTime(item.publishedAt, "short")}
                     </span>
                   </div>
                 </div>
@@ -203,9 +187,7 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
   };
 
   return (
-    <div
-      className={`bg-surface p-3 rounded-md w-full max-w-md flex flex-col ${className}`}
-    >
+    <div className={`p-3 rounded-md flex flex-col ${className}`}>
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1">
         <Link href={`/${tables[currentIndex].slug}`}>
           <div className="flex">
