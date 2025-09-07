@@ -1,9 +1,11 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { buildApiUrl } from "../../config";
+import { formatRelativeTime } from "../../utils";
 
 interface NewsArticleMeta {
   author: string;
@@ -12,6 +14,7 @@ interface NewsArticleMeta {
   tags: string[];
   title: string;
   desc: string;
+  thumbnail?: string;
 }
 
 const News: React.FC = () => {
@@ -40,7 +43,7 @@ const News: React.FC = () => {
   };
 
   const filteredArticles = filterTags
-    ? articles.filter((article) => 
+    ? articles.filter((article) =>
         filterTags?.some((tag) => article.tags.includes(tag))
       )
     : articles;
@@ -105,13 +108,14 @@ const News: React.FC = () => {
       </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
-        <div className="max-w-4xl mx-auto py-8 px-4 pt-24">
-          <h1 className="text-3xl font-bold mb-8 text-primary">News</h1>
+        <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-24">
+          <h1 className="text-3xl font-bold mb-8 text-primary px-2">News</h1>
           <p className="text-text-main text-xl mb-6 px-2">
-            Stay updated with the latest news and announcements from CAN Trading.
+            Stay updated with the latest news and announcements from CAN
+            Trading.
           </p>
           {filterTags && (
-            <div className="mb-6 flex items-center gap-2 flex-wrap flex-col items-start sm:flex-row">
+            <div className="mb-6 flex gap-2 flex-wrap flex-col items-start sm:flex-row">
               {filterTags.map((tag) => (
                 <button
                   key={tag}
@@ -129,58 +133,76 @@ const News: React.FC = () => {
               </button>
             </div>
           )}
-          <div className="space-y-8">
+          <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
             {filteredArticles.length === 0 ? (
-              <div className="text-center text-text-muted">No articles found.</div>
+              <div className="text-center text-text-muted">
+                No articles found.
+              </div>
             ) : (
               filteredArticles.map((article) => (
                 <div
                   key={article.slug}
-                  className="bg-surface border border-border rounded-lg p-6 shadow transition hover:shadow-lg"
+                  className="flex flex-row flex-grow sm:flex-col p-2 sm:p-0 h-26 sm:h-70 md:h-100 rounded-sm sm:rounded-lg hover:shadow-md transition"
                 >
-                  <h2 className="text-2xl font-semibold mb-2 text-text-main hover:text-primary transition-colors">
-                    <Link href={`/news/${article.slug}`}>{article.title}</Link>
-                  </h2>
-                  <p className="text-text-muted mb-3 line-clamp-3">
-                    {article.desc}
-                  </p>
-                  <div className="text-xs text-text-muted mb-3">
-                    Posted at{" "}
-                    {new Date(article.time).toLocaleDateString(undefined, {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
-                    })}{" "}
-                    {new Date(article.time).toLocaleTimeString(undefined, {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      hour12: false,
-                    })}
+                  <div className="h-full w-30 sm:w-full sm:h-1/2 overflow-hidden rounded-sm sm:rounded-t-sm mb-2">
+                    <Link href={`/news/${article.slug}`}>
+                      <img
+                        src={article.thumbnail}
+                        alt={article.title}
+                        className="h-full w-full"
+                        style={{
+                          objectFit: "cover",
+                        }}
+                      />
+                    </Link>
                   </div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {article.tags.map((tag) => (
-                      <button
-                        key={tag}
-                        className={`bg-secondary-light text-secondary hover:bg-secondary hover:text-white text-xs px-2 py-1 rounded transition`}
-                        onClick={() =>
-                          setFilterTags((prev) =>
-                            prev && prev.includes(tag)
-                              ? prev
-                              : [...(prev || []), tag]
-                          )
-                        }
-                        type="button"
+                  <div className="w-1/2 h-full sm:h-1/2 sm:w-full sm:px-3 sm:pb-3 grow-1 flex flex-col justify-between">
+                    <div className="text-wrap h-full">
+                      <div className="line-clamp-2 sm:line-clamp-3 md:line-clamp-4 lg:h-1/2 md:h-1/3">
+                        <h2 className="text-md font-normal mx-3 sm:mx-0 text-text-main hover:text-primary transition-colors mb-2">
+                          <Link href={`/news/${article.slug}`}>
+                            {article.title}
+                          </Link>
+                        </h2>
+                      </div>
+                      <div className="line-clamp-3">
+                        <span className="text-text-muted hidden md:block text-sm mx-2 sm:mx-0 mb-3 md:h-1/2">
+                          {article.desc}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <div className="text-sm text-text-muted mb-1 mx-3 sm:mx-0">
+                        {formatRelativeTime(new Date(article.time), "long")}
+                      </div>
+
+                      {/* <div className="flex flex-wrap gap-2">
+                        {article.tags.slice(0, 3).map((tag) => (
+                          <button
+                            key={tag}
+                            className={`opacity-70 text-text-muted hover:bg-secondary hover:text-white text-xs px-2 py-1 rounded transition`}
+                            onClick={() =>
+                              setFilterTags((prev) =>
+                                prev && prev.includes(tag)
+                                  ? prev
+                                  : [...(prev || []), tag]
+                              )
+                            }
+                            type="button"
+                          >
+                            {tag}
+                          </button>
+                        ))}
+                      </div> */}
+                      <Link
+                        href={`/news/${article.slug}`}
+                        className="text-sm text-primary underline hover:text-primary-soft transition"
                       >
-                        {tag}
-                      </button>
-                    ))}
+                        More →
+                      </Link>
+                    </div>
                   </div>
-                  <Link
-                    href={`/news/${article.slug}`}
-                    className="text-sm text-primary underline hover:text-primary-soft transition"
-                  >
-                    Read more →
-                  </Link>
                 </div>
               ))
             )}
