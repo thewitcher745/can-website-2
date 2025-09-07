@@ -23,7 +23,7 @@ interface ArticleItem {
   publishedAt: Date | null;
 }
 
-const RecentArticlesTable = () => {
+const RecentArticlesTable = ({ className }: { className?: string }) => {
   const [news, setNews] = useState<ArticleItem[]>([]);
   const [fundamentals, setFundamentals] = useState<ArticleItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -203,7 +203,9 @@ const RecentArticlesTable = () => {
   };
 
   return (
-    <div className="bg-surface p-3 rounded-md w-full max-w-sm flex flex-col">
+    <div
+      className={`bg-surface p-3 rounded-md w-full max-w-md flex flex-col ${className}`}
+    >
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1">
         <Link href={`/${tables[currentIndex].slug}`}>
           <div className="flex">
