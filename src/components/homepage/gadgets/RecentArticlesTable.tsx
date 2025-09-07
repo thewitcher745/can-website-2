@@ -159,11 +159,11 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
     for (let i = 0; i < 4; i++) {
       const item = items[i];
       rows.push(
-        <tr key={i} className="border-b border-border h-1/4">
+        <div key={i} className="flex items-center h-1/4 border-b border-border">
           {item ? (
             <div className="py-2">
               <Link href={`/${tableSlug}/${item.slug}`}>
-                <div className="flex gap-2 items-center px-1 w-full">
+                <div className="flex h-full items-center gap-2 px-1 w-full">
                   <Image
                     width={160}
                     height={120}
@@ -196,7 +196,7 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
               <td className="px-4 py-2 w-1/4">&nbsp;</td>
             </>
           )}
-        </tr>
+        </div>
       );
     }
     return rows;
@@ -233,9 +233,9 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
           >
             {tables.map((table, index) => (
               <div key={index} className="w-full h-full flex-shrink-0">
-                <table className="w-full h-full text-left text-text-main table-fixed">
-                  <tbody>{renderTableRows(table.data, table.slug)}</tbody>
-                </table>
+                <div className="w-full h-full text-left text-text-main">
+                  {renderTableRows(table.data, table.slug)}
+                </div>
               </div>
             ))}
           </div>
