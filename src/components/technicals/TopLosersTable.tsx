@@ -21,10 +21,11 @@ interface Loser {
 }
 
 const TopLosersTable = ({ maxRows = 10 }: { maxRows: number }) => {
+  console.log(maxRows);
   const [losers, setLosers] = useState<Loser[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(5);
+  const [itemsPerPage] = useState(maxRows);
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
   // Pagination logic
