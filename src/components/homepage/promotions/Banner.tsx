@@ -32,7 +32,7 @@ const Banner = ({ className }: { className?: string }) => {
             </div>
             <div className="hidden md:hidden lg:block bg-offwhite p-3 w-50 h-20 rounded-xl mt-4 items-center justify-center hover:bg-primary transition duration-200">
               <a
-                href="https://t.me/CryptoANalysis_CAN"
+                href="https://x.com/COINEO963"
                 className="text-black text-lg text-wrap font-semibold flex items-center gap-4"
               >
                 <FaXTwitter className="text-3xl" />
@@ -50,7 +50,7 @@ const Banner = ({ className }: { className?: string }) => {
             </div>
             <div className="block lg:hidden bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center hover:bg-primary transition duration-200">
               <a
-                href="https://t.me/CryptoANalysis_CAN"
+                href="https://x.com/COINEO963"
                 className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
               >
                 <FaXTwitter className="text-3xl" />
