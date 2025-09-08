@@ -2,6 +2,7 @@ import FearAndGreed from "../../components/technicals/FearAndGreed";
 import TopCoinsTable from "../../components/homepage/gadgets/TopCoinsTable";
 import RecentArticlesTable from "../../components/homepage/gadgets/RecentArticlesTable";
 import OurStats from "../../components/homepage/promotions/ourStats/OurStats";
+import Banner from "../../components/homepage/promotions/Banner";
 
 const Staging: React.FC = () => {
   return (
@@ -20,6 +21,9 @@ const Staging: React.FC = () => {
         </div>
       </section>
       <OurStats />
+      <div className="w-full pt-20 sm:pt-0 flex justify-center">
+        <Banner />
+      </div>
     </main>
   );
 };

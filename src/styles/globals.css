@@ -198,3 +198,15 @@ ol {
 .show-more-button:hover {
   background-color: var(--primary-hover-color);
 }
+
+@keyframes banner-logo-animation {
+  0% {
+    transform: translateY(0) rotateY(20deg) rotateX(20deg);
+  }
+  50% {
+    transform: translateY(-15px) rotateY(20deg) rotateX(20deg);
+  }
+  100% {
+    transform: translateY(0) rotateY(20deg) rotateX(20deg);
+  }
+}
