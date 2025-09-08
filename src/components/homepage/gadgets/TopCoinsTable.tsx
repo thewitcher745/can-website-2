@@ -6,6 +6,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { buildApiUrl } from "../../../config";
 import { getCoinLogoLink } from "../../../utils";
@@ -63,12 +64,12 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
     {
       title: "Top Gainers",
       data: data?.top_gainers || [],
-      slug: "coins/top-gainers",
+      slug: "coins/gainers",
     },
     {
       title: "Top Losers",
       data: data?.top_losers || [],
-      slug: "coins/top-losers",
+      slug: "coins/losers",
     },
     { title: "Trending", data: data?.trending || [], slug: "coins/trending" },
   ];
@@ -201,14 +202,14 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
   return (
     <div className={`p-3 rounded-md flex flex-col ${className}`}>
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-4">
-        {/* <Link href={`/${tables[currentIndex].slug}`}> */}
-        <div className="flex">
-          <h3 className="text-lg font-bold text-text-main">
-            {tables[currentIndex].title}
-          </h3>
-          {/* <ChevronRight className="h-8 w-8 text-text-muted self-end" /> */}
-        </div>
-        {/* </Link> */}
+        <Link href={`/${tables[currentIndex].slug}`}>
+          <div className="flex">
+            <h3 className="text-lg font-bold underline text-text-main">
+              {tables[currentIndex].title}
+            </h3>
+            <ChevronRight className="h-8 w-8 text-text-muted self-end" />
+          </div>
+        </Link>
         <NavigationButtons className="hidden sm:block" />
       </div>
       <div className="overflow-hidden h-full">

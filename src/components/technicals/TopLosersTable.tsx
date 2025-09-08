@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
 } from "lucide-react";
+import Image from "next/image";
 
 import { buildApiUrl } from "../../config";
 import { TopCoinsTableRowPlaceholer } from "./subcomponents/loaders";
+import { getCoinLogoLink } from "../../utils";
 
 interface Loser {
   change: number;
@@ -17,7 +20,7 @@ interface Loser {
   volume: number;
 }
 
-const TopLosersTable = () => {
+const TopLosersTable = ({ maxRows = 10 }: { maxRows: number }) => {
   const [losers, setLosers] = useState<Loser[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -88,71 +91,101 @@ const TopLosersTable = () => {
     return `$${num.toFixed(2)}`;
   };
 
+  const CoinLogo = ({ symbol }: { symbol: string }) => {
+    const [logoUrl, setLogoUrl] = useState<string | null>(null);
+
+    useEffect(() => {
+      const fetchLogo = async () => {
+        const data = await getCoinLogoLink(symbol);
+        // Assuming the API returns an object with a 'logo' property
+        if (data) {
+          setLogoUrl(data);
+        }
+      };
+
+      fetchLogo();
+    }, [symbol]);
+
+    if (!logoUrl) {
+      return (
+        <div className="w-8 h-8 bg-gray-700 rounded-full animate-pulse"></div>
+      );
+    }
+
+    return (
+      <Image
+        src={logoUrl}
+        alt={`${symbol} logo`}
+        width={32}
+        height={32}
+        className="w-8 h-8 rounded-full"
+      />
+    );
+  };
+
   return (
     <section
-      id="top-losers"
-      className="py-8 w-full bg-background flex justify-start sm:justify-center"
+      id="top-gainers"
+      className="w-full bg-background flex justify-start sm:justify-center"
     >
-      <div className="max-w-[1500px] bg-surface p-4 py-8 rounded radius-6 w-full">
+      <div className="max-w-6xl p-4 py-8 rounded radius-6 w-full">
         <h2 className="text-2xl font-bold mb-6 pl-4 text-text-main">
           Top Losers
         </h2>
         <div ref={tableContainerRef} className="overflow-x-auto relative">
-          <table className="text-text-main w-full md:table-fixed table-auto">
+          <table className="text-text-main w-full min-w-lg table-fixed">
             <thead>
               <tr>
                 <th
-                  className={`sticky left-0 bg-surface px-6 py-2 text-start w-[40%] ${
+                  className={`sticky bg-background left-0 px-6 py-2 text-start w-[40%] ${
                     isScrolled ? "sticky-shadow-visible" : ""
                   }`}
                 >
                   Name/Symbol
                 </th>
-                <th className="px-6 py-4 text-start w-[20%]">Price</th>
-                <th className="px-6 py-4 text-start w-[20%]">Change</th>
-                <th className="px-6 py-4 text-start w-[20%]">Volume</th>
+                <th className="px-6 py-4 text-start w-[20%] min-w-sm">Price</th>
+                <th className="px-6 py-4 text-start w-[30%] min-w-sm">
+                  Change
+                </th>
+                <th className="px-6 py-4 text-start w-[20%] min-w-sm">
+                  Volume
+                </th>
               </tr>
             </thead>
             <tbody>
               {losers.length === 0
-                ? [...Array(5)].map((_, i) => (
+                ? [...Array(maxRows)].map((_, i) => (
                     <TopCoinsTableRowPlaceholer key={i} />
                   ))
                 : currentItems.map((coin, index) => (
                     <tr key={index} className="border-b border-border">
                       <td
-                        className={`sticky left-0 bg-surface px-6 py-4 ${
+                        className={`sticky bg-background left-0 w-150 pl-4 py-4 ${
                           isScrolled ? "sticky-shadow-visible" : ""
                         }`}
                       >
-                        <div className="flex sm:flex-row flex-col justify-start items-start">
-                          <span className="text-text-main pr-1 shrink-0">
-                            {coin.name}
-                          </span>
-                          <span className="text-secondary-light opacity-50 font-bold">
-                            {coin.symbol}
-                          </span>
+                        <div className="flex items-center gap-3">
+                          <CoinLogo symbol={coin.symbol} />
+                          <div className="flex flex-col truncate">
+                            <span className="truncate font-semibold text-sm">
+                              {coin.name}
+                            </span>
+                            <span className="text-xs font-medium text-text-muted">
+                              {coin.symbol}USDT
+                            </span>
+                          </div>
                         </div>
                       </td>
                       <td className="px-6 py-4">${coin.price}</td>
-                      <td className="px-6 py-4 flex items-center gap-2 text-error font-bold">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                        {Math.abs(coin.change)}%
+                      <td className="px-6 py-4 h-full flex-col gap-2 text-error font-bold">
+                        <div className="flex items-center gap-1">
+                          <ChevronDown className="h-4 w-4" />
+                          {coin.change}%
+                        </div>
                       </td>
-                      <td className="px-6 py-4">{formatNumber(coin.volume)}</td>
+                      <td className="px-6 py-4 h-full">
+                        {formatNumber(coin.volume)}
+                      </td>
                     </tr>
                   ))}
             </tbody>
@@ -163,7 +196,7 @@ const TopLosersTable = () => {
           <div className="flex justify-between items-center mt-4 px-4 flex-col sm:flex-row">
             <div className="text-sm text-text-main my-4">
               Showing {indexOfFirstItem + 1} to{" "}
-              {Math.min(indexOfLastItem, losers.length)} of {losers.length}{" "}
+              {Math.min(indexOfLastItem, losers.length)} of {losers.length}
               entries
             </div>
             <div className="flex items-center justify-center sm:justify-end flex-wrap gap-2">
@@ -211,7 +244,7 @@ const TopLosersTable = () => {
                   );
                 })}
                 {totalPages > 5 && currentPage < totalPages - 2 && (
-                  <span className="px-2 flex text-text-main items-center">
+                  <span className="px-2 text-text-main flex items-center">
                     ...
                   </span>
                 )}

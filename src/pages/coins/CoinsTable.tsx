@@ -13,16 +13,16 @@ const CoinsTable = ({ activeTab }: { activeTab: string }) => {
 
   switch (activeTab) {
     case "gainers":
-      tableElement = <TopGainersTable />;
+      tableElement = <TopGainersTable maxRows={10} />;
       break;
     case "losers":
-      tableElement = <TopLosersTable />;
+      tableElement = <TopLosersTable maxRows={10} />;
       break;
     case "trending":
       tableElement = <TrendingCoinsTable />;
       break;
     default:
-      tableElement = <TopGainersTable />;
+      tableElement = <TopGainersTable maxRows={10} />;
       break;
   }
 
@@ -30,7 +30,7 @@ const CoinsTable = ({ activeTab }: { activeTab: string }) => {
     <>
       <Navbar />
       <main className="px-4 w-full bg-background flex flex-col items-center">
-        <TabSelector className="pt-20" activeTab={activeTab} />
+        <TabSelector className="pt-24" activeTab={activeTab} />
         {tableElement}
       </main>
       <Footer />

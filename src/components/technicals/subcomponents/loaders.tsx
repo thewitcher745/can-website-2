@@ -1,6 +1,6 @@
 export const TopCoinsTableRowPlaceholer = () => (
   <tr className="border-b border-border animate-pulse">
-    <td className={`sticky left-0 bg-surface px-6 py-4`}>
+    <td className={`sticky left-0 px-6 py-4`}>
       <div className="h-4 bg-gray-700 rounded w-3/4"></div>
     </td>
     <td className="px-4 py-4">
@@ -17,7 +17,7 @@ export const TopCoinsTableRowPlaceholer = () => (
 
 export const TrendingCoinsTableRowPlaceholder = () => (
   <tr className="border-b border-border animate-pulse">
-    <td className={`sticky left-0 bg-surface px-6 py-4`}>
+    <td className={`sticky left-0 px-6 py-4`}>
       <div className="h-4 bg-gray-700 rounded w-3/4"></div>
     </td>
     <td className="px-4 py-4">
