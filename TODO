@@ -1,3 +1,6 @@
 - Adding a search functionality to the Analysis section
 - Add hover properties to the navbar links
 - Add placeholder loaders to elements
+- Implement /coins page
+- Move loaders to separate element
+- Modularize elements into separate files

@@ -3,3 +3,4 @@ node_modules
 template.html
 ~*
 src/components/full-results/raw-data/
+.env.local
