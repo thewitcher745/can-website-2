@@ -1,13 +1,13 @@
 import React from "react";
 import {
   FaTelegram,
-  FaTwitter,
   FaInstagram,
   FaYoutube,
   FaTiktok,
   FaEnvelope,
   FaClock,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const socials = [
   {
@@ -18,7 +18,7 @@ const socials = [
   {
     name: "X (Twitter)",
     url: "https://x.com/COINEO963",
-    icon: <FaTwitter />,
+    icon: <FaXTwitter />,
   },
   {
     name: "Instagram",
