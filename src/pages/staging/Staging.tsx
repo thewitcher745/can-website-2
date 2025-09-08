@@ -1,14 +1,11 @@
 import FearAndGreed from "../../components/technicals/FearAndGreed";
-import TopGainersTable from "../../components/technicals/TopGainersTable";
-import TrendingCoinsTable from "../../components/technicals/TrendingCoinsTable";
-import TopLosersTable from "../../components/technicals/TopLosersTable";
-import CryptoHeatmap from "../../components/technicals/CryptoHeatmap";
 import TopCoinsTable from "../../components/homepage/gadgets/TopCoinsTable";
 import RecentArticlesTable from "../../components/homepage/gadgets/RecentArticlesTable";
+import OurStats from "../../components/homepage/promotions/ourStats/OurStats";
 
 const Staging: React.FC = () => {
   return (
-    <main className="py-20 px-4 w-full bg-background flex justify-center">
+    <main className="py-20 px-4 w-full bg-background flex flex-col items-center">
       <section
         id="top-row"
         className="max-w-7xl w-full flex flex-col lg:flex-row gap-2 justify-start items-center"
@@ -22,11 +19,7 @@ const Staging: React.FC = () => {
           {/* <FearAndGreed className="h-1/2 w-1/2 lg:w-full" /> */}
         </div>
       </section>
-
-      {/* <TopGainersTable />
-      <TopLosersTable />
-      <TrendingCoinsTable />
-      <CryptoHeatmap /> */}
+      <OurStats />
     </main>
   );
 };
