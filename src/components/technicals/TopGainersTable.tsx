@@ -46,7 +46,6 @@ const TopGainersTable = ({ maxRows = 10 }: { maxRows: number }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(buildApiUrl(`/api/top_gainers`));
         const response = await fetch(buildApiUrl(`/api/top_gainers`));
         const data = await response.json();
 

@@ -86,7 +86,6 @@ const ResultsPage: React.FC = () => {
   const images = imagesPerMonth[currentMonthYearKey] || [];
 
   useEffect(() => {
-    console.log(currentMonthYearKey);
     // Populate years, sorted descending
     const years = [
       ...new Set(availableMonths.map((my) => parseMonthYearString(my).year)),

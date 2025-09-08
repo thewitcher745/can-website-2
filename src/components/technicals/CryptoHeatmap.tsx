@@ -30,7 +30,6 @@ const CryptoHeatmap: React.FC<HeatmapProps> = () => {
         const response = await fetch(buildApiUrl(`/api/heatmap`));
         const json = await response.json();
         setData(json);
-        console.log(json);
       } catch (e) {
         setData(null);
       }
