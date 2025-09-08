@@ -1,12 +1,23 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 
 import CoinsTable from "./CoinsTable";
 
 const CoinsTab = () => {
-  const currentTab = useRouter().query.tab;
+  const router = useRouter();
+  const currentTab = router.query.tab;
 
-  if (currentTab?.length === 0 || currentTab == null) {
+  useEffect(() => {
+    router.replace("/coins/gainers");
+  }, []);
+
+  if (
+    currentTab?.length === 0 ||
+    currentTab == null ||
+    (currentTab[0] !== "gainers" &&
+      currentTab[0] !== "losers" &&
+      currentTab[0] !== "trending")
+  ) {
     return <CoinsTable activeTab="gainers" />;
   }
 
