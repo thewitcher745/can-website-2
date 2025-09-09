@@ -1,6 +1,6 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar/Navbar";
 import HeroSection from "../components/HeroSection";
 import ServicesSection from "../components/ServicesSection";
 import ResultsSection from "../components/ResultsSection";

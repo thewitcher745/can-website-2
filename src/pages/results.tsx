@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer";
 import ResultsTable from "../components/full-results/ResultsTable";
 

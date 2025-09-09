@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
 import PostThumbnail from "../../components/analysis/PostThumbnail";
 import PostTags from "../../components/analysis/PostTags";

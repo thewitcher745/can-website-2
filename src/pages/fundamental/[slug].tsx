@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import Link from "next/link";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
 import { buildApiUrl } from "../../config";
 

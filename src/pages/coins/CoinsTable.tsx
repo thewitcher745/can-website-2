@@ -3,7 +3,7 @@ import React from "react";
 import TopGainersTable from "../../components/technicals/TopGainersTable";
 import TopLosersTable from "../../components/technicals/TopLosersTable";
 import TrendingCoinsTable from "../../components/technicals/TrendingCoinsTable";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
 import TabSelector from "./TabSelector";
 

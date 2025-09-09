@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { buildApiUrl } from '../../config';
+import { buildApiUrl } from "../../config";
 import Link from "next/link";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
 
 interface BlogPost {
