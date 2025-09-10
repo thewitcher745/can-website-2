@@ -14,7 +14,7 @@ const PostTags: React.FC<PostTagsProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-wrap px-2 gap-2 ${
+      className={`flex flex-grow h-8 items-center px-2 gap-2 ${
         hiddenOnMobile ? "hidden lg:flex" : ""
       } ${className}`}
     >

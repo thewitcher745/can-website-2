@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface PostTimeProps {
   time: string;
@@ -6,10 +6,18 @@ interface PostTimeProps {
   hiddenOnMobile?: boolean;
 }
 
-const PostTime: React.FC<PostTimeProps> = ({ time, className = '', hiddenOnMobile = false }) => {
+const PostTime: React.FC<PostTimeProps> = ({
+  time,
+  className = "",
+  hiddenOnMobile = false,
+}) => {
   return (
-    <div className={`text-xs text-text-muted px-2 mb-3 ${className} ${hiddenOnMobile ? 'hidden sm:block' : ''}`}>
-      {time}
+    <div
+      className={`text-xs text-text-muted px-2 mb-3 ${className} ${
+        hiddenOnMobile ? "hidden sm:block" : ""
+      }`}
+    >
+      Last updated {time}
     </div>
   );
 };

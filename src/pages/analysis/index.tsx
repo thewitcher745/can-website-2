@@ -1,17 +1,13 @@
 import Head from "next/head";
-
 import React, { useEffect, useState } from "react";
+
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
-import PostThumbnail from "../../components/analysis/PostThumbnail";
-import PostTags from "../../components/analysis/PostTags";
-import PostTitle from "../../components/analysis/PostTitle";
-import PostDescription from "../../components/analysis/PostDescription";
-import PostTime from "../../components/analysis/PostTime";
 import { buildApiUrl } from "../../config";
+import AnalysisCard from "../../components/analysis/AnalysisCard";
 
 interface AnalysisPostMeta {
-  thumbnail_link: string;
+  thumbnail: string;
   author: string;
   time: string;
   slug: string;
@@ -97,40 +93,12 @@ const Analysis: React.FC = () => {
             You can find our reliable, accurate and profitable premium analysis
             for different coins here.
           </p>
-          <div className="space-y-4 lg:space-y-0 lg:grid grid-cols-2 gap-4">
+          <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-3">
             {filteredPosts.length === 0 ? (
               <div className="text-center text-text-muted">No posts found.</div>
             ) : (
               filteredPosts.map((post) => (
-                <div
-                  key={post.slug}
-                  className="bg-surface border border-border rounded-lg p-6 shadow transition hover:shadow-lg flex sm:flex-row gap-4 sm:gap-6 items-start sm:items-center"
-                >
-                  <div className="flex w-full flex-col">
-                    <PostThumbnail
-                      thumbnailLink={post.thumbnail_link}
-                      altText={`${post.title} logo`}
-                      className={"block sm:hidden flex-grow self-center"}
-                    />
-                    <div className="flex justify-evenly flex-grow">
-                      <PostThumbnail
-                        thumbnailLink={post.thumbnail_link}
-                        altText={`${post.title} logo`}
-                        hiddenOnMobile
-                      />
-                      <PostTitle
-                        title={post.title}
-                        slug={post.slug}
-                        className="self-center text-center sm:text-left"
-                      />
-                    </div>
-                    <PostDescription description={post.desc} />
-                    <div className="flex gap-2 mb-4 flex-grow justify-between flex-wrap">
-                      <PostTags tags={post.tags} />
-                      <PostTime time={post.time} className="self-end" />
-                    </div>
-                  </div>
-                </div>
+                <AnalysisCard key={post.slug} post={post} />
               ))
             )}
           </div>
