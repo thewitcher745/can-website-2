@@ -4,7 +4,7 @@ import PostLogo from "./PostLogo";
 import PostTime from "./PostTime";
 import PostTitle from "./PostTitle";
 
-interface AnalysisPostMeta {
+export interface AnalysisPostMeta {
   thumbnail: string;
   author: string;
   time: string;

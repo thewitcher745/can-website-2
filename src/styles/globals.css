@@ -3,11 +3,11 @@
 /* Sticky column shadow effect */
 .sticky-shadow-visible::before {
   box-shadow: inset 10px 0 8px -8px #00000026;
-  position: absolute;
   top: 0;
   right: 0;
   bottom: -1px;
-  width: 30px;
+  width: 10px;
+  position: absolute;
   transform: translate(100%);
   transition: box-shadow .3s;
   content: "";
@@ -33,6 +33,38 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-offwhite: #e9e9e9;
+
+  --breakpoint-xs: 25rem;
+  --animate-fade-in: fade-in 1s ease-out;
+  --animate-fade-out: fade-out 1s ease-out;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      z-index: 10;
+      display: none;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      display: block;
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      z-index: 1;
+      opacity: 1;
+      display: block;
+    }
+    99% {
+      opacity: 0;
+    }
+    100% {
+      display: none;
+    }
+  }
 }
 
 /* --------------------- Analysis section styles */
@@ -210,3 +242,4 @@ ol {
     transform: translateY(0) rotateY(20deg) rotateX(20deg);
   }
 }
+

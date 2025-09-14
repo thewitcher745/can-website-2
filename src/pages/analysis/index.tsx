@@ -5,6 +5,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
 import { buildApiUrl } from "../../config";
 import AnalysisCard from "../../components/analysis/AnalysisCard";
+import MostRecent from "../../components/analysis/MostRecent";
 
 interface AnalysisPostMeta {
   thumbnail: string;
@@ -86,23 +87,40 @@ const Analysis: React.FC = () => {
   return (
     <>
       <Navbar />
-      <main className="bg-background min-h-screen">
-        <div className="max-w-4xl lg:max-w-6xl mx-auto py-8 px-4 pt-24">
-          <h1 className="text-3xl font-bold mb-8 text-primary">Analysis</h1>
-          <p className="text-text-main text-xl mb-6 px-2">
-            You can find our reliable, accurate and profitable premium analysis
-            for different coins here.
-          </p>
-          <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-3">
-            {filteredPosts.length === 0 ? (
-              <div className="text-center text-text-muted">No posts found.</div>
-            ) : (
-              filteredPosts.map((post) => (
-                <AnalysisCard key={post.slug} post={post} />
-              ))
-            )}
+      <main className="bg-background min-h-screen pt-24">
+        <section id="most-recent">
+          <div className="flex flex-col  items-center">
+            <h1 className="text-3xl font-bold mb-8 text-primary">
+              Latest analysis
+            </h1>
+            <p className="text-text-main text-xl mb-6">
+              The latest analysis posts from our premium analysis service.
+            </p>
           </div>
-        </div>
+          <MostRecent recentAnalysis={posts.slice(0, 5)} />
+        </section>
+        <section id="all-analysis">
+          <div className="max-w-4xl lg:max-w-6xl mx-auto py-8 px-4">
+            <h1 className="text-3xl font-bold mb-8 text-primary">
+              All analysis
+            </h1>
+            <p className="text-text-main text-xl mb-6 px-2">
+              You can find our reliable, accurate and profitable premium
+              analysis for different coins here.
+            </p>
+            <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-3">
+              {filteredPosts.length === 0 ? (
+                <div className="text-center text-text-muted">
+                  No posts found.
+                </div>
+              ) : (
+                filteredPosts.map((post) => (
+                  <AnalysisCard key={post.slug} post={post} />
+                ))
+              )}
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
