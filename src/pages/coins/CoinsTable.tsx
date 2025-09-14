@@ -9,7 +9,7 @@ import TabSelector from "./TabSelector";
 
 const CoinsTable = ({ activeTab }: { activeTab: string }) => {
   // This is the elemet to render as the table
-  var tableElement = <TrendingCoinsTable />;
+  var tableElement = <TrendingCoinsTable maxRows={10} />;
 
   switch (activeTab) {
     case "gainers":
@@ -19,7 +19,7 @@ const CoinsTable = ({ activeTab }: { activeTab: string }) => {
       tableElement = <TopLosersTable maxRows={10} />;
       break;
     case "trending":
-      tableElement = <TrendingCoinsTable />;
+      tableElement = <TrendingCoinsTable maxRows={10} />;
       break;
     default:
       tableElement = <TopGainersTable maxRows={10} />;
