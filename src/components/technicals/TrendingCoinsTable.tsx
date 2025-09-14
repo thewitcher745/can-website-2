@@ -228,8 +228,7 @@ const TrendingCoinsTable = ({ maxRows = 10 }: { maxRows: number }) => {
             <div className="text-sm text-text-main my-4">
               Showing {indexOfFirstItem + 1} to{" "}
               {Math.min(indexOfLastItem, trendingCoins.length)} of{" "}
-              {trendingCoins.length}
-              entries
+              {trendingCoins.length} entries
             </div>
             <div className="flex items-center justify-center sm:justify-end flex-wrap gap-2">
               <button

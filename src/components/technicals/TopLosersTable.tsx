@@ -196,7 +196,7 @@ const TopLosersTable = ({ maxRows = 10 }: { maxRows: number }) => {
           <div className="flex justify-between items-center mt-4 px-4 flex-col sm:flex-row">
             <div className="text-sm text-text-main my-4">
               Showing {indexOfFirstItem + 1} to{" "}
-              {Math.min(indexOfLastItem, losers.length)} of {losers.length}
+              {Math.min(indexOfLastItem, losers.length)} of {losers.length}{" "}
               entries
             </div>
             <div className="flex items-center justify-center sm:justify-end flex-wrap gap-2">
