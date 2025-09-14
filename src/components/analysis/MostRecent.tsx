@@ -3,11 +3,11 @@ import MostRecentAnalysisCard, {
 } from "./MostRecentAnalysisCard";
 import { useState, useEffect } from "react";
 
-const MostRecent: React.FC = ({
-  recentAnalysis,
-}: {
+type MostRecentProps = {
   recentAnalysis: AnalysisPostMeta[];
-}) => {
+};
+
+const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 

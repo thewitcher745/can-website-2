@@ -6,16 +6,7 @@ import Footer from "../../components/Footer";
 import { buildApiUrl } from "../../config";
 import AnalysisCard from "../../components/analysis/AnalysisCard";
 import MostRecent from "../../components/analysis/MostRecent";
-
-interface AnalysisPostMeta {
-  thumbnail: string;
-  author: string;
-  time: string;
-  slug: string;
-  tags: string[];
-  title: string;
-  desc: string;
-}
+import { AnalysisPostMeta } from "../../components/analysis/MostRecentAnalysisCard";
 
 const Analysis: React.FC = () => {
   const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
