@@ -7,17 +7,19 @@ const CoinsTab = () => {
   const router = useRouter();
   const currentTab = router.query.tab;
 
-  useEffect(() => {
-    router.replace("/coins/gainers");
-  }, []);
+  if (!router.isReady) return;
 
   if (
-    currentTab?.length === 0 ||
     currentTab == null ||
+    currentTab.length === 0 ||
     (currentTab[0] !== "gainers" &&
       currentTab[0] !== "losers" &&
       currentTab[0] !== "trending")
   ) {
+    if (router.asPath !== "/coins/gainers") {
+      router.replace("/coins/gainers");
+    }
+
     return <CoinsTable activeTab="gainers" />;
   }
 
