@@ -1,7 +1,7 @@
 import MostRecentAnalysisCard, {
   AnalysisPostMeta,
 } from "./MostRecentAnalysisCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 type MostRecentProps = {
   recentAnalysis: AnalysisPostMeta[];
@@ -10,21 +10,38 @@ type MostRecentProps = {
 const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-scroll functionality
-  useEffect(() => {
-    if (recentAnalysis.length <= 1) return; // Don't auto-scroll if only one or no items
+  // Clear both interval and timeout
+  const clearTimers = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
 
-    const interval = setInterval(() => {
+  // Start auto-scroll interval
+  const startAutoScroll = () => {
+    clearTimers();
+    timerRef.current = setInterval(() => {
       setIsTransitioning(true);
-
-      setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         setCurrentSlide((prev) => (prev + 1) % recentAnalysis.length);
         setIsTransitioning(false);
-      }, 500); // Half of transition duration
-    }, 8000); // Change slide every 8 seconds
+      }, 500);
+    }, 8000);
+  };
 
-    return () => clearInterval(interval);
+  // Start interval on mount and when recentAnalysis changes
+  useEffect(() => {
+    if (recentAnalysis.length <= 1) return; // Don't auto-scroll if only one or no items
+    startAutoScroll();
+    return clearTimers;
   }, [recentAnalysis.length]);
 
   return (
@@ -46,6 +63,9 @@ const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
                   key={index}
                   onClick={() => {
                     setIsTransitioning(true);
+                    if (timerRef.current) {
+                      clearInterval(timerRef.current);
+                    }
                     setTimeout(() => {
                       setCurrentSlide(index);
                       setIsTransitioning(false);
