@@ -57,7 +57,7 @@ const FearAndGreed = ({ className }: { className?: string }) => {
 
   return (
     <div
-      className={`py-3 rounded-md w-full h-full flex flex-col justify-between items-center ${className}`}
+      className={`py-3 rounded-t-md w-full h-full flex flex-col justify-between items-center ${className}`}
     >
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1 h-1/5">
         <div className="flex justify-center w-full">

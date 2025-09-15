@@ -80,18 +80,18 @@ const Analysis: React.FC = () => {
       <Navbar />
       <main className="bg-background min-h-screen pt-24">
         <section id="most-recent">
-          <div className="flex flex-col  items-center">
-            <h1 className="text-3xl font-bold mb-8 text-primary">
+          <div className="flex flex-col px-4 text-center sm:text-left items-center">
+            <h1 className="text-3xl font-bold mb-2 text-primary">
               Latest analysis
             </h1>
-            <p className="text-text-main text-xl mb-6">
+            <p className="text-text-main text-xl">
               The latest analysis posts from our premium analysis service.
             </p>
           </div>
           <MostRecent recentAnalysis={posts.slice(0, 5)} />
         </section>
         <section id="all-analysis">
-          <div className="max-w-4xl lg:max-w-6xl mx-auto py-8 px-4">
+          <div className="max-w-4xl lg:max-w-6xl mx-auto pb-8 px-4">
             <h1 className="text-3xl font-bold mb-8 text-primary">
               All analysis
             </h1>

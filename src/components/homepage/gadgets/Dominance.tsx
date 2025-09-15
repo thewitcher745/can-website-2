@@ -38,7 +38,7 @@ const DominanceContainer = ({
     <div className="flex flex-col px-2 gap-1">
       <div className="flex items-center gap-1">
         <div className={`rounded-full h-2 w-2 ${colorClass}`} />
-        <h3 className="text-sm px-1 text-offwhite">{label}</h3>
+        <h3 className="text-sm px-1 text-gray-400">{label}</h3>
       </div>
 
       <h1 className="text-2xl font-semibold text-text-main">
@@ -109,17 +109,17 @@ const Dominance = ({ className }: { className?: string }) => {
 
   return (
     <div
-      className={`pt-3 rounded-md w-full h-full flex flex-col justify-eve items-center ${className}`}
+      className={`pt-3 rounded-md w-full h-full flex flex-col items-center ${className}`}
     >
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1 h-1/5">
         <div className="flex justify-center w-full">
           <h3 className="text-lg p-3 font-bold text-text-main">
-            BTC Dominance
+            Market Dominance
           </h3>
           {/* <ChevronRight className="h-8 w-8 text-text-muted self-end" /> */}
         </div>
       </div>
-      <div className="flex flex-col flex-grow py-4">
+      <div className="flex flex-col flex-grow pb-4">
         <div
           id="dominance-container"
           className="w-full h-full relative flex justify-center items-center"

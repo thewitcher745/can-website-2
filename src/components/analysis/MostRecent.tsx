@@ -45,7 +45,7 @@ const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
   }, [recentAnalysis.length]);
 
   return (
-    <div className="max-w-4xl flex justify-center lg:max-w-6xl mx-auto py-8 px-2">
+    <div className="max-w-4xl flex justify-center lg:max-w-6xl mx-auto pt-4 pb-8 px-2">
       {recentAnalysis.length === 0 ? (
         <div className="text-center text-text-muted">No posts found.</div>
       ) : (
