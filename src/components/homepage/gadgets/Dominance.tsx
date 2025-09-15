@@ -1,23 +1,41 @@
-import { useEffect, useState, useRef } from "react";
-
+import { useEffect, useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { buildApiUrl } from "../../../config";
 
 interface MarketDominanceData {
   btcDominance: number;
   ethDominance: number;
+  btcDominanceChange: number;
+  ethDominanceChange: number;
 }
 
 const DominanceContainer = ({
   label,
   value,
   colorClass,
+  valueChange,
 }: {
   label: string;
   value: number;
   colorClass: string;
+  valueChange: number;
 }) => {
+  const renderCaret = (change: number) => {
+    const isPositive = change >= 0;
+    const colorClass = isPositive ? "text-success" : "text-error";
+    return (
+      <div className={`h-4 w-4 ${colorClass} pr-3`}>
+        {isPositive ? (
+          <ChevronUp className="h-5 w-5" />
+        ) : (
+          <ChevronDown className="h-5 w-5" />
+        )}
+      </div>
+    );
+  };
+
   return (
-    <div className="flex flex-col px-2">
+    <div className="flex flex-col px-2 gap-1">
       <div className="flex items-center gap-1">
         <div className={`rounded-full h-2 w-2 ${colorClass}`} />
         <h3 className="text-sm px-1 text-offwhite">{label}</h3>
@@ -26,6 +44,16 @@ const DominanceContainer = ({
       <h1 className="text-2xl font-semibold text-text-main">
         {value.toFixed(2)}%
       </h1>
+      <div className="flex items-center gap-1">
+        {renderCaret(valueChange)}
+        <span
+          className={`text-md font-semibold ${
+            valueChange > 0 ? "text-success" : "text-error"
+          }`}
+        >
+          {valueChange.toFixed(2)}%
+        </span>
+      </div>
     </div>
   );
 };
@@ -65,7 +93,7 @@ const Dominance = ({ className }: { className?: string }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(buildApiUrl(`/api/market_data`));
+        const response = await fetch(buildApiUrl(`/api/dominance`));
         const data = await response.json();
         setMarketData(data);
       } catch (error) {
@@ -100,6 +128,7 @@ const Dominance = ({ className }: { className?: string }) => {
             <DominanceContainer
               label="Bitcoin"
               value={marketData?.btcDominance || 0}
+              valueChange={marketData?.btcDominanceChange || 0}
               colorClass="bg-primary"
             />
           </div>
@@ -107,6 +136,7 @@ const Dominance = ({ className }: { className?: string }) => {
             <DominanceContainer
               label="Ethereum"
               value={marketData?.ethDominance || 0}
+              valueChange={marketData?.ethDominanceChange || 0}
               colorClass="bg-secondary"
             />
           </div>
@@ -117,6 +147,10 @@ const Dominance = ({ className }: { className?: string }) => {
                 100 -
                 (marketData?.btcDominance || 0) -
                 (marketData?.ethDominance || 0)
+              }
+              valueChange={
+                -(marketData?.btcDominanceChange || 0) -
+                (marketData?.ethDominanceChange || 0)
               }
               colorClass="bg-text-muted"
             />
