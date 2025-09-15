@@ -20,8 +20,8 @@ const PostLogo: React.FC<{ thumbnail: string; altText: string }> = ({
 
   return (
     <div
-      className={`w-full bg-surface aspect-square rounded-full overflow-hidden border border-primary xs:relative left-0 top-0 translate-x-0 translate-y-0 opacity-100
-                  p-4`}
+      className={`w-full bg-offwhite aspect-square rounded-full overflow-hidden border border-primary xs:relative left-0 top-0 translate-x-0 translate-y-0 opacity-100
+                  sm:p-2 p-1`}
     >
       <div className="size-full overflow-hidden">
         <Image
@@ -84,8 +84,8 @@ const CaptionElement = ({
 
   if (isMobile) {
     return (
-      <div className="w-full h-60 flex flex-col justify-between p-2">
-        <div className="flex w-full items-center p-2">
+      <div className="w-full h-60 flex flex-col justify-between p-2 pt-0">
+        <div className="flex w-full items-center p-2 pt-0">
           <div className="w-1/6 mr-2">
             <PostLogo
               thumbnail={post.thumbnail}
@@ -96,7 +96,7 @@ const CaptionElement = ({
             <h2>{post.title}</h2>
           </div>
         </div>
-        <div className="px-2 mb-4">
+        <div className="px-2 mb-2">
           <p className="text-text-muted line-clamp-2">{post.desc}</p>
         </div>
         <div className="flex justify-between items-center px-2">
@@ -108,7 +108,7 @@ const CaptionElement = ({
   }
 
   return (
-    <div className="w-full h-60 md:h-50 flex flex-col justify-between p-2">
+    <div className="w-full h-60 md:h-50 flex flex-col justify-between p-2 pt-0">
       <div className="flex w-full items-center p-2">
         <div className="w-1/6 mr-4">
           <PostLogo thumbnail={post.thumbnail} altText={`${post.title} logo`} />
@@ -137,7 +137,7 @@ const MostRecentAnalysisCard: React.FC<{
   return (
     <Link
       href={`/analysis/${post.slug}`}
-      className={`w-full border border-text-muted rounded-xl mb-2 sm:w-4/5 ${
+      className={`max-w-full w-full md:w-200 md:aspect-[4/3] h-auto border border-text-muted rounded-xl mb-2 ${
         isInView ? "animate-fade-in" : "animate-fade-out"
       }`}
     >

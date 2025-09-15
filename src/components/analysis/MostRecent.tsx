@@ -1,10 +1,36 @@
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+
 import MostRecentAnalysisCard, {
   AnalysisPostMeta,
 } from "./MostRecentAnalysisCard";
-import { useState, useEffect, useRef } from "react";
 
 type MostRecentProps = {
   recentAnalysis: AnalysisPostMeta[];
+};
+
+const PostLogo: React.FC<{ thumbnail: string; altText: string }> = ({
+  thumbnail,
+  altText,
+}) => {
+  if (!thumbnail?.length) return null;
+
+  return (
+    <div
+      className={`w-full bg-text-main aspect-square rounded-full overflow-hidden xs:relative left-0 top-0 translate-x-0 translate-y-0 opacity-100
+                  p-2`}
+    >
+      <div className="size-full overflow-hidden">
+        <Image
+          src={thumbnail}
+          alt={altText}
+          width={160}
+          height={160}
+          className="object-contain object-center size-full"
+        />
+      </div>
+    </div>
+  );
 };
 
 const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
@@ -49,7 +75,7 @@ const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
       {recentAnalysis.length === 0 ? (
         <div className="text-center text-text-muted">No posts found.</div>
       ) : (
-        <div className="relative flex flex-col items-center w-full">
+        <div className="relative flex flex-col lg:flex-row items-center justify-center w-full">
           <MostRecentAnalysisCard
             key={recentAnalysis[currentSlide].slug}
             post={recentAnalysis[currentSlide]}
@@ -57,10 +83,9 @@ const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
           />
           {/* Navigation dots */}
           {recentAnalysis.length > 1 && (
-            <div className="flex justify-center mt-2 space-x-2">
+            <div className="flex lg:flex-col w-full sm:w-3/5 md:w-4/5 lg:w-auto lg:h-3/5 px-4 justify-around mt-2 space-y-4 space-x-2">
               {recentAnalysis.map((_, index) => (
-                <button
-                  key={index}
+                <div
                   onClick={() => {
                     setIsTransitioning(true);
                     if (timerRef.current) {
@@ -71,13 +96,30 @@ const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
                       setIsTransitioning(false);
                     }, 500);
                   }}
-                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                  className={`flex gap-4 items-center cursor-pointer ${
                     index === currentSlide
-                      ? "bg-secondary scale-110"
-                      : "bg-gray-300 hover:bg-gray-400"
+                      ? "opacity-100 translate-y-4 translate-x-0 lg:translate-x-4 lg:translate-y-0"
+                      : "opacity-20 translate-y-0 translate-x-0 lg:translate-x-0 lg:translate-y-0"
                   }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
+                >
+                  <div
+                    key={index}
+                    className={`w-15 h-15 rounded-full transition-all duration-200 ${
+                      index === currentSlide
+                        ? "bg-secondary scale-110"
+                        : "bg-gray-300 hover:bg-gray-400"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  >
+                    <PostLogo
+                      thumbnail={recentAnalysis[index].thumbnail}
+                      altText={`${recentAnalysis[index].title} logo`}
+                    />
+                  </div>
+                  <span className="text-text-main text-sm truncate hidden xl:inline">
+                    {recentAnalysis[index].title}
+                  </span>
+                </div>
               ))}
             </div>
           )}
