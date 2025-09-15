@@ -4,3 +4,7 @@
 - Implement /coins page
 - Move loaders to separate element
 - Modularize elements into separate files
+- Check for unanimous styling across common elements in pages
+- Add the top paddings to <main> tags instead of the inner ones
+- Separate coin logos into separate elements
+- Fix relative imports and define aliases
