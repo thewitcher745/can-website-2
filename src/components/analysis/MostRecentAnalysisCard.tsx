@@ -137,7 +137,7 @@ const MostRecentAnalysisCard: React.FC<{
   return (
     <Link
       href={`/analysis/${post.slug}`}
-      className={`w-full sm:w-4/5 ${
+      className={`w-full border border-text-muted rounded-xl mb-2 sm:w-4/5 ${
         isInView ? "animate-fade-in" : "animate-fade-out"
       }`}
     >
