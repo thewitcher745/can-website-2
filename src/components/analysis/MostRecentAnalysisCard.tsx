@@ -84,7 +84,7 @@ const CaptionElement = ({
 
   if (isMobile) {
     return (
-      <div className="w-full h-60 flex flex-col justify-between p-2 pt-0">
+      <div className="w-full flex flex-col justify-between p-2 pt-0">
         <div className="flex w-full items-center p-2 pt-0">
           <div className="w-1/6 mr-2">
             <PostLogo
@@ -96,7 +96,7 @@ const CaptionElement = ({
             <h2>{post.title}</h2>
           </div>
         </div>
-        <div className="px-2 mb-2">
+        <div className="px-2 mb-2 h-12">
           <p className="text-text-muted line-clamp-2">{post.desc}</p>
         </div>
         <div className="flex justify-between items-center px-2">
@@ -117,7 +117,7 @@ const CaptionElement = ({
           <div className="text-text-main text-lg md:text-xl lg:text-2xl font-semibold">
             <h2>{post.title}</h2>
           </div>
-          <div>
+          <div className="h-12">
             <p className="text-text-muted line-clamp-2">{post.desc}</p>
           </div>
           <div className="flex justify-between items-center px-2 md:px-0">
@@ -137,7 +137,7 @@ const MostRecentAnalysisCard: React.FC<{
   return (
     <Link
       href={`/analysis/${post.slug}`}
-      className={`max-w-full w-full md:w-200 md:aspect-[4/3] h-auto border border-text-muted rounded-xl mb-2 ${
+      className={`max-w-full w-full md:w-190 md:aspect-[4/3] h-auto border border-text-muted rounded-xl mb-2 ${
         isInView ? "animate-fade-in" : "animate-fade-out"
       }`}
     >
