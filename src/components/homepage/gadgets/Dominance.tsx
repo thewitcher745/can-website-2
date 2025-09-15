@@ -142,7 +142,7 @@ const Dominance = ({ className }: { className?: string }) => {
           </div>
           <div className="alt-dominance">
             <DominanceContainer
-              label="Alt"
+              label="Alts"
               value={
                 100 -
                 (marketData?.btcDominance || 0) -
