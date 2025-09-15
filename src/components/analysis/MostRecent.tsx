@@ -96,7 +96,7 @@ const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
                       setIsTransitioning(false);
                     }, 500);
                   }}
-                  className={`flex gap-4 items-center cursor-pointer ${
+                  className={`flex gap-2 xs:gap-4 items-center cursor-pointer ${
                     index === currentSlide
                       ? "opacity-100 translate-y-4 translate-x-0 lg:translate-x-4 lg:translate-y-0"
                       : "opacity-20 translate-y-0 translate-x-0 lg:translate-x-0 lg:translate-y-0"
@@ -104,7 +104,7 @@ const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {
                 >
                   <div
                     key={index}
-                    className={`w-15 h-15 rounded-full transition-all duration-200 ${
+                    className={`w-8 h-8 xs:w-15 xs:h-15 rounded-full transition-all duration-200 ${
                       index === currentSlide
                         ? "bg-secondary scale-110"
                         : "bg-gray-300 hover:bg-gray-400"

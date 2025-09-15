@@ -78,7 +78,7 @@ const Footer: React.FC = () => (
             Telegram Channel
           </a>
         </div>
-        <div className="flex items-center gap-2 mb-1">
+        <div className="flex items-center gap-2 mb-1 text-wrap">
           <FaEnvelope className="text-primary" />
           <a
             href="mailto:cryptoanalysis.can@gmail.com"

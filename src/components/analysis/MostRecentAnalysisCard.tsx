@@ -40,9 +40,7 @@ const ImageElement = ({ post }: { post: AnalysisPostMeta }) => {
   return (
     <div
       key={post.slug}
-      className={
-        "relative overflow-hidden rounded-xl flex flex-col max-h-110 w-full aspect-video"
-      }
+      className={"relative overflow-hidden rounded-xl flex flex-col mb-2"}
     >
       <div className="relative w-full">
         <img
@@ -51,7 +49,7 @@ const ImageElement = ({ post }: { post: AnalysisPostMeta }) => {
           src={post.image}
           alt={post.title}
           className={
-            "object-cover self-center w-full h-full scale-140 object-center transition-all ease-in-out"
+            "object-contain self-center object-center aspect-[1631/760] transition-all ease-in-out"
           }
         />
       </div>
@@ -108,7 +106,7 @@ const CaptionElement = ({
   }
 
   return (
-    <div className="w-full h-60 md:h-50 flex flex-col justify-between p-2 pt-0">
+    <div className="w-full h-100 md:h-40 flex flex-col justify-between p-2 pt-0">
       <div className="flex w-full items-center p-2">
         <div className="w-1/6 mr-4">
           <PostLogo thumbnail={post.thumbnail} altText={`${post.title} logo`} />
@@ -137,7 +135,7 @@ const MostRecentAnalysisCard: React.FC<{
   return (
     <Link
       href={`/analysis/${post.slug}`}
-      className={`max-w-full w-full md:w-190 md:aspect-[4/3] h-auto border border-text-muted rounded-xl mb-2 ${
+      className={`max-w-full w-full md:w-190 lg:h-140 xl:h-130 h-auto border border-text-muted rounded-xl mb-2 ${
         isInView ? "animate-fade-in" : "animate-fade-out"
       }`}
     >
