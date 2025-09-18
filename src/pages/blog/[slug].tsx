@@ -104,8 +104,8 @@ const BlogPostPage: React.FC = () => {
           <Link href="/blog" className="text-primary hover:underline text-sm">
             ← Back to Blog
           </Link>
-          <div className="bg-surface border border-border rounded-lg p-8 shadow mt-4">
-            <h1 className="text-3xl font-bold mb-4 text-text-main hover:text-primary transition-colors">
+          <div className="rounded-lg p-8 mt-4">
+            <h1 className="text-xl md:text-3xl font-semibold mb-4 text-text-main hover:text-primary transition-colors">
               {post.title}
             </h1>
             <div className="text-xs text-text-muted mb-4">

@@ -8,3 +8,4 @@
 - Add the top paddings to <main> tags instead of the inner ones
 - Separate coin logos into separate elements
 - Fix relative imports and define aliases
+- Make the website truly SPA by uinfying Navbar loading on the entire website
