@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 import FearAndGreed from "../../components/technicals/FearAndGreed";
 import TopCoinsTable from "../../components/homepage/gadgets/TopCoinsTable";
@@ -7,7 +8,6 @@ import OurStats from "../../components/homepage/promotions/ourStats/OurStats";
 import Banner from "../../components/homepage/promotions/Banner";
 import Dominance from "../../components/homepage/gadgets/Dominance";
 import MostRecent from "../../components/analysis/MostRecent";
-
 import { AnalysisPostMeta } from "../../components/analysis/MostRecentAnalysisCard";
 import { buildApiUrl } from "../../config";
 
@@ -43,14 +43,26 @@ const Staging: React.FC = () => {
       </section>
       <section id="most-recent" className="my-10">
         <div className="flex flex-col px-4 text-center sm:text-left items-center">
-          <h1 className="text-3xl font-bold mb-2 text-primary">
+          <Link
+            href="/analysis"
+            className="text-3xl font-bold mb-2 underline text-primary hover:text-primary-light transition-colors duration-200"
+          >
             Latest analysis
-          </h1>
+          </Link>
           <p className="text-text-main text-xl">
             The latest analysis posts from our premium analysis service.
           </p>
         </div>
         <MostRecent recentAnalysis={posts.slice(0, 5)} />
+        <div className="flex justify-center">
+          <span className="text-text-main">
+            To see all analysis posts, you can navigate to the{" "}
+            <Link href="/analysis" className="text-primary">
+              Analysis
+            </Link>{" "}
+            page.
+          </span>
+        </div>
       </section>
       <OurStats />
       <div className="w-full pt-20 sm:pt-0 flex justify-center">
