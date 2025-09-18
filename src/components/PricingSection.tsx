@@ -113,8 +113,8 @@ const PricingSection: React.FC = () => (
                 href="https://t.me/CryptoANalysis_CAN"
                 className={`w-full flex-grow flex justify-center items-end px-4 py-2 rounded-lg font-semibold transition text-sm ${
                   pkg.highlight
-                    ? "text-primary underline text-text-main hover:text-primary-soft"
-                    : "text-text-main underline text-text-muted hover:text-text-main"
+                    ? "underline text-text-main hover:text-primary-soft"
+                    : "underline text-text-muted hover:text-text-main"
                 }`}
               >
                 Get Started
