@@ -224,31 +224,29 @@ const CryptoHeatmap: React.FC<HeatmapProps> = () => {
   }, [data, dimensions]);
 
   return (
-    <section className="py-8 w-full bg-background flex justify-center overflow-hidden">
-      <div className="max-w-[1000px] bg-surface p-4 py-8 rounded radius-6 w-full flex flex-col items-center">
-        <h2 className="text-2xl font-bold mb-6 pl-4 text-text-main">
-          Crypto Heatmap
-        </h2>
-        <div ref={containerRef} className="w-full h-[400px] relative">
-          {tooltip.visible && (
-            <Tooltip
-              data={tooltip.data}
-              position={tooltip.position}
-              containerRef={containerRef}
-            />
-          )}
-          {data && (
-            <svg
-              ref={svgRef}
-              width={dimensions.width}
-              height={dimensions.height}
-              className="block"
-            />
-          )}
-          {!data && <HeatmapPlaceholder />}
-        </div>
+    <div className="max-w-[1000px] p-4 py-8 rounded radius-6 w-full flex flex-col items-center">
+      <h2 className="text-2xl font-bold mb-6 pl-4 text-text-main">
+        Crypto Heatmap
+      </h2>
+      <div ref={containerRef} className="w-full h-[400px] relative">
+        {tooltip.visible && (
+          <Tooltip
+            data={tooltip.data}
+            position={tooltip.position}
+            containerRef={containerRef}
+          />
+        )}
+        {data && (
+          <svg
+            ref={svgRef}
+            width={dimensions.width}
+            height={dimensions.height}
+            className="block"
+          />
+        )}
+        {!data && <HeatmapPlaceholder />}
       </div>
-    </section>
+    </div>
   );
 };
 
