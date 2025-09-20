@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+@keyframes video-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-video-scroll {
+  animation-name: video-scroll;
+}
+
+/* Hide scrollbars for video section (in case of overflow) */
+.video-scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.video-scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 /* Sticky column shadow effect */
 .sticky-shadow-visible::before {
   box-shadow: inset 10px 0 8px -8px #00000026;
