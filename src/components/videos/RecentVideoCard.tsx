@@ -1,15 +1,12 @@
 import { Video } from "../VideosSection";
 
-const RecentVideoCard: React.FC = ({
-  video,
-  key,
-}: {
+type RecentVideoCardProps = {
   video: Video;
-  key: number;
-}) => {
+};
+
+const RecentVideoCard: React.FC<RecentVideoCardProps> = ({ video }) => {
   return (
     <a
-      key={video.id + "-" + key}
       href={video.link}
       target="_blank"
       rel="noopener noreferrer"
