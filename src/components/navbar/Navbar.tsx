@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
     <nav
       className={`fixed w-full z-100 shadow-lg border-b-2 border-orange-400 transition-colors duration-300 bg-background`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="max-w-[100rem] mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <div className="flex -translate-x-1/2 sm:translate-x-0 sm:relative flex-shrink-0 items-center absolute left-1/2 sm:left-auto transform">
