@@ -11,9 +11,11 @@ interface HeatmapNode {
   children?: HeatmapNode[];
 }
 
-interface HeatmapProps {}
+interface HeatmapProps {
+  height: number;
+}
 
-const CryptoHeatmap: React.FC<HeatmapProps> = () => {
+const CryptoHeatmap: React.FC<HeatmapProps> = ({ height = 600 }) => {
   const [tooltip, setTooltip] = useState<{
     visible: boolean;
     data: any;
@@ -21,7 +23,7 @@ const CryptoHeatmap: React.FC<HeatmapProps> = () => {
   }>({ visible: false, data: null, position: { x: 0, y: 0 } });
   const svgRef = useRef<SVGSVGElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 400 }); // Default height
+  const [dimensions, setDimensions] = useState({ width: 0, height }); // Default height
   const [data, setData] = useState<HeatmapNode | null>(null);
 
   useEffect(() => {
@@ -41,7 +43,7 @@ const CryptoHeatmap: React.FC<HeatmapProps> = () => {
     const observer = new ResizeObserver((entries) => {
       if (entries && entries.length > 0) {
         const { width } = entries[0].contentRect;
-        setDimensions({ width, height: 400 }); // Keep height fixed or adjust as needed
+        setDimensions({ width, height: dimensions.height }); // Keep height fixed or adjust as needed
       }
     });
 
@@ -224,11 +226,11 @@ const CryptoHeatmap: React.FC<HeatmapProps> = () => {
   }, [data, dimensions]);
 
   return (
-    <div className="max-w-[1000px] p-4 py-8 rounded radius-6 w-full flex flex-col items-center">
-      <h2 className="text-2xl font-bold mb-6 pl-4 text-text-main">
+    <div className="rounded radius-6 w-full flex flex-col items-center">
+      <h2 className="text-2xl font-bold pb-4 text-text-main self-start">
         Crypto Heatmap
       </h2>
-      <div ref={containerRef} className="w-full h-[400px] relative">
+      <div ref={containerRef} className="w-full relative">
         {tooltip.visible && (
           <Tooltip
             data={tooltip.data}
@@ -241,7 +243,6 @@ const CryptoHeatmap: React.FC<HeatmapProps> = () => {
             ref={svgRef}
             width={dimensions.width}
             height={dimensions.height}
-            className="block"
           />
         )}
         {!data && <HeatmapPlaceholder />}

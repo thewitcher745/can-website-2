@@ -25,7 +25,7 @@ const BottomGradientOverlay = () => {
 
 const RecentVideosScroll = ({ videos }: { videos: Video[] }) => {
   return (
-    <div className="flex lg:h-100 w-full xl:w-1/8 lg:w-1/5 flex-col relative overflow-hidden">
+    <div className="flex 2xl:h-190 xl:h-170 md:h-140 w-full xl:w-1/8 lg:w-1/5 flex-col relative overflow-hidden">
       <div className="lg:block hidden">
         <TopGradientOverlay />
         <BottomGradientOverlay />

@@ -5,9 +5,9 @@ import Dominance from "./homepage/gadgets/Dominance";
 
 const TopRowGadgetsSection: React.FC = () => {
   return (
-    <section id="top-row" className="w-full flex justify-center">
+    <section id="top-row" className="w-full flex justify-center my-2">
       <div className="max-w-[100rem] w-full flex flex-col lg:flex-row gap-2 justify-center items-center">
-        <div className="w-full xl:w-3/4 lg:w-2/3 grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 gap-2 ">
+        <div className="w-full xl:w-3/4 lg:w-2/3 grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 gap-2">
           <RecentArticlesTable className="w-full" />
           <TopCoinsTable className="w-full" />
         </div>
