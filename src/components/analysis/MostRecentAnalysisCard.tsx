@@ -21,7 +21,7 @@ const PostLogo: React.FC<{ thumbnail: string; altText: string }> = ({
   return (
     <div
       className={`w-full bg-offwhite aspect-square rounded-full overflow-hidden border border-primary xs:relative left-0 top-0 translate-x-0 translate-y-0 opacity-100
-                  sm:p-2 p-1`}
+                  sm:p-2 xl:p-4 p-1`}
     >
       <div className="size-full overflow-hidden">
         <Image
@@ -43,6 +43,9 @@ const ImageElement = ({ post }: { post: AnalysisPostMeta }) => {
       className={"relative overflow-hidden rounded-xl flex flex-col mb-2"}
     >
       <div className="relative w-full">
+        <div className="absolute right-0 bottom-0 m-5 sm:m-8 lg:m-10 w-12 h-12 md:h-15 md:w-15 lg:w-21 lg:h-21 xl:w-30 xl:h-30 opacity-70">
+          <PostLogo thumbnail={post.thumbnail} altText={`${post.title} logo`} />
+        </div>
         <img
           width={2000}
           height={2000}
@@ -84,18 +87,18 @@ const CaptionElement = ({
     return (
       <div className="w-full flex flex-col justify-between p-2 pt-0">
         <div className="flex w-full items-center p-2 pt-0">
-          <div className="w-1/6 mr-2">
+          {/* <div className="w-1/6 mr-2 hidden xs:block">
             <PostLogo
               thumbnail={post.thumbnail}
               altText={`${post.title} logo`}
             />
-          </div>
-          <div className="w-5/6 text-text-main text-lg font-semibold">
+          </div> */}
+          <div className="text-text-main text-md xs:text-lg xs:font-semibold">
             <h2>{post.title}</h2>
           </div>
         </div>
-        <div className="px-2 mb-2 h-12">
-          <p className="text-text-muted line-clamp-2">{post.desc}</p>
+        <div className="px-2 mb-2 h-12 hidden xs:block">
+          <p className="text-text-muted text-sm line-clamp-2">{post.desc}</p>
         </div>
         <div className="flex justify-between items-center px-2">
           <PostTime />
@@ -106,12 +109,9 @@ const CaptionElement = ({
   }
 
   return (
-    <div className="w-full h-100 md:h-40 flex flex-col justify-between p-2 pt-0">
+    <div className="w-full h-100 md:h-45 flex flex-col justify-between p-2 pt-0">
       <div className="flex w-full items-center p-2">
-        <div className="w-1/6 mr-4">
-          <PostLogo thumbnail={post.thumbnail} altText={`${post.title} logo`} />
-        </div>
-        <div className="w-5/6 flex flex-col gap-4">
+        <div className="w-full flex flex-col gap-4">
           <div className="text-text-main text-lg md:text-xl lg:text-2xl font-semibold">
             <h2>{post.title}</h2>
           </div>
@@ -135,7 +135,7 @@ const MostRecentAnalysisCard: React.FC<{
   return (
     <Link
       href={`/analysis/${post.slug}`}
-      className={`max-w-full w-full md:w-190 lg:h-140 xl:h-130 h-auto border border-text-muted rounded-xl mb-2 ${
+      className={`max-w-full w-full border border-text-muted rounded-xl mb-2 ${
         isInView ? "animate-fade-in" : "animate-fade-out"
       }`}
     >

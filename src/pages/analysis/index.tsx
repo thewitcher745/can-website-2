@@ -1,12 +1,13 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
 import { buildApiUrl } from "../../config";
 import AnalysisCard from "../../components/analysis/AnalysisCard";
-import MostRecent from "../../components/analysis/MostRecent";
 import { AnalysisPostMeta } from "../../components/analysis/MostRecentAnalysisCard";
+import MostRecent from "../../components/analysis/MostRecent";
 
 const Analysis: React.FC = () => {
   const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
@@ -75,31 +76,44 @@ const Analysis: React.FC = () => {
       </>
     );
 
+  // Change number of posts based on screen size
+  const mostRecentElement = (
+    <div>
+      <div className="items-center gap-4 w-full 2xl:block hidden">
+        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 8)} />
+      </div>
+      <div className="items-center gap-4 w-full md:max-2xl:block hidden">
+        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 7)} />
+      </div>
+      <div className="items-center gap-4 w-full max-md:flex hidden">
+        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 4)} />
+      </div>
+    </div>
+  );
+
   return (
     <>
       <Navbar />
-      <main className="bg-background min-h-screen pt-24">
-        <section id="most-recent">
-          <div className="flex flex-col px-4 text-center sm:text-left items-center">
-            <h1 className="text-3xl font-bold mb-2 text-primary">
+      <main className="bg-background min-h-screen pt-24 px-4">
+        <section id="most-recent" className="w-full flex justify-center">
+          <div className="max-w-[100rem] w-full flex flex-col self-start sm:text-left">
+            <h2 className="text-xl md:text-3xl font-bold mb-2 text-primary hover:text-primary-light transition-colors duration-200">
               Latest analysis
-            </h1>
-            <p className="text-text-main text-xl">
-              The latest analysis posts from our premium analysis service.
-            </p>
+            </h2>
+            {mostRecentElement}
           </div>
-          <MostRecent recentAnalysis={posts.slice(0, 5)} />
         </section>
-        <section id="all-analysis">
-          <div className="max-w-4xl lg:max-w-6xl mx-auto pb-8 px-4">
-            <h1 className="text-3xl font-bold mb-8 text-primary">
+
+        <section id="all-analysis" className="w-full flex justify-center my-4">
+          <div className="max-w-[100rem] w-full mx-auto pb-8">
+            <h2 className="text-xl md:text-3xl font-bold mb-8 text-primary">
               All analysis
-            </h1>
-            <p className="text-text-main text-xl mb-6 px-2">
+            </h2>
+            <p className="text-text-main text-xl mb-6">
               You can find our reliable, accurate and profitable premium
               analysis for different coins here.
             </p>
-            <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
               {filteredPosts.length === 0 ? (
                 <div className="text-center text-text-muted">
                   No posts found.

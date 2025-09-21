@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+.selector-caption {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-clamp: 2;
+}
+
 @keyframes video-scroll {
   0% { transform: translateY(0); }
   100% { transform: translateY(-50%); }
@@ -260,4 +270,3 @@ ol {
     transform: translateY(0) rotateY(20deg) rotateX(20deg);
   }
 }
-
