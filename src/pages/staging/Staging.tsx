@@ -4,11 +4,13 @@ import TopRowGadgetsSection from "../../components/TopRowGadgetsSection";
 import MostRecentAnalysisSection from "../../components/MostRecentAnalysisSection";
 import VideosSection from "../../components/VideosSection";
 import HeatmapSection from "../../components/HeatmapSection";
+import TopMarketCapCoinsSection from "../../components/TopMarketCapCoinsSection";
 
 const Staging: React.FC = () => {
   return (
     <main className="py-20 px-4 w-full bg-background flex flex-col items-center min-h-screen">
       <TopRowGadgetsSection />
+      <TopMarketCapCoinsSection />
       <MostRecentAnalysisSection />
       <VideosSection />
       <HeatmapSection />

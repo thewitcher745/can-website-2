@@ -15,6 +15,32 @@ export const TopCoinsTableRowPlaceholer = () => (
   </tr>
 );
 
+export const HomepageTopCoinsTableRowPlaceholer = () => (
+  <tr className="border-b border-border animate-pulse">
+    <td className={`sticky left-0 px-6 py-4`}>
+      <div className="h-4 bg-gray-700 rounded w-3/4"></div>
+    </td>
+    <td className="px-4 py-4">
+      <div className="h-4 bg-gray-700 rounded w-1/2"></div>
+    </td>
+    <td className="px-4 py-4">
+      <div className="h-4 bg-gray-700 rounded w-1/4"></div>
+    </td>
+    <td className="px-4 py-4 hidden md:table-cell">
+      <div className="h-4 bg-gray-700 rounded w-1/2"></div>
+    </td>
+    <td className="px-4 py-4 hidden md:table-cell">
+      <div className="h-4 bg-gray-700 rounded w-1/2"></div>
+    </td>
+    <td className="px-4 py-4 hidden sm:table-cell">
+      <div className="h-4 bg-gray-700 rounded w-1/2"></div>
+    </td>
+    <td className="px-4 py-4 justify-center hidden lg:flex">
+      <div className="h-4 bg-gray-700 rounded w-1/2"></div>
+    </td>
+  </tr>
+);
+
 export const TrendingCoinsTableRowPlaceholder = () => (
   <tr className="border-b border-border animate-pulse">
     <td className={`sticky left-0 px-6 py-4`}>
