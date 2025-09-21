@@ -69,7 +69,7 @@ const VideosSection: React.FC = () => {
 
   return (
     <section id="videos" className="w-full flex justify-center my-2">
-      <div className="max-w-[100rem] w-full flex flex-col items-center">
+      <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full flex flex-col items-center">
         <h2 className="text-2xl self-start text-text-main font-bold mb-2">
           Our most recent video analysis
         </h2>
