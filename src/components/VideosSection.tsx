@@ -73,14 +73,14 @@ const VideosSection: React.FC = () => {
         <h2 className="text-2xl self-start text-text-main font-bold mb-2">
           Our most recent video analysis
         </h2>
-        <div className="flex flex-col w-full lg:flex-row items-center justify-center">
-          <div className="my-4 w-full md:w-full aspect-video">
+        <div className="flex flex-col w-full lg:flex-row items-center justify-center shadow-lg">
+          <div className="my-4 pr-10 w-full md:w-full aspect-video">
             <iframe
               src={`https://www.youtube.com/embed/${mainVideo.id}`}
               title={mainVideo.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="h-full w-full"
+              className="h-full w-full p-4"
             />
           </div>
           <RecentVideosScroll videos={otherVideos} />

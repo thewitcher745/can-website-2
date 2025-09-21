@@ -4,7 +4,7 @@ import ArticlesMenuButton from "./ArticlesMenu";
 
 const DesktopNav = () => {
   return (
-    <div className="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+    <div className="hidden md:ml-6 md:flex md:items-center md:space-x-8 mr-4">
       <Link
         href="/analysis"
         className="text-text-main hover:text-orange px-3 py-2 text-sm font-medium"
