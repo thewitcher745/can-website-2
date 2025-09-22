@@ -156,6 +156,7 @@ ol {
 }
 .blog-article img {
   padding: 1rem;
+  width: 100%;
 }
 .blog-article p {
   background-color: transparent;

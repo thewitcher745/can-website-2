@@ -11,6 +11,7 @@ export interface Video {
   link: string;
   published: string;
   thumbnail: string;
+  description: string;
   title: string;
 }
 
