@@ -27,7 +27,7 @@ const TopMarketCapCoinsSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(buildApiUrl(`/api/top_coins`));
+        const response = await fetch(buildApiUrl(`/api/top_market_cap_coins`));
         const data = await response.json();
         setTopCoins(data);
         setLoading(false);
