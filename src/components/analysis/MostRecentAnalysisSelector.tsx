@@ -41,7 +41,7 @@ const MostRecentAnalysisSelector = ({
 }) => {
   return (
     recentAnalysis.length > 1 && (
-      <div className="flex lg:flex-col w-full lg:w-auto xl:w-1/5 h-full px-4 justify-around mt-2 space-y-4 space-x-2">
+      <div className="flex lg:flex-col w-full lg:w-auto xl:w-1/4 h-full px-4 justify-around mt-2 space-y-4 space-x-2">
         {recentAnalysis.map((_, index) => (
           <div
             onClick={() => {

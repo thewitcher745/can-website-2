@@ -10,7 +10,7 @@ const RecentVideoCard: React.FC<RecentVideoCardProps> = ({ video }) => {
       href={video.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-1/4 min-w-20"
+      className="min-w-20"
     >
       <div className="w-full h-full">
         <img
