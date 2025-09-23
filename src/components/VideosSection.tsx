@@ -75,7 +75,7 @@ const VideosSection: React.FC = () => {
           Our most recent video analysis
         </h2>
         <div className="flex flex-col w-full lg:flex-row items-center justify-center">
-          <div className="my-4 pr-10 w-full md:w-full aspect-video">
+          <div className="my-4 lg:pr-10 w-full md:w-full aspect-video">
             <iframe
               src={`https://www.youtube.com/embed/${mainVideo.id}`}
               title={mainVideo.title}
@@ -86,7 +86,7 @@ const VideosSection: React.FC = () => {
           </div>
           <RecentVideosScroll videos={otherVideos} />
         </div>
-        <div className="flex gap-2 items-center hover:*:text-primary ">
+        <div className="flex mt-2 sm:mt-0 gap-2 items-center hover:*:text-primary ">
           <FaYoutube className="w-6 h-6 text-text-main transition-all duration-200" />
           <Link
             href="/videos"

@@ -25,7 +25,7 @@ const BottomGradientOverlay = () => {
 
 const RecentVideosScroll = ({ videos }: { videos: Video[] }) => {
   return (
-    <div className="flex 2xl:h-190 xl:h-170 lg:h-140 w-full xl:w-1/4 pl-4 lg:w-1/5 flex-col relative shadow-lg overflow-hidden">
+    <div className="flex 2xl:h-190 xl:h-170 lg:h-140 w-full xl:w-1/4 lg:pl-4 lg:w-1/5 flex-col relative shadow-lg overflow-hidden">
       <div className="lg:block hidden">
         <TopGradientOverlay />
         <BottomGradientOverlay />
@@ -50,7 +50,7 @@ const RecentVideosScroll = ({ videos }: { videos: Video[] }) => {
             <RecentVideoCard key={idx} video={video} />
           ))}
         </div>
-        <div className="lg:hidden w-4/5 flex gap-2 justify-center">
+        <div className="lg:hidden flex overflow-x-scroll gap-2 justify-center">
           {videos.map((video, idx) => (
             <RecentVideoCard key={idx} video={video} />
           ))}
