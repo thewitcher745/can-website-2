@@ -10,13 +10,11 @@ import { HomepageTopCoinsTableRowPlaceholer } from "./technicals/subcomponents/l
 interface TopCoin {
   change_24h: number;
   change_7d: number;
-  change_30d: number;
   name: string;
   price: number;
   symbol: string;
-  volume: number;
+  volume_24h: number;
   market_cap: number;
-  sparkline: number[];
 }
 
 const TopMarketCapCoinsSection = () => {
@@ -149,14 +147,8 @@ const TopMarketCapCoinsSection = () => {
                 <th className="px-6 py-4 text-start w-[30%] min-w-sm hidden md:table-cell">
                   7d Change%
                 </th>
-                <th className="px-6 py-4 text-start w-[30%] min-w-sm hidden md:table-cell">
-                  30d Change%
-                </th>
                 <th className="px-6 py-4 text-start w-[20%] min-w-sm hidden sm:table-cell">
                   Volume
-                </th>
-                <th className="px-6 py-4 text-center w-[20%] min-w-sm hidden lg:table-cell">
-                  Sparkline
                 </th>
               </tr>
             </thead>
@@ -214,24 +206,8 @@ const TopMarketCapCoinsSection = () => {
                         {coin.change_7d.toFixed(2)}%
                       </div>
                     </td>
-                    <td
-                      className={`px-6 py-4 h-full flex-col gap-2 ${
-                        coin.change_30d >= 0 ? "text-success" : "text-error"
-                      } font-bold hidden md:table-cell`}
-                    >
-                      <div className="flex items-center gap-1">
-                        {renderCaret(coin.change_30d)}
-                        {coin.change_30d.toFixed(2)}%
-                      </div>
-                    </td>
                     <td className="px-6 py-4 h-full hidden sm:table-cell">
-                      {formatNumber(coin.volume)}
-                    </td>
-                    <td className="px-6 py-4 h-full hidden lg:table-cell">
-                      <Sparkline
-                        color={coin.change_24h >= 0 ? "#4ade80" : "#ef4444"}
-                        data={coin.sparkline}
-                      />
+                      {formatNumber(coin.volume_24h)}
                     </td>
                   </tr>
                 ))
