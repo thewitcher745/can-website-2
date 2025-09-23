@@ -5,6 +5,7 @@ import MostRecentAnalysisSection from "../../components/MostRecentAnalysisSectio
 import VideosSection from "../../components/VideosSection";
 import HeatmapSection from "../../components/HeatmapSection";
 import TopMarketCapCoinsSection from "../../components/TopMarketCapCoinsSection";
+import HighPotentialTokensSection from "../../components/HighPotentialTokensSection";
 
 const Staging: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Staging: React.FC = () => {
       <TopMarketCapCoinsSection />
       <MostRecentAnalysisSection />
       <VideosSection />
+      <HighPotentialTokensSection />
       <HeatmapSection />
       <OurStats />
       <div className="w-full pt-20 sm:pt-0 flex justify-center">
