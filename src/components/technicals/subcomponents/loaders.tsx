@@ -15,7 +15,7 @@ export const TopCoinsTableRowPlaceholer = () => (
   </tr>
 );
 
-export const HomepageTopCoinsTableRowPlaceholer = () => (
+export const HomepageTopCoinsTableRowPlaceholder = () => (
   <tr className="border-b border-border animate-pulse">
     <td className={`sticky left-0 px-6 py-4`}>
       <div className="h-4 bg-gray-700 rounded w-3/4"></div>

@@ -304,6 +304,19 @@ ol {
   background-color: var(--primary-hover-color);
 }
 
+.MuiChartsAxis-root * {
+  stroke-width: 0;
+  fill: var(--color-text-main) !important;
+  stroke: var(--color-text-main) !important;
+}
+.MuiAreaElement-root {
+  opacity: 0.2;
+}
+.MuiChartsGrid-root * {
+  stroke: var(--color-text-main) !important;
+  opacity: 0.2;
+}
+
 @keyframes banner-logo-animation {
   0% {
     transform: translateY(0) rotateY(20deg) rotateX(20deg);

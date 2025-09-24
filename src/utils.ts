@@ -63,3 +63,24 @@ export const formatRelativeTime = (time: Date | string, format: string = "long")
 
     return time.toLocaleDateString();
 }
+
+export const formatPrice = (num: number | string) => {
+  const numericalNum = Number(num);
+  // Converts the number to a string and separates the integer part every 3 digits from the right.
+  const integerPart = String(numericalNum).split(".")[0];
+  const decimalPart = String(numericalNum).split(".")[1];
+  return `$${integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${decimalPart ? "." + decimalPart : ""}`;
+};
+
+export const reduceNumber = (num: number, precision: number = 2) => {
+  if (num >= 1000000000000) {
+    return `$${(num / 1000000000000).toFixed(precision)}T`;
+  } else if (num >= 1000000000) {
+    return `$${(num / 1000000000).toFixed(precision)}B`;
+  } else if (num >= 1000000) {
+    return `$${(num / 1000000).toFixed(precision)}M`;
+  } else if (num >= 1000) {
+    return `$${(num / 1000).toFixed(precision)}K`;
+  }
+  return `$${num.toFixed(precision)}`;
+};

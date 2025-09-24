@@ -32,11 +32,20 @@ const TabSelector = ({
         </Link>
         <Link href="/coins/trending">
           <div
-            className={`px-4 py-2 text-text-muted rounded-r-4xl transition duration-200 ${
+            className={`px-4 py-2 text-text-muted transition duration-200 ${
               activeTab === "trending" ? "bg-white" : ""
             }`}
           >
             Trending
+          </div>
+        </Link>
+        <Link href="/coins/overview">
+          <div
+            className={`px-4 py-2 text-text-muted rounded-r-4xl transition duration-200 ${
+              activeTab === "overview" ? "bg-white" : ""
+            }`}
+          >
+            Market Overview
           </div>
         </Link>
       </div>

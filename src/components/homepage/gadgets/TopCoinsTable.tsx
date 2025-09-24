@@ -105,7 +105,7 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
 
   const renderCaret = (change: number) => {
     const isPositive = change >= 0;
-    const colorClass = isPositive ? "text-success" : "text-danger";
+    const colorClass = isPositive ? "text-success" : "text-error";
     return (
       <div className={`h-4 w-4 ${colorClass} pr-3`}>
         {isPositive ? (

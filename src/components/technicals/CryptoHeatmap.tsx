@@ -227,9 +227,6 @@ const CryptoHeatmap: React.FC<HeatmapProps> = ({ height = 600 }) => {
 
   return (
     <div className="rounded radius-6 w-full flex flex-col items-center">
-      <h2 className="text-2xl font-bold pb-4 text-text-main self-start">
-        Crypto Heatmap
-      </h2>
       <div ref={containerRef} className="w-full relative">
         {tooltip.visible && (
           <Tooltip

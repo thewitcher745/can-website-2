@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
-import CoinsTable from "./CoinsTable";
+import CoinsElement from "./CoinsTable";
 
 const CoinsTab = () => {
   const router = useRouter();
@@ -14,16 +14,17 @@ const CoinsTab = () => {
     currentTab.length === 0 ||
     (currentTab[0] !== "gainers" &&
       currentTab[0] !== "losers" &&
-      currentTab[0] !== "trending")
+      currentTab[0] !== "trending" &&
+      currentTab[0] !== "overview")
   ) {
     if (router.asPath !== "/coins/gainers") {
       router.replace("/coins/gainers");
     }
 
-    return <CoinsTable activeTab="gainers" />;
+    return <CoinsElement activeTab="gainers" />;
   }
 
-  return <CoinsTable activeTab={currentTab[0]} />;
+  return <CoinsElement activeTab={currentTab[0]} />;
 };
 
 export default CoinsTab;

@@ -6,36 +6,40 @@ import TrendingCoinsTable from "../../components/technicals/TrendingCoinsTable";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
 import TabSelector from "./TabSelector";
+import MarketOverview from "../../components/technicals/MarketOverview/MarketOverview";
 
-const CoinsTable = ({ activeTab }: { activeTab: string }) => {
-  // This is the elemet to render as the table
-  var tableElement = <TrendingCoinsTable maxRows={10} />;
+const CoinsElement = ({ activeTab }: { activeTab: string }) => {
+  // This is the element to render
+  var element = <TrendingCoinsTable maxRows={10} />;
 
   switch (activeTab) {
     case "gainers":
-      tableElement = <TopGainersTable maxRows={10} />;
+      element = <TopGainersTable maxRows={10} />;
       break;
     case "losers":
-      tableElement = <TopLosersTable maxRows={10} />;
+      element = <TopLosersTable maxRows={10} />;
       break;
     case "trending":
-      tableElement = <TrendingCoinsTable maxRows={10} />;
+      element = <TrendingCoinsTable maxRows={10} />;
+      break;
+    case "overview":
+      element = <MarketOverview />;
       break;
     default:
-      tableElement = <TopGainersTable maxRows={10} />;
+      element = <TopGainersTable maxRows={10} />;
       break;
   }
 
   return (
     <>
       <Navbar />
-      <main className="px-4 w-full bg-background flex flex-col items-center">
+      <main className="px-4 w-full bg-background flex flex-col items-center min-h-screen">
         <TabSelector className="pt-24" activeTab={activeTab} />
-        {tableElement}
+        {element}
       </main>
       <Footer />
     </>
   );
 };
 
-export default CoinsTable;
+export default CoinsElement;

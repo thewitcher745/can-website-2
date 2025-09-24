@@ -5,7 +5,7 @@ import Image from "next/image";
 import { buildApiUrl } from "../config";
 import { getCoinLogoLink } from "../utils";
 import Sparkline from "./technicals/subcomponents/Sparkline";
-import { HomepageTopCoinsTableRowPlaceholer } from "./technicals/subcomponents/loaders";
+import { HomepageTopCoinsTableRowPlaceholder } from "./technicals/subcomponents/loaders";
 
 interface TopCoin {
   change_24h: number;
@@ -156,7 +156,7 @@ const TopMarketCapCoinsSection = () => {
             <tbody>
               {loading ? (
                 Array.from({ length: 8 }).map((_, i) => (
-                  <HomepageTopCoinsTableRowPlaceholer key={i} />
+                  <HomepageTopCoinsTableRowPlaceholder key={i} />
                 ))
               ) : topCoins.length === 0 ? (
                 <tr>
