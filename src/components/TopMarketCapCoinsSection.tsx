@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 
 import { buildApiUrl } from "../config";
-import { getCoinLogoLink } from "../utils";
-import Sparkline from "./technicals/subcomponents/Sparkline";
+import { getCoinLogoLink, reduceNumber } from "../utils";
 import { HomepageTopCoinsTableRowPlaceholder } from "./technicals/subcomponents/loaders";
 
 interface TopCoin {
@@ -22,6 +21,17 @@ const TopMarketCapCoinsSection = () => {
   const [loading, setLoading] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const tableContainerRef = useRef<HTMLDivElement>(null);
+  const [sortBy, setSortBy] = useState<keyof TopCoin>("market_cap");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+
+  const handleHeaderClick = (column: keyof TopCoin) => {
+    if (sortBy === column) {
+      setSortDir((prev) => (prev === "asc" ? "desc" : "asc"));
+    } else {
+      setSortBy(column);
+      setSortDir("desc");
+    }
+  };
 
   // Fetch top coins data on mount
   useEffect(() => {
@@ -37,6 +47,25 @@ const TopMarketCapCoinsSection = () => {
     };
     fetchData();
   }, []);
+
+  const sortedCoins = useMemo(() => {
+    const coins = [...topCoins];
+    if (coins.length === 0) return coins;
+    coins.sort((a, b) => {
+      const aVal = a[sortBy] as string | number;
+      const bVal = b[sortBy] as string | number;
+      let cmp = 0;
+      if (typeof aVal === "string" && typeof bVal === "string") {
+        cmp = aVal.localeCompare(bVal);
+      } else {
+        const aNum = Number(aVal);
+        const bNum = Number(bVal);
+        cmp = aNum === bNum ? 0 : aNum < bNum ? -1 : 1;
+      }
+      return sortDir === "asc" ? cmp : -cmp;
+    });
+    return coins;
+  }, [topCoins, sortBy, sortDir]);
 
   // Handle horizontal scroll shadow
   useEffect(() => {
@@ -112,7 +141,7 @@ const TopMarketCapCoinsSection = () => {
 
   const renderCaret = (change: number) => {
     const isPositive = change >= 0;
-    const colorClass = isPositive ? "text-success" : "text-danger";
+    const colorClass = isPositive ? "text-success" : "text-error";
     return (
       <div className={`h-4 w-4 ${colorClass} pr-3`}>
         {isPositive ? (
@@ -139,17 +168,106 @@ const TopMarketCapCoinsSection = () => {
                     isScrolled ? "sticky-shadow-visible" : ""
                   }`}
                 >
-                  Name/Symbol
+                  <div className="flex items-center gap-1">
+                    <span
+                      className="text-text-main py-2 pl-2 cursor-pointer"
+                      onClick={() => handleHeaderClick("name")}
+                    >
+                      Name/Symbol
+                    </span>
+                    {sortBy === "name" && sortDir === "asc" ? (
+                      <ChevronUp />
+                    ) : sortBy === "name" && sortDir === "desc" ? (
+                      <ChevronDown />
+                    ) : (
+                      <></>
+                    )}
+                  </div>
                 </th>
-                <th className="px-6 py-4 text-start w-[20%] min-w-sm">Price</th>
+                <th className="px-6 py-4 text-start w-[20%] min-w-sm">
+                  <div className="flex items-center gap-1">
+                    <span
+                      className="text-text-main py-2 pl-2 cursor-pointer"
+                      onClick={() => handleHeaderClick("price")}
+                    >
+                      Price
+                    </span>
+                    {sortBy === "price" && sortDir === "asc" ? (
+                      <ChevronUp />
+                    ) : sortBy === "price" && sortDir === "desc" ? (
+                      <ChevronDown />
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                </th>
+                <th className="px-6 py-4 text-start w-[20%] min-w-sm hidden md:table-cell">
+                  <div className="flex items-center gap-1">
+                    <span
+                      className="text-text-main py-2 pl-2 cursor-pointer"
+                      onClick={() => handleHeaderClick("market_cap")}
+                    >
+                      Market Cap
+                    </span>
+                    {sortBy === "market_cap" && sortDir === "asc" ? (
+                      <ChevronUp />
+                    ) : sortBy === "market_cap" && sortDir === "desc" ? (
+                      <ChevronDown />
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                </th>
                 <th className="px-6 py-4 text-start w-[30%] min-w-sm">
-                  24h Change%
+                  <div className="flex items-center gap-1">
+                    <span
+                      className="text-text-main py-2 pl-2 cursor-pointer"
+                      onClick={() => handleHeaderClick("change_24h")}
+                    >
+                      24h Change%
+                    </span>
+                    {sortBy === "change_24h" && sortDir === "asc" ? (
+                      <ChevronUp />
+                    ) : sortBy === "change_24h" && sortDir === "desc" ? (
+                      <ChevronDown />
+                    ) : (
+                      <></>
+                    )}
+                  </div>
                 </th>
                 <th className="px-6 py-4 text-start w-[30%] min-w-sm hidden md:table-cell">
-                  7d Change%
+                  <div className="flex items-center gap-1">
+                    <span
+                      className="text-text-main py-2 pl-2 cursor-pointer"
+                      onClick={() => handleHeaderClick("change_7d")}
+                    >
+                      7d Change%
+                    </span>
+                    {sortBy === "change_7d" && sortDir === "asc" ? (
+                      <ChevronUp />
+                    ) : sortBy === "change_7d" && sortDir === "desc" ? (
+                      <ChevronDown />
+                    ) : (
+                      <></>
+                    )}
+                  </div>
                 </th>
                 <th className="px-6 py-4 text-start w-[20%] min-w-sm hidden sm:table-cell">
-                  Volume
+                  <div className="flex items-center gap-1">
+                    <span
+                      className="text-text-main py-2 pl-2 cursor-pointer"
+                      onClick={() => handleHeaderClick("volume_24h")}
+                    >
+                      Volume
+                    </span>
+                    {sortBy === "volume_24h" && sortDir === "asc" ? (
+                      <ChevronUp />
+                    ) : sortBy === "volume_24h" && sortDir === "desc" ? (
+                      <ChevronDown />
+                    ) : (
+                      <></>
+                    )}
+                  </div>
                 </th>
               </tr>
             </thead>
@@ -167,7 +285,7 @@ const TopMarketCapCoinsSection = () => {
                   </td>
                 </tr>
               ) : (
-                topCoins.map((coin, index) => (
+                sortedCoins.map((coin, index) => (
                   <tr key={index} className="border-b border-border">
                     <td
                       className={`sticky bg-background left-0 w-150 pl-4 py-4 ${
@@ -187,6 +305,9 @@ const TopMarketCapCoinsSection = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4">{formatPrice(coin.price)}</td>
+                    <td className="px-6 py-4 hidden md:table-cell">
+                      {reduceNumber(coin.market_cap)}
+                    </td>
                     <td
                       className={`px-6 py-4 h-full flex-col gap-2 ${
                         coin.change_24h >= 0 ? "text-success" : "text-error"
