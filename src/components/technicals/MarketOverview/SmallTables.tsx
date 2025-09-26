@@ -8,7 +8,8 @@ import { buildApiUrl } from "../../../config";
 import { TopCoinsTableRowPlaceholer } from "../subcomponents/loaders";
 
 interface Coin {
-  change: number;
+  change?: number;
+  change_24h?: number;
   name: string;
   price: number;
   symbol: string;
@@ -19,6 +20,7 @@ interface ApiData {
   top_gainers: Coin[];
   top_losers: Coin[];
   trending: Coin[];
+  top_volume: Coin[];
 }
 
 const renderCaret = (change: number) => {
@@ -71,9 +73,11 @@ const renderTableRows = (coins: Coin[]) => {
   const rows = [];
   for (let i = 0; i < 5; i++) {
     const coin = coins[i];
-    console.log(coin);
     // Number of decimal places that the number has
     const decimalPlaces = coin.price.toString().split(".")[1]?.length;
+    const changeValue = Math.abs(coin.change).toFixed(2)
+      ? Math.abs(coin.change).toFixed(2)
+      : Math.abs(coin.change_24h).toFixed(2);
 
     rows.push(
       <tr key={i} className="border-b border-border h-1/5">
@@ -103,7 +107,7 @@ const renderTableRows = (coins: Coin[]) => {
               <div className="flex items-center gap-1">
                 {renderCaret(coin.change)}
                 <span className="text-sm font-semibold text-nowrap">
-                  {Math.abs(coin.change).toFixed(2)} %
+                  {changeValue} %
                 </span>
               </div>
             </td>
@@ -125,6 +129,7 @@ const SmallTables = () => {
   const [topGainers, setTopGainers] = useState<Coin[] | null>(null);
   const [topLosers, setTopLosers] = useState<Coin[] | null>(null);
   const [trending, setTrending] = useState<Coin[] | null>(null);
+  const [topVolumeCoins, setTopVolumeCoins] = useState<Coin[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -146,6 +151,12 @@ const SmallTables = () => {
         setTopGainers(result.top_gainers);
         setTopLosers(result.top_losers);
         setTrending(result.trending);
+        setTopVolumeCoins(
+          result.top_volume.map((coin) => ({
+            ...coin,
+            change: coin.change_24h,
+          }))
+        );
       } catch (err) {
         setError(
           err instanceof Error ? err.message : "An unknown error occurred"
@@ -163,10 +174,10 @@ const SmallTables = () => {
       id="market-data-tables"
       className="w-full flex justify-center pt-4"
     >
-      <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full flex flex-col lg:flex-row gap-2 justify-center items-center">
+      <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 justify-center items-center">
         <div
           id="top-gainers"
-          className="w-full flex flex-col lg:items-start items-center justify-center lg:w-1/3"
+          className="w-full flex flex-col lg:items-start items-center justify-center"
         >
           <Link href={`/coins/gainers`}>
             <div className="flex">
@@ -185,7 +196,7 @@ const SmallTables = () => {
         </div>
         <div
           id="top-losers"
-          className="w-full flex flex-col lg:items-start items-center justify-center lg:w-1/3"
+          className="w-full flex flex-col lg:items-start items-center justify-center"
         >
           <Link href={`/coins/losers`}>
             <div className="flex">
@@ -204,7 +215,7 @@ const SmallTables = () => {
         </div>
         <div
           id="trending"
-          className="w-full flex flex-col lg:items-start items-center justify-center lg:w-1/3"
+          className="w-full flex flex-col lg:items-start items-center justify-center"
         >
           <Link href={`/coins/trending`}>
             <div className="flex">
@@ -218,6 +229,22 @@ const SmallTables = () => {
           {trending && !loading && (
             <table className="w-full mt-2">
               <tbody>{renderTableRows(trending)}</tbody>
+            </table>
+          )}
+        </div>
+        <div
+          id="trending"
+          className="w-full flex flex-col lg:items-start items-center justify-center"
+        >
+          <div className="flex">
+            <h3 className="text-lg font-semibold text-text-main">
+              Top coins by 24h volume
+            </h3>
+          </div>
+          {loading && <TopCoinsTableRowPlaceholer />}
+          {topVolumeCoins && !loading && (
+            <table className="w-full mt-2">
+              <tbody>{renderTableRows(topVolumeCoins)}</tbody>
             </table>
           )}
         </div>
