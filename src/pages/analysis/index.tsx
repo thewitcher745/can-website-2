@@ -7,7 +7,6 @@ import { buildApiUrl } from "../../config";
 import { AnalysisPostMeta } from "../../components/analysis/MostRecentAnalysisCard";
 import MostRecent from "../../components/analysis/MostRecent";
 import AnalysisListContainer from "@components/analysis/AnalysisListContainer";
-import AnalysisListContainer from "@components/analysis/AnalysisListContainer";
 
 const Analysis: React.FC = () => {
   const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
