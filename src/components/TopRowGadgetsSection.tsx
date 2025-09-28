@@ -25,7 +25,7 @@ const TopRowGadgetsSection: React.FC = () => {
               </h3>
               <ChevronRight className="h-8 w-8 text-text-muted self-end" />
             </Link>
-            <FearAndGreed />
+            <FearAndGreed sizingClasses="w-full xs:w-3/5 sm:w-full" />
           </div>
           <div className="flex p-3 pt-0 justify-between flex-col items-center mb-1">
             <Link

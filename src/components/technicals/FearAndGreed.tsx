@@ -11,7 +11,13 @@ const MIN_ANGLE = -175;
 const MAX_ANGLE = -5;
 const SLOPE = (MAX_ANGLE - MIN_ANGLE) / 100;
 
-const FearAndGreed = ({ className }: { className?: string }) => {
+const FearAndGreed = ({
+  className,
+  sizingClasses,
+}: {
+  className?: string;
+  sizingClasses?: string;
+}) => {
   const [fngData, setFngData] = useState<FngData | null>(null);
   const [needleAngle, setNeedleAngle] = useState<string>("-170deg");
   const [needleWidth, setNeedleWidth] = useState<number>(0);
@@ -59,8 +65,11 @@ const FearAndGreed = ({ className }: { className?: string }) => {
     <div
       className={`py-1 rounded-t-md w-full h-full flex flex-col justify-between items-center ${className}`}
     >
-      <div className="w-4/5 p-4 h-full flex justify-center items-center">
-        <div id="fng-container" className="w-full relative flex justify-center">
+      <div className="w-4/5 sm:p-2 lg:p-4 h-full flex justify-center items-center">
+        <div
+          id="fng-container"
+          className={`${sizingClasses} relative flex justify-center`}
+        >
           <svg
             ref={svgRef}
             width="80%"
