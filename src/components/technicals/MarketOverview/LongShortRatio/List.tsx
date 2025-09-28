@@ -24,7 +24,10 @@ const List = ({
         {!loading &&
           !error &&
           exchangeList.map((exchange) => (
-            <ListItem exchange={exchange} longShortData={longShortData} />
+            <ListItem
+              exchange={exchange}
+              longShortData={longShortData?.[exchange.id]}
+            />
           ))}
       </tbody>
     </table>

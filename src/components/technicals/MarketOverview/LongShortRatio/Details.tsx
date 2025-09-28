@@ -3,7 +3,7 @@ const Details = ({
   volume,
 }: {
   type: "long" | "short";
-  volume: number;
+  volume: string;
 }) => {
   return (
     <div className="flex gap-4 px-8">

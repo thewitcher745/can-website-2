@@ -12,7 +12,6 @@ const ListItem = ({
   exchange: { id: string; name: string; logo: string };
   longShortData: longShortExchangeItem;
 }) => {
-  console.log(exchange);
   return (
     <tr key={exchange.id} className="w-full justify-evenly flex py-3">
       <td className="w-1/3 sm:w-1/4 flex gap-2 items-center">

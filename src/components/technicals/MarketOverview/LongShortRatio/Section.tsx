@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { buildApiUrl } from "../../../../config";
-import { longShortExchangeItem, longShortItem } from "@src/types";
+import { longShortItem } from "@src/types";
 import CurrencySelector from "./CurrencySelector";
 import List from "./List";
 
