@@ -29,19 +29,13 @@ const ListItem = ({
         </span>
       </td>
       <td className="w-2/3 sm:w-1/4">
-        <Bar longPercentage={longShortData?.[exchange.id].longPercentage} />
+        <Bar longPercentage={longShortData?.longPercentage} />
       </td>
       <td className="hidden sm:block sm:w-1/4">
-        <Details
-          type="long"
-          volume={reduceNumber(longShortData?.[exchange.id].long)}
-        />
+        <Details type="long" volume={reduceNumber(longShortData?.long)} />
       </td>
       <td className="hidden sm:block sm:w-1/4">
-        <Details
-          type="short"
-          volume={reduceNumber(longShortData?.[exchange.id].short)}
-        />
+        <Details type="short" volume={reduceNumber(longShortData?.short)} />
       </td>
     </tr>
   );
