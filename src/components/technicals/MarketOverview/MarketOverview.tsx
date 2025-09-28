@@ -5,13 +5,14 @@ import SmallTables from "./SmallTables";
 import TopMarketCapChart from "./TopVolumeCoinsChart/Chart";
 import Stats from "./TopVolumeCoinsChart/Stats";
 import Dominance from "../../homepage/gadgets/Dominance";
+import LongShortRatioSection from "./LongShortRatio/Section";
 
 const MarketOverview = () => {
   return (
     <>
       <SmallTables />
       <section
-        id="top-market-cap-chart"
+        id="global-market-data"
         className="w-full flex justify-center pt-8"
       >
         <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full flex flex-col lg:flex-row justify-center">
@@ -45,6 +46,7 @@ const MarketOverview = () => {
           </div>
         </div>
       </section>
+      <LongShortRatioSection />
       <HeatmapSection />
       <HistoricalFearAndGreed />
     </>
