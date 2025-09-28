@@ -12,6 +12,11 @@
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -25,5 +30,15 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "baseUrl": ".",
+  "paths": {
+    "@components/*": ["./src/components/*"],
+    "@styles/*": [
+      "./src/styles/*"
+    ],
+    "@src/*": [
+      "./src/*"
+    ],
+  }
 }
