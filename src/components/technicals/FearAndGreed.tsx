@@ -57,21 +57,10 @@ const FearAndGreed = ({ className }: { className?: string }) => {
 
   return (
     <div
-      className={`py-3 rounded-t-md w-full h-full flex flex-col justify-between items-center ${className}`}
+      className={`py-1 rounded-t-md w-full h-full flex flex-col justify-between items-center ${className}`}
     >
-      <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1 h-1/5">
-        <div className="flex justify-center w-full">
-          <h3 className="text-lg p-3 font-bold text-text-main">
-            Fear and Greed
-          </h3>
-          {/* <ChevronRight className="h-8 w-8 text-text-muted self-end" /> */}
-        </div>
-      </div>
-      <div className="w-4/5 h-full flex justify-center items-center">
-        <div
-          id="fng-container"
-          className="w-50 xs:w-70 sm:w-80 lg:w-60 relative flex justify-center"
-        >
+      <div className="w-4/5 p-4 h-full flex justify-center items-center">
+        <div id="fng-container" className="w-full relative flex justify-center">
           <svg
             ref={svgRef}
             width="80%"

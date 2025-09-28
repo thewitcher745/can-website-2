@@ -111,14 +111,6 @@ const Dominance = ({ className }: { className?: string }) => {
     <div
       className={`pt-3 rounded-md w-full h-full flex flex-col items-center ${className}`}
     >
-      <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1 h-1/5">
-        <div className="flex justify-center w-full">
-          <h3 className="text-lg p-3 font-bold text-text-main">
-            Market Dominance
-          </h3>
-          {/* <ChevronRight className="h-8 w-8 text-text-muted self-end" /> */}
-        </div>
-      </div>
       <div className="flex flex-col flex-grow pb-4">
         <div
           id="dominance-container"
