@@ -1,13 +1,12 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
 import { buildApiUrl } from "../../config";
-import AnalysisCard from "../../components/analysis/AnalysisCard";
 import { AnalysisPostMeta } from "../../components/analysis/MostRecentAnalysisCard";
 import MostRecent from "../../components/analysis/MostRecent";
+import AnalysisListContainer from "@components/analysis/AnalysisListContainer";
 
 const Analysis: React.FC = () => {
   const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
@@ -104,27 +103,8 @@ const Analysis: React.FC = () => {
           </div>
         </section>
 
-        <section id="all-analysis" className="w-full flex justify-center my-4">
-          <div className="max-w-[100rem] w-full mx-auto pb-8">
-            <h2 className="text-xl md:text-3xl font-bold mb-8 text-primary">
-              All analysis
-            </h2>
-            <p className="text-text-main text-xl mb-6">
-              You can find our reliable, accurate and profitable premium
-              analysis for different coins here.
-            </p>
-            <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-              {filteredPosts.length === 0 ? (
-                <div className="text-center text-text-muted">
-                  No posts found.
-                </div>
-              ) : (
-                filteredPosts.map((post) => (
-                  <AnalysisCard key={post.slug} post={post} />
-                ))
-              )}
-            </div>
-          </div>
+        <section id="all-analysis" className="w-full flex justify-center">
+          <AnalysisListContainer filteredPosts={posts} />
         </section>
       </main>
       <Footer />
