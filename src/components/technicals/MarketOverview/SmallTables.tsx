@@ -74,7 +74,7 @@ const renderTableRows = (coins: Coin[]) => {
   for (let i = 0; i < 5; i++) {
     const coin = coins[i];
     // Number of decimal places that the number has
-    const decimalPlaces = coin.price.toString().split(".")[1]?.length;
+    const decimalPlaces = coin?.price.toString().split(".")[1]?.length || 3;
     const changeValue = Math.abs(coin.change).toFixed(2)
       ? Math.abs(coin.change).toFixed(2)
       : Math.abs(coin.change_24h).toFixed(2);
