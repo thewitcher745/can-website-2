@@ -1,10 +1,12 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 import { TokenCardData } from "../../components/high-potential/HighPotentialContainer";
 import { buildApiUrl } from "../../config";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/navbar/Navbar";
+
 
 interface TokenPageData extends TokenCardData {
   content_html: string;
@@ -35,6 +37,9 @@ export default function HighPotentialTokenPage() {
   if (loading) {
     return (
       <>
+      <Head>
+        <title>CAN Trading</title>
+      </Head>
         <Navbar />
         <main className="pt-20 bg-background min-h-screen">
           <section id="videos" className="py-16">
@@ -53,6 +58,9 @@ export default function HighPotentialTokenPage() {
   if (error) {
     return (
       <>
+      <Head>
+        <title>CAN Trading</title>
+      </Head>
         <Navbar />
         <main className="pt-20 bg-background min-h-screen">
           <section id="videos" className="py-16">
@@ -69,6 +77,9 @@ export default function HighPotentialTokenPage() {
   if (!tokenData) {
     return (
       <>
+      <Head>
+        <title>{tokenData?.name || "CAN Trading"}</title>
+      </Head>
         <Navbar />
         <main className="pt-20 bg-background min-h-screen">
           <section id="videos" className="py-16">

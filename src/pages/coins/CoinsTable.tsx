@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 
 import TopGainersTable from "../../components/technicals/TopGainersTable";
 import TopLosersTable from "../../components/technicals/TopLosersTable";
@@ -32,6 +33,9 @@ const CoinsElement = ({ activeTab }: { activeTab: string }) => {
 
   return (
     <>
+      <Head>
+        <title>Cryptocurrencies - CAN Trading</title>
+      </Head>
       <Navbar />
       <main className="px-4 w-full bg-background flex flex-col items-center min-h-screen">
         <TabSelector className="pt-24" activeTab={activeTab} />

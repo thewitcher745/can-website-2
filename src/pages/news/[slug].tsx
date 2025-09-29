@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-
+import Head from "next/head";
 import Link from "next/link";
 
 import Navbar from "../../components/navbar/Navbar";
@@ -99,6 +99,9 @@ const NewsArticlePage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>{article?.title || "CAN Trading"}</title>
+      </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl mx-auto py-8 px-4 pt-24">

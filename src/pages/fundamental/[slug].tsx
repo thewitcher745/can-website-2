@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-
+import Head from "next/head";
 import Link from "next/link";
 
 import Navbar from "../../components/navbar/Navbar";
@@ -38,6 +38,9 @@ const FundamentalPostPage: React.FC = () => {
   if (loading)
     return (
       <>
+      <Head>
+        <title>CAN Trading</title>
+      </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -54,6 +57,9 @@ const FundamentalPostPage: React.FC = () => {
   if (error)
     return (
       <>
+      <Head>
+        <title>Error - CAN Trading</title>
+      </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -85,6 +91,9 @@ const FundamentalPostPage: React.FC = () => {
   if (!post)
     return (
       <>
+      <Head>
+        <title>Post not found - CAN Trading</title>
+      </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -99,6 +108,9 @@ const FundamentalPostPage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>{post.title} - CAN Trading</title>
+      </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl mx-auto py-8 px-4 pt-24">

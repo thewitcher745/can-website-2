@@ -27,7 +27,10 @@ const MobileNav = ({ menuOpen, setMenuOpen }) => {
 
   return (
     menuOpen && (
-      <div className="md:hidden bg-off-black px-4 pb-4 pt-2 shadow-lg border-b border-border-strong animate-slideDownFadeIn">
+      <div
+        id="mobile-nav"
+        className="md:hidden bg-off-black z-200 px-4 pb-4 pt-2 border-b border-border-strong animate-slideDownFadeIn"
+      >
         <div className="flex flex-col space-y-2">
           <Link
             href="/analysis"
@@ -37,18 +40,18 @@ const MobileNav = ({ menuOpen, setMenuOpen }) => {
             Analysis
           </Link>
           <Link
-            href="/#results"
+            href="/results"
             className="flex justify-center sm:justify-start text-text-main hover:text-orange py-2 text-base font-medium"
             onClick={closeMenu}
           >
             Results
           </Link>
           <Link
-            href="/#pricing"
+            href="/coins/overview"
             className="flex justify-center sm:justify-start text-text-main hover:text-orange py-2 text-base font-medium"
             onClick={closeMenu}
           >
-            Pricing
+            Cryptocurrencies
           </Link>
           <ArticlesMenuButton isMobile={true} />
           <Link
