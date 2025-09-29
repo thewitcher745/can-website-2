@@ -34,7 +34,7 @@ const CoinsElement = ({ activeTab }: { activeTab: string }) => {
   return (
     <>
       <Head>
-        <title>Cryptocurrency - CAN Trading</title>
+        <title>Cryptocurrencies - CAN Trading</title>
       </Head>
       <Navbar />
       <main className="px-4 w-full bg-background flex flex-col items-center min-h-screen">
