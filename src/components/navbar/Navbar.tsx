@@ -13,12 +13,17 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed px-6 w-full z-100 shadow-lg border-b-2 border-orange-400 transition-colors duration-300 bg-background flex justify-center`}
+      className={`fixed px-6 w-full z-90 shadow-lg border-b-2 border-orange-400 transition-colors duration-300 bg-background flex justify-center`}
     >
       <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full px-2">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <div className="flex -translate-x-1/2 sm:translate-x-0 sm:relative flex-shrink-0 items-center absolute left-1/2 sm:left-auto transform">
+            <div
+              className={
+                "flex -translate-x-1/2 sm:translate-x-0 sm:relative flex-shrink-0 items-center absolute left-1/2 sm:left-auto transform " +
+                (menuOpen ? "hidden" : "")
+              }
+            >
               <Link
                 href="/"
                 className="flex items-center gap-2 text-2xl font-bold gradient-text text-text-muted"
