@@ -30,7 +30,7 @@ const Analysis: React.FC = () => {
     return (
       <>
         <Head>
-          <title>CAN Trading - Analysis</title>
+          <title>CAN Trading</title>
         </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
@@ -47,6 +47,9 @@ const Analysis: React.FC = () => {
   if (error)
     return (
       <>
+        <Head>
+          <title>Error - CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -92,6 +95,9 @@ const Analysis: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>Analysis - CAN Trading</title>
+      </Head>
       <Navbar />
       <main className="bg-background min-h-screen pt-24 px-4">
         <section id="most-recent" className="w-full flex justify-center">

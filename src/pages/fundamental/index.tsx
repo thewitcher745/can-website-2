@@ -69,7 +69,7 @@ const Fundamental: React.FC = () => {
     return (
       <>
         <Head>
-          <title>Error - Fundamental Analysis - CAN Trading</title>
+          <title>Error - CAN Trading</title>
         </Head>
         <Navbar />
         <main className="bg-background min-h-screen">

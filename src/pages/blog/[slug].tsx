@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { buildApiUrl } from "../../config";
 import Link from "next/link";
+import Head from "next/head";
 
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
@@ -98,6 +99,9 @@ const BlogPostPage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>{post.title} - CAN Trading</title>
+      </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl mx-auto py-8 px-4 pt-24">

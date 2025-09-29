@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/Footer";
@@ -37,6 +38,9 @@ const AnalysisPostPage: React.FC = () => {
   if (loading)
     return (
       <>
+        <Head>
+          <title>CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -53,6 +57,9 @@ const AnalysisPostPage: React.FC = () => {
   if (error)
     return (
       <>
+        <Head>
+          <title>Error - CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -84,6 +91,9 @@ const AnalysisPostPage: React.FC = () => {
   if (!posts || posts.length === 0)
     return (
       <>
+        <Head>
+          <title>Post not found - CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -101,6 +111,9 @@ const AnalysisPostPage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>{mainPost.title} - CAN Trading</title>
+      </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl mx-auto py-8 px-4 pt-24">

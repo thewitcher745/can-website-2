@@ -50,7 +50,7 @@ const Blog: React.FC = () => {
     return (
       <>
         <Head>
-          <title>CAN Trading - Home</title>
+          <title>CAN Trading</title>
         </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
@@ -67,6 +67,9 @@ const Blog: React.FC = () => {
   if (error)
     return (
       <>
+        <Head>
+          <title>Error - CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -97,6 +100,9 @@ const Blog: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>Blog - CAN Trading</title>
+      </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-24">

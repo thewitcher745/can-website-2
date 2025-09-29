@@ -97,7 +97,7 @@ const VideosPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>CAN Trading - Videos</title>
+        <title>Videos - CAN Trading</title>
       </Head>
       <Navbar />
       <main className="bg-background min-h-screen pt-24 px-4">

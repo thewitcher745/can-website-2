@@ -158,7 +158,7 @@ const ResultsPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>CAN Trading - Results</title>
+        <title>Results - CAN Trading</title>
       </Head>
       <Navbar />
       <main className="results-page min-h-screen bg-background pt-24 pb-12">
