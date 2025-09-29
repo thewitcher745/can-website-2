@@ -87,10 +87,9 @@ const TopMarketCapCoinsSection = () => {
   }, []);
 
   const formatPrice = (num: number) => {
-    const numFixed = num.toFixed(3);
     // Converts the number to a string and separates the integer part every 3 digits from the right.
-    const integerPart = String(numFixed).split(".")[0];
-    const decimalPart = String(numFixed).split(".")[1];
+    const integerPart = String(num).split(".")[0];
+    const decimalPart = String(num).split(".")[1];
     return `$${integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.${
       decimalPart || "00"
     }`;
