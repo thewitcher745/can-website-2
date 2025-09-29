@@ -11,7 +11,7 @@ import Image from "next/image";
 
 import { buildApiUrl } from "../../config";
 import { TopCoinsTableRowPlaceholer } from "./subcomponents/loaders";
-import { getCoinLogoLink } from "../../utils";
+import { formatPrice, getCoinLogoLink } from "../../utils";
 
 interface Loser {
   change: number;
@@ -195,7 +195,7 @@ const TrendingCoinsTable = ({ maxRows = 10 }: { maxRows: number }) => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4">${coin.price.toFixed(6)}</td>
+                      <td className="px-6 py-4">${formatPrice(coin.price)}</td>
                       <td
                         className={`px-6 py-4 h-full flex-col gap-2 ${
                           coin.change >= 0 ? "text-success" : "text-error"

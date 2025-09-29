@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-import { getCoinLogoLink } from "../../../utils";
+import { formatPrice, getCoinLogoLink } from "../../../utils";
 import { buildApiUrl } from "../../../config";
 import { TopCoinsTableRowPlaceholer } from "../subcomponents/loaders";
 
@@ -73,8 +73,6 @@ const renderTableRows = (coins: Coin[]) => {
   const rows = [];
   for (let i = 0; i < 5; i++) {
     const coin = coins[i];
-    // Number of decimal places that the number has
-    const decimalPlaces = coin?.price.toString().split(".")[1]?.length || 3;
     const changeValue = Math.abs(coin.change).toFixed(2)
       ? Math.abs(coin.change).toFixed(2)
       : Math.abs(coin.change_24h).toFixed(2);
@@ -97,7 +95,7 @@ const renderTableRows = (coins: Coin[]) => {
               </div>
             </td>
             <td className="opacity-80 text-text-main text-md font-light px-4 py-2 w-1/4">
-              {decimalPlaces > 6 ? coin.price.toFixed(6) : coin.price}
+              {formatPrice(coin.price)}
             </td>
             <td
               className={`px-4 py-2 font-bold w-1/4 ${
@@ -162,6 +160,7 @@ const SmallTables = () => {
           err instanceof Error ? err.message : "An unknown error occurred"
         );
       } finally {
+        console.log(topVolumeCoins);
         setLoading(false);
       }
     };

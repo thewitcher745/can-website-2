@@ -153,8 +153,6 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
     const rows = [];
     for (let i = 0; i < 5; i++) {
       const coin = coins[i];
-      // Number of decimal places that the number has
-      const decimalPlaces = coin?.price.toString().split(".")[1]?.length || 3;
 
       rows.push(
         <tr key={i} className="border-b border-border h-1/5">
@@ -174,7 +172,7 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
                 </div>
               </td>
               <td className="opacity-80 text-md font-light px-4 py-2 w-1/4">
-                {decimalPlaces > 6 ? coin.price.toFixed(6) : coin.price}
+                ${coin.price}
               </td>
               <td
                 className={`px-4 py-2 font-bold w-1/4 ${
