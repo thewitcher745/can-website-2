@@ -192,7 +192,7 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-4">
         <Link href={`/${tables[currentIndex].slug}`}>
           <div className="flex">
-            <h3 className="text-lg font-bold underline text-text-main">
+            <h3 className="text-lg font-bold underline text-text-main title-hover">
               {tables[currentIndex].title}
             </h3>
             <ChevronRight className="h-8 w-8 text-text-muted self-end" />

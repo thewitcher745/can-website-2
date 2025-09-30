@@ -2,8 +2,16 @@ import { HighPotentialTokenMeta } from "@src/types";
 
 const TokenCard = ({ token }: { token: HighPotentialTokenMeta }) => {
   return (
-    <div className="w-40 h-full overflow-hidden rounded-xl shadow-xl border flex flex-col justify-center items-center border-text-muted">
-      <div className={`w-full h-5 mb-2 bg-${token.category}`} />
+    <div className="w-40 h-full overflow-hidden rounded-xl shadow-xl border flex flex-col justify-center items-center border-text-muted card-hover">
+      <div
+        className={`w-full h-5 mb-2 ${
+          token.category === "gold"
+            ? "bg-gold"
+            : token.category === "silver"
+            ? "bg-silver"
+            : "bg-bronze"
+        }`}
+      />
       <div className="p-2 flex flex-col items-center">
         <div className="w-15 h-15 rounded-full aspect-square overflow-hidden">
           <img

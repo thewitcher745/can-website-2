@@ -47,9 +47,10 @@ const MostRecentAnalysisSection = () => {
         <div className="flex flex-col self-start px-4 sm:text-left">
           <Link
             href="/analysis"
-            className="text-2xl font-bold mb-2 underline text-primary hover:text-primary-light transition-colors duration-200"
+            className="text-2xl font-bold mb-2 text-text-main transition-colors duration-200 flex items-center"
           >
-            Latest analysis
+            <h2 className="title-hover underline">Latest analysis</h2>
+            <ChevronRight className="h-8 w-8 text-text-muted" />
           </Link>
         </div>
         {mostRecentElement}

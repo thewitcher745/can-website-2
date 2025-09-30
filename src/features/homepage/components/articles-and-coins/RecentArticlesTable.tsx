@@ -121,7 +121,10 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
     for (let i = 0; i < 4; i++) {
       const item = items[i];
       rows.push(
-        <div key={i} className="flex items-center h-1/4 border-b border-border">
+        <div
+          key={i}
+          className="flex items-center h-1/4 border-b border-border hover:bg-surface transition-all duration-200"
+        >
           {item ? (
             <div className="py-2">
               <Link href={`/${tableSlug}/${item.slug}`}>
@@ -169,7 +172,7 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1">
         <Link href={`/${tables[currentIndex].slug}`}>
           <div className="flex">
-            <h3 className="text-lg underline font-bold text-text-main">
+            <h3 className="text-lg underline font-bold text-text-main title-hover">
               {tables[currentIndex].title}
             </h3>
             <ChevronRight className="h-8 w-8 text-text-muted self-end" />

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import PostDescription from "./PostDescription";
 import PostTags from "./PostTags";
 import PostLogo from "./PostLogo";
@@ -28,13 +30,15 @@ const BottomHalf: React.FC<{ post: AnalysisPostMeta }> = ({ post }) => {
 
 const AnalysisCard: React.FC<{ post: AnalysisPostMeta }> = ({ post }) => {
   return (
-    <div
-      key={post.slug}
-      className="border border-border p-2 flex flex-col h-auto md:h-80 min-w-xxs"
-    >
-      <TopHalf post={post} />
-      <BottomHalf post={post} />
-    </div>
+    <Link href={`/analysis/${post.slug}`}>
+      <div
+        key={post.slug}
+        className="border border-border rounded p-2 flex flex-col h-auto md:h-80 min-w-xxs card-hover"
+      >
+        <TopHalf post={post} />
+        <BottomHalf post={post} />
+      </div>
+    </Link>
   );
 };
 

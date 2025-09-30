@@ -22,7 +22,7 @@ const HighPotentialContainer = ({ number = 10 }: { number?: number }) => {
   }, []);
 
   return (
-    <div className="w-full flex gap-2 rounded-xl mt-8 overflow-x-scroll">
+    <div className="w-full flex gap-2 rounded-xl mt-8 p-4 overflow-x-scroll lg:overflow-hidden">
       {tokens.map((token) => (
         <Link key={token.slug} href={`/high-potential/${token.slug}`}>
           <TokenCard token={token} />

@@ -133,7 +133,7 @@ const Fundamental: React.FC = () => {
               filteredPosts.map((article) => (
                 <div
                   key={article.slug}
-                  className="flex flex-row flex-grow sm:flex-col p-2 sm:p-0 h-26 sm:h-70 md:h-100 rounded-sm sm:rounded-sm hover:shadow-md transition"
+                  className="flex flex-row flex-grow sm:flex-col p-2 sm:p-0 h-26 sm:h-70 md:h-100 rounded-sm sm:rounded-sm card-hover"
                 >
                   <div className="h-full w-30 sm:w-full sm:h-1/2 overflow-hidden rounded-sm sm:rounded-t-sm mb-2">
                     <Link href={`/fundamental/${article.slug}`}>

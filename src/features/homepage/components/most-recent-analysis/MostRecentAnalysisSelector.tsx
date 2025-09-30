@@ -69,18 +69,18 @@ const MostRecentAnalysisSelector = ({
                 setIsTransitioning(false);
               }, 500);
             }}
-            className={`flex gap-2 p-1 line-clamp-2 items-center cursor-pointer ${
+            className={`flex gap-2 line-clamp-2 items-center cursor-pointer transition-all duration-200 p-2 rounded group ${
               index === currentSlide
-                ? "opacity-100 translate-y-4 translate-x-0 lg:translate-x-4 lg:translate-y-0"
-                : "opacity-20 translate-y-0 translate-x-0 lg:translate-x-0 lg:translate-y-0"
+                ? "translate-y-4 translate-x-0 lg:translate-x-4 lg:translate-y-0"
+                : "translate-y-0 translate-x-0 lg:translate-x-0 lg:translate-y-0 hover:bg-surface"
             }`}
           >
             <div
               key={index}
               className={`w-12 h-12 md:w-10 md:h-10 aspect-square rounded-full transition-all duration-200 ${
                 index === currentSlide
-                  ? "bg-secondary scale-110"
-                  : "bg-gray-300 hover:bg-gray-400"
+                  ? "bg-secondary scale-110 opacity-100"
+                  : "bg-gray-300 hover:bg-gray-400 opacity-20 group-hover:opacity-80"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             >
@@ -89,7 +89,13 @@ const MostRecentAnalysisSelector = ({
                 altText={`${recentAnalysis[index].title} logo`}
               />
             </div>
-            <div className="flex-col hidden xl:flex">
+            <div
+              className={`flex-col hidden xl:flex transition-all duration-200 ${
+                index === currentSlide
+                  ? "opacity-100"
+                  : "opacity-20 group-hover:opacity-80"
+              }`}
+            >
               <p className="text-text-main text-sm selector-caption">
                 {recentAnalysis[index].title}
               </p>
