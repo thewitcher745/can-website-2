@@ -1,0 +1,31 @@
+Date	Symbol	Status	Leverage	$ Used	Type	Last Target	Profit %	Net Profit	1000$
+Friday, February 2, 2024	AVAX/USDT	Partial Targets Achieved	Isolated (2.0X)	10.0%	Short	1	19.9	1.99%	 $19.88 
+Sunday, February 11, 2024	LINK/USDT	Partial Targets Achieved	Isolated (4.0X)	10.0%	Long	1	20.5	2.05%	 $20.48 
+Sunday, February 11, 2024	1000SHIB/USDT	Partial Targets Achieved	Isolated (7.0X)	5.0%	Long	1	23.3	1.16%	 $11.65 
+Monday, February 12, 2024	FTM/USDT	Stopped Out	Isolated (4.0X)	10.0%	Short	0	-20.1	-2.01%	 $(20.11)
+Wednesday, February 14, 2024	ZEC/USDT	All Targets Achieved	Isolated (4.0X)	5.0%	Long	3	63.8	3.19%	 $31.92 
+Friday, February 2, 2024	1INCH/USDT	All Targets Achieved	Isolated (5.0X)	10.0%	Long	3	57.5	5.75%	 $57.51 
+Saturday, February 10, 2024	WLD/USDT	All Targets Achieved	Isolated (5.0X)	5.0%	Long	3	52.4	2.62%	 $26.19 
+Wednesday, February 14, 2024	NKN/USDT	All Targets Achieved	Isolated (5.0X)	5.0%	Long	3	47.2	2.36%	 $23.59 
+Friday, February 16, 2024	ICX/USDT	All Targets Achieved	Isolated (5.0X)	5.0%	Long	3	45.8	2.29%	 $22.90 
+Friday, February 16, 2024	KLAY/USDT	Stopped Out	Isolated (5.0X)	10.0%	Short	0	-31.5	-3.15%	 $(31.50)
+Sunday, February 18, 2024	KNC/USDT	Partial Targets Achieved	Isolated (5.0X)	5.0%	Long	2	26.6	1.33%	 $13.32 
+Tuesday, February 20, 2024	JTO/USDT	Partial Targets Achieved	Isolated (5.0X)	5.0%	Short	2	32.2	1.61%	 $16.08 
+Friday, February 23, 2024	MASK/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Long	2	51.0	5.10%	 $50.99 
+Wednesday, February 28, 2024	SOL/USDT	All Targets Achieved	Isolated (5.0X)	5.0%	Long	3	49.8	2.49%	 $24.90 
+Thursday, February 29, 2024	HIFI/USDT	Partial Targets Achieved	Isolated (5.0X)	5.0%	Long	2	30.7	1.54%	 $15.37 
+Thursday, February 15, 2024	NMR/USDT	All Targets Achieved	Isolated (4.0X)	10.0%	Long	2	34.8	3.48%	 $34.78 
+Friday, February 16, 2024	AGIX/USDT	All Targets Achieved	Isolated (3.0X)	5.0%	Long	3	37.4	1.87%	 $18.71 
+Friday, February 16, 2024	QNT/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-20.4	-2.04%	 $(20.44)
+Friday, February 16, 2024	CTSI/USDT	Stopped Out	Isolated (3.0X)	10.0%	Short	0	-21.1	-2.11%	 $(21.07)
+Sunday, February 18, 2024	1000FLOKI/USDT	Partial Targets Achieved	Isolated (4.0X)	5.0%	Long	1	21.3	1.06%	 $10.63 
+Sunday, February 18, 2024	ATOM/USDT	All Targets Achieved	Isolated (4.0X)	10.0%	Long	3	50.9	5.09%	 $50.93 
+Wednesday, February 21, 2024	SEI/USDT	Partial Targets Achieved	Isolated (3.0X)	5.0%	Short	1	23.5	1.17%	 $11.73 
+Friday, February 23, 2024	SUI/USDT	Partial Targets Achieved	Isolated (3.0X)	5.0%	Short	1	26.0	1.30%	 $13.02 
+Friday, February 23, 2024	FLOW/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	46.3	4.63%	 $46.34 
+Saturday, February 24, 2024	ALT/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Short	2	34.8	3.48%	 $34.78 
+Saturday, February 24, 2024	ENJ/USDT	All Targets Achieved	Isolated (4.0X)	10.0%	Long	3	42.3	4.23%	 $42.32 
+Monday, February 26, 2024	AXS/USDT	All Targets Achieved	Isolated (4.0X)	5.0%	Long	3	43.3	2.17%	 $21.67 
+Monday, February 26, 2024	BTC/USDT	Stopped Out	Isolated (3.0X)	10.0%	Short	0	-25.7	-2.57%	 $(25.74)
+Wednesday, February 28, 2024	ADA/USDT	Stopped Out	Isolated (4.0X)	10.0%	Long	0	-21.8	-2.18%	 $(21.79)
+Thursday, February 29, 2024	KAVA/USDT	Partial Targets Achieved	Isolated (3.0X)	5.0%	Long	1	11.2	0.56%	 $5.60 

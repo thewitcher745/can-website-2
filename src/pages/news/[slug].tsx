@@ -3,23 +3,15 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 
-import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/Footer";
-import { buildApiUrl } from "../../config";
-
-interface NewsArticle {
-  author: string;
-  content_html: string;
-  time: string;
-  slug: string;
-  tags: string[];
-  title: string;
-}
+import Navbar from "@shared/ui/navbar/Navbar";
+import Footer from "@shared/ui/Footer";
+import { buildApiUrl } from "@src/config";
+import { Article } from "@src/types";
 
 const NewsArticlePage: React.FC = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const [article, setArticle] = useState<NewsArticle | null>(null);
+  const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

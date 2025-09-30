@@ -1,0 +1,25 @@
+Date	Symbol	Status	Leverage	$ Used	Type	Last Target	Profit %	Net Profit	10%
+Wednesday, May 1, 2024	1000PEPE/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	3	56.4	2.82%	 $28.21 
+Wednesday, May 1, 2024	RNDR/USDT	Partial Targets Achieved	Isolated (6.0X)	50	Long	3	57.5	2.88%	 $28.77 
+Thursday, May 2, 2024	BTC/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	3	41.1	2.05%	 $20.55 
+Saturday, May 4, 2024	BNB/USDT	Partial Targets Achieved	Isolated (6.0X)	50	Long	1	19.2	0.96%	 $9.60 
+Wednesday, May 8, 2024	AGIX/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	14.3	0.71%	 $7.15 
+Friday, May 10, 2024	FTM/USDT	Stopped Out	Isolated (4.0X)	50	Long	0	-22.8	-1.14%	 $(11.42)
+Monday, May 13, 2024	JTO/USDT	All Targets Achieved	Isolated (3.0X)	50	Long	3	47.3	2.36%	 $23.63 
+Thursday, May 16, 2024	UMA/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	7.0	0.35%	 $3.52 
+Friday, May 17, 2024	JASMY/USDT	All Targets Achieved	Isolated (4.0X)	50	Long	3	71.0	3.55%	 $35.52 
+Tuesday, May 21, 2024	ETH/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	10.0	0.50%	 $5.02 
+Wednesday, May 22, 2024	STMX/USDT	Stopped Out	Isolated (3.0X)	50	Long	0	-20.8	-1.04%	 $(10.41)
+Thursday, May 23, 2024	SOL/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	20.5	1.02%	 $10.25 
+Thursday, May 23, 2024	PHB/USDT	Partial Targets Achieved	Isolated (4.0X)	50	Short	1	12.9	0.64%	 $6.43 
+Thursday, May 23, 2024	COTI/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	20.6	1.03%	 $10.30 
+Friday, May 31, 2024	UNFI/USDT	Stopped Out	Isolated (3.0X)	50	Long	0	-13.7	-0.69%	 $(6.85)
+Wednesday, May 8, 2024	NKN/USDT	Partial Targets Achieved	Isolated (7.0X)	50	Long	1	20.8	1.04%	 $10.38 
+Wednesday, May 15, 2024	AGIX/USDT	All Targets Achieved	Isolated (5.0X)	50	Long	3	51.0	2.55%	 $25.48 
+Thursday, May 16, 2024	GALA/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	2	29.2	1.46%	 $14.61 
+Friday, May 17, 2024	APT/USDT	Stopped Out	Isolated (5.0X)	50	Long	0	-24.3	-1.22%	 $(12.17)
+Tuesday, May 21, 2024	HOT/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	2	32.8	1.64%	 $16.38 
+Thursday, May 23, 2024	ILV/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	20.1	1.01%	 $10.06 
+Tuesday, May 28, 2024	SNX/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	2	35.6	1.78%	 $17.82 
+Thursday, May 30, 2024	RUNE/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	2	32.1	1.60%	 $16.05 
+Sunday, June 2, 2024	AXS/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	29.2	1.46%	 $14.62 

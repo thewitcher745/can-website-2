@@ -2,23 +2,14 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/Footer";
-import { buildApiUrl } from "../../config";
-import { formatRelativeTime } from "../../utils";
-
-interface FundamentalPostMeta {
-  author: string;
-  time: string;
-  slug: string;
-  tags: string[];
-  title: string;
-  desc: string;
-  thumbnail: string;
-}
+import Navbar from "@shared/ui/navbar/Navbar";
+import Footer from "@shared/ui/Footer";
+import { buildApiUrl } from "@src/config";
+import { formatRelativeTime } from "@src/utils";
+import { ArticleMeta } from "@src/types";
 
 const Fundamental: React.FC = () => {
-  const [posts, setPosts] = useState<FundamentalPostMeta[]>([]);
+  const [posts, setPosts] = useState<ArticleMeta[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
@@ -38,7 +29,7 @@ const Fundamental: React.FC = () => {
     if (filterTags?.length === 1) {
       setFilterTags(null);
     } else {
-      setFilterTags((prev) => prev?.filter((t) => t !== tag));
+      setFilterTags((prev) => prev?.filter((t) => t !== tag) || null);
     }
   };
 

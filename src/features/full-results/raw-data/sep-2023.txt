@@ -1,0 +1,18 @@
+Date	Symbol	Status	Leverage	Entry	Type	Last Target	Profit %	Net Profit	10%
+Friday, September 1, 2023	OGN/USDT	Partial Targets Achieved	Isolated (4.0X)	50	Long	1	16.6	0.83%	 $8.31 
+Saturday, September 2, 2023	SFP/USDT	Stopped Out	Isolated (2.0X)	50	Short	0	-20.8	-1.04%	 $(10.42)
+Tuesday, September 5, 2023	KNC/USDT	Partial Targets Achieved	Isolated (7.0X)	50	Long	1	19.6	0.98%	 $9.79 
+Sunday, September 10, 2023	JASMY/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	2	25.1	1.25%	 $12.54 
+Monday, September 11, 2023	KAVA/USDT	Stopped Out	Isolated (5.0X)	50	Short	0	-11.3	-0.56%	 $(5.63)
+Tuesday, September 12, 2023	JOE/USDT	Partial Targets Achieved	Isolated (4.0X)	50	Long	1	20.8	1.04%	 $10.39 
+Thursday, September 14, 2023	IOTX/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Short	1	20.7	1.04%	 $10.37 
+Thursday, September 14, 2023	BTC/USDT	Partial Targets Achieved	Isolated (6.0X)	50	Short	1	19.9	1.00%	 $9.96 
+Sunday, September 17, 2023	RDNT/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	15.3	0.76%	 $7.63 
+Sunday, September 17, 2023	DEFI/USDT	All Targets Achieved	Isolated (4.0X)	50	Long	2	35.1	1.76%	 $17.56 
+Tuesday, September 19, 2023	ATOM/USDT	Partial Targets Achieved	Isolated (4.0X)	50	Long	1	16.2	0.81%	 $8.12 
+Monday, September 25, 2023	CVX/USDT	Stopped Out	Isolated (8.0X)	50	Short	0	-18.2	-0.91%	 $(9.12)
+Monday, September 25, 2023	STMX/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Short	1	26.1	1.31%	 $13.05 
+Tuesday, September 26, 2023	ATA/USDT	Stopped Out	Isolated (3.0X)	50	Short	0	-14.0	-0.70%	 $(6.99)
+Thursday, September 28, 2023	BTC/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-21.7	-1.08%	 $(10.83)
+Friday, September 29, 2023	ZRX/USDT	Partial Targets Achieved	Isolated (4.0X)	50	Long	1	16.7	0.84%	 $8.35 
+Saturday, September 30, 2023	FTM/USDT	Partial Targets Achieved	Isolated (4.0X)	50	Long	1	17.4	0.87%	 $8.69 

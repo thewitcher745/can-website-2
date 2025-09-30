@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { buildApiUrl } from "../../config";
+import { buildApiUrl } from "@src/config";
 import Link from "next/link";
 import Head from "next/head";
 
-import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "@shared/ui/navbar/Navbar";
+import Footer from "@shared/ui/Footer";
+import { Article } from "@src/types";
 
-interface BlogPost {
-  author: string;
-  content_html: string;
-  time: string;
-  slug: string;
-  tags: string[];
-  title: string;
-}
 
 const BlogPostPage: React.FC = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const [post, setPost] = useState<BlogPost | null>(null);
+  const [post, setPost] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

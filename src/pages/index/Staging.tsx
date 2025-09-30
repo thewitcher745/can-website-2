@@ -1,11 +1,11 @@
-import OurStats from "../../components/homepage/promotions/ourStats/OurStats";
-import Banner from "../../components/homepage/promotions/Banner";
-import TopRowGadgetsSection from "../../components/TopRowGadgetsSection";
-import MostRecentAnalysisSection from "../../components/MostRecentAnalysisSection";
-import VideosSection from "../../components/VideosSection";
-import HeatmapSection from "../../components/HeatmapSection";
-import TopMarketCapCoinsSection from "../../components/TopMarketCapCoinsSection";
-import HighPotentialTokensSection from "../../components/HighPotentialTokensSection";
+import OurStats from "@features/homepage/components/promotions/ourStats/OurStats";
+import Banner from "@features/homepage/components/promotions/Banner";
+import TopRowGadgetsSection from "@features/homepage/sections/TopRowGadgetsSection";
+import MostRecentAnalysisSection from "@features/homepage/sections/MostRecentAnalysisSection";
+import VideosSection from "@features/homepage/sections/VideosSection";
+import HeatmapSection from "@features/homepage/sections/HeatmapSection";
+import TopMarketCapCoinsSection from "@features/homepage/sections/TopMarketCapCoinsSection";
+import HighPotentialTokensSection from "@features/homepage/sections/HighPotentialTokensSection";
 
 const Staging: React.FC = () => {
   return (

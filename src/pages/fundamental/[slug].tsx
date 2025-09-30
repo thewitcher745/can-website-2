@@ -3,23 +3,15 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 
-import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/Footer";
-import { buildApiUrl } from "../../config";
-
-interface FundamentalPost {
-  author: string;
-  content_html: string;
-  time: string;
-  slug: string;
-  tags: string[];
-  title: string;
-}
+import Navbar from "@shared/ui/navbar/Navbar";
+import Footer from "@shared/ui/Footer";
+import { buildApiUrl } from "@src/config";
+import { Article } from "@src/types";
 
 const FundamentalPostPage: React.FC = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const [post, setPost] = useState<FundamentalPost | null>(null);
+  const [post, setPost] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -38,9 +30,9 @@ const FundamentalPostPage: React.FC = () => {
   if (loading)
     return (
       <>
-      <Head>
-        <title>CAN Trading</title>
-      </Head>
+        <Head>
+          <title>CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -57,9 +49,9 @@ const FundamentalPostPage: React.FC = () => {
   if (error)
     return (
       <>
-      <Head>
-        <title>Error - CAN Trading</title>
-      </Head>
+        <Head>
+          <title>Error - CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
@@ -91,9 +83,9 @@ const FundamentalPostPage: React.FC = () => {
   if (!post)
     return (
       <>
-      <Head>
-        <title>Post not found - CAN Trading</title>
-      </Head>
+        <Head>
+          <title>Post not found - CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">

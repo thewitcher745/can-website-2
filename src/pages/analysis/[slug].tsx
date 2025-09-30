@@ -3,23 +3,15 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Head from "next/head";
 
-import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/Footer";
-import { buildApiUrl } from "../../config";
-
-interface AnalysisPost {
-  author: string;
-  content_html: string;
-  time: string;
-  slug: string;
-  tags: string[];
-  title: string;
-}
+import Navbar from "@shared/ui/navbar/Navbar";
+import Footer from "@shared/ui/Footer";
+import { buildApiUrl } from "@src/config";
+import { Article } from "@src/types";
 
 const AnalysisPostPage: React.FC = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const [posts, setPosts] = useState<AnalysisPost[]>([]);
+  const [posts, setPosts] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

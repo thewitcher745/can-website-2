@@ -2,9 +2,9 @@ import Head from "next/head";
 
 import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/Footer";
-import ResultsTable from "../components/full-results/ResultsTable";
+import Navbar from "../shared/ui/navbar/Navbar";
+import Footer from "../shared/ui/Footer";
+import ResultsTable from "@features/full-results/ResultsTable";
 
 // Hardcoded list of available months (folder names)
 const availableMonths = [

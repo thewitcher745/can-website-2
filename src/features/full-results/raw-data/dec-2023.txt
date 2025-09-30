@@ -1,0 +1,21 @@
+Date	Symbol	Status	Leverage	Lev	Entry	$ Used	Margin	Type	Last Target	Profit %	Net Profit	 $1,000 
+Friday, December 1, 2023	ETH/USDT	All Targets Achieved	Isolated (7.0X)	7	50	5.0%	35%	Long	1	31.5	1.57%	 $15.74 
+Friday, December 1, 2023	AGLD/USDT	Stopped Out	Isolated (3.0X)	3	50	5.0%	15%	Short	0	-20.0	-1.00%	 $(9.99)
+Saturday, December 2, 2023	XRP/USDT	All Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Long	2	30.1	1.51%	 $15.07 
+Monday, December 4, 2023	BTC/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Short	1	25.1	1.26%	 $12.55 
+Monday, December 4, 2023	LTC/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Long	1	18.1	0.91%	 $9.07 
+Monday, December 4, 2023	RUNE/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Short	1	18.8	0.94%	 $9.42 
+Thursday, December 7, 2023	NEAR/USDT	Stopped Out	Isolated (3.0X)	3	50	5.0%	15%	Short	0	-23.8	-1.19%	 $(11.92)
+Thursday, December 7, 2023	OP/USDT	All Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Long	3	66.3	3.31%	 $33.14 
+Friday, December 8, 2023	SOL/USDT	Partial Targets Achieved	Isolated (4.0X)	4	50	5.0%	20%	Long	1	17.2	0.86%	 $8.61 
+Sunday, December 10, 2023	LINK/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Short	2	25.3	1.26%	 $12.63 
+Sunday, December 10, 2023	ATOM/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Short	1	19.9	1.00%	 $9.96 
+Sunday, December 10, 2023	WLD/USDT	Stopped Out	Isolated (3.0X)	3	50	5.0%	15%	Long	0	-20.9	-1.05%	 $(10.47)
+Monday, December 11, 2023	ETH/USDT	Partial Targets Achieved	Isolated (7.0X)	7	50	5.0%	35%	Long	1	22.7	1.14%	 $11.36 
+Thursday, December 14, 2023	ETH/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Short	1	10.4	0.52%	 $5.21 
+Friday, December 15, 2023	CHZ/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Short	1	18.5	0.92%	 $9.24 
+Monday, December 18, 2023	TIA/USDT	All Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Long	3	45.8	2.29%	 $22.88 
+Wednesday, December 20, 2023	SNX/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Short	1	28.8	1.44%	 $14.38 
+Thursday, December 21, 2023	XRP/USDT	Partial Targets Achieved	Isolated (4.0X)	4	50	5.0%	20%	Long	1	19.3	0.97%	 $9.66 
+Saturday, December 23, 2023	ADA/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Long	2	31.8	1.59%	 $15.90 
+Friday, December 29, 2023	AAVE/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	5.0%	15%	Short	1	26.4	1.32%	 $13.20 

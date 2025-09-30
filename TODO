@@ -14,4 +14,4 @@
 - Define aliases and optimize paths
 - Revise API responses to be consistent
 - Unify utility elements
-- Make sections have no hardcoded classes, modularize all subelements
+- Make sections have no hardcoded classes, modularize all subelements and useEffects

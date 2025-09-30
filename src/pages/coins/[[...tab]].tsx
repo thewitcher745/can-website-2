@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
-import CoinsElement from "./CoinsTable";
+import CoinsElement from "./CoinsElement";
 
 const CoinsTab = () => {
   const router = useRouter();
