@@ -88,7 +88,7 @@ const renderTableRows = (coins: TopCoin[]) => {
               }`}
             >
               <div className="flex items-center gap-1">
-                {renderCaret(coin.change)}
+                {renderCaret(coin.change ? coin.change : coin.change_24h)}
                 <span className="text-sm font-semibold text-nowrap">
                   {changeValue} %
                 </span>
@@ -129,7 +129,7 @@ const SmallTables = () => {
         // The API provides top_losers change as a positive number, convert it to negative
         result.top_losers = result.top_losers.map((coin) => ({
           ...coin,
-          change: -Math.abs(coin.change),
+          change: -Math.abs(coin.change ? coin.change : coin.change_24h),
         }));
         setTopGainers(result.top_gainers);
         setTopLosers(result.top_losers);
