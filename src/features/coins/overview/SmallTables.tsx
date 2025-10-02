@@ -58,8 +58,8 @@ const renderTableRows = (coins: TopCoin[]) => {
   const rows = [];
   for (let i = 0; i < 5; i++) {
     const coin = coins[i];
-    const changeValue = Math.abs(coin.change).toFixed(2)
-      ? Math.abs(coin.change).toFixed(2)
+    const changeValue = Math.abs(coin?.change).toFixed(2)
+      ? Math.abs(coin?.change).toFixed(2)
       : Math.abs(coin.change_24h).toFixed(2);
 
     rows.push(
@@ -84,11 +84,11 @@ const renderTableRows = (coins: TopCoin[]) => {
             </td>
             <td
               className={`px-4 py-2 font-bold w-1/4 ${
-                coin.change >= 0 ? "text-success" : "text-error"
+                coin?.change >= 0 ? "text-success" : "text-error"
               }`}
             >
               <div className="flex items-center gap-1">
-                {renderCaret(coin.change ? coin.change : coin.change_24h)}
+                {renderCaret(coin?.change ? coin?.change : coin.change_24h)}
                 <span className="text-sm font-semibold text-nowrap">
                   {changeValue} %
                 </span>
@@ -129,7 +129,7 @@ const SmallTables = () => {
         // The API provides top_losers change as a positive number, convert it to negative
         result.top_losers = result.top_losers.map((coin) => ({
           ...coin,
-          change: -Math.abs(coin.change ? coin.change : coin.change_24h),
+          change: -Math.abs(coin?.change ? coin?.change : coin.change_24h),
         }));
         setTopGainers(result.top_gainers);
         setTopLosers(result.top_losers);
@@ -158,7 +158,7 @@ const SmallTables = () => {
       id="market-data-tables"
       className="w-full flex justify-center pt-4"
     >
-      <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 justify-center items-center">
+      <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2">
         <div
           id="top-gainers"
           className="w-full flex flex-col lg:items-start items-center justify-center"
