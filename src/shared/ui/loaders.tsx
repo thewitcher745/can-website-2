@@ -72,3 +72,7 @@ export const HeatmapPlaceholder = () => {
     <div className="w-full h-[400px] bg-gray-700 animate-pulse rounded-lg grid grid-cols-4 grid-rows-4 gap-1 p-1"></div>
   );
 };
+
+export const GenericLoader = () => {
+  return <div className="loader"></div>;
+};
