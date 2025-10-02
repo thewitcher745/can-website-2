@@ -58,12 +58,12 @@ const SmallTable = ({
     );
   };
 
-  if (coins?.length === 0) {
-    return <NoDataPlaceholder />;
-  }
-
   if (dataLoading) {
     return <LoadingPlaceholder />;
+  }
+
+  if (coins?.length === 0) {
+    return <NoDataPlaceholder />;
   }
 
   return (

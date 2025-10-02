@@ -21,7 +21,7 @@ const TableTitle = ({ title, link }: { title: string; link: string }) => {
 
 const SmallTables = () => {
   const [topGainers, setTopGainers] = useState<TopCoin[] | null>(null);
-  const [topLosers, setTopLosers] = useState<TopCoin[] | null>([]);
+  const [topLosers, setTopLosers] = useState<TopCoin[] | null>(null);
   const [trending, setTrending] = useState<TopCoin[] | null>(null);
   const [topVolumeCoins, setTopVolumeCoins] = useState<TopCoin[] | null>(null);
   const [loading, setLoading] = useState(true);
