@@ -7,7 +7,7 @@ import TrendingCoinsTable from "@features/coins/TrendingCoinsTable";
 import Navbar from "@shared/ui/navbar/Navbar";
 import Footer from "@shared/ui/Footer";
 import TabSelector from "./TabSelector";
-import MarketOverview from "@features/coins/overview/MarketOverview";
+import MarketOverview from "@src/features/coins/MarketOverview";
 
 const CoinsElement = ({ activeTab }: { activeTab: string }) => {
   // This is the element to render

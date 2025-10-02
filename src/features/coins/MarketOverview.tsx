@@ -1,16 +1,16 @@
 import HeatmapSection from "@features/homepage/sections/HeatmapSection";
 import FearAndGreed from "@shared/ui/technicals/FearAndGreed";
-import HistoricalFearAndGreed from "./HistoricalFearAndGreed";
-import SmallTables from "./SmallTables";
-import TopMarketCapChart from "./TopVolumeCoinsChart/Chart";
-import Stats from "./TopVolumeCoinsChart/Stats";
+import HistoricalFearAndGreed from "./overview/HistoricalFearAndGreed";
+import TopMarketCapChart from "./overview/TopVolumeCoinsChart/Chart";
+import Stats from "./overview/TopVolumeCoinsChart/Stats";
 import Dominance from "@shared/ui/technicals/Dominance";
-import LongShortRatioSection from "./LongShortRatio/Section";
+import LongShortRatioSection from "./overview/LongShortRatio/Section";
+import SmallTablesSection from "./overview/sections/SmallTablesSection";
 
 const MarketOverview = () => {
   return (
     <>
-      <SmallTables />
+      <SmallTablesSection />
       <section
         id="global-market-data"
         className="w-full flex justify-center pt-8"
