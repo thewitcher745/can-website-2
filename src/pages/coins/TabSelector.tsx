@@ -9,45 +9,51 @@ const TabSelector = ({
   activeTab: string;
   className: string;
 }) => {
+  const TabLink = ({
+    tabId,
+    tabName,
+    href,
+    isLast = false,
+    isFirst = false,
+  }: {
+    tabId: string;
+    tabName: string;
+    href: string;
+    isLast?: boolean;
+    isFirst?: boolean;
+  }) => {
+    return (
+      <Link href={href} className="w-1/4 min-w-20">
+        <div
+          className={`py-2 h-full flex items-center justify-center text-text-muted transition duration-200 ${
+            activeTab === tabId ? "bg-white" : ""
+          } $`}
+        >
+          <span className="text-center text-sm sm:text-md px-2">{tabName}</span>
+        </div>
+      </Link>
+    );
+  };
+
   return (
-    <div className={`flex justify-center bg-background w-full ${className}`}>
-      <div className="flex justify-center max-w-6xl divide-x rounded-4xl divide-text-muted text-text-main border border-text-muted">
-        <Link href="/coins/gainers">
-          <div
-            className={`px-4 py-2 text-text-muted rounded-l-4xl transition duration-200 ${
-              activeTab === "gainers" ? "bg-white" : ""
-            }`}
-          >
-            Top Gainers
-          </div>
-        </Link>
-        <Link href="/coins/losers">
-          <div
-            className={`px-4 py-2 text-text-muted transition duration-200 ${
-              activeTab === "losers" ? "bg-white" : ""
-            }`}
-          >
-            Top Losers
-          </div>
-        </Link>
-        <Link href="/coins/trending">
-          <div
-            className={`px-4 py-2 text-text-muted transition duration-200 ${
-              activeTab === "trending" ? "bg-white" : ""
-            }`}
-          >
-            Trending
-          </div>
-        </Link>
-        <Link href="/coins/overview">
-          <div
-            className={`px-4 py-2 text-text-muted rounded-r-4xl transition duration-200 ${
-              activeTab === "overview" ? "bg-white" : ""
-            }`}
-          >
-            Market Overview
-          </div>
-        </Link>
+    <div
+      className={`flex max-w-xl overflow-x-scroll bg-background w-full ${className}`}
+    >
+      <div className="flex w-full min-w-md divide-x divide-text-muted text-text-main border border-text-muted">
+        <TabLink
+          tabId="gainers"
+          tabName="Top Gainers"
+          href="/coins/gainers"
+          isFirst={true}
+        />
+        <TabLink tabId="losers" tabName="Top Losers" href="/coins/losers" />
+        <TabLink tabId="trending" tabName="Trending" href="/coins/trending" />
+        <TabLink
+          tabId="overview"
+          tabName="Market Overview"
+          href="/coins/overview"
+          isLast={true}
+        />
       </div>
     </div>
   );

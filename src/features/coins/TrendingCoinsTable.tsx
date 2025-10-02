@@ -19,7 +19,9 @@ interface TrendingWithSparkline extends GainerLoser {
 }
 
 const TrendingCoinsTable = ({ maxRows = 10 }: { maxRows: number }) => {
-  const [trendingCoins, setTrendingCoins] = useState<TrendingWithSparkline[]>([]);
+  const [trendingCoins, setTrendingCoins] = useState<TrendingWithSparkline[]>(
+    []
+  );
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(maxRows);
@@ -191,7 +193,7 @@ const TrendingCoinsTable = ({ maxRows = 10 }: { maxRows: number }) => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4">${formatPrice(coin.price)}</td>
+                      <td className="px-6 py-4">{formatPrice(coin.price)}</td>
                       <td
                         className={`px-6 py-4 h-full flex-col gap-2 ${
                           coin.change >= 0 ? "text-success" : "text-error"
