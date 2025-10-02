@@ -161,14 +161,14 @@ const SmallTables = () => {
       <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2">
         <div
           id="top-gainers"
-          className="w-full flex flex-col lg:items-start items-center justify-center"
+          className="w-full flex flex-col lg:items-start items-center"
         >
           <Link href={`/coins/gainers`}>
             <div className="flex">
               <h3 className="text-lg font-semibold underline text-text-main">
                 Top Gainers
               </h3>
-              <ChevronRight className="h-8 w-8 text-text-muted self-end" />
+              <ChevronRight className="h-6 w-6 text-text-muted self-end" />
             </div>
           </Link>
           {loading && <TopCoinsTableRowPlaceholer />}
@@ -180,14 +180,14 @@ const SmallTables = () => {
         </div>
         <div
           id="top-losers"
-          className="w-full flex flex-col lg:items-start items-center justify-center"
+          className="w-full flex flex-col lg:items-start items-center"
         >
           <Link href={`/coins/losers`}>
             <div className="flex">
               <h3 className="text-lg font-semibold underline text-text-main">
                 Top Losers
               </h3>
-              <ChevronRight className="h-8 w-8 text-text-muted self-end" />
+              <ChevronRight className="h-6 w-6 text-text-muted self-end" />
             </div>
           </Link>
           {loading && <TopCoinsTableRowPlaceholer />}
@@ -199,14 +199,14 @@ const SmallTables = () => {
         </div>
         <div
           id="trending"
-          className="w-full flex flex-col lg:items-start items-center justify-center"
+          className="w-full flex flex-col lg:items-start items-center"
         >
           <Link href={`/coins/trending`}>
             <div className="flex">
               <h3 className="text-lg font-semibold underline text-text-main">
                 Trending
               </h3>
-              <ChevronRight className="h-8 w-8 text-text-muted self-end" />
+              <ChevronRight className="h-6 w-6 text-text-muted self-end" />
             </div>
           </Link>
           {loading && <TopCoinsTableRowPlaceholer />}
@@ -218,7 +218,7 @@ const SmallTables = () => {
         </div>
         <div
           id="trending"
-          className="w-full flex flex-col lg:items-start items-center justify-center"
+          className="w-full flex flex-col lg:items-start items-center"
         >
           <div className="flex">
             <h3 className="text-lg font-semibold text-text-main">
