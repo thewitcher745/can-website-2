@@ -11,7 +11,7 @@ export const MobileNavButton = ({
   handleToggle: () => void;
 }) => {
   return (
-    <div className="flex items-center md:hidden">
+    <div className="absolute z-100 cursor-pointer top-0 right-0 py-4 px-10 flex items-center md:hidden">
       <button
         aria-label="Open main menu"
         onClick={handleToggle}
@@ -40,7 +40,7 @@ const MobileNav = ({
     menuOpen && (
       <div
         id="mobile-nav"
-        className="md:hidden bg-off-black z-200 px-4 pb-4 pt-2 border-b border-border-strong animate-slideDownFadeIn"
+        className="relative md:hidden z-0 w-full bg-off-black pb-4 pt-2 border-b border-border-strong animate-slideDownFadeIn"
       >
         <div className="flex flex-col space-y-2">
           <Link
@@ -73,6 +73,10 @@ const MobileNav = ({
             Contact Us
           </Link>
         </div>
+        <div
+          onClick={closeMenu}
+          className="absolute bottom-0 left-[calc(50%-50vw)] h-[calc(100vh)] translate-y-full bg-gray-300/50 w-screen"
+        ></div>
       </div>
     )
   );

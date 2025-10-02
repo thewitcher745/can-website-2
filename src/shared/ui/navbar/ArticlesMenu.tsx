@@ -39,7 +39,11 @@ const ArticlesMenuItems = ({ isMobile }: { isMobile: boolean }) => {
   );
 };
 
-const MobileArticlesMenu = ({ articlesMenuOpen }: { articlesMenuOpen: boolean }) => {
+const MobileArticlesMenu = ({
+  articlesMenuOpen,
+}: {
+  articlesMenuOpen: boolean;
+}) => {
   return (
     <div
       className={`flex flex-col w-100 transition-all duration-200 ease-in-out ${
@@ -53,7 +57,11 @@ const MobileArticlesMenu = ({ articlesMenuOpen }: { articlesMenuOpen: boolean })
   );
 };
 
-const DesktopArticlesMenu = ({ articlesMenuOpen }: { articlesMenuOpen: boolean }) => {
+const DesktopArticlesMenu = ({
+  articlesMenuOpen,
+}: {
+  articlesMenuOpen: boolean;
+}) => {
   return (
     <div
       className={`absolute bottom-0 bg-background rounded-md shadow-text-muted shadow-lg p-2 flex flex-col transition-all duration-200 ease-in-out ${
@@ -98,12 +106,12 @@ export const ArticlesMenuButton = ({ isMobile }: { isMobile: boolean }) => {
       <div
         onMouseEnter={openArticlesMenu}
         onMouseLeave={closeArticlesMenu}
-        className="relative flex flex-col text-text-main hover:text-orange py-2 text-sm font-medium cursor-pointer"
+        className="relative h-full justify-center flex flex-col hover:text-orange py-2 text-sm font-medium cursor-pointer"
       >
         <div className="flex gap-2 items-center">
           <span>Articles</span>
           <ChevronDown
-            className={`h-4 w-4 text-text-main transition transform duration-300 ease-in-out ${
+            className={`h-4 w-4 transition transform duration-300 ease-in-out ${
               articlesMenuOpen ? "rotate-180" : ""
             }`}
           />
