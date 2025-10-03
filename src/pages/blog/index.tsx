@@ -2,23 +2,14 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/Footer";
-import { buildApiUrl } from "../../config";
-import { formatRelativeTime } from "../../utils";
-
-interface BlogPostMeta {
-  author: string;
-  time: string;
-  slug: string;
-  tags: string[];
-  title: string;
-  desc: string;
-  thumbnail?: string;
-}
+import Navbar from "@shared/ui/navbar/Navbar";
+import Footer from "@shared/ui/Footer";
+import { buildApiUrl } from "@src/config";
+import { formatRelativeTime } from "@src/utils";
+import { ArticleMeta } from "@src/types";
 
 const Blog: React.FC = () => {
-  const [posts, setPosts] = useState<BlogPostMeta[]>([]);
+  const [posts, setPosts] = useState<ArticleMeta[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
@@ -38,7 +29,7 @@ const Blog: React.FC = () => {
     if (filterTags?.length === 1) {
       setFilterTags(null);
     } else {
-      setFilterTags((prev) => prev?.filter((t) => t !== tag));
+      setFilterTags((prev) => prev?.filter((t) => t !== tag) || null);
     }
   };
 
@@ -105,7 +96,7 @@ const Blog: React.FC = () => {
       </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
-        <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-24">
+        <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-6">
           <h1 className="text-3xl font-bold mb-8 text-primary px-2">Blog</h1>
           <p className="text-text-main text-xl mb-6 px-2">
             Explore the latest insights and stories from our team of experts.
@@ -138,7 +129,7 @@ const Blog: React.FC = () => {
               filteredPosts.map((article) => (
                 <div
                   key={article.slug}
-                  className="flex flex-row flex-grow sm:flex-col p-2 sm:p-0 h-26 sm:h-70 md:h-100 rounded-sm sm:rounded-lg hover:shadow-md transition"
+                  className="flex flex-row flex-grow sm:flex-col p-2 sm:p-0 h-26 sm:h-70 md:h-100 rounded-sm sm:rounded-lg card-hover"
                 >
                   <div className="h-full w-30 sm:w-full sm:h-1/2 overflow-hidden rounded-sm sm:rounded-t-sm mb-2">
                     <Link href={`/blog/${article.slug}`}>

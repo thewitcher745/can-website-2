@@ -1,8 +1,8 @@
 import Head from "next/head";
 
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/Footer";
-import Staging from "./index/Staging";
+import Navbar from "../shared/ui/navbar/Navbar";
+import Footer from "../shared/ui/Footer";
+import Staging from "./index/Contents";
 
 export default function Home() {
   return (

@@ -1,0 +1,12 @@
+Date	Symbol	Status	Leverage	Lev	$ Used	Type	Last Target	Profit %	Net Profit	 $1,000 
+Tuesday, August 1, 2023	MAGIC/USDT	Partial Targets Achieved	Isolated (4.0X)	4	50	Long	1	22.1	1.11%	 $11.07 
+Tuesday, August 1, 2023	WLD/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	Long	1	54.1	2.70%	 $27.03 
+Sunday, August 6, 2023	GMX/USDT	Stopped Out	Isolated (6.0X)	6	50	Long	0	-22.2	-1.11%	 $(11)
+Sunday, August 6, 2023	OP/USDT	All Targets Achieved	Isolated (2.0X)	2	50	Short	3	38.2	1.91%	 $19.12 
+Wednesday, August 9, 2023	BTC/USDT	All Targets Achieved	Isolated (8.0X)	8	50	Short	2	41.7	2.09%	 $20.87 
+Thursday, August 10, 2023	ID/USDT	All Targets Achieved	Isolated (7.0X)	7	50	Short	3	47.7	2.38%	 $23.83 
+Sunday, August 13, 2023	JOE/USDT	Stopped Out	Isolated (5.0X)	5	50	Long	0	-19.9	-1.00%	 $(9.96)
+Monday, August 21, 2023	WLD/USDT	Stopped Out	Isolated (4.0X)	4	50	Long	0	-21.6	-1.08%	 $(10.81)
+Wednesday, August 23, 2023	CRV/USDT	Partial Targets Achieved	Isolated (4.0X)	4	50	Long	1	27.7	1.39%	 $13.85 
+Monday, August 28, 2023	SUI/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	Short	1	17.0	0.85%	 $8.49 
+Tuesday, August 29, 2023	IOTA/USDT	All Targets Achieved	Isolated (7.0X)	7	50	Long	2	35.9	1.80%	 $17.96 

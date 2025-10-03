@@ -1,12 +1,12 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
-import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/Footer";
-import { buildApiUrl } from "../../config";
-import { AnalysisPostMeta } from "../../components/analysis/MostRecentAnalysisCard";
-import MostRecent from "../../components/analysis/MostRecent";
-import AnalysisListContainer from "@components/analysis/AnalysisListContainer";
+import Navbar from "@shared/ui/navbar/Navbar";
+import Footer from "@src/shared/ui/Footer";
+import { buildApiUrl } from "@src/config";
+import { AnalysisPostMeta } from "@src/types";
+import MostRecent from "@features/homepage/components/most-recent-analysis/MostRecent";
+import AnalysisListContainer from "@features/analysis/AnalysisListContainer";
 
 const Analysis: React.FC = () => {
   const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
@@ -82,13 +82,16 @@ const Analysis: React.FC = () => {
   const mostRecentElement = (
     <div>
       <div className="items-center gap-4 w-full 2xl:block hidden">
-        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 8)} />
+        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 12)} />
       </div>
       <div className="items-center gap-4 w-full md:max-2xl:block hidden">
-        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 7)} />
+        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 9)} />
       </div>
-      <div className="items-center gap-4 w-full max-md:flex hidden">
-        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 4)} />
+      <div className="items-center gap-4 w-full sm:max-md:flex hidden">
+        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 6)} />
+      </div>
+      <div className="items-center gap-4 w-full max-sm:flex hidden">
+        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 3)} />
       </div>
     </div>
   );
@@ -99,8 +102,8 @@ const Analysis: React.FC = () => {
         <title>Analysis - CAN Trading</title>
       </Head>
       <Navbar />
-      <main className="bg-background min-h-screen pt-24 px-4">
-        <section id="most-recent" className="w-full flex justify-center">
+      <main className="bg-background min-h-screen px-4">
+        <section id="most-recent" className="w-full flex justify-center pt-4">
           <div className="max-w-[100rem] w-full flex flex-col self-start sm:text-left">
             <h2 className="text-xl md:text-3xl font-bold mb-2 text-primary hover:text-primary-light transition-colors duration-200">
               Latest analysis

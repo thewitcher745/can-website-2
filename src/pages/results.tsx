@@ -1,10 +1,12 @@
 import Head from "next/head";
-
+import Link from "next/link";
+import { FaTelegram } from "react-icons/fa6";
 import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/Footer";
-import ResultsTable from "../components/full-results/ResultsTable";
+
+import Navbar from "../shared/ui/navbar/Navbar";
+import Footer from "../shared/ui/Footer";
+import ResultsTable from "@features/full-results/ResultsTable";
 
 // Hardcoded list of available months (folder names)
 const availableMonths = [
@@ -161,8 +163,8 @@ const ResultsPage: React.FC = () => {
         <title>Results - CAN Trading</title>
       </Head>
       <Navbar />
-      <main className="results-page min-h-screen bg-background pt-24 pb-12">
-        <div className="max-w-7xl mx-auto px-4 pt-24">
+      <main className="results-page min-h-screen bg-background pb-12">
+        <div className="max-w-7xl mx-auto px-4 pt-12">
           <h1 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
             Full Results Gallery
           </h1>
@@ -237,6 +239,17 @@ const ResultsPage: React.FC = () => {
             Detailed Trade Log
           </h2>
           <ResultsTable selectedMonth={currentMonthYearKey} />
+          <div className="mt-12 flex justify-center w-full text-xl text-text-main">
+            <Link
+              href="https://t.me/CryptoANalysis_CAN"
+              className="text-nowrap flex gap-1 items-center mr-1 title-hover "
+            >
+              <span>Join our</span>
+              <FaTelegram />
+              <span className="underline"> Telegram channel</span>
+            </Link>
+            <span> to see the results first hand!</span>
+          </div>
         </div>
         {/* Modal Overlay */}
         {modalImg && (

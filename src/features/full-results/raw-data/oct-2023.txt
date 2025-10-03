@@ -1,0 +1,29 @@
+Date	Symbol	Status	Leverage	Margin	Type	Last Target	Profit %	Net Profit	5%
+Sunday, October 1, 2023	ATA/USDT	Partial Targets Achieved	Isolated (3.0X)	15%	Short	2	33.6	1.68%	 $33.59 
+Sunday, October 1, 2023	WLD/USDT	Partial Targets Achieved	Isolated (3.0X)	15%	Short	2	67.5	3.37%	 $67.47 
+Sunday, October 1, 2023	FTM/USDT	Partial Targets Achieved	Isolated (4.0X)	20%	Long	1	17.4	0.87%	 $17.38 
+Monday, October 2, 2023	DYDX/USDT	Partial Targets Achieved	Isolated (4.0X)	20%	Long	1	20.7	1.04%	 $20.70 
+Wednesday, October 4, 2023	ICX/USDT	Stopped Out	Isolated (5.0X)	25%	Short	0	-18.7	-0.94%	 $(18.71)
+Thursday, October 5, 2023	DEFI/USDT	Partial Targets Achieved	Isolated (5.0X)	25%	Short	2	27.7	1.39%	 $27.72 
+Friday, October 6, 2023	BAKE/USDT	Stopped Out	Isolated (3.0X)	15%	Short	0	-23.3	-1.17%	 $(23.33)
+Monday, October 9, 2023	ALGO/USDT	Partial Targets Achieved	Isolated (5.0X)	25%	Short	2	26.1	1.31%	 $26.10 
+Wednesday, October 11, 2023	AVAX/USDT	Stopped Out	Isolated (5.0X)	25%	Long	1	-12.3	-0.61%	 $(12.28)
+Saturday, October 14, 2023	PHB/USDT	Partial Targets Achieved	Isolated (3.0X)	15%	Short	1	20.3	1.01%	 $20.29 
+Sunday, October 15, 2023	HOOK/USDT	Stopped Out	Isolated (4.0X)	20%	Short	0	-16.1	-0.80%	 $(16.07)
+Monday, October 16, 2023	ADA/USDT	Partial Targets Achieved	Isolated (8.0X)	40%	Long	1	16.2	0.81%	 $16.19 
+Monday, October 16, 2023	HOT/USDT	Partial Targets Achieved	Isolated (3.0X)	15%	Long	2	45.4	2.27%	 $45.36 
+Monday, October 16, 2023	BAT/USDT	Partial Targets Achieved	Isolated (5.0X)	25%	Short	2	21.3	1.06%	 $21.26 
+Monday, October 16, 2023	LTC/USDT	Stopped Out	Isolated (7.0X)	35%	Long	0	-8.7	-0.43%	 $(8.67)
+Tuesday, October 17, 2023	SKL/USDT	Partial Targets Achieved	Isolated (4.0X)	20%	Short	1	20.1	1.01%	 $20.10 
+Friday, October 20, 2023	CHZ/USDT	All Targets Achieved	Isolated (5.0X)	25%	Long	3	30.1	1.50%	 $30.09 
+Friday, October 20, 2023	DEFI/USDT	All Targets Achieved	Isolated (5.0X)	25%	Long	2	40.5	2.02%	 $40.47 
+Friday, October 20, 2023	PENDLE/USDT	Stopped Out	Isolated (3.0X)	15%	Short	0	-22.5	-1.12%	 $(22.49)
+Sunday, October 22, 2023	HOOK/USDT	Stopped Out	Isolated (3.0X)	15%	Short	0	-16.7	-0.83%	 $(16.68)
+Tuesday, October 24, 2023	ACH/USDT	Partial Targets Achieved	Isolated (3.0X)	15%	Long	1	21.1	1.06%	 $21.10 
+Tuesday, October 24, 2023	ACH/USDT	Partial Targets Achieved	Isolated (3.0X)	15%	Long	1	7.0	0.35%	 $7.03 
+Thursday, October 26, 2023	BTC/USDT	Partial Targets Achieved	Isolated (10.0X)	50%	Short	1	23.1	1.16%	 $23.10 
+Thursday, October 26, 2023	JASMY/USDT	Stopped Out	Isolated (3.0X)	15%	Long	1	-4.2	-0.21%	 $(4.20)
+Thursday, October 26, 2023	NEAR/USDT	Stopped Out	Isolated (3.0X)	15%	Short	0	-16.5	-0.82%	 $(16.49)
+Thursday, October 26, 2023	GMX/USDT	Partial Targets Achieved	Isolated (3.0X)	15%	Short	1	6.4	0.32%	 $6.36 
+Friday, October 27, 2023	ARB/USDT	Partial Targets Achieved	Isolated (1.0X)	5%	Short	1	15.8	0.79%	 $15.83 
+Tuesday, October 31, 2023	AGIX/USDT	Partial Targets Achieved	Isolated (1.0X)	5%	Short	1	1.9	0.09%	 $1.89 

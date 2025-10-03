@@ -1,0 +1,28 @@
+Date	Symbol	Status	Leverage	Entry	Margin	Type	Last Target	Profit %	Net Profit	5%
+Monday, September 2, 2024	DUSK/USDT	Stopped Out	Isolated (5.0X)	100	50%	Long	0	-37.0	-3.70%	 $(37.04)
+Tuesday, September 3, 2024	CHR/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Short	1	18.9	0.47%	 $4.73 
+Sunday, September 8, 2024	ALICE/USDT	All Targets Achieved	Isolated (5.0X)	100	50%	Long	3	68.3	6.83%	 $68.31 
+Sunday, September 8, 2024	RUNE/USDT	Stopped Out	Isolated (3.0X)	100	30%	Short	0	-38.4	-3.84%	 $(38.36)
+Sunday, September 8, 2024	LINK/USDT	All Targets Achieved	Isolated (3.0X)	100	30%	Long	2	45.4	4.54%	 $45.40 
+Monday, September 9, 2024	JOE/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Long	3	63.2	1.58%	 $15.81 
+Monday, September 9, 2024	NEAR/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Long	2	20.8	0.52%	 $5.20 
+Wednesday, September 11, 2024	LTC/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Long	1	6.9	0.17%	 $1.73 
+Thursday, September 12, 2024	ONE/USDT	All Targets Achieved	Isolated (5.0X)	50	25%	Long	3	43.5	1.09%	 $10.87 
+Thursday, September 12, 2024	FTM/USDT	All Targets Achieved	Isolated (3.0X)	50	15%	Long	3	79.4	1.99%	 $19.85 
+Friday, September 13, 2024	ETH/USDT	All Targets Achieved	Isolated (5.0X)	100	50%	Long	2	53.1	5.31%	 $53.06 
+Saturday, September 14, 2024	COTI/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	2	37.0	0.92%	 $9.25 
+Saturday, September 14, 2024	OM/USDT	All Targets Achieved	Isolated (5.0X)	100	50%	Long	2	66.8	6.68%	 $66.76 
+Sunday, September 15, 2024	LIT/USDT	Stopped Out	Isolated (5.0X)	100	50%	Long	0	-36.3	-3.63%	 $(36.29)
+Tuesday, September 17, 2024	THETA/USDT	Stopped Out	Isolated (3.0X)	100	30%	Short	0	-20.9	-2.09%	 $(20.94)
+Tuesday, September 17, 2024	SOL/USDT	Partial Targets Achieved	Isolated (7.0X)	100	70%	Short	1	6.1	0.61%	 $6.11 
+Thursday, September 19, 2024	CAKE/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Long	1	30.4	0.76%	 $7.61 
+Friday, September 20, 2024	JTO/USDT	Partial Targets Achieved	Isolated (3.0X)	100	30%	Long	1	17.3	1.73%	 $17.28 
+Saturday, September 21, 2024	STRK/USDT	Stopped Out	Isolated (5.0X)	100	50%	Long	0	-23.1	-2.31%	 $(23.10)
+Sunday, September 22, 2024	RENDER/USDT	All Targets Achieved	Isolated (5.0X)	50	25%	Long	3	45.9	1.15%	 $11.48 
+Tuesday, September 24, 2024	DYDX/USDT	All Targets Achieved	Isolated (7.0X)	50	35%	Long	3	42.5	1.06%	 $10.62 
+Tuesday, September 24, 2024	VET/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Long	2	22.7	0.57%	 $5.66 
+Tuesday, September 24, 2024	SOL/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Long	1	14.8	0.37%	 $3.69 
+Tuesday, September 24, 2024	ICP/USDT	Partial Targets Achieved	Isolated (2.0X)	50	10%	Short	1	12.8	0.32%	 $3.20 
+Thursday, September 26, 2024	KLAY/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Long	2	21.3	0.53%	 $5.32 
+Monday, September 30, 2024	OXT/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Short	1	27.1	0.68%	 $6.78 
+Monday, September 30, 2024	UNI/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Short	1	21.4	0.53%	 $5.34 

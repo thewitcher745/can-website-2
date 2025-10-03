@@ -1,0 +1,26 @@
+Date	Symbol	Status	Leverage	Entry	$ Used	Margin	Type	Last Target	Profit %	Net Profit	5%
+Monday, July 1, 2024	JASMY/USDT	Stopped Out	Isolated (3.0X)	100	5.0%	15%	Long	0	-41.2	-2.06%	 $(20.62)
+Wednesday, July 3, 2024	COTI/USDT	Partial Targets Achieved	Isolated (3.0X)	100	5.0%	15%	Long	2	137.0	6.85%	 $68.50 
+Thursday, July 4, 2024	ETH/USDT	Partial Targets Achieved	Isolated (3.0X)	100	5.0%	15%	Long	2	66.1	3.30%	 $33.04 
+Thursday, July 4, 2024	JTO/USDT	Partial Targets Achieved	Isolated (3.0X)	100	5.0%	15%	Long	3	234.0	11.70%	 $117.00 
+Sunday, July 7, 2024	PHB/USDT	Partial Targets Achieved	Isolated (3.0X)	100	5.0%	15%	Short	1	8.3	0.41%	 $4.14 
+Monday, July 8, 2024	ATOM/USDT	Partial Targets Achieved	Isolated (5.0X)	100	5.0%	25%	Long	2	30.8	1.54%	 $15.41 
+Monday, July 8, 2024	LINK/USDT	Partial Targets Achieved	Isolated (3.0X)	100	5.0%	15%	Long	2	34.3	1.71%	 $17.13 
+Monday, July 8, 2024	NOT/USDT	Stopped Out	Isolated (3.0X)	100	5.0%	15%	Long	0	-51.7	-2.58%	 $(25.83)
+Monday, July 8, 2024	ACH/USDT	All Targets Achieved	Isolated (3.0X)	100	5.0%	15%	Long	3	44.4	2.22%	 $22.22 
+Tuesday, July 9, 2024	XRP/USDT	Partial Targets Achieved	Isolated (5.0X)	100	5.0%	25%	Long	1	44.7	2.23%	 $22.33 
+Saturday, July 13, 2024	BCH/USDT	Partial Targets Achieved	Isolated (5.0X)	100	5.0%	25%	Long	1	66.5	3.32%	 $33.23 
+Saturday, July 13, 2024	ICP/USDT	All Targets Achieved	Isolated (5.0X)	100	5.0%	25%	Long	3	54.5	2.73%	 $27.26 
+Wednesday, July 17, 2024	WLD/USDT	Stopped Out	Isolated (3.0X)	100	5.0%	15%	Long	0	-60.7	-3.04%	 $(30.36)
+Friday, July 19, 2024	ICP/USDT	Partial Targets Achieved	Isolated (3.0X)	100	5.0%	15%	Long	1	22.3	1.11%	 $11.14 
+Friday, July 19, 2024	HOT/USDT	Stopped Out	Isolated (5.0X)	100	5.0%	25%	Short	0	-36.6	-1.83%	 $(18.28)
+Saturday, July 20, 2024	SEI/USDT	Partial Targets Achieved	Isolated (3.0X)	100	5.0%	15%	Long	1	21.2	1.06%	 $10.60 
+Saturday, July 20, 2024	AVAX/USDT	Partial Targets Achieved	Isolated (5.0X)	100	5.0%	25%	Long	2	30.8	1.54%	 $15.39 
+Monday, July 22, 2024	AVAX/USDT	Stopped Out	Isolated (3.0X)	100	5.0%	15%	Long	0	-21.0	-1.05%	 $(10.49)
+Tuesday, July 23, 2024	AR/USDT	Partial Targets Achieved	Isolated (5.0X)	100	5.0%	25%	Long	1	58.0	2.90%	 $29.00 
+Tuesday, July 23, 2024	ETH/USDT	Stopped Out	Isolated (3.0X)	100	5.0%	15%	Long	0	-15.9	-0.80%	 $(7.95)
+Wednesday, July 24, 2024	BTC/USDT	Partial Targets Achieved	Isolated (10.0X)	100	5.0%	50%	Short	1	26.9	1.35%	 $13.47 
+Wednesday, July 24, 2024	SEI/USDT	Stopped Out	Isolated (3.0X)	100	5.0%	15%	Long	0	-24.8	-1.24%	 $(12.42)
+Friday, July 26, 2024	BTC/USDT	Stopped Out	Isolated (4.0X)	100	5.0%	20%	Long	0	-24.9	-1.25%	 $(12.47)
+Sunday, July 28, 2024	SOL/USDT	Stopped Out	Isolated (5.0X)	100	5.0%	25%	Long	0	-32.9	-1.65%	 $(16.45)
+Wednesday, July 31, 2024	1000SATS/USDT	Partial Targets Achieved	Isolated (5.0X)	100	5.0%	25%	Long	1	55.6	2.78%	 $27.80 

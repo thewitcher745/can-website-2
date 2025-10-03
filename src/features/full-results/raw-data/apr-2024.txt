@@ -1,0 +1,44 @@
+Date	Symbol	Status	Leverage	$ Used	Type	Last Target	Profit %	Net Profit	1000$
+Monday, April 1, 2024	BCH/USDT	Stopped Out	Isolated (4.0X)	10.0%	Long	0	-22.7	-2.27%	 $(22.69)
+Tuesday, April 2, 2024	ARK/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	2	45.7	4.57%	 $45.67 
+Tuesday, April 2, 2024	ASTR/USDT	Partial Targets Achieved	Isolated (4.0X)	5.0%	Long	2	43.6	2.18%	 $21.79 
+Tuesday, April 2, 2024	BAT/USDT	Stopped Out	Isolated (3.0X)	10.0%	Short	0	-21.2	-2.12%	 $(21.18)
+Thursday, April 4, 2024	SOL/USDT	All Targets Achieved	Isolated (3.0X)	10.0%	Short	3	37.7	3.77%	 $37.68 
+Friday, April 5, 2024	APE/USDT	Stopped Out	Isolated (3.0X)	10.0%	Short	0	-20.7	-2.07%	 $(20.68)
+Friday, April 5, 2024	JTO/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	30.1	3.01%	 $30.10 
+Saturday, April 6, 2024	KAVA/USDT	Stopped Out	Isolated (4.0X)	10.0%	Short	0	-19.3	-1.93%	 $(19.32)
+Saturday, April 6, 2024	CHZ/USDT	Partial Targets Achieved	Isolated (5.0X)	5.0%	Long	1	32.7	1.63%	 $16.34 
+Sunday, April 7, 2024	ORDI/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	21.1	2.11%	 $21.10 
+Monday, April 8, 2024	ARB/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-37.6	-3.76%	 $(37.60)
+Monday, April 8, 2024	QTUM/USDT	Partial Targets Achieved	Isolated (3.0X)	5.0%	Long	1	26.8	1.34%	 $13.41 
+Monday, April 8, 2024	CELR/USDT	All Targets Achieved	Isolated (5.0X)	10.0%	Long	3	51.0	5.10%	 $51.03 
+Tuesday, April 9, 2024	GAL/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-21.2	-2.12%	 $(21.18)
+Tuesday, April 9, 2024	GALA/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Long	1	20.6	2.06%	 $20.60 
+Wednesday, April 10, 2024	PERP/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-24.3	-2.43%	 $(24.29)
+Tuesday, April 9, 2024	ENS/USDT	All Targets Achieved	Isolated (3.0X)	5.0%	Short	3	54.9	2.75%	 $27.46 
+Wednesday, April 10, 2024	BTC/USDT	Stopped Out	Isolated (5.0X)	10.0%	Long	0	-28.0	-2.80%	 $(28.03)
+Tuesday, April 9, 2024	LTC/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Short	1	20.5	2.05%	 $20.51 
+Wednesday, April 10, 2024	PIXEL/USDT	Partial Targets Achieved	Isolated (5.0X)	5.0%	Long	2	33.8	1.69%	 $16.90 
+Thursday, April 11, 2024	MANA/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-21.4	-2.14%	 $(21.42)
+Thursday, April 11, 2024	MAGIC/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Long	1	19.8	1.98%	 $19.75 
+Saturday, April 13, 2024	DOGE/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-24.1	-2.41%	 $(24.08)
+Thursday, April 11, 2024	MAGIC/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Long	1	19.8	1.98%	 $19.75 
+Saturday, April 13, 2024	VET/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-21.5	-2.15%	 $(21.50)
+Friday, April 12, 2024	ORBS/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Long	1	18.4	1.84%	 $18.38 
+Saturday, April 13, 2024	GMT/USDT	Stopped Out	Isolated (5.0X)	10.0%	Long	0	-35.3	-3.53%	 $(35.32)
+Friday, April 12, 2024	FLOW/USDT	All Targets Achieved	Isolated (5.0X)	10.0%	Short	3	21.4	2.14%	 $21.42 
+Saturday, April 13, 2024	DOGE/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-24.1	-2.41%	 $(24.08)
+Saturday, April 13, 2024	DOT/USDT	Partial Targets Achieved	Isolated (3.0X)	5.0%	Long	2	46.9	2.34%	 $23.44 
+Sunday, April 14, 2024	ETH/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	18.5	1.85%	 $18.51 
+Wednesday, April 17, 2024	RNDR/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	22.1	2.21%	 $22.07 
+Wednesday, April 17, 2024	BTC/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	8.1	0.81%	 $8.07 
+Thursday, April 18, 2024	ETH/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	24.4	2.44%	 $24.44 
+Thursday, April 18, 2024	NEO/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	2	32.4	3.24%	 $32.40 
+Tuesday, April 23, 2024	1000PEPE/USDT	All Targets Achieved	Isolated (3.0X)	5.0%	Long	3	56.4	2.82%	 $28.21 
+Wednesday, April 24, 2024	IOTX/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	19.9	1.99%	 $19.92 
+Friday, April 26, 2024	STX/USDT	All Targets Achieved	Isolated (5.0X)	5.0%	Short	3	48.6	2.43%	 $24.32 
+Saturday, April 27, 2024	RNDR/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	22.1	2.21%	 $22.09 
+Sunday, April 28, 2024	CELO/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-23.8	-2.38%	 $(23.78)
+Saturday, April 27, 2024	SFP/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Short	1	3.0	0.30%	 $2.97 
+Sunday, April 28, 2024	OP/USDT	Stopped Out	Isolated (3.0X)	10.0%	Long	0	-21.1	-2.11%	 $(21.12)
+Monday, April 29, 2024	ALT/USDT	Partial Targets Achieved	Isolated (5.0X)	5.0%	Short	2	49.9	2.50%	 $24.97 

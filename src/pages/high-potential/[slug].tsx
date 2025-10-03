@@ -2,13 +2,12 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 
-import { TokenCardData } from "../../components/high-potential/HighPotentialContainer";
-import { buildApiUrl } from "../../config";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/navbar/Navbar";
+import { buildApiUrl } from "@src/config";
+import Footer from "@src/shared/ui/Footer";
+import Navbar from "@shared/ui/navbar/Navbar";
+import { HighPotentialTokenMeta } from "@src/types";
 
-
-interface TokenPageData extends TokenCardData {
+interface TokenPageData extends HighPotentialTokenMeta {
   content_html: string;
   image: string;
 }
@@ -37,9 +36,9 @@ export default function HighPotentialTokenPage() {
   if (loading) {
     return (
       <>
-      <Head>
-        <title>CAN Trading</title>
-      </Head>
+        <Head>
+          <title>CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="pt-20 bg-background min-h-screen">
           <section id="videos" className="py-16">
@@ -58,9 +57,9 @@ export default function HighPotentialTokenPage() {
   if (error) {
     return (
       <>
-      <Head>
-        <title>CAN Trading</title>
-      </Head>
+        <Head>
+          <title>CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="pt-20 bg-background min-h-screen">
           <section id="videos" className="py-16">
@@ -77,9 +76,9 @@ export default function HighPotentialTokenPage() {
   if (!tokenData) {
     return (
       <>
-      <Head>
-        <title>{tokenData?.name || "CAN Trading"}</title>
-      </Head>
+        <Head>
+          <title>CAN Trading</title>
+        </Head>
         <Navbar />
         <main className="pt-20 bg-background min-h-screen">
           <section id="videos" className="py-16">
@@ -97,8 +96,8 @@ export default function HighPotentialTokenPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-20 bg-background min-h-screen">
-        <section className="w-full flex justify-center">
+      <main className="bg-background min-h-screen">
+        <section className="w-full flex justify-center pt-6">
           <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl flex lg:flex-row flex-col w-full px-4 gap-4">
             <div className="flex flex-col gap-2 w-full lg:w-1/4">
               <div className="flex flex-wrap gap-4 rounded-xl border border-text-muted p-2 items-center justify-center sm:justify-start lg:justify-center 2xl:justify-between">

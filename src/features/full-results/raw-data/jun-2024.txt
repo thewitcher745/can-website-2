@@ -1,0 +1,19 @@
+Date	Symbol	Status	Leverage	$ Used	Type	Last Target	Profit %	Net Profit	10%
+Sunday, June 2, 2024	AXS/USDT	Partial Targets Achieved	Isolated (3.0X)	100	Long	1	24.2	2.42%	24.15
+Monday, June 3, 2024	PORTAL/USDT	Stopped Out	Isolated (5.0X)	100	Long	0	-38.9	-3.89%	 $(38.86)
+Friday, June 7, 2024	SOL/USDT	Stopped Out	Isolated (3.0X)	100	Long	0	-25.5	-2.55%	 $(25.51)
+Friday, June 7, 2024	LINK/USDT	Stopped Out	Isolated (3.0X)	100	Long	0	-24.8	-2.48%	 $(24.75)
+Saturday, June 8, 2024	DAR/USDT	All Targets Achieved	Isolated (5.0X)	100	Short	3	60.8	6.08%	 $60.85 
+Sunday, June 9, 2024	MAV/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Long	1	20.1	2.01%	 $20.12 
+Monday, June 10, 2024	JTO/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	46.2	2.31%	 $23.12 
+Tuesday, June 11, 2024	JASMY/USDT	Partial Targets Achieved	Isolated (3.0X)	100	Long	2	43.2	4.32%	 $43.16 
+Thursday, June 13, 2024	ETH/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Long	1	33.1	3.31%	 $33.05 
+Thursday, June 13, 2024	AUDIO/USDT	Stopped Out	Isolated (5.0X)	100	Long	0	-35.4	-3.54%	 $(35.38)
+Monday, June 17, 2024	ROSE/USDT	Stopped Out	Isolated (3.0X)	100	Long	0	-23.4	-2.34%	 $(23.44)
+Monday, June 17, 2024	SOL/USDT	Partial Targets Achieved	Isolated (3.0X)	100	Long	1	44.0	4.40%	 $44.01 
+Tuesday, June 18, 2024	TON/USDT	Partial Targets Achieved	Isolated (3.0X)	100	Long	1	32.8	3.28%	 $32.77 
+Thursday, June 20, 2024	AGIX/USDT	All Targets Achieved	Isolated (3.0X)	50	Long	3	32.8	1.64%	 $16.40 
+Thursday, June 20, 2024	JASMY/USDT	Partial Targets Achieved	Isolated (3.0X)	100	Long	1	33.1	3.31%	 $33.06 
+Friday, June 21, 2024	BTC/USDT	Partial Targets Achieved	Isolated (3.0X)	100	Long	1	13.4	1.34%	 $13.44 
+Tuesday, June 25, 2024	ETH/USDT	Partial Targets Achieved	Isolated (3.0X)	100	Long	1	10.7	1.07%	 $10.75 
+Saturday, June 29, 2024	LDO/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Short	1	37.1	1.85%	 $18.53 

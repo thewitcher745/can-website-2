@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+main {
+  background-color: var(--color-background);
+  padding-top: 70px;
+}
+
 .selector-caption {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -8,24 +13,6 @@
   text-overflow: ellipsis;
   white-space: normal;
   line-clamp: 2;
-}
-
-@keyframes video-scroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-
-.animate-video-scroll {
-  animation-name: video-scroll;
-}
-
-/* Hide scrollbars for video section (in case of overflow) */
-.video-scrollbar-hide {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-}
-.video-scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Sticky column shadow effect */
@@ -42,6 +29,13 @@
   pointer-events: none;
 }
 
+.card-hover {
+  @apply hover:shadow-md hover:scale-102 hover:bg-surface/60 transition-all duration-200;
+}
+
+.title-hover {
+  @apply hover:shadow-md hover:text-primary transition-all duration-200;
+}
 
 @theme {
   --color-primary: #ffcb37;
@@ -273,11 +267,11 @@ ol {
 }
 
 .results-table tbody tr.targets-achieved {
-  background-color: rgba(0, 128, 0, 0.3); /* Green with transparency */
+  background-color: #1d441d; /* Green with transparency */
 }
 
 .results-table tbody tr.stopped-out {
-  background-color: rgba(255, 0, 0, 0.3); /* Red with transparency */
+  background-color: #542121; /* Red with transparency */
 }
 
 .results-table tbody tr:hover {

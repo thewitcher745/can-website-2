@@ -1,0 +1,28 @@
+Date	Symbol	Status	Leverage	$ Used	Margin	Type	Last Target	Profit %	Net Profit	 $1,000 
+Wednesday, October 2, 2024	ROSE/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	1	19.0	0.47%	 $4.75 
+Wednesday, October 2, 2024	BEL/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	1	13.4	0.34%	 $3.35 
+Thursday, October 3, 2024	LTC/USDT	Stopped Out	Isolated (5.0X)	100	50%	Short	0	-33.3	-3.33%	 $(33.33)
+Sunday, October 6, 2024	RSR/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	1	18.4	0.46%	 $4.60 
+Wednesday, October 9, 2024	MEW/USDT	All Targets Achieved	Isolated (3.0X)	100	30%	Long	3	97.2	9.72%	 $97.24 
+Wednesday, October 9, 2024	TIA/USDT	Stopped Out	Isolated (3.0X)	100	30%	Short	0	-39.6	-3.96%	 $(39.58)
+Wednesday, October 9, 2024	LSK/USDT	Partial Targets Achieved	Isolated (5.0X)	100	50%	Short	2	17.6	1.76%	 $17.64 
+Friday, October 11, 2024	ACH/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Long	2	21.2	0.53%	 $5.31 
+Monday, October 14, 2024	DOT/USDT	Partial Targets Achieved	Isolated (7.0X)	50	35%	Long	1	14.9	0.37%	 $3.73 
+Tuesday, October 15, 2024	ALT/USDT	Stopped Out	Isolated (3.0X)	100	30%	Long	0	-44.6	-4.46%	 $(44.56)
+Tuesday, October 15, 2024	NEAR/USDT	Partial Targets Achieved	Isolated (5.0X)	100	50%	Long	1	20.2	2.02%	 $20.19 
+Wednesday, October 16, 2024	ARB/USDT	Partial Targets Achieved	Isolated (5.0X)	100	50%	Long	1	20.0	2.00%	 $19.98 
+Wednesday, October 16, 2024	CELR/USDT	All Targets Achieved	Isolated (3.0X)	100	30%	Short	2	43.6	4.36%	 $43.58 
+Saturday, October 19, 2024	MAGIC/USDT	All Targets Achieved	Isolated (5.0X)	50	25%	Long	3	41.3	1.03%	 $10.34 
+Saturday, October 19, 2024	RONIN/USDT	Stopped Out	Isolated (4.0X)	100	40%	Long	0	-25.3	-2.53%	 $(25.27)
+Sunday, October 20, 2024	ATOM/USDT	Partial Targets Achieved	Isolated (3.0X)	100	30%	Long	1	11.1	1.11%	 $11.10 
+Monday, October 21, 2024	JUP/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Long	1	25.0	0.62%	 $6.25 
+Tuesday, October 22, 2024	RUNE/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	1	17.7	0.44%	 $4.41 
+Wednesday, October 23, 2024	PENDLE/USDT	Stopped Out	Isolated (3.0X)	100	30%	Short	0	-24.5	-2.45%	 $(24.45)
+Thursday, October 24, 2024	PYTH/USDT	Partial Targets Achieved	Isolated (4.0X)	50	20%	Long	1	11.2	0.28%	 $2.80 
+Friday, October 25, 2024	COTI/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	1	16.1	0.40%	 $4.02 
+Saturday, October 26, 2024	LTC/USDT	Partial Targets Achieved	Isolated (4.0X)	50	20%	Long	1	12.8	0.32%	 $3.20 
+Saturday, October 26, 2024	WIF/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	1	15.4	0.39%	 $3.85 
+Sunday, October 27, 2024	ALT/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	1	17.6	0.44%	 $4.39 
+Monday, October 28, 2024	WLD/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Long	1	11.6	0.29%	 $2.90 
+Wednesday, October 30, 2024	APT/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	1	28.0	0.70%	 $6.99 
+Wednesday, October 30, 2024	AAVE/USDT	Stopped Out	Isolated (5.0X)	100	50%	Long	0	-22.5	-2.25%	 $(22.52)

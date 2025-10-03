@@ -1,0 +1,32 @@
+Date	Symbol	Status	Leverage	$ Used	Type	Last Target	Profit %	Net Profit	 $1,000.00 
+Wednesday, August 7, 2024	COTI/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Short	1	51.0	5.10%	 $50.96 
+Tuesday, August 6, 2024	ZEC/USDT	Stopped Out	Isolated (3.0X)	10.0%	Short	0	-41.6	-4.16%	 $(41.60)
+Wednesday, August 7, 2024	COTI/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Short	1	51.0	5.10%	 $50.96 
+Thursday, August 8, 2024	JUP/USDT	Stopped Out	Isolated (5.0X)	10.0%	Long	0	-41.0	-4.10%	 $(40.97)
+Wednesday, August 14, 2024	SOL/USDT	All Targets Achieved	Isolated (5.0X)	10.0%	Short	2	34.1	3.41%	 $34.14 
+Thursday, August 15, 2024	DUSK/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Short	2	21.3	2.13%	 $21.32 
+Thursday, August 15, 2024	ADA/USDT	Partial Targets Achieved	Isolated (10.0X)	10.0%	Short	1	29.5	2.95%	 $29.48 
+Friday, August 16, 2024	AAVE/USDT	Stopped Out	Isolated (5.0X)	10.0%	Short	0	-34.1	-3.41%	 $(34.09)
+Friday, August 16, 2024	NMR/USDT	Stopped Out	Isolated (5.0X)	10.0%	Short	0	-30.3	-3.03%	 $(30.30)
+Sunday, August 18, 2024	HIFI/USDT	Partial Targets Achieved	Isolated (3.0X)	5.0%	Long	1	27.0	0.68%	 $6.75 
+Sunday, August 18, 2024	COMBO/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Long	1	7.3	0.73%	 $7.33 
+Monday, August 19, 2024	ADA/USDT	Partial Targets Achieved	Isolated (10.0X)	10.0%	Short	1	16.2	1.62%	 $16.21 
+Monday, August 19, 2024	ARB/USDT	Stopped Out	Isolated (5.0X)	10.0%	Short	0	-34.8	-3.48%	 $(34.75)
+Tuesday, August 20, 2024	BTC/USDT	Stopped Out	Isolated (5.0X)	10.0%	Long	0	-26.4	-2.64%	 $(26.41)
+Tuesday, August 20, 2024	BTC/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Long	2	18.5	1.85%	 $18.52 
+Tuesday, August 20, 2024	LINK/USDT	All Targets Achieved	Isolated (10.0X)	5.0%	Long	3	91.6	2.29%	 $22.90 
+Tuesday, August 20, 2024	C98/USDT	Stopped Out	Isolated (5.0X)	10.0%	Short	0	-10.4	-1.04%	 $(10.38)
+Wednesday, August 21, 2024	BNB/USDT	Stopped Out	Isolated (10.0X)	10.0%	Short	0	-26.2	-2.62%	 $(26.17)
+Wednesday, August 21, 2024	AVAX/USDT	All Targets Achieved	Isolated (5.0X)	5.0%	Long	3	46.3	1.16%	 $11.56 
+Thursday, August 22, 2024	ROSE/USDT	Partial Targets Achieved	Isolated (7.0X)	10.0%	Long	2	33.9	3.39%	 $33.87 
+Friday, August 23, 2024	AAVE/USDT	Stopped Out	Isolated (5.0X)	10.0%	Long	0	-17.2	-1.72%	 $(17.21)
+Friday, August 23, 2024	WLD/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Long	2	21.3	2.13%	 $21.28 
+Sunday, August 25, 2024	DOT/USDT	All Targets Achieved	Isolated (3.0X)	5.0%	Short	2	28.0	0.70%	 $7.01 
+Sunday, August 25, 2024	KNC/USDT	Stopped Out	Isolated (5.0X)	10.0%	Long	0	-24.1	-2.41%	 $(24.14)
+Tuesday, August 27, 2024	ADA/USDT	Stopped Out	Isolated (10.0X)	10.0%	Long	0	-27.6	-2.76%	 $(27.59)
+Wednesday, August 28, 2024	BTC/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Short	1	19.2	1.92%	 $19.22 
+Thursday, August 29, 2024	COMBO/USDT	Partial Targets Achieved	Isolated (3.0X)	5.0%	Long	1	31.5	0.79%	 $7.89 
+Thursday, August 29, 2024	ETH/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Short	2	55.4	5.54%	 $55.38 
+Friday, August 30, 2024	LINK/USDT	Partial Targets Achieved	Isolated (5.0X)	5.0%	Short	1	17.3	0.43%	 $4.34 
+Friday, August 30, 2024	XVG/USDT	Partial Targets Achieved	Isolated (3.0X)	10.0%	Long	1	30.3	3.03%	 $30.32 
+Saturday, August 31, 2024	IOTX/USDT	Partial Targets Achieved	Isolated (5.0X)	10.0%	Short	1	14.8	1.48%	 $14.79 

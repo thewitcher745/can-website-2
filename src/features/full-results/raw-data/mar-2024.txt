@@ -1,0 +1,37 @@
+Date	Symbol	Status	Leverage	Lev	$ Used	Margin	Type	Last Target	Profit %	Net Profit	5%
+Saturday, March 2, 2024	KAVA/USDT	All Targets Achieved	Isolated (3.0X)	3	50	15%	Long	3	36.2	1.81%	 $18.10 
+Saturday, March 2, 2024	BTC/USDT	All Targets Achieved	Isolated (10.0X)	10	50	50%	Long	3	57.9	2.89%	 $28.95 
+Saturday, March 2, 2024	SOL/USDT	Partial Targets Achieved	Isolated (4.0X)	4	50	20%	Long	1	39.2	1.96%	 $19.60 
+Sunday, March 3, 2024	JTO/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Long	1	21.7	1.09%	 $10.85 
+Tuesday, March 5, 2024	ALT/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Long	0	-25.5	-1.27%	 $(12.74)
+Tuesday, March 5, 2024	ADA/USDT	All Targets Achieved	Isolated (4.0X)	4	50	20%	Short	2	31.1	1.55%	 $15.53 
+Thursday, March 7, 2024	IOTA/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Short	1	18.6	0.93%	 $9.32 
+Friday, March 8, 2024	KAVA/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Long	2	31.8	1.59%	 $15.89 
+Friday, March 8, 2024	MATIC/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Short	0	-20.6	-1.03%	 $(10.31)
+Sunday, March 10, 2024	LRC/USDT	All Targets Achieved	Isolated (3.0X)	3	50	15%	Long	3	45.5	2.28%	 $22.76 
+Tuesday, March 12, 2024	SAND/USDT	All Targets Achieved	Isolated (3.0X)	3	50	15%	Short	3	40.3	2.01%	 $20.14 
+Wednesday, March 13, 2024	LDO/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Long	0	-24.9	-1.25%	 $(12.45)
+Thursday, March 14, 2024	TON/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Long	1	7.4	0.37%	 $3.68 
+Thursday, March 14, 2024	WLD/USDT	All Targets Achieved	Isolated (3.0X)	3	50	15%	Short	3	51.5	2.58%	 $25.75 
+Friday, March 15, 2024	GALA/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Short	1	-12.9	-0.64%	 $(6.43)
+Saturday, March 16, 2024	SUI/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Long	1	20.8	1.04%	 $10.40 
+Saturday, March 16, 2024	TON/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Long	0	-25.4	-1.27%	 $(12.71)
+Saturday, March 16, 2024	SEI/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Long	0	-28.9	-1.44%	 $(14.43)
+Saturday, March 16, 2024	IOTA/USDT	All Targets Achieved	Isolated (3.0X)	3	50	15%	Short	3	38.5	1.92%	 $19.23 
+Saturday, March 16, 2024	RUNE/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Long	1	25.1	1.26%	 $12.57 
+Saturday, March 16, 2024	ETH/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Long	1	19.8	0.99%	 $9.90 
+Sunday, March 17, 2024	JOE/USDT	All Targets Achieved	Isolated (3.0X)	3	50	15%	Long	3	47.5	2.37%	 $23.73 
+Monday, March 18, 2024	SUI/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Long	0	-24.9	-1.24%	 $(12.44)
+Tuesday, March 19, 2024	SOL/USDT	All Targets Achieved	Isolated (3.0X)	3	50	15%	Long	3	46.6	2.33%	 $23.32 
+Wednesday, March 20, 2024	ETH/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Long	2	30.8	1.54%	 $15.40 
+Wednesday, March 20, 2024	GALA/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Short	0	-24.6	-1.23%	 $(12.29)
+Friday, March 22, 2024	DGB/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Short	1	-6.1	-0.30%	 $(3.04)
+Saturday, March 23, 2024	ATA/USDT	All Targets Achieved	Isolated (3.0X)	3	50	15%	Long	3	34.7	1.73%	 $17.34 
+Saturday, March 23, 2024	EOS/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Long	1	18.0	0.90%	 $9.02 
+Monday, March 25, 2024	PIXEL/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Long	1	-5.8	-0.29%	 $(2.88)
+Tuesday, March 26, 2024	IOTA/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Long	1	-18.1	-0.90%	 $(9.03)
+Tuesday, March 26, 2024	BTC/USDT	Partial Targets Achieved	Isolated (4.0X)	4	50	20%	Long	1	6.0	0.30%	 $2.98 
+Friday, March 29, 2024	ARK/USDT	Partial Targets Achieved	Isolated (4.0X)	4	50	20%	Short	1	12.7	0.63%	 $6.35 
+Friday, March 29, 2024	APT/USDT	Stopped Out	Isolated (3.0X)	3	50	15%	Short	0	-8.5	-0.42%	 $(4.23)
+Friday, March 29, 2024	ETC/USDT	Partial Targets Achieved	Isolated (3.0X)	3	50	15%	Long	1	10.1	0.51%	 $5.05 
+Sunday, March 31, 2024	CELO/USDT	Partial Targets Achieved	Isolated (4.0X)	4	50	20%	Long	1	21.5	1.07%	 $10.73 

@@ -1,0 +1,20 @@
+Date	Symbol	Status	Leverage	$ Used	Margin	Type	Last Target	Profit %	Net Profit	1000$
+Saturday, November 2, 2024	JUP/USDT	All Targets Achieved	Isolated (3.0X)	50	15%	Long	3	78.9	3.94%	 $39.44 
+Wednesday, November 6, 2024	PENDLE/USDT	Stopped Out	Isolated (3.0X)	100	30%	Short	0	-44.5	-4.45%	 $(44.52)
+Saturday, November 9, 2024	WLD/USDT	All Targets Achieved	Isolated (5.0X)	100	50%	Long	3	53.1	5.31%	 $53.06 
+Saturday, November 9, 2024	WIF/USDT	All Targets Achieved	Isolated (3.0X)	100	30%	Long	3	59.6	5.96%	 $59.59 
+Sunday, November 10, 2024	LINK/USDT	All Targets Achieved	Isolated (3.0X)	50	15%	Long	3	75.6	3.78%	 $37.78 
+Sunday, November 10, 2024	AVAX/USDT	All Targets Achieved	Isolated (3.0X)	50	15%	Long	3	87.6	4.38%	 $43.80 
+Monday, November 11, 2024	OP/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Long	2	21.7	1.09%	 $10.87 
+Monday, November 11, 2024	RSR/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Short	1	10.6	0.53%	 $5.28 
+Tuesday, November 12, 2024	BRETT/USDT	All Targets Achieved	Isolated (3.0X)	100	30%	Long	3	112.5	11.25%	 $112.55 
+Wednesday, November 13, 2024	GMX/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Long	1	20.3	1.01%	 $10.15 
+Thursday, November 14, 2024	TON/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Long	1	15.1	0.76%	 $7.57 
+Sunday, November 17, 2024	TON/USDT	All Targets Achieved	Isolated (5.0X)	50	25%	Long	2	56.0	2.80%	 $27.98 
+Monday, November 18, 2024	1INCH/USDT	All Targets Achieved	Isolated (3.0X)	50	15%	Long	3	111.2	5.56%	 $55.60 
+Monday, November 18, 2024	TIA/USDT	Partial Targets Achieved	Isolated (5.0X)	50	25%	Long	1	17.3	0.87%	 $8.65 
+Friday, November 22, 2024	BAND/USDT	All Targets Achieved	Isolated (3.0X)	50	15%	Long	2	50.1	2.51%	 $25.06 
+Sunday, November 24, 2024	JASMY/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Long	1	10.0	0.50%	 $4.99 
+Sunday, November 24, 2024	CELO/USDT	Stopped Out	Isolated (3.0X)	100	30%	Short	0	-41.1	-4.11%	 $(41.10)
+Monday, November 25, 2024	RENDER/USDT	Partial Targets Achieved	Isolated (3.0X)	100	30%	Long	1	49.2	4.92%	 $49.20 
+Tuesday, November 26, 2024	INJ/USDT	Partial Targets Achieved	Isolated (3.0X)	50	15%	Long	1	16.0	0.80%	 $7.98 

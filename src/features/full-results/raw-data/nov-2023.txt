@@ -1,0 +1,31 @@
+Date	Symbol	Status	Leverage	Entry	Type	Last Target	Profit %	Net Profit	 $-   
+Wednesday, November 1, 2023	HOT/USDT	All Targets Achieved	Isolated (3.0X)	50	Long	3	102.7	5.13%	 $51.34 
+Friday, November 3, 2023	WLD/USDT	Partial Targets Achieved	Isolated (1.0X)	50	Short	1	12.0	0.60%	 $6.00 
+Friday, November 3, 2023	GMX/USDT	Stopped Out	Isolated (1.0X)	50	Short	0	-7.0	-0.35%	 $(3.48)
+Sunday, November 5, 2023	CELR/USDT	Stopped Out	Isolated (3.0X)	50	Long	0	-15.0	-0.75%	 $(7.50)
+Sunday, November 5, 2023	CKB/USDT	Partial Targets Achieved	Isolated (2.0X)	50	Long	1	20.8	1.04%	 $10.41 
+Sunday, November 5, 2023	C98/USDT	Stopped Out	Isolated (3.0X)	50	Short	0	-25.4	-1.27%	 $(12.68)
+Monday, November 6, 2023	MATIC/USDT	Stopped Out	Isolated (3.0X)	50	Short	0	-29.1	-1.46%	 $(14.57)
+Monday, November 6, 2023	AVAX/USDT	All Targets Achieved	Isolated (3.0X)	50	Long	2	25.1	1.26%	 $12.55 
+Thursday, November 9, 2023	ACH/USDT	All Targets Achieved	Isolated (3.0X)	50	Short	3	34.9	1.74%	 $17.44 
+Thursday, November 9, 2023	GALA/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	23.7	1.18%	 $11.84 
+Friday, November 10, 2023	FXS/USDT	Partial Targets Achieved	Isolated (4.0X)	50	Long	1	19.7	0.99%	 $9.86 
+Monday, November 13, 2023	WLD/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	2	39.1	1.96%	 $19.56 
+Monday, November 13, 2023	NEAR/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Short	2	23.2	1.16%	 $11.59 
+Tuesday, November 14, 2023	DGB/USDT	All Targets Achieved	Isolated (3.0X)	50	Short	2	28.3	1.41%	 $14.13 
+Tuesday, November 14, 2023	RSR/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Short	2	30.8	1.54%	 $15.41 
+Wednesday, November 15, 2023	COMP/USDT	Stopped Out	Isolated (3.0X)	50	Long	0	-24.6	-1.23%	 $(12.32)
+Wednesday, November 15, 2023	FIL/USDT	Stopped Out	Isolated (3.0X)	50	Short	0	-17.8	-0.89%	 $(8.90)
+Friday, November 17, 2023	1000LUNC/USDT	All Targets Achieved	Isolated (3.0X)	50	Short	2	30.7	1.54%	 $15.35 
+Saturday, November 18, 2023	WLD/USDT	Stopped Out	Isolated (3.0X)	50	Short	0	-20.9	-1.05%	 $(10.47)
+Saturday, November 18, 2023	SOL/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	2	37.1	1.85%	 $18.54 
+Sunday, November 19, 2023	LINK/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	19.3	0.96%	 $9.63 
+Monday, November 20, 2023	PHB/USDT	Stopped Out	Isolated (3.0X)	50	Long	0	-24.0	-1.20%	 $(12.00)
+Tuesday, November 21, 2023	LINK/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	2	40.0	2.00%	 $20.02 
+Friday, November 24, 2023	ARB/USDT	Stopped Out	Isolated (4.0X)	50	Long	0	-19.2	-0.96%	 $(9.60)
+Sunday, November 26, 2023	TLM/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	21.3	1.07%	 $10.66 
+Monday, November 27, 2023	GAL/USDT	Stopped Out	Isolated (5.0X)	50	Short	0	-19.0	-0.95%	 $(9.50)
+Tuesday, November 28, 2023	AGIX/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Short	0	-16.3	-0.81%	 $(8.13)
+Tuesday, November 28, 2023	ETH/USDT	All Targets Achieved	Isolated (7.0X)	50	Long	2	31.5	1.57%	 $15.74 
+Thursday, November 30, 2023	MAGIC/USDT	Stopped Out	Isolated (3.0X)	50	Short	0	-16.2	-0.81%	 $(8.12)
+Saturday, December 2, 2023	XRP/USDT	Partial Targets Achieved	Isolated (3.0X)	50	Long	1	12.0	0.60%	 $6.00 
