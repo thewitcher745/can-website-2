@@ -37,7 +37,7 @@ const TabSelector = ({
 
   return (
     <div
-      className={`flex max-w-xl overflow-x-scroll bg-background w-full ${className}`}
+      className={`flex max-w-xl overflow-x-auto bg-background w-full ${className}`}
     >
       <div className="flex w-full min-w-md divide-x divide-text-muted text-text-main border border-text-muted">
         <TabLink
