@@ -35,9 +35,6 @@ const LongShortRatio = () => {
 
   return (
     <div className="w-full">
-      <div className="w-full flex justify-center lg:justify-start text-text-main text-2xl font-semibold">
-        <span>Long to Short Orders Ratio</span>
-      </div>
       <CurrencySelector onChange={setSymbol} />
       <List longShortData={longShortData} loading={loading} error={error} />
       {error && errorElement}

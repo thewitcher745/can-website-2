@@ -2,7 +2,7 @@ import LongShortRatioSection from "./overview/sections/LongShortRatioSection";
 import SmallTablesSection from "./overview/sections/SmallTablesSection";
 import GlobalMarketDataSection from "./overview/sections/GlobalMarketDataSection";
 import CryptoHeatmapSection from "./overview/sections/CryptoHeatmapSection";
-import HistoricalFearAndGreedSection from "./overview/HistoricalFearAndGreed";
+import HistoricalFearAndGreedSection from "./overview/sections/HistoricalFearAndGreedSection";
 
 const MarketOverview = () => {
   return (

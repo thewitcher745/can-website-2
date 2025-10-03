@@ -36,11 +36,6 @@ const HistoricalFng = () => {
 
   return (
     <>
-      <div className="flex flex-col sm:text-left">
-        <div className="text-2xl font-bold mb-2 text-text-main transition-colors duration-200">
-          Historical Fear and Greed
-        </div>
-      </div>
       <div className="w-full">
         {fngHistory.length > 0 && (
           <LineChart

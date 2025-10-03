@@ -44,7 +44,7 @@ const StatRow = ({
       : value;
 
   return (
-    <tr className="table w-full xl:w-3/4">
+    <tr className="table w-full xl:w-3/4 mx-auto">
       <LabelColumn label={label} icon={icon} />
       <td className="w-1/4">
         <div className="flex xs:flex-row flex-col gap-2 items-center justify-end">
@@ -96,9 +96,7 @@ const Stats = () => {
       })
       .catch((e) => setError(e.message))
       .finally(() => {
-        setTimeout(() => {
-          setLoading(false);
-        }, 2000);
+        setLoading(false);
       });
   }, []);
 
