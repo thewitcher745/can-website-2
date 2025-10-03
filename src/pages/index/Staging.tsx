@@ -6,10 +6,12 @@ import VideosSection from "@features/homepage/sections/VideosSection";
 import HeatmapSection from "@features/homepage/sections/HeatmapSection";
 import TopMarketCapCoinsSection from "@features/homepage/sections/TopMarketCapCoinsSection";
 import HighPotentialTokensSection from "@features/homepage/sections/HighPotentialTokensSection";
+import HeroSection from "@src/features/homepage/sections/HeroSection";
 
 const Staging: React.FC = () => {
   return (
     <main className="py-20 px-4 w-full bg-background flex flex-col items-center min-h-screen">
+      <HeroSection />
       <TopRowGadgetsSection />
       <TopMarketCapCoinsSection />
       <MostRecentAnalysisSection />
