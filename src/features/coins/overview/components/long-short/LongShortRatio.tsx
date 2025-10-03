@@ -5,7 +5,7 @@ import { longShortItem } from "@src/types";
 import CurrencySelector from "./CurrencySelector";
 import List from "./List";
 
-const LongShortRatioSection = () => {
+const LongShortRatio = () => {
   const [longShortData, setLongShortData] = useState<longShortItem>({});
   const [symbol, setSymbol] = useState("btc");
   const [loading, setLoading] = useState(true);
@@ -34,19 +34,15 @@ const LongShortRatioSection = () => {
   ) : null;
 
   return (
-    <section id="long-short-ratio" className="w-full flex justify-center pt-8">
-      <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full flex flex-col lg:flex-row">
-        <div className="relative w-full">
-          <div className="w-full flex justify-center lg:justify-start text-text-main text-2xl font-semibold">
-            <span>Long to Short Orders Ratio</span>
-          </div>
-          <CurrencySelector onChange={setSymbol} />
-          <List longShortData={longShortData} loading={loading} error={error} />
-          {error && errorElement}
-        </div>
+    <div className="w-full">
+      <div className="w-full flex justify-center lg:justify-start text-text-main text-2xl font-semibold">
+        <span>Long to Short Orders Ratio</span>
       </div>
-    </section>
+      <CurrencySelector onChange={setSymbol} />
+      <List longShortData={longShortData} loading={loading} error={error} />
+      {error && errorElement}
+    </div>
   );
 };
 
-export default LongShortRatioSection;
+export default LongShortRatio;
