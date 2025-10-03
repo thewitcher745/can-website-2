@@ -4,6 +4,8 @@ import { buildApiUrl } from "@src/config";
 import { longShortItem } from "@src/types";
 import CurrencySelector from "./CurrencySelector";
 import List from "./List";
+import { GenericLoader } from "@src/shared/ui/loaders";
+import GenericError from "@src/shared/ui/GenericError";
 
 const LongShortRatio = () => {
   const [longShortData, setLongShortData] = useState<longShortItem>({});
@@ -12,32 +14,50 @@ const LongShortRatio = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(buildApiUrl("/api/long_short_ratio?symbol=" + symbol))
+    setLoading(true);
+    fetch(buildApiUrl(`/api/long_short_ratio?symbol=${symbol}`))
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch long short ratios.");
+        if (!res.ok) throw new Error("Failed to fetch long/short orders data.");
         return res.json();
       })
-      .then((data) => {
-        setLongShortData(data);
+      .then((response) => {
         setLoading(false);
+        setLongShortData(response);
       })
-      .catch((error) => {
-        setError(error.message);
+      .catch((e) => {
         setLoading(false);
+        setError(e.message);
       });
   }, [symbol]);
 
-  const errorElement = error ? (
-    <div className="w-full flex justify-center lg:justify-start text-error font-semibold">
-      <span>{error}</span>
-    </div>
-  ) : null;
+  useEffect(() => {
+    setLoading(true);
+  }, [symbol, setLoading]);
+
+  if (loading)
+    return (
+      <div className="w-full min-h-100">
+        <CurrencySelector onChange={setSymbol} />
+        <div className="flex justify-center items-center min-h-75">
+          <GenericLoader />
+        </div>
+      </div>
+    );
+
+  if (error)
+    return (
+      <div className="w-full min-h-100">
+        <CurrencySelector onChange={setSymbol} />
+        <div className="flex justify-center items-center min-h-75">
+          <GenericError message={error} />
+        </div>
+      </div>
+    );
 
   return (
     <div className="w-full">
       <CurrencySelector onChange={setSymbol} />
       <List longShortData={longShortData} loading={loading} error={error} />
-      {error && errorElement}
     </div>
   );
 };
