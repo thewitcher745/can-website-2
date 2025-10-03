@@ -117,18 +117,6 @@ const Footer: React.FC = () => (
         </div>
       </div>
     </div>
-    {/* Bottom Bar */}
-    <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-background flex flex-col md:flex-row items-center justify-between text-xs text-text-main">
-      <div className="mb-2 md:mb-0">
-        CAN Trading Signals — Providing professional trading signals and risk
-        management strategies for individuals.
-      </div>
-      <div className="flex gap-4">
-        <span>
-          Quick Links: <span className="italic">(Coming soon)</span>
-        </span>
-      </div>
-    </div>
   </footer>
 );
 
