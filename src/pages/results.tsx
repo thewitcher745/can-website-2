@@ -1,7 +1,9 @@
 import Head from "next/head";
-
+import Link from "next/link";
+import { FaTelegram } from "react-icons/fa6";
 import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
+
 import Navbar from "../shared/ui/navbar/Navbar";
 import Footer from "../shared/ui/Footer";
 import ResultsTable from "@features/full-results/ResultsTable";
@@ -237,6 +239,17 @@ const ResultsPage: React.FC = () => {
             Detailed Trade Log
           </h2>
           <ResultsTable selectedMonth={currentMonthYearKey} />
+          <div className="mt-12 flex justify-center w-full text-xl text-text-main">
+            <Link
+              href="https://t.me/CryptoANalysis_CAN"
+              className="text-nowrap flex gap-1 items-center mr-1 title-hover "
+            >
+              <span>Join our</span>
+              <FaTelegram />
+              <span className="underline"> Telegram channel</span>
+            </Link>
+            <span> to see the results first hand!</span>
+          </div>
         </div>
         {/* Modal Overlay */}
         {modalImg && (
