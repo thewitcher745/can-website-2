@@ -44,11 +44,11 @@ const SmallTables = () => {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="sm:flex flex-col hidden">
         <TableTitle title="Top Gainers" link="/coins/gainers_losers" />
         <SmallTable dataLoading={loading} coins={topGainers} />
       </div>
-      <div className="flex flex-col">
+      <div className="sm:flex flex-col hidden">
         <TableTitle title="Top Losers" link="/coins/gainers_losers" />
         <SmallTable dataLoading={loading} coins={topLosers} />
       </div>
@@ -56,7 +56,7 @@ const SmallTables = () => {
         <TableTitle title="Trending" link="/coins/trending" />
         <SmallTable dataLoading={loading} coins={trending} />
       </div>
-      <div className="flex flex-col">
+      <div className="sm:flex flex-col hidden">
         <TableTitle title="Top Volume" link="/coins/volume" />
         <SmallTable dataLoading={loading} coins={topVolumeCoins} />
       </div>
