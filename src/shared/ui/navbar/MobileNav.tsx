@@ -11,7 +11,7 @@ export const MobileNavButton = ({
   handleToggle: () => void;
 }) => {
   return (
-    <div className="absolute z-100 cursor-pointer top-0 right-0 py-4 px-10 flex items-center md:hidden">
+    <div className="absolute z-100 cursor-pointer top-0 right-0 p-4 flex items-center md:hidden">
       <button
         aria-label="Open main menu"
         onClick={handleToggle}
@@ -48,14 +48,21 @@ const MobileNav = ({
             className="flex justify-center sm:justify-start text-text-main hover:text-orange py-2 text-base font-medium"
             onClick={closeMenu}
           >
-            Analysis
+            Technical Analysis
+          </Link>
+          <Link
+            href="/vip"
+            className="flex justify-center sm:justify-start text-text-main hover:text-orange py-2 text-base font-medium"
+            onClick={closeMenu}
+          >
+            VIP Services
           </Link>
           <Link
             href="/results"
             className="flex justify-center sm:justify-start text-text-main hover:text-orange py-2 text-base font-medium"
             onClick={closeMenu}
           >
-            Results
+            VIP Results
           </Link>
           <Link
             href="/coins/overview"
