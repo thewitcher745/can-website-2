@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+main {
+  background-color: var(--color-background);
+  padding-top: 70px;
+}
+
 .selector-caption {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -266,7 +271,7 @@ ol {
 }
 
 .results-table tbody tr.stopped-out {
-  background-color: rgba(255, 0, 0, 0.3); /* Red with transparency */
+  background-color: #542121; /* Red with transparency */
 }
 
 .results-table tbody tr:hover {

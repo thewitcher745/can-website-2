@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiNews } from "react-icons/bi";
 import { TbChartCandle } from "react-icons/tb";
 import { FaPencilAlt } from "react-icons/fa";
@@ -77,10 +77,16 @@ const DesktopArticlesMenu = ({
 
 export const ArticlesMenuButton = ({ isMobile }: { isMobile: boolean }) => {
   const [articlesMenuOpen, setArticlesMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const toggleArticlesMenu = () => setArticlesMenuOpen((open) => !open);
   const closeArticlesMenu = () => setArticlesMenuOpen(false);
   const openArticlesMenu = () => setArticlesMenuOpen(true);
+
+  // Avoid hover-triggered state changes during hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (isMobile) {
     return (
@@ -104,8 +110,8 @@ export const ArticlesMenuButton = ({ isMobile }: { isMobile: boolean }) => {
   return (
     <>
       <div
-        onMouseEnter={openArticlesMenu}
-        onMouseLeave={closeArticlesMenu}
+        onMouseEnter={mounted ? openArticlesMenu : undefined}
+        onMouseLeave={mounted ? closeArticlesMenu : undefined}
         className="relative h-full justify-center flex flex-col hover:text-orange py-2 text-sm font-medium cursor-pointer"
       >
         <div className="flex gap-2 items-center">
@@ -116,10 +122,12 @@ export const ArticlesMenuButton = ({ isMobile }: { isMobile: boolean }) => {
             }`}
           />
           <div
-            onMouseOver={openArticlesMenu}
+            onMouseOver={mounted ? openArticlesMenu : undefined}
             className="h-full w-[120%] absolute translate-y-4"
           />
-          <DesktopArticlesMenu articlesMenuOpen={articlesMenuOpen} />
+          {mounted && (
+            <DesktopArticlesMenu articlesMenuOpen={articlesMenuOpen} />
+          )}
         </div>
       </div>
     </>

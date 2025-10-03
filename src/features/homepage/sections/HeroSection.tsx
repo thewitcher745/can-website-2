@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="pt-28 w-full pb-16 md:pt-36 md:pb-20 bg-gradient-to-br from-gray-900 to-gray-800 text-text-muted"
+      className="w-full py-8 pb-16 md:pb-20 bg-gradient-to-br from-gray-900 to-gray-800 text-text-muted"
     >
       <div className="2xl:max-w-[100rem] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="md:flex items-center gap-8">

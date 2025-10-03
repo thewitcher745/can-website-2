@@ -8,7 +8,6 @@ import Navbar from "@shared/ui/navbar/Navbar";
 import Footer from "@shared/ui/Footer";
 import { Article } from "@src/types";
 
-
 const BlogPostPage: React.FC = () => {
   const router = useRouter();
   const { slug } = router.query;
@@ -97,7 +96,7 @@ const BlogPostPage: React.FC = () => {
       </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
-        <div className="max-w-4xl mx-auto py-8 px-4 pt-24">
+        <div className="max-w-4xl mx-auto py-8 px-4 pt-6">
           <Link href="/blog" className="text-primary hover:underline text-sm">
             ← Back to Blog
           </Link>

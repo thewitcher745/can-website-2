@@ -108,7 +108,7 @@ const AnalysisPostPage: React.FC = () => {
       </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
-        <div className="max-w-4xl mx-auto py-8 px-4 pt-24">
+        <div className="max-w-4xl mx-auto py-8 px-4 pt-6">
           <Link
             href="/analysis"
             className="text-primary hover:underline text-sm"

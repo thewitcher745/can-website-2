@@ -4,7 +4,6 @@
 - Move loaders and errors to separate elements, and check that they are all there
 - Modularize elements into separate files
 - Check for unanimous styling across common elements in pages
-- Add the top paddings to <main> tags instead of the inner ones
 - Separate coin logos into separate elements
 - Make the website truly SPA by uinfying Navbar loading on the entire website
 - Implement ISR for elements that call for them
@@ -15,3 +14,4 @@
 + Implement /coins page
 + Separate types into separate files
 + Define aliases and optimize paths
++ Add the top paddings to <main> tags instead of the inner ones

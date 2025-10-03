@@ -10,15 +10,17 @@ import HeroSection from "@src/features/homepage/sections/HeroSection";
 
 const Staging: React.FC = () => {
   return (
-    <main className="py-20 px-4 w-full bg-background flex flex-col items-center min-h-screen">
+    <main className="py-20 w-full bg-background flex flex-col items-center min-h-screen">
       <HeroSection />
-      <TopRowGadgetsSection />
-      <TopMarketCapCoinsSection />
-      <MostRecentAnalysisSection />
-      <VideosSection />
-      <HighPotentialTokensSection />
-      <HeatmapSection />
-      <OurStats />
+      <div className="px-4 w-full flex flex-col justify-center">
+        <TopRowGadgetsSection />
+        <TopMarketCapCoinsSection />
+        <MostRecentAnalysisSection />
+        <VideosSection />
+        <HighPotentialTokensSection />
+        <HeatmapSection />
+        <OurStats />
+      </div>
       <div className="w-full pt-20 sm:pt-0 flex justify-center">
         <Banner />
       </div>

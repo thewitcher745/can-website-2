@@ -102,8 +102,8 @@ const Analysis: React.FC = () => {
         <title>Analysis - CAN Trading</title>
       </Head>
       <Navbar />
-      <main className="bg-background min-h-screen pt-24 px-4">
-        <section id="most-recent" className="w-full flex justify-center">
+      <main className="bg-background min-h-screen px-4">
+        <section id="most-recent" className="w-full flex justify-center pt-4">
           <div className="max-w-[100rem] w-full flex flex-col self-start sm:text-left">
             <h2 className="text-xl md:text-3xl font-bold mb-2 text-primary hover:text-primary-light transition-colors duration-200">
               Latest analysis

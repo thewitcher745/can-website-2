@@ -99,7 +99,7 @@ const News: React.FC = () => {
       </Head>
       <Navbar />
       <main className="bg-background min-h-screen">
-        <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-24">
+        <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 pt-6 px-4">
           <h1 className="text-3xl font-bold mb-8 text-primary px-2">News</h1>
           <p className="text-text-main text-xl mb-6 px-2">
             Stay updated with the latest news and announcements from CAN

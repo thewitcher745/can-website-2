@@ -23,10 +23,6 @@ const TopMarketCapChart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const lowestMarketCap = items.reduce((min, item) => {
-    return Math.min(min, item.market_cap);
-  }, Infinity);
-
   const highestMarketCap = items.reduce((max, item) => {
     return Math.max(max, item.market_cap);
   }, -Infinity);

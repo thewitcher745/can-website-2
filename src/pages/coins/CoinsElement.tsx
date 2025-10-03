@@ -38,8 +38,10 @@ const CoinsElement = ({ activeTab }: { activeTab: string }) => {
       </Head>
       <Navbar />
       <main className="px-4 w-full bg-background flex flex-col items-center min-h-screen">
-        <TabSelector className="pt-24" activeTab={activeTab} />
-        {element}
+        <section className="pt-4 w-full justify-center flex flex-col items-center">
+          <TabSelector activeTab={activeTab} />
+          {element}
+        </section>
       </main>
       <Footer />
     </>

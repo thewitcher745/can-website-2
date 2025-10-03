@@ -7,7 +7,7 @@ const TabSelector = ({
   className,
 }: {
   activeTab: string;
-  className: string;
+  className?: string;
 }) => {
   const TabLink = ({
     tabId,

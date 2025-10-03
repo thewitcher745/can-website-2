@@ -15,7 +15,6 @@ export default function Home() {
       </Head>
       <Navbar />
       <main>
-        <HeroSection />
         <ServicesSection />
         <ResultsSection />
         <PricingSection />
