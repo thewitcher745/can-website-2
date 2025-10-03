@@ -88,7 +88,7 @@ const Stats = () => {
   useEffect(() => {
     fetch(buildApiUrl(`/api/market_data`))
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch market data.");
+        if (!res.ok) throw new Error("Oops! Something went wrong.");
         return res.json();
       })
       .then((response) => {

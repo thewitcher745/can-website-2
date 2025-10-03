@@ -16,7 +16,7 @@ const TopGainers = () => {
         setTopGainers(data);
       })
       .catch((error) => {
-        setError("Error getting top gainers data!");
+        setError("Oops! Something went wrong.");
       })
       .finally(() => {
         setLoading(false);
