@@ -13,17 +13,13 @@ const TabSelector = ({
     tabId,
     tabName,
     href,
-    isLast = false,
-    isFirst = false,
   }: {
     tabId: string;
     tabName: string;
     href: string;
-    isLast?: boolean;
-    isFirst?: boolean;
   }) => {
     return (
-      <Link href={href} className="w-1/4 min-w-20">
+      <Link href={href} className="w-1/3 min-w-20">
         <div
           className={`py-2 h-full flex items-center justify-center text-text-muted transition duration-200 ${
             activeTab === tabId ? "bg-white" : ""
@@ -44,16 +40,13 @@ const TabSelector = ({
           tabId="overview"
           tabName="Market Overview"
           href="/coins/overview"
-          isLast={true}
         />
         <TabLink tabId="trending" tabName="Trending" href="/coins/trending" />
         <TabLink
-          tabId="gainers"
-          tabName="Top Gainers"
-          href="/coins/gainers"
-          isFirst={true}
+          tabId="gainers_losers"
+          tabName="Top Gainers/Losers"
+          href="/coins/gainers_losers"
         />
-        <TabLink tabId="losers" tabName="Top Losers" href="/coins/losers" />
       </div>
     </div>
   );

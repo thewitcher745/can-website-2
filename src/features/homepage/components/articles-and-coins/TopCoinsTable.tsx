@@ -51,12 +51,12 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
     {
       title: "Top Gainers",
       data: data?.top_gainers || [],
-      slug: "coins/gainers",
+      slug: "coins/gainers_losers",
     },
     {
       title: "Top Losers",
       data: data?.top_losers || [],
-      slug: "coins/losers",
+      slug: "coins/gainers_losers",
     },
     { title: "Trending", data: data?.trending || [], slug: "coins/trending" },
   ];

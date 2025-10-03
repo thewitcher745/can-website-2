@@ -10,6 +10,7 @@
 - Revise API responses to be consistent
 - Unify utility elements
 - Make sections have no hardcoded classes, modularize all subelements and useEffects
+- Unify all api request methods and errors and loadings
 
 + Implement /coins page
 + Separate types into separate files
