@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import { buildApiUrl } from "@src/config";
-import { formatPrice } from "@src/utils";
+import { formatPrice, reduceNumber } from "@src/utils";
 import { ChartItemProps } from "@src/types";
 
 const ChartIcon = ({
@@ -25,7 +25,7 @@ const ChartIcon = ({
 
   return (
     <div
-      className={`aspect-square w-12 h-12 p-1 bg-text-main rounded-full border-2 border-primary overflow-hidden ${className}`}
+      className={`aspect-square w-10 h-10 min-w-10 sm:min-w-12 sm:w-12 sm:h-12 p-0 sm:p-1 bg-text-main rounded-full border-2 border-primary overflow-hidden ${className}`}
     >
       {link === "" ? (
         <div className="w-full h-full aspect-square rounded-full bg-primary"></div>
@@ -56,23 +56,31 @@ const ChartItem = ({
   barColor: string;
 }) => {
   return (
-    <li key={key} className="flex items-center py-2">
-      <div className="flex flex-col gap-1 w-25 pr-2">
-        <span className="text-text-main font-semibold text-right">
-          {chartItem.name}
-        </span>
-        <span className="text-text-muted font-semibold text-right">
-          {formatPrice(chartItem.price.toFixed(2))}
-        </span>
+    <li
+      key={key}
+      className="flex items-center justify-center py-2 w-full xs:w-80 sm:w-full"
+    >
+      <div className="flex items-center justify-center">
+        <div className="flex flex-col gap-1 w-25 pr-2">
+          <span className="text-text-main font-semibold text-right">
+            {chartItem.name}
+          </span>
+          <span className="text-text-muted font-semibold text-right">
+            {formatPrice(chartItem.price.toFixed(2))}
+          </span>
+        </div>
+        <ChartIcon symbol={chartItem.symbol} className="z-2 max-w-20" />
       </div>
-      <ChartIcon symbol={chartItem.symbol} className="hidden xs:block z-2" />
-      <div className="relative flex-1">
+      <div className="relative sm:flex-1">
         <div
           className="hidden sm:block relative h-4 bg-offwhite rounded-r-full -translate-x-1 z-1"
           style={{ width: `${widthPercentage}%`, backgroundColor: barColor }}
         ></div>
-        <div className="sm:absolute pl-2 top-0 left-0 text-text-main text-lg font-semibold sm:-translate-y-full">
+        <div className="hidden xs:block sm:absolute pl-2 top-0 left-0 text-text-main text-lg font-semibold sm:-translate-y-full">
           {formatPrice(chartItem.market_cap.toFixed(0))}
+        </div>
+        <div className="block xs:hidden sm:absolute pl-2 top-0 left-0 text-text-main text-lg font-semibold sm:-translate-y-full">
+          {reduceNumber(chartItem.market_cap)}
         </div>
       </div>
     </li>

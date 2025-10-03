@@ -13,9 +13,7 @@ const Title = ({
     <div
       className={`w-full mb-2 text-text-main flex ${
         center ? "justify-center" : "justify-center lg:justify-start"
-      } title-hover ${
-        sub ? "font-semibold text-xl" : "font-bold text-2xl"
-      } ${className}`}
+      } ${sub ? "font-semibold text-xl" : "font-bold text-2xl"} ${className}`}
     >
       <span>{title}</span>
     </div>

@@ -23,12 +23,12 @@ const TopMarketCapChart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const highestMarketCap = items.reduce((max, item) => {
+  const highestMarketCap = items.slice(1, 10).reduce((max, item) => {
     return Math.max(max, item.market_cap);
   }, -Infinity);
 
-  const scalingPercentage = 70;
-  const flatPercentage = 5;
+  const scalingPercentage = 65;
+  const flatPercentage = 10;
 
   const calcWidthPercentage = (marketCap: number) => {
     return (marketCap / highestMarketCap) * scalingPercentage + flatPercentage;
@@ -51,11 +51,17 @@ const TopMarketCapChart = () => {
     <>
       {items.length > 0 ? (
         <ul className="flex flex-col items-center sm:block py-6">
-          {items.slice(0, 10).map((item, index) => (
+          <ChartItem
+            key={"BTC"}
+            chartItem={items[0]}
+            barColor={barColors[0]}
+            widthPercentage={100}
+          />
+          {items.slice(1, 10).map((item, index) => (
             <ChartItem
               key={item.symbol}
               chartItem={item}
-              barColor={barColors[index % barColors.length]}
+              barColor={barColors[(index + 1) % barColors.length]}
               widthPercentage={calcWidthPercentage(item.market_cap)}
             />
           ))}
