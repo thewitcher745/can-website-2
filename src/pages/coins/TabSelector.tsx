@@ -41,19 +41,19 @@ const TabSelector = ({
     >
       <div className="flex w-full min-w-md divide-x divide-text-muted text-text-main border border-text-muted">
         <TabLink
+          tabId="overview"
+          tabName="Market Overview"
+          href="/coins/overview"
+          isLast={true}
+        />
+        <TabLink tabId="trending" tabName="Trending" href="/coins/trending" />
+        <TabLink
           tabId="gainers"
           tabName="Top Gainers"
           href="/coins/gainers"
           isFirst={true}
         />
         <TabLink tabId="losers" tabName="Top Losers" href="/coins/losers" />
-        <TabLink tabId="trending" tabName="Trending" href="/coins/trending" />
-        <TabLink
-          tabId="overview"
-          tabName="Market Overview"
-          href="/coins/overview"
-          isLast={true}
-        />
       </div>
     </div>
   );
