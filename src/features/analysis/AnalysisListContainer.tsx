@@ -53,8 +53,8 @@ const AnalysisListContainer = () => {
             onClick={() => setActiveTab("all")}
             className={`py-2 font-bold text-xl md:text-3xl ${
               activeTab === "all"
-                ? "text-primary"
-                : "text-primary/50 hover:text-primary/80"
+                ? "text-primary underline"
+                : "text-primary/40 hover:text-primary/80"
             }`}
           >
             📝 All Analysis
@@ -64,8 +64,8 @@ const AnalysisListContainer = () => {
             onClick={() => setActiveTab("vip")}
             className={`py-2 font-bold text-xl md:text-3xl ${
               activeTab === "vip"
-                ? "text-primary"
-                : "text-primary/50 hover:text-primary/80"
+                ? "text-primary underline"
+                : "text-primary/40 hover:text-primary/80"
             }`}
           >
             🔥VIP Analysis
