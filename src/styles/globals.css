@@ -262,7 +262,7 @@ ol {
 }
 
 .results-table tbody tr.targets-achieved {
-  background-color: rgba(0, 128, 0, 0.3); /* Green with transparency */
+  background-color: #1d441d; /* Green with transparency */
 }
 
 .results-table tbody tr.stopped-out {
