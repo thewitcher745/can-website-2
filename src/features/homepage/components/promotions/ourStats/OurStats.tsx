@@ -24,8 +24,8 @@ const OurStats = () => {
         />
         <StatBox
           icon={<Users />}
-          stat="100k+"
-          caption="More than 100k public channel members."
+          stat="10k+"
+          caption="More than 10k public channel members."
         />
       </div>
     </section>
