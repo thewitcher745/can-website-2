@@ -10,7 +10,6 @@ export default function Home() {
       <Head>
         <title>CAN Trading - Home</title>
       </Head>
-      <Navbar />
       <Staging />
       <Footer />
     </>

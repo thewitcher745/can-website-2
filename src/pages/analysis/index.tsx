@@ -32,7 +32,6 @@ const Analysis: React.FC = () => {
         <Head>
           <title>CAN Trading</title>
         </Head>
-        <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
             <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-primary border-opacity-60 mb-4"></div>
@@ -50,7 +49,6 @@ const Analysis: React.FC = () => {
         <Head>
           <title>Error - CAN Trading</title>
         </Head>
-        <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
             <div className="mb-4">
@@ -101,7 +99,6 @@ const Analysis: React.FC = () => {
       <Head>
         <title>Analysis - CAN Trading</title>
       </Head>
-      <Navbar />
       <main className="bg-background min-h-screen px-4">
         <section id="most-recent" className="w-full flex justify-center pt-4">
           <div className="max-w-[100rem] w-full flex flex-col self-start sm:text-left">

@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import "../styles/loader.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import Navbar from "@shared/ui/navbar/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,6 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
       </Head>
+      <Navbar />
       <Component {...pageProps} />
     </>
   );

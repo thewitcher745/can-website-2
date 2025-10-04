@@ -162,7 +162,6 @@ const ResultsPage: React.FC = () => {
       <Head>
         <title>Results - CAN Trading</title>
       </Head>
-      <Navbar />
       <main className="results-page min-h-screen bg-background pb-12">
         <div className="max-w-7xl mx-auto px-4 pt-12">
           <h1 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">

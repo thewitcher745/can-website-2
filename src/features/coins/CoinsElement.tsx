@@ -36,7 +36,6 @@ const CoinsElement = ({ activeTab }: { activeTab: string }) => {
       <Head>
         <title>Cryptocurrencies - CAN Trading</title>
       </Head>
-      <Navbar />
       <main className="px-4 w-full bg-background flex flex-col items-center min-h-screen">
         <section className="pt-4 w-full justify-center flex flex-col items-center">
           <TabSelector activeTab={activeTab} />
