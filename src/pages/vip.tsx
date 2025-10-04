@@ -28,7 +28,7 @@ export default function Home() {
             <FaTelegram />
             <span className="underline"> Telegram channel</span>
           </Link>
-          <span> to get in on the action!</span>
+          <span> for more free analysis!</span>
         </div>
       </main>
       <Footer />

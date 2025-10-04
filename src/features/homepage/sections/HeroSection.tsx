@@ -52,16 +52,10 @@ const HeroSection: React.FC = () => {
             </p>
             <div className="flex space-x-4 animate-fade-in-delay-3">
               <Link
-                href="#pricing"
+                href="/vip"
                 className="bg-primary text-black px-6 py-3 border-1 border-primary rounded-md font-semibold hover:bg-transparent hover:text-primary hover:border-primary hover:border-1 transition shadow-sm"
               >
                 Get Started
-              </Link>
-              <Link
-                href="#services"
-                className="py-3 px-6 text-text-main font-semibold underline"
-              >
-                Learn More
               </Link>
             </div>
           </div>
