@@ -3,44 +3,46 @@ import { useState, useEffect } from "react";
 import AnalysisCard from "./AnalysisCard";
 import { AnalysisPostMeta } from "@src/types";
 import { buildApiUrl } from "@src/config";
+import { FaPlus } from "react-icons/fa6";
 
 type TabType = "all" | "vip";
 
 const AnalysisListContainer = () => {
   const [activeTab, setActiveTab] = useState<TabType>("all");
+  const [nPostsToShow, setNPostsToShow] = useState(12);
   const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchVipPosts = async () => {
-      if (activeTab === "vip") {
-        setLoading(true);
-        setError(null);
-        fetch(buildApiUrl(`/api/vip_analysis`))
-          .then((res) => {
-            if (!res.ok) throw new Error("Failed to fetch analysis posts");
-            return res.json();
-          })
-          .then(setPosts)
-          .catch((e) => setError(e.message))
-          .finally(() => setLoading(false));
-      } else if (activeTab == "all") {
-        setLoading(true);
-        setError(null);
-        fetch(buildApiUrl(`/api/analysis`))
-          .then((res) => {
-            if (!res.ok) throw new Error("Failed to fetch analysis posts");
-            return res.json();
-          })
-          .then(setPosts)
-          .catch((e) => setError(e.message))
-          .finally(() => setLoading(false));
-      }
-    };
-
-    fetchVipPosts();
+    if (activeTab === "vip") {
+      setLoading(true);
+      setError(null);
+      fetch(buildApiUrl(`/api/vip_analysis`))
+        .then((res) => {
+          if (!res.ok) throw new Error("Oops! Something went wrong.");
+          return res.json();
+        })
+        .then(setPosts)
+        .catch((e) => setError(e.message))
+        .finally(() => setLoading(false));
+    } else if (activeTab == "all") {
+      setLoading(true);
+      setError(null);
+      fetch(buildApiUrl(`/api/analysis`))
+        .then((res) => {
+          if (!res.ok) throw new Error("Oops! Something went wrong.");
+          return res.json();
+        })
+        .then(setPosts)
+        .catch((e) => setError(e.message))
+        .finally(() => setLoading(false));
+    }
   }, [activeTab]);
+
+  const addMorePosts = () => {
+    setNPostsToShow((prev) => prev + 12);
+  };
 
   const noPostsMessage =
     activeTab === "vip" ? "No VIP posts found." : "No posts found.";
@@ -100,9 +102,22 @@ const AnalysisListContainer = () => {
             {noPostsMessage}
           </div>
         ) : (
-          posts.map((post) => <AnalysisCard key={post.slug} post={post} />)
+          posts
+            .slice(0, nPostsToShow)
+            .map((post) => <AnalysisCard key={post.slug} post={post} />)
         )}
       </div>
+      {posts.length > nPostsToShow && (
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={addMorePosts}
+            className="flex gap-2 h-16 cursor-pointer items-center text-text-muted px-6 py-3 font-semibold hover:text-primary transition shadow-sm"
+          >
+            <FaPlus className="w-6 h-6" />
+            <span className="text-2xl">Load More</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
