@@ -39,7 +39,7 @@ export default function HighPotentialTokenPage() {
         <Head>
           <title>CAN Trading</title>
         </Head>
-        <Navbar />
+        ""
         <main className="pt-20 bg-background min-h-screen">
           <section id="videos" className="py-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +60,7 @@ export default function HighPotentialTokenPage() {
         <Head>
           <title>CAN Trading</title>
         </Head>
-        <Navbar />
+        ""
         <main className="pt-20 bg-background min-h-screen">
           <section id="videos" className="py-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,7 +79,7 @@ export default function HighPotentialTokenPage() {
         <Head>
           <title>CAN Trading</title>
         </Head>
-        <Navbar />
+        ""
         <main className="pt-20 bg-background min-h-screen">
           <section id="videos" className="py-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,7 +95,7 @@ export default function HighPotentialTokenPage() {
   }
   return (
     <>
-      <Navbar />
+      ""
       <main className="bg-background min-h-screen">
         <section className="w-full flex justify-center pt-6">
           <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl flex lg:flex-row flex-col w-full px-4 gap-4">

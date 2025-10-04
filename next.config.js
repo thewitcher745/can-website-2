@@ -44,6 +44,11 @@ const nextConfig = {
         hostname: "coin-images.coingecko.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
     ],
   },
 };

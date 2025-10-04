@@ -43,7 +43,7 @@ const Fundamental: React.FC = () => {
         <Head>
           <title>Fundamental Analysis - CAN Trading</title>
         </Head>
-        <Navbar />
+        ""
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
             <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-primary border-opacity-60 mb-4"></div>
@@ -62,7 +62,7 @@ const Fundamental: React.FC = () => {
         <Head>
           <title>Error - CAN Trading</title>
         </Head>
-        <Navbar />
+        ""
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
             <div className="mb-4">
@@ -95,7 +95,7 @@ const Fundamental: React.FC = () => {
       <Head>
         <title>Fundamental Analysis - CAN Trading</title>
       </Head>
-      <Navbar />
+      ""
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-6">
           <h1 className="text-3xl font-bold mb-8 text-primary px-2">

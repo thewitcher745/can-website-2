@@ -1,90 +1,88 @@
-import { LineChart } from "@mui/x-charts/LineChart";
 import { useEffect, useState } from "react";
 
 import { buildApiUrl } from "@src/config";
+import { GenericLoader } from "@src/shared/ui/loaders";
+import GenericError from "@src/shared/ui/GenericError";
+import PeriodSelectorButtons from "./PeriodSelectorButtons";
+import ChartElement from "./ChartElement";
 
 const HistoricalFng = () => {
   const [fngHistory, setFngHistory] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [nDataPoints, setNDataPoints] = useState(30);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(buildApiUrl(`/api/fng_historical`));
-        if (!response.ok) throw new Error("Failed to fetch Fear and Greed.");
-        const data = await response.json();
-        setFngHistory(data);
-      } catch (error) {
-        setError(error as string);
-      } finally {
+    setLoading(true);
+    fetch(buildApiUrl(`/api/fng_historical?limit=${nDataPoints}`))
+      .then((res) => {
+        return res.json();
+      })
+      .then((response) => {
+        setFngHistory(response.reverse());
+      })
+      .catch((e) => setError("Oops! Something went wrong."))
+      .finally(() => {
         setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
+      });
+  }, [nDataPoints]);
 
   const timeData = fngHistory.map((item) => item.timestamp * 1000);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="relative w-full">
+        <div className="pl-15 flex items-center justify-between">
+          <PeriodSelectorButtons
+            nDataPoints={nDataPoints}
+            setNDataPoints={setNDataPoints}
+          />
+        </div>
+        <div className="blur-sm">
+          <ChartElement nDataPoints={nDataPoints} drawChartData={false} />
+        </div>
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <GenericLoader />
+        </div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <div className="relative w-full">
+        <div className="pl-15 flex items-center justify-between">
+          <PeriodSelectorButtons
+            nDataPoints={nDataPoints}
+            setNDataPoints={setNDataPoints}
+          />
+        </div>
+        <div className="blur-sm">
+          nDataPoints={nDataPoints}
+          <ChartElement drawChartData={false} />
+        </div>
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <GenericError message={error} />
+        </div>
+      </div>
+    );
   }
 
   return (
     <>
       <div className="w-full">
+        <div className="pl-15 flex items-center justify-between">
+          <PeriodSelectorButtons
+            nDataPoints={nDataPoints}
+            setNDataPoints={setNDataPoints}
+          />
+        </div>
         {fngHistory.length > 0 && (
-          <LineChart
-            axisHighlight={{
-              y: "band",
-            }}
-            grid={{
-              vertical: true,
-            }}
-            xAxis={[
-              {
-                scaleType: "band",
-                data: timeData,
-                tickInterval: (value) =>
-                  new Date(value).getDate() === 1 ||
-                  new Date(value).getDate() === 16,
-                valueFormatter: (value) => {
-                  const date = new Date(value);
-                  return `${date.getDate()} ${date.toLocaleString("en-us", {
-                    month: "long",
-                  })} ${date.getFullYear()}`;
-                },
-              },
-            ]}
-            series={[
-              {
-                data: fngHistory.map((item) => item.value),
-                area: true,
-                showMark: false,
-                color: "var(--color-primary)",
-                valueFormatter: (value) => {
-                  if (value == null) return "N/A";
-                  const v = Number(value);
-                  return `${v.toFixed(0)} (${
-                    v < 20
-                      ? "Extreme Fear"
-                      : v < 40
-                      ? "Fear"
-                      : v < 60
-                      ? "Neutral"
-                      : v < 80
-                      ? "Greed"
-                      : "Extreme Greed"
-                  })`;
-                },
-              },
-            ]}
-            height={400}
-          ></LineChart>
+          <ChartElement
+            nDataPoints={nDataPoints}
+            timeData={timeData}
+            fngHistory={fngHistory}
+          />
         )}
       </div>
     </>

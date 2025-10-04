@@ -17,7 +17,7 @@ const LongShortRatio = () => {
     setLoading(true);
     fetch(buildApiUrl(`/api/long_short_ratio?symbol=${symbol}`))
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch long/short orders data.");
+        if (!res.ok) throw new Error("Oops! Something went wrong.");
         return res.json();
       })
       .then((response) => {

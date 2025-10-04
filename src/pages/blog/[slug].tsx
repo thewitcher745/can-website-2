@@ -30,7 +30,7 @@ const BlogPostPage: React.FC = () => {
   if (loading)
     return (
       <>
-        <Navbar />
+        ""
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
             <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-primary border-opacity-60 mb-4"></div>
@@ -46,7 +46,6 @@ const BlogPostPage: React.FC = () => {
   if (error)
     return (
       <>
-        <Navbar />
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
             <div className="mb-4">
@@ -77,7 +76,7 @@ const BlogPostPage: React.FC = () => {
   if (!post)
     return (
       <>
-        <Navbar />
+        ""
         <main className="bg-background min-h-screen">
           <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
             <span className="text-text-muted text-lg tracking-wide">
@@ -94,7 +93,7 @@ const BlogPostPage: React.FC = () => {
       <Head>
         <title>{post.title} - CAN Trading</title>
       </Head>
-      <Navbar />
+      ""
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl mx-auto py-8 px-4 pt-6">
           <Link href="/blog" className="text-primary hover:underline text-sm">

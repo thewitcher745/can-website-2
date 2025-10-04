@@ -14,30 +14,15 @@ const GlobalMarketData = () => {
       <div className="w-full xl:w-1/3 flex flex-col gap-2 lg:border-l border-text-muted/50 lg:ml-6">
         <div className="w-full flex flex-col sm:flex-row lg:flex-col gap-6">
           <div className="w-full flex flex-col">
-            <Title
-              sub={true}
-              title="Fear and greed"
-              className="lg:pl-4"
-              center={true}
-            />
+            <Title sub={true} title="Fear and greed" center={true} />
             <FearAndGreed sizingClasses="w-full xs:w-3/5 sm:w-full" />
           </div>
           <div className="w-full flex flex-col">
-            <Title
-              sub={true}
-              title="Market Dominance"
-              className="lg:pl-4"
-              center={true}
-            />
+            <Title sub={true} title="Market Dominance" center={true} />
             <Dominance />
           </div>
         </div>
-        <Title
-          sub={true}
-          title="Global market data"
-          className="lg:pl-4"
-          center={true}
-        />
+        <Title sub={true} title="Global market data" center={true} />
         <div className="w-auto lg:w-full flex justify-center lg:pl-4">
           <Stats />
         </div>

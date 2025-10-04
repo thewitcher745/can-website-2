@@ -1,17 +1,17 @@
 - Adding a search functionality to the Analysis section
-- Add hover properties to the navbar links
 - Add placeholder loaders to elements
 - Move loaders and errors to separate elements, and check that they are all there
 - Modularize elements into separate files
 - Check for unanimous styling across common elements in pages
 - Separate coin logos into separate elements
-- Make the website truly SPA by uinfying Navbar loading on the entire website
+
 - Implement ISR for elements that call for them
 - Revise API responses to be consistent
 - Unify utility elements
 - Make sections have no hardcoded classes, modularize all subelements and useEffects
 - Unify all api request methods and errors and loadings
 
++ Make the website truly SPA by uinfying Navbar loading on the entire website
 + Implement /coins page
 + Separate types into separate files
 + Define aliases and optimize paths
