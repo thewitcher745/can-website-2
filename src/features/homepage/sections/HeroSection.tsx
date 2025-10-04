@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const heroImages = [
@@ -22,14 +24,14 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="w-full py-8 pb-16 md:pb-20 bg-gradient-to-br from-gray-900 to-gray-800 text-text-muted"
+      className="w-full py-4 bg-gradient-to-br from-gray-900 to-gray-800 text-text-muted"
     >
       <div className="2xl:max-w-[100rem] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="md:flex items-center gap-8">
-          <div className="md:w-1/2 mb-14 md:mb-0">
+          <div className="md:w-1/2">
             {/* Animated Title */}
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl py-2 font-bold text-primary leading-tight mb-6 animate-hero-title"
+              className="text-3xl lg:text-4xl font-bold text-primary leading-tight mb-6 animate-hero-title"
               style={{
                 background: "linear-gradient(90deg, #fe9a00, #ffcb37)",
                 WebkitBackgroundClip: "text",
@@ -40,7 +42,7 @@ const HeroSection: React.FC = () => {
               CAN Trading Signals
             </h1>
             {/* Subtitle with fade-in */}
-            <p className="text-lg text-primary font-semibold mb-2 animate-fade-in-delay-1">
+            <p className="text-lg md:text-xl lg:text-2xl text-primary font-semibold mb-2 animate-fade-in-delay-1">
               Expert Financial Technical Analysis
             </p>
             {/* Description with fade-in */}
@@ -49,22 +51,22 @@ const HeroSection: React.FC = () => {
               strategies for individuals.
             </p>
             <div className="flex space-x-4 animate-fade-in-delay-3">
-              <a
+              <Link
                 href="#pricing"
                 className="bg-primary text-black px-6 py-3 border-1 border-primary rounded-md font-semibold hover:bg-transparent hover:text-primary hover:border-primary hover:border-1 transition shadow-sm"
               >
                 Get Started
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#services"
                 className="py-3 px-6 text-text-main font-semibold underline"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
-          <div className="md:w-1/2 flex justify-center relative">
-            <div className="image-container floating-bg h-96 w-full max-w-xl overflow-hidden flex items-center justify-center bg-black/30 rounded-2xl relative">
+          <div className="md:w-1/2 flex justify-center relative py-4 md:py-0">
+            <div className="image-container floating-bg w-4/5 aspect-[3/2] md:w-96 max-w-xl overflow-hidden flex items-center justify-center bg-black/30 rounded-2xl relative">
               {heroImages.map((img, idx) => {
                 const isCurrent = idx === current;
                 return (
