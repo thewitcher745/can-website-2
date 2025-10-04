@@ -1,7 +1,8 @@
 import Head from "next/head";
+import Link from "next/link";
+import { FaTelegram } from "react-icons/fa6";
 
 import Navbar from "@shared/ui/navbar/Navbar";
-import HeroSection from "@features/homepage/sections/HeroSection";
 import ServicesSection from "@features/homepage/sections/ServicesSection";
 import ResultsSection from "@features/homepage/sections/ResultsSection";
 import PricingSection from "@features/homepage/sections/PricingSection";
@@ -18,6 +19,17 @@ export default function Home() {
         <ServicesSection />
         <ResultsSection />
         <PricingSection />
+        <div className="mt-12 flex flex-wrap justify-center w-full text-xl text-text-main">
+          <Link
+            href="/vip"
+            className="text-nowrap flex gap-1 items-center mr-1 title-hover "
+          >
+            <span>Join our</span>
+            <FaTelegram />
+            <span className="underline"> Telegram channel</span>
+          </Link>
+          <span> to get in on the action!</span>
+        </div>
       </main>
       <Footer />
     </>

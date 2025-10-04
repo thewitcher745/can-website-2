@@ -111,7 +111,7 @@ const ResultsPage: React.FC = () => {
         .sort((a, b) => monthOrder[b.monthKey] - monthOrder[a.monthKey]); // Sort months descending (Dec, Nov, ...)
 
       const displayMonths = monthsInYear.map((m) => ({
-        label: parseMonthYearString(m.original).monthName.toUpperCase(), // "MARCH"
+        label: parseMonthYearString(m.original).monthName, // "MARCH"
         value: m.original, // "mar-2025"
       }));
       setMonthsForDisplay(displayMonths);
@@ -172,6 +172,15 @@ const ResultsPage: React.FC = () => {
             Browse through the full gallery of our results and review our
             performance in prior periods.
           </p>
+          <div className="flex gap-2 w-full text-xl px-2 pb-4 text-primary">
+            Our VIP Services can be viewed{" "}
+            <Link
+              href="https://t.me/CryptoANalysis_CAN"
+              className="title-hover underline"
+            >
+              HERE.
+            </Link>
+          </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
             <div>
               <label
@@ -239,7 +248,7 @@ const ResultsPage: React.FC = () => {
             Detailed Trade Log
           </h2>
           <ResultsTable selectedMonth={currentMonthYearKey} />
-          <div className="mt-12 flex justify-center w-full text-xl text-text-main">
+          <div className="mt-12 flex  flex-wrap justify-center w-full text-xl text-text-main">
             <Link
               href="https://t.me/CryptoANalysis_CAN"
               className="text-nowrap flex gap-1 items-center mr-1 title-hover "
