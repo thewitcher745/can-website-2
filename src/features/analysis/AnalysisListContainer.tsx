@@ -14,6 +14,34 @@ const AnalysisListContainer = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // 1) Load from localStorage on first mount (client-only)
+  useEffect(() => {
+    try {
+      const savedTab = localStorage.getItem("analysis.activeTab");
+      if (savedTab === "all" || savedTab === "vip") {
+        setActiveTab(savedTab as TabType);
+      }
+
+      const savedN = localStorage.getItem("analysis.nPostsToShow");
+      const parsedN = savedN ? parseInt(savedN, 10) : NaN;
+      if (!Number.isNaN(parsedN) && parsedN > 0) {
+        setNPostsToShow(parsedN);
+      }
+    } catch {
+      // ignore storage errors
+    }
+  }, []);
+
+  // 2) Persist to localStorage whenever values change
+  useEffect(() => {
+    try {
+      localStorage.setItem("analysis.activeTab", activeTab);
+      localStorage.setItem("analysis.nPostsToShow", String(nPostsToShow));
+    } catch {
+      // ignore storage errors
+    }
+  }, [activeTab, nPostsToShow]);
+
   useEffect(() => {
     if (activeTab === "vip") {
       setLoading(true);
@@ -75,7 +103,7 @@ const AnalysisListContainer = () => {
         </div>
       </div>
 
-      {activeTab === "all" && (
+      {activeTab !== "vip" && (
         <p className="text-text-main text-xl mb-6">
           You can find our reliable, accurate and profitable premium analysis
           for different coins here.
