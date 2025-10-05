@@ -1,0 +1,123 @@
+/* --------------------- Analysis section styles */
+
+.analysis-article {
+    padding: 1rem 0;
+  }
+  .analysis-article h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+  }
+  .analysis-article h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    padding: 0.5rem 0;
+  }
+  .analysis-article img {
+    padding: 1rem;
+  }
+  .analysis-article p {
+    background-color: transparent;
+    padding: 0.4rem 0;
+  }
+  
+  .analysis-article a {
+    text-decoration: underline;
+  }
+  
+  .analysis-article a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  
+  .analysis-article hr {
+    margin-top: 2rem;
+  }
+  .analysis-article li {
+    list-style-type: "- ";
+    margin-left: 2rem;
+  }
+  .analysis-article ul,
+  ol {
+    padding: 0.5rem 1rem;
+  }
+  
+  /* --------------------- Blog section styles */
+  
+  .blog-article {
+    padding: 1rem 0;
+  }
+  .blog-article h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+  }
+  .blog-article h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    padding: 0.5rem 0;
+  }
+  .blog-article img {
+    padding: 1rem;
+    width: 100%;
+  }
+  .blog-article p {
+    background-color: transparent;
+  }
+  .article a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  .blog-article hr {
+    margin-top: 2rem;
+  }
+  .blog-article li {
+    list-style-type: "- ";
+    margin-left: 2rem;
+  }
+  .blog-article ul,
+  ol {
+    padding: 0.5rem 1rem;
+  }
+  
+  /* --------------------- High Potential section styles */
+  .high-potential-article h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+  }
+  .high-potential-article h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.8rem 0;
+  }
+  .high-potential-article h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    padding: 1rem 0;
+  }
+  .high-potential-article img {
+    padding: 1rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .high-potential-article p {
+    background-color: transparent;
+  }
+  .high-potential-article a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  .high-potential-article hr {
+    margin-top: 2rem;
+  }
+  .high-potential-article li {
+    list-style-type: "- ";
+    margin-left: 2rem;
+  }
+  .high-potential-article ul,
+  ol {
+    padding: 0.5rem 1rem;
+  }
+  

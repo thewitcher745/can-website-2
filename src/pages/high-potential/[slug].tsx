@@ -98,7 +98,7 @@ export default function HighPotentialTokenPage() {
       ""
       <main className="bg-background min-h-screen">
         <section className="w-full flex justify-center pt-6">
-          <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl flex lg:flex-row flex-col w-full px-4 gap-4">
+          <div className="max-w-custom flex lg:flex-row flex-col w-full px-4 gap-4">
             <div className="flex flex-col gap-2 w-full lg:w-1/4">
               <div className="flex flex-wrap gap-4 rounded-xl border border-text-muted p-2 items-center justify-center sm:justify-start lg:justify-center 2xl:justify-between">
                 <div

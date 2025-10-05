@@ -1,0 +1,81 @@
+/* --------------------- Results section styles */
+.results-page {
+    padding: 32px 16px;
+  }
+  
+  .my-masonry-grid {
+    display: flex;
+    margin-left: -16px; /* gutter size offset */
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    padding-left: 16px; /* gutter size */
+    background-clip: padding-box;
+  }
+  
+  .masonry-item {
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .masonry-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .results-table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+  
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1200px; 
+    background-color: #2a2a2a; /* Dark background for the table */
+    color: #ffffff; /* White text */
+  }
+  
+  .results-table th, .results-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #444; /* Darker border for rows */
+  }
+  
+  .results-table thead th {
+    background-color: #1a1a1a; /* Even darker background for header */
+    font-weight: bold;
+    color: #fafafa;
+  }
+  
+  .results-table tbody tr.targets-achieved {
+    background-color: #1d441d; /* Green with transparency */
+  }
+  
+  .results-table tbody tr.stopped-out {
+    background-color: #542121; /* Red with transparency */
+  }
+  
+  .results-table tbody tr:hover {
+    background-color: #3a3a3a; /* Hover effect for rows */
+  }
+  
+  .show-more-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .show-more-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .show-more-button:hover {
+    background-color: var(--primary-hover-color);
+  }

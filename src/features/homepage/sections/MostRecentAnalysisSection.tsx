@@ -43,7 +43,7 @@ const MostRecentAnalysisSection = () => {
 
   return (
     <section id="most-recent" className="w-full flex justify-center my-2">
-      <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl py-4 w-full flex flex-col items-center justify-center">
+      <div className="max-w-custom py-4 w-full flex flex-col items-center justify-center">
         <div className="flex flex-col self-start px-4 sm:text-left">
           <Link
             href="/analysis"

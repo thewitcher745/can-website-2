@@ -7,7 +7,7 @@ const LongShortRatioSection = () => {
       id="long-to-short-ratio"
       className="w-full flex justify-center pt-4"
     >
-      <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl w-full flex flex-col gap-2">
+      <div className="max-w-custom w-full flex flex-col gap-2">
         <Title title="Long to Short Orders Ratio" />
         <LongShortRatio />
       </div>
