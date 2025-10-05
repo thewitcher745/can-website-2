@@ -34,6 +34,7 @@ export interface AnalysisPostMeta {
   time: string;
   slug: string;
   tags: string[];
+  coins: string[];
   title: string;
   desc: string;
 }

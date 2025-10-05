@@ -5,12 +5,11 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { buildApiUrl } from "@src/config";
-import { getCoinLogoLink } from "@src/utils";
 import { TopCoin, TopCoinLists } from "@src/types";
+import Logo from "@src/shared/ui/Logo";
 
 const TopCoinsTable = ({ className }: { className?: string }) => {
   const [data, setData] = useState<TopCoinLists | null>(null);
@@ -104,38 +103,6 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
     );
   };
 
-  const CoinLogo = ({ symbol }: { symbol: string }) => {
-    const [logoUrl, setLogoUrl] = useState<string | null>(null);
-
-    useEffect(() => {
-      const fetchLogo = async () => {
-        const data = await getCoinLogoLink(symbol);
-        // Assuming the API returns an object with a 'logo' property
-        if (data) {
-          setLogoUrl(data);
-        }
-      };
-
-      fetchLogo();
-    }, [symbol]);
-
-    if (!logoUrl) {
-      return (
-        <div className="w-8 h-8 bg-gray-700 rounded-full animate-pulse"></div>
-      );
-    }
-
-    return (
-      <Image
-        src={logoUrl}
-        alt={`${symbol} logo`}
-        width={32}
-        height={32}
-        className="w-8 h-8 rounded-full"
-      />
-    );
-  };
-
   const renderTableRows = (coins: TopCoin[]) => {
     const rows = [];
     for (let i = 0; i < 5; i++) {
@@ -147,7 +114,7 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
             <>
               <td className="px-2 py-2 w-1/2">
                 <div className="flex items-center gap-3">
-                  <CoinLogo symbol={coin.symbol} />
+                  <Logo symbol={coin.symbol} />
                   <div className="flex flex-col truncate">
                     <span className="truncate font-semibold text-sm">
                       {coin.name}

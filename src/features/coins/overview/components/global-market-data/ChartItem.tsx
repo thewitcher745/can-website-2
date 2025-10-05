@@ -1,46 +1,10 @@
-import { useState, useEffect } from "react";
-import Image from "next/image";
-
-import { buildApiUrl } from "@src/config";
 import { formatPrice, reduceNumber } from "@src/utils";
 import { ChartItemProps } from "@src/types";
+import Logo from "@src/shared/ui/Logo";
 
-const ChartIcon = ({
-  symbol,
-  className,
-}: {
-  symbol: string;
-  className?: string;
-}) => {
-  const [link, setLink] = useState<string>("");
-
-  useEffect(() => {
-    fetch(buildApiUrl(`/api/logo/${symbol}`))
-      .then((res) => {
-        return res.json();
-      })
-      .then(setLink)
-      .catch(() => "");
-  }, []);
-
+const ChartIcon = ({ symbol }: { symbol: string }) => {
   return (
-    <div
-      className={`aspect-square w-10 h-10 min-w-10 sm:min-w-12 sm:w-12 sm:h-12 p-0 sm:p-1 bg-text-main rounded-full border-2 border-primary overflow-hidden ${className}`}
-    >
-      {link === "" ? (
-        <div className="w-full h-full aspect-square rounded-full bg-primary"></div>
-      ) : (
-        <div className="size-full aspect-square rounded-full overflow-hidden">
-          <Image
-            src={link}
-            alt={symbol}
-            width={64}
-            height={64}
-            className="size-full object-cover"
-          />
-        </div>
-      )}
-    </div>
+    <Logo symbol={symbol} padding="1" size="12" className="z-2 max-w-20" />
   );
 };
 
@@ -69,7 +33,7 @@ const ChartItem = ({
             {formatPrice(chartItem.price.toFixed(2))}
           </span>
         </div>
-        <ChartIcon symbol={chartItem.symbol} className="z-2 max-w-20" />
+        <ChartIcon symbol={chartItem.symbol} />
       </div>
       <div className="relative sm:flex-1">
         <div

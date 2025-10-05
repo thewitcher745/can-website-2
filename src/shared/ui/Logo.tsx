@@ -9,11 +9,13 @@ const Logo = ({
   fixedLogoUrl,
   padding = "1",
   size = "8",
+  className = "",
 }: {
   symbol: string;
   fixedLogoUrl?: string;
   padding?: string;
-  size?: string;
+  size?: string | number;
+  className?: string;
 }) => {
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
 
@@ -35,7 +37,7 @@ const Logo = ({
 
   return (
     <div
-      className={`w-${size} h-${size} aspect-square rounded-full overflow-hidden bg-text-main p-${padding}`}
+      className={`w-${size} h-${size} min-w-${size} min-h-${size} max-w-${size} max-h-${size} aspect-square rounded-full overflow-hidden bg-text-main p-${padding} ${className}`}
     >
       <div
         className={`size-full aspect-square rounded-full overflow-hidden bg-text-main`}
@@ -43,18 +45,20 @@ const Logo = ({
         {logoUrl ? (
           <Image
             src={logoUrl}
-            alt={`${symbol} logo`}
-            width={32}
-            height={32}
-            className="size-full object-center object-cover"
+            alt={`${symbol.toUpperCase()}USDT logo`}
+            width={size === "full" ? undefined : (size as number) * 4}
+            height={size === "full" ? undefined : (size as number) * 4}
+            fill={size === "full"}
+            className={`size-full aspect-square object-center`}
           />
         ) : (
           <Image
             src="/images/logos/default.png"
             alt={`${symbol} logo`}
-            width={32}
-            height={32}
-            className="size-full object-center object-cover"
+            width={size === "full" ? undefined : (size as number) * 4}
+            height={size === "full" ? undefined : (size as number) * 4}
+            fill={size === "full"}
+            className="size-full object-center"
           />
         )}
       </div>

@@ -13,6 +13,7 @@ import { buildApiUrl } from "@src/config";
 import { TopCoinsTableRowPlaceholer } from "@shared/ui/loaders";
 import { formatPrice, getCoinLogoLink } from "@src/utils";
 import { GainerLoser } from "@src/types";
+import Logo from "@src/shared/ui/Logo";
 
 interface TrendingWithSparkline extends GainerLoser {
   sparkline: string;
@@ -91,38 +92,6 @@ const TrendingCoinsTable = ({ maxRows = 10 }: { maxRows: number }) => {
     return `$${num.toFixed(2)}`;
   };
 
-  const CoinLogo = ({ symbol }: { symbol: string }) => {
-    const [logoUrl, setLogoUrl] = useState<string | null>(null);
-
-    useEffect(() => {
-      const fetchLogo = async () => {
-        const data = await getCoinLogoLink(symbol);
-        // Assuming the API returns an object with a 'logo' property
-        if (data) {
-          setLogoUrl(data);
-        }
-      };
-
-      fetchLogo();
-    }, [symbol]);
-
-    if (!logoUrl) {
-      return (
-        <div className="w-8 h-8 bg-gray-700 rounded-full animate-pulse"></div>
-      );
-    }
-
-    return (
-      <Image
-        src={logoUrl}
-        alt={`${symbol} logo`}
-        width={32}
-        height={32}
-        className="w-8 h-8 rounded-full"
-      />
-    );
-  };
-
   const renderCaret = (change: number) => {
     const isPositive = change >= 0;
     const colorClass = isPositive ? "text-success" : "text-danger";
@@ -182,7 +151,7 @@ const TrendingCoinsTable = ({ maxRows = 10 }: { maxRows: number }) => {
                         }`}
                       >
                         <div className="flex items-center gap-3">
-                          <CoinLogo symbol={coin.symbol} />
+                          <Logo symbol={coin.symbol} padding="1" size="12" />
                           <div className="flex flex-col truncate">
                             <span className="truncate font-semibold text-sm">
                               {coin.name}

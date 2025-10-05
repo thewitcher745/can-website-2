@@ -36,7 +36,7 @@ const MostRecentAnalysisSection = () => {
         <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 6)} />
       </div>
       <div className="items-center gap-4 w-full max-sm:flex hidden">
-        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 3)} />
+        <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 5)} />
       </div>
     </div>
   );
