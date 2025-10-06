@@ -91,7 +91,7 @@ const Analysis: React.FC = () => {
       <div className="items-center gap-4 w-full xs:max-sm:flex hidden">
         <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 5)} />
       </div>
-      <div className="items-center gap-4 max-xs:w-full hidden">
+      <div className="items-center gap-4 w-full max-xs:flex hidden">
         <MostRecent recentAnalysis={[...posts, ...posts].slice(0, 3)} />
       </div>
     </div>
