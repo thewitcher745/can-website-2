@@ -26,7 +26,7 @@ const DesktopSidebar = ({
   setSelectedMonth,
 }: DesktopSidebarProps) => (
   <aside className="hidden md:block md:w-1/4 h-full min-h-0">
-    <div className="flex flex-col gap-6 bg-background rounded-xl border border-border-strong p-3 shadow-inner h-full overflow-y-auto">
+    <div className="flex flex-col gap-6 bg-background rounded-xl p-3 shadow-inner h-full overflow-y-auto">
       {/* Year Selector */}
       <div>
         <h4 className="text-sm font-semibold text-text-main mb-2 px-1">Year</h4>

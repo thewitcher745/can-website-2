@@ -71,7 +71,7 @@ export interface DesktopSidebarProps {
   setSelectedMonth: (month: string) => void;
 }
 
-export interface MobileSelectorsProps {
+export interface SelectorsProps {
   allYears: string[];
   selectedYear: string;
   setSelectedYear: (year: string) => void;
