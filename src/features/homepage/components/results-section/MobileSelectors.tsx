@@ -2,6 +2,21 @@ import React from "react";
 
 import { MobileSelectorsProps } from "@src/types";
 
+const monthNameMapping = {
+  jan: "January",
+  feb: "February",
+  mar: "March",
+  apr: "April",
+  may: "May",
+  jun: "June",
+  jul: "July",
+  aug: "August",
+  sep: "September",
+  oct: "October",
+  nov: "November",
+  dec: "December",
+};
+
 const MobileSelectors = ({
   allYears,
   selectedYear,
@@ -48,7 +63,11 @@ const MobileSelectors = ({
       >
         {monthsForSelectedYear.map((month) => (
           <option key={month} value={month}>
-            {month}
+            {
+              monthNameMapping[
+                month.toLowerCase() as keyof typeof monthNameMapping
+              ]
+            }
           </option>
         ))}
       </select>

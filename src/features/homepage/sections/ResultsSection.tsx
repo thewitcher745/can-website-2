@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-import { months, parseLabel } from "../components/results-section/data";
+import cumulativeData from "../components/results-section/cumulativeData.json";
 import SectionHeader from "../components/results-section/SectionHeader";
 import MobileSelectors from "../components/results-section/MobileSelectors";
 import DesktopSidebar from "../components/results-section/DesktopSidebar";
 import ResultsDisplay from "../components/results-section/ResultsDisplay";
+
+const parseLabel = (label: string) => {
+  const [monthName, year] = label.split("-");
+  return { monthName, year };
+};
 
 const ResultsSection: React.FC = () => {
   const [allYears, setAllYears] = useState<string[]>([]);
@@ -13,11 +18,10 @@ const ResultsSection: React.FC = () => {
     []
   );
   const [selectedMonth, setSelectedMonth] = useState<string>("");
-  const [currentResult, setCurrentResult] = useState<any>(undefined);
 
   useEffect(() => {
     const years = [
-      ...new Set(months.map((m) => parseLabel(m.label).year)),
+      ...new Set(cumulativeData.map((m) => parseLabel(m.label).year)),
     ].sort((a, b) => parseInt(b) - parseInt(a));
     setAllYears(years);
 
@@ -31,7 +35,7 @@ const ResultsSection: React.FC = () => {
     if (selectedYear) {
       const availableMonths = [
         ...new Set(
-          months
+          cumulativeData
             .filter((m) => parseLabel(m.label).year === selectedYear)
             .map((m) => parseLabel(m.label).monthName)
         ),
@@ -39,9 +43,7 @@ const ResultsSection: React.FC = () => {
       setMonthsForSelectedYear(availableMonths);
 
       if (availableMonths.length > 0) {
-        if (!availableMonths.includes(selectedMonth) || selectedMonth === "") {
-          setSelectedMonth(availableMonths[0]);
-        }
+        setSelectedMonth(availableMonths[0]);
       } else {
         setSelectedMonth("");
       }
@@ -50,11 +52,8 @@ const ResultsSection: React.FC = () => {
 
   useEffect(() => {
     if (selectedYear && selectedMonth) {
-      const targetLabel = `${selectedMonth} ${selectedYear}`;
-      const result = months.find((m) => m.label === targetLabel);
-      setCurrentResult(result);
-    } else {
-      setCurrentResult(undefined);
+      const targetLabel = `${selectedMonth}-${selectedYear}`;
+      const result = cumulativeData.find((m) => m.label === targetLabel);
     }
   }, [selectedYear, selectedMonth]);
 
@@ -79,11 +78,7 @@ const ResultsSection: React.FC = () => {
             selectedMonth={selectedMonth}
             setSelectedMonth={setSelectedMonth}
           />
-          <ResultsDisplay
-            currentResult={currentResult}
-            allYears={allYears}
-            selectedYear={selectedYear}
-          />
+          <ResultsDisplay monthYearName={selectedMonth + "-" + selectedYear} />
         </div>
         <div className="flex justify-center mt-12">
           <a

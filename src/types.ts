@@ -1,20 +1,19 @@
 export interface MonthResult {
   label: string;
-  img: string;
   winrate?: number;
   grossProfit?: number;
   drawdown?: number;
-};
+}
 
 export interface longShortExchangeItem {
-    longPercentage: number,
-    ratio: number,
-    long: number,
-    short: number
+  longPercentage: number;
+  ratio: number;
+  long: number;
+  short: number;
 }
 
 export interface longShortItem {
-       [key: string]: longShortExchangeItem,
+  [key: string]: longShortExchangeItem;
 }
 
 export interface Video {
@@ -134,75 +133,75 @@ export interface MarketData {
   volumeChangePercentage24h: number;
 }
 
-export interface ResultsMonthData{ 
-    date: string, 
-    symbol: string, 
-    status: string, 
-    leverage: string, 
-    used_dollars: number, 
-    type: string, 
-    last_target: number, 
-    profit_percent: number, 
-    net_profit: string 
-  }
+export interface ResultsMonthData {
+  date: string;
+  symbol: string;
+  status: string;
+  leverage: string;
+  used_dollars: number;
+  type: string;
+  last_target: number;
+  profit_percent: number;
+  net_profit: string;
+}
 
-  export interface GainerLoser {
-    change: number;
-    name: string;
-    price: number;
-    symbol: string;
-    volume: number;
-  }
+export interface GainerLoser {
+  change: number;
+  name: string;
+  price: number;
+  symbol: string;
+  volume: number;
+}
 
-  export interface ArticleItemRaw {
-    slug: string;
-    thumbnail: string;
-    title: string;
-    publishedAt: string;
-    time: string;
-    timestamp: string;
-    date: string;
-  }
-  
-  export interface ArticleItem {
-    slug: string;
-    thumbnail: string;
-    title: string;
-    publishedAt: Date;
-  }
+export interface ArticleItemRaw {
+  slug: string;
+  thumbnail: string;
+  title: string;
+  publishedAt: string;
+  time: string;
+  timestamp: string;
+  date: string;
+}
 
-  export interface ArticleMeta {
-    author: string;
-    time: string;
-    slug: string;
-    tags: string[];
-    title: string;
-    desc: string;
-    thumbnail?: string;
-  }
-  
-  export interface Article {
-    author: string;
-    content_html: string;
-    time: string;
-    slug: string;
-    tags: string[];
-    title: string;
-  }
+export interface ArticleItem {
+  slug: string;
+  thumbnail: string;
+  title: string;
+  publishedAt: Date;
+}
 
-  export interface TopMarketCapCoin {
-    change_24h: number;
-    change_7d: number;
-    name: string;
-    price: number;
-    symbol: string;
-    volume_24h: number;
-    market_cap: number;
-  }
+export interface ArticleMeta {
+  author: string;
+  time: string;
+  slug: string;
+  tags: string[];
+  title: string;
+  desc: string;
+  thumbnail?: string;
+}
 
-  export interface MarketDominanceData {
-    btcDominance: number;
-    ethDominance: number;
-    btcDominanceChange: number;
-    ethDominanceChange: number;
-  }
+export interface Article {
+  author: string;
+  content_html: string;
+  time: string;
+  slug: string;
+  tags: string[];
+  title: string;
+}
+
+export interface TopMarketCapCoin {
+  change_24h: number;
+  change_7d: number;
+  name: string;
+  price: number;
+  symbol: string;
+  volume_24h: number;
+  market_cap: number;
+}
+
+export interface MarketDominanceData {
+  btcDominance: number;
+  ethDominance: number;
+  btcDominanceChange: number;
+  ethDominanceChange: number;
+}

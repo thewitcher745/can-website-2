@@ -110,6 +110,11 @@ main {
   opacity: 0.2;
 }
 
+/* Hide the first "Base" series in the waterfall chart */
+#waterfall-chart * .MuiChartsLegend-item:first-of-type {
+  display: none;
+}
+
 @keyframes banner-logo-animation {
   0% {
     transform: translateY(0) rotateY(20deg) rotateX(20deg);

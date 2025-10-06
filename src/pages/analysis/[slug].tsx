@@ -143,7 +143,7 @@ const AnalysisPostPage: React.FC = () => {
                 {updates.map((update, idx) => (
                   <div
                     key={idx}
-                    className="border-l-4 border-primary px-6 py-3 rounded relative"
+                    className="border-l-4 border-primary px-6 py-3 relative"
                   >
                     <div className="text-xs text-text-muted mb-1">
                       Update at{" "}
@@ -159,7 +159,7 @@ const AnalysisPostPage: React.FC = () => {
                       })}
                     </div>
                     <article
-                      className="analysis-article text-text-main text-sm"
+                      className="analysis-article text-text-main"
                       dangerouslySetInnerHTML={{
                         __html: update.content_html,
                       }}
