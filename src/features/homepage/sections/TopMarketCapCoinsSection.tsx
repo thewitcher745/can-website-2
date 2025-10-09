@@ -6,6 +6,7 @@ import { buildApiUrl } from "@src/config";
 import { getCoinLogoLink, reduceNumber, formatPrice } from "@src/utils";
 import { HomepageTopCoinsTableRowPlaceholder } from "@src/shared/ui/loaders";
 import { TopMarketCapCoin } from "@src/types";
+import Logo from "@src/shared/ui/Logo";
 
 const TopMarketCapCoinsSection = () => {
   const [topCoins, setTopCoins] = useState<TopMarketCapCoin[]>([]);
@@ -78,38 +79,6 @@ const TopMarketCapCoinsSection = () => {
     };
   }, []);
 
-  const CoinLogo = ({ symbol }: { symbol: string }) => {
-    const [logoUrl, setLogoUrl] = useState<string | null>(null);
-
-    useEffect(() => {
-      const fetchLogo = async () => {
-        const data = await getCoinLogoLink(symbol);
-        // Assuming the API returns an object with a 'logo' property
-        if (data) {
-          setLogoUrl(data);
-        }
-      };
-
-      fetchLogo();
-    }, [symbol]);
-
-    if (!logoUrl) {
-      return (
-        <div className="w-8 h-8 bg-gray-700 rounded-full animate-pulse"></div>
-      );
-    }
-
-    return (
-      <Image
-        src={logoUrl}
-        alt={`${symbol} logo`}
-        width={32}
-        height={32}
-        className="w-8 h-8 rounded-full"
-      />
-    );
-  };
-
   const renderCaret = (change: number) => {
     const isPositive = change >= 0;
     const colorClass = isPositive ? "text-success" : "text-error";
@@ -129,7 +98,7 @@ const TopMarketCapCoinsSection = () => {
       id="trending"
       className="w-full bg-background flex justify-start sm:justify-center"
     >
-      <div className="2xl:max-w-[100rem] xl:max-w-7xl max-w-6xl p-4 py-8 rounded radius-6 w-full">
+      <div className="max-w-custom p-4 py-8 rounded radius-6 w-full">
         <div ref={tableContainerRef} className="overflow-x-auto relative">
           <table className="text-text-main w-full min-w-lg table-fixed">
             <thead>
@@ -264,7 +233,7 @@ const TopMarketCapCoinsSection = () => {
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <CoinLogo symbol={coin.symbol} />
+                        <Logo symbol={coin.symbol} size="12" padding="1" />
                         <div className="flex flex-col truncate">
                           <span className="truncate font-semibold text-sm">
                             {coin.name}

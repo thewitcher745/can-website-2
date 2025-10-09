@@ -1,44 +1,8 @@
-import Image from "next/image";
-
 import { AnalysisPostMeta } from "@src/types";
+import Logo from "@src/shared/ui/Logo";
 
-const PostLogo: React.FC<{ thumbnail: string; altText: string }> = ({
-  thumbnail,
-  altText,
-}) => {
-  if (!thumbnail?.length)
-    return (
-      <div
-        className={`w-full bg-text-main aspect-square overflow-hidden rounded-full xs:relative left-0 top-0 translate-x-0 translate-y-0 opacity-100
-              p-1`}
-      >
-        <div className="size-full p-2 overflow-hidden rounded-full bg-gray-500">
-          <Image
-            src="/images/logos/can-logo.png"
-            alt={altText}
-            width={160}
-            height={160}
-            className="object-contain object-center size-full  scale-180"
-          />
-        </div>
-      </div>
-    );
-  return (
-    <div
-      className={`w-full bg-text-main aspect-square overflow-hidden rounded-full xs:relative left-0 top-0 translate-x-0 translate-y-0 opacity-100
-                  p-1`}
-    >
-      <div className="size-full">
-        <Image
-          src={thumbnail}
-          alt={altText}
-          width={160}
-          height={160}
-          className="object-contain object-center size-full"
-        />
-      </div>
-    </div>
-  );
+const PostLogo: React.FC<{ symbol: string }> = ({ symbol }) => {
+  return <Logo symbol={symbol.toUpperCase()} padding="1" size="10" />;
 };
 
 const MostRecentAnalysisSelector = ({
@@ -77,17 +41,14 @@ const MostRecentAnalysisSelector = ({
           >
             <div
               key={index}
-              className={`w-12 h-12 md:w-10 md:h-10 aspect-square rounded-full transition-all duration-200 ${
+              className={`flex items-center justify-center md:w-10 md:h-10 aspect-square rounded-full transition-all duration-200 ${
                 index === currentSlide
                   ? "bg-secondary scale-110 opacity-100"
                   : "bg-gray-300 hover:bg-gray-400 opacity-20 group-hover:opacity-80"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             >
-              <PostLogo
-                thumbnail={recentAnalysis[index].thumbnail}
-                altText={`${recentAnalysis[index].title} logo`}
-              />
+              <PostLogo symbol={recentAnalysis[index].coins[0].toUpperCase()} />
             </div>
             <div
               className={`flex-col hidden xl:flex transition-all duration-200 ${

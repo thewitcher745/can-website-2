@@ -1,18 +1,32 @@
-import React from 'react';
+import React from "react";
 
-import { DesktopSidebarProps } from '@src/types';
+import { DesktopSidebarProps } from "@src/types";
 
+const monthNameMapping = {
+  jan: "January",
+  feb: "February",
+  mar: "March",
+  apr: "April",
+  may: "May",
+  jun: "June",
+  jul: "July",
+  aug: "August",
+  sep: "September",
+  oct: "October",
+  nov: "November",
+  dec: "December",
+};
 
-const DesktopSidebar = ({ 
-  allYears, 
-  selectedYear, 
-  setSelectedYear, 
-  monthsForSelectedYear, 
-  selectedMonth, 
-  setSelectedMonth 
+const DesktopSidebar = ({
+  allYears,
+  selectedYear,
+  setSelectedYear,
+  monthsForSelectedYear,
+  selectedMonth,
+  setSelectedMonth,
 }: DesktopSidebarProps) => (
   <aside className="hidden md:block md:w-1/4 h-full min-h-0">
-    <div className="flex flex-col gap-6 bg-background rounded-xl border border-border-strong p-3 shadow-inner h-full overflow-y-auto">
+    <div className="flex flex-col gap-6 bg-background rounded-xl p-3 shadow-inner h-full overflow-y-auto">
       {/* Year Selector */}
       <div>
         <h4 className="text-sm font-semibold text-text-main mb-2 px-1">Year</h4>
@@ -35,7 +49,9 @@ const DesktopSidebar = ({
 
       {/* Month Selector */}
       <div>
-        <h4 className="text-sm font-semibold text-text-main mb-2 px-1">Month</h4>
+        <h4 className="text-sm font-semibold text-text-main mb-2 px-1">
+          Month
+        </h4>
         <div className="flex flex-col gap-1">
           {monthsForSelectedYear.map((month) => (
             <button
@@ -48,7 +64,11 @@ const DesktopSidebar = ({
               onClick={() => setSelectedMonth(month)}
               disabled={!selectedYear || monthsForSelectedYear.length === 0}
             >
-              {month}
+              {
+                monthNameMapping[
+                  month.toLowerCase() as keyof typeof monthNameMapping
+                ]
+              }
             </button>
           ))}
         </div>

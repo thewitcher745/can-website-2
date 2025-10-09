@@ -1,5 +1,8 @@
 import "../styles/globals.css";
 import "../styles/loader.css";
+import "../styles/articles.css";
+import "../styles/results.css";
+
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Navbar from "@shared/ui/navbar/Navbar";

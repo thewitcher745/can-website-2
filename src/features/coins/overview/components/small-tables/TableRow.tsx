@@ -31,7 +31,7 @@ const TableRow = ({ coin }: { coin: TopCoin }) => {
         <>
           <td className="px-2 py-2 w-1/2">
             <div className="flex items-center gap-2">
-              <Logo symbol={coin.symbol} padding="1" size="9" />
+              <Logo symbol={coin.symbol} padding="1" size="10" />
               <div className="flex flex-col truncate">
                 <span className="truncate text-text-main font-semibold text-sm">
                   {coin.name}

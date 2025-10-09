@@ -1,0 +1,5082 @@
+{
+  "jul-2023": [
+    {
+      "date": "Saturday, July 1, 2023",
+      "symbol": "VET/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -21.4,
+      "net_profit": "-2.14%"
+    },
+    {
+      "date": "Monday, July 3, 2023",
+      "symbol": "BAT/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 31.7,
+      "net_profit": "3.17%"
+    },
+    {
+      "date": "Monday, July 3, 2023",
+      "symbol": "FTM/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 31.9,
+      "net_profit": "3.19%"
+    },
+    {
+      "date": "Tuesday, July 4, 2023",
+      "symbol": "CELR/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (20.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -19.7,
+      "net_profit": "-1.97%"
+    },
+    {
+      "date": "Tuesday, July 4, 2023",
+      "symbol": "CKB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 34.9,
+      "net_profit": "1.75%"
+    },
+    {
+      "date": "Wednesday, July 5, 2023",
+      "symbol": "BAT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 25.5,
+      "net_profit": "1.28%"
+    },
+    {
+      "date": "Thursday, July 6, 2023",
+      "symbol": "ZEN/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 48.2,
+      "net_profit": "2.41%"
+    },
+    {
+      "date": "Thursday, July 6, 2023",
+      "symbol": "KLAY/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 27.5,
+      "net_profit": "2.75%"
+    },
+    {
+      "date": "Saturday, July 8, 2023",
+      "symbol": "LEVER/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (10.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 34.2,
+      "net_profit": "3.42%"
+    },
+    {
+      "date": "Sunday, July 9, 2023",
+      "symbol": "XTZ/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -21.9,
+      "net_profit": "-2.19%"
+    },
+    {
+      "date": "Monday, July 10, 2023",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (10.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 8.4,
+      "net_profit": "0.84%"
+    },
+    {
+      "date": "Tuesday, July 11, 2023",
+      "symbol": "NEAR/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (20.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 22.5,
+      "net_profit": "2.25%"
+    },
+    {
+      "date": "Wednesday, July 12, 2023",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (10.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 48.3,
+      "net_profit": "4.83%"
+    },
+    {
+      "date": "Thursday, July 13, 2023",
+      "symbol": "FTM/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -27.2,
+      "net_profit": "-2.72%"
+    },
+    {
+      "date": "Thursday, July 13, 2023",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (10.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 58.5,
+      "net_profit": "5.85%"
+    },
+    {
+      "date": "Friday, July 14, 2023",
+      "symbol": "ADA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -22.7,
+      "net_profit": "-2.27%"
+    },
+    {
+      "date": "Friday, July 14, 2023",
+      "symbol": "JOE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 15.1,
+      "net_profit": "1.51%"
+    },
+    {
+      "date": "Friday, July 14, 2023",
+      "symbol": "RDNT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 45.6,
+      "net_profit": "4.56%"
+    },
+    {
+      "date": "Friday, July 14, 2023",
+      "symbol": "FTM/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 75.0,
+      "net_profit": "3.75%"
+    },
+    {
+      "date": "Tuesday, July 18, 2023",
+      "symbol": "MATIC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (8.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 23.5,
+      "net_profit": "2.35%"
+    },
+    {
+      "date": "Saturday, July 22, 2023",
+      "symbol": "BAT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 18.9,
+      "net_profit": "0.94%"
+    },
+    {
+      "date": "Sunday, July 23, 2023",
+      "symbol": "GMX/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 62.3,
+      "net_profit": "6.23%"
+    },
+    {
+      "date": "Monday, July 24, 2023",
+      "symbol": "JOE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 18.5,
+      "net_profit": "0.93%"
+    },
+    {
+      "date": "Thursday, July 27, 2023",
+      "symbol": "KNC/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 49.76,
+      "net_profit": "4.98%"
+    },
+    {
+      "date": "Friday, July 28, 2023",
+      "symbol": "NEAR/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (20.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -14.5,
+      "net_profit": "-1.45%"
+    },
+    {
+      "date": "Saturday, July 29, 2023",
+      "symbol": "MAGIC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 3.2,
+      "net_profit": "0.16%"
+    }
+  ],
+  "aug-2023": [
+    {
+      "date": "Tuesday, August 1, 2023",
+      "symbol": "MAGIC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 22.1,
+      "net_profit": "1.11%"
+    },
+    {
+      "date": "Tuesday, August 1, 2023",
+      "symbol": "WLD/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 54.1,
+      "net_profit": "2.70%"
+    },
+    {
+      "date": "Sunday, August 6, 2023",
+      "symbol": "GMX/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (6.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -22.2,
+      "net_profit": "-1.11%"
+    },
+    {
+      "date": "Sunday, August 6, 2023",
+      "symbol": "OP/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (2.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 38.2,
+      "net_profit": "1.91%"
+    },
+    {
+      "date": "Wednesday, August 9, 2023",
+      "symbol": "BTC/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (8.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 41.7,
+      "net_profit": "2.09%"
+    },
+    {
+      "date": "Thursday, August 10, 2023",
+      "symbol": "ID/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 47.7,
+      "net_profit": "2.38%"
+    },
+    {
+      "date": "Sunday, August 13, 2023",
+      "symbol": "JOE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -19.9,
+      "net_profit": "-1.00%"
+    },
+    {
+      "date": "Monday, August 21, 2023",
+      "symbol": "WLD/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -21.6,
+      "net_profit": "-1.08%"
+    },
+    {
+      "date": "Wednesday, August 23, 2023",
+      "symbol": "CRV/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 27.7,
+      "net_profit": "1.39%"
+    },
+    {
+      "date": "Monday, August 28, 2023",
+      "symbol": "SUI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 17.0,
+      "net_profit": "0.85%"
+    },
+    {
+      "date": "Tuesday, August 29, 2023",
+      "symbol": "IOTA/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 35.9,
+      "net_profit": "1.80%"
+    }
+  ],
+  "sep-2023": [
+    {
+      "date": "Friday, September 1, 2023",
+      "symbol": "OGN/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 16.6,
+      "net_profit": "0.83%"
+    },
+    {
+      "date": "Saturday, September 2, 2023",
+      "symbol": "SFP/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (2.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -20.8,
+      "net_profit": "-1.04%"
+    },
+    {
+      "date": "Tuesday, September 5, 2023",
+      "symbol": "KNC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 19.6,
+      "net_profit": "0.98%"
+    },
+    {
+      "date": "Sunday, September 10, 2023",
+      "symbol": "JASMY/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 25.1,
+      "net_profit": "1.25%"
+    },
+    {
+      "date": "Monday, September 11, 2023",
+      "symbol": "KAVA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -11.3,
+      "net_profit": "-0.56%"
+    },
+    {
+      "date": "Tuesday, September 12, 2023",
+      "symbol": "JOE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 20.8,
+      "net_profit": "1.04%"
+    },
+    {
+      "date": "Thursday, September 14, 2023",
+      "symbol": "IOTX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 20.7,
+      "net_profit": "1.04%"
+    },
+    {
+      "date": "Thursday, September 14, 2023",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (6.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 19.9,
+      "net_profit": "1.00%"
+    },
+    {
+      "date": "Sunday, September 17, 2023",
+      "symbol": "RDNT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 15.3,
+      "net_profit": "0.76%"
+    },
+    {
+      "date": "Sunday, September 17, 2023",
+      "symbol": "DEFI/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 35.1,
+      "net_profit": "1.76%"
+    },
+    {
+      "date": "Tuesday, September 19, 2023",
+      "symbol": "ATOM/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 16.2,
+      "net_profit": "0.81%"
+    },
+    {
+      "date": "Monday, September 25, 2023",
+      "symbol": "CVX/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (8.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -18.2,
+      "net_profit": "-0.91%"
+    },
+    {
+      "date": "Monday, September 25, 2023",
+      "symbol": "STMX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 26.1,
+      "net_profit": "1.31%"
+    },
+    {
+      "date": "Tuesday, September 26, 2023",
+      "symbol": "ATA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -14.0,
+      "net_profit": "-0.70%"
+    },
+    {
+      "date": "Thursday, September 28, 2023",
+      "symbol": "BTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (20.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -21.7,
+      "net_profit": "-1.08%"
+    },
+    {
+      "date": "Friday, September 29, 2023",
+      "symbol": "ZRX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 16.7,
+      "net_profit": "0.84%"
+    },
+    {
+      "date": "Saturday, September 30, 2023",
+      "symbol": "FTM/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 17.4,
+      "net_profit": "0.87%"
+    }
+  ],
+  "oct-2023": [
+    {
+      "date": "Sunday, October 1, 2023",
+      "symbol": "ATA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 33.6,
+      "net_profit": "1.68%"
+    },
+    {
+      "date": "Sunday, October 1, 2023",
+      "symbol": "WLD/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 67.5,
+      "net_profit": "3.37%"
+    },
+    {
+      "date": "Sunday, October 1, 2023",
+      "symbol": "FTM/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 20,
+      "last_target": 1,
+      "profit_percent": 17.4,
+      "net_profit": "0.87%"
+    },
+    {
+      "date": "Monday, October 2, 2023",
+      "symbol": "DYDX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 20,
+      "last_target": 1,
+      "profit_percent": 20.7,
+      "net_profit": "1.04%"
+    },
+    {
+      "date": "Wednesday, October 4, 2023",
+      "symbol": "ICX/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 25,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -18.7,
+      "net_profit": "-0.94%"
+    },
+    {
+      "date": "Thursday, October 5, 2023",
+      "symbol": "DEFI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 25,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 27.7,
+      "net_profit": "1.39%"
+    },
+    {
+      "date": "Friday, October 6, 2023",
+      "symbol": "BAKE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -23.3,
+      "net_profit": "-1.17%"
+    },
+    {
+      "date": "Monday, October 9, 2023",
+      "symbol": "ALGO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 25,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 26.1,
+      "net_profit": "1.31%"
+    },
+    {
+      "date": "Wednesday, October 11, 2023",
+      "symbol": "AVAX/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 25,
+      "last_target": 1,
+      "profit_percent": -12.3,
+      "net_profit": "-0.61%"
+    },
+    {
+      "date": "Saturday, October 14, 2023",
+      "symbol": "PHB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 20.3,
+      "net_profit": "1.01%"
+    },
+    {
+      "date": "Sunday, October 15, 2023",
+      "symbol": "HOOK/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 20,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -16.1,
+      "net_profit": "-0.80%"
+    },
+    {
+      "date": "Monday, October 16, 2023",
+      "symbol": "ADA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (8.0X)",
+      "used_dollars": 40,
+      "last_target": 1,
+      "profit_percent": 16.2,
+      "net_profit": "0.81%"
+    },
+    {
+      "date": "Monday, October 16, 2023",
+      "symbol": "HOT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "last_target": 2,
+      "profit_percent": 45.4,
+      "net_profit": "2.27%"
+    },
+    {
+      "date": "Monday, October 16, 2023",
+      "symbol": "BAT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 25,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 21.3,
+      "net_profit": "1.06%"
+    },
+    {
+      "date": "Monday, October 16, 2023",
+      "symbol": "LTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 35,
+      "last_target": 0,
+      "profit_percent": -8.7,
+      "net_profit": "-0.43%"
+    },
+    {
+      "date": "Tuesday, October 17, 2023",
+      "symbol": "SKL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 20,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 20.1,
+      "net_profit": "1.01%"
+    },
+    {
+      "date": "Friday, October 20, 2023",
+      "symbol": "CHZ/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 25,
+      "last_target": 3,
+      "profit_percent": 30.1,
+      "net_profit": "1.50%"
+    },
+    {
+      "date": "Friday, October 20, 2023",
+      "symbol": "DEFI/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 25,
+      "last_target": 2,
+      "profit_percent": 40.5,
+      "net_profit": "2.02%"
+    },
+    {
+      "date": "Friday, October 20, 2023",
+      "symbol": "PENDLE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -22.5,
+      "net_profit": "-1.12%"
+    },
+    {
+      "date": "Sunday, October 22, 2023",
+      "symbol": "HOOK/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -16.7,
+      "net_profit": "-0.83%"
+    },
+    {
+      "date": "Tuesday, October 24, 2023",
+      "symbol": "ACH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "last_target": 1,
+      "profit_percent": 21.1,
+      "net_profit": "1.06%"
+    },
+    {
+      "date": "Tuesday, October 24, 2023",
+      "symbol": "ACH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "last_target": 1,
+      "profit_percent": 7.0,
+      "net_profit": "0.35%"
+    },
+    {
+      "date": "Thursday, October 26, 2023",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (10.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 23.1,
+      "net_profit": "1.16%"
+    },
+    {
+      "date": "Thursday, October 26, 2023",
+      "symbol": "JASMY/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "last_target": 1,
+      "profit_percent": -4.2,
+      "net_profit": "-0.21%"
+    },
+    {
+      "date": "Thursday, October 26, 2023",
+      "symbol": "NEAR/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -16.5,
+      "net_profit": "-0.82%"
+    },
+    {
+      "date": "Thursday, October 26, 2023",
+      "symbol": "GMX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 15,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 6.4,
+      "net_profit": "0.32%"
+    },
+    {
+      "date": "Friday, October 27, 2023",
+      "symbol": "ARB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (1.0X)",
+      "used_dollars": 5,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 15.8,
+      "net_profit": "0.79%"
+    },
+    {
+      "date": "Tuesday, October 31, 2023",
+      "symbol": "AGIX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (1.0X)",
+      "used_dollars": 5,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 1.9,
+      "net_profit": "0.09%"
+    }
+  ],
+  "nov-2023": [
+    {
+      "date": "Wednesday, November 1, 2023",
+      "symbol": "HOT/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 102.7,
+      "net_profit": "5.13%"
+    },
+    {
+      "date": "Friday, November 3, 2023",
+      "symbol": "WLD/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (1.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 12.0,
+      "net_profit": "0.60%"
+    },
+    {
+      "date": "Friday, November 3, 2023",
+      "symbol": "GMX/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (1.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -7.0,
+      "net_profit": "-0.35%"
+    },
+    {
+      "date": "Sunday, November 5, 2023",
+      "symbol": "CELR/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -15.0,
+      "net_profit": "-0.75%"
+    },
+    {
+      "date": "Sunday, November 5, 2023",
+      "symbol": "CKB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (2.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 20.8,
+      "net_profit": "1.04%"
+    },
+    {
+      "date": "Sunday, November 5, 2023",
+      "symbol": "C98/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -25.4,
+      "net_profit": "-1.27%"
+    },
+    {
+      "date": "Monday, November 6, 2023",
+      "symbol": "MATIC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -29.1,
+      "net_profit": "-1.46%"
+    },
+    {
+      "date": "Monday, November 6, 2023",
+      "symbol": "AVAX/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 25.1,
+      "net_profit": "1.26%"
+    },
+    {
+      "date": "Thursday, November 9, 2023",
+      "symbol": "ACH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 34.9,
+      "net_profit": "1.74%"
+    },
+    {
+      "date": "Thursday, November 9, 2023",
+      "symbol": "GALA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 23.7,
+      "net_profit": "1.18%"
+    },
+    {
+      "date": "Friday, November 10, 2023",
+      "symbol": "FXS/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 19.7,
+      "net_profit": "0.99%"
+    },
+    {
+      "date": "Monday, November 13, 2023",
+      "symbol": "WLD/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 39.1,
+      "net_profit": "1.96%"
+    },
+    {
+      "date": "Monday, November 13, 2023",
+      "symbol": "NEAR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 23.2,
+      "net_profit": "1.16%"
+    },
+    {
+      "date": "Tuesday, November 14, 2023",
+      "symbol": "DGB/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 28.3,
+      "net_profit": "1.41%"
+    },
+    {
+      "date": "Tuesday, November 14, 2023",
+      "symbol": "RSR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 30.8,
+      "net_profit": "1.54%"
+    },
+    {
+      "date": "Wednesday, November 15, 2023",
+      "symbol": "COMP/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -24.6,
+      "net_profit": "-1.23%"
+    },
+    {
+      "date": "Wednesday, November 15, 2023",
+      "symbol": "FIL/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -17.8,
+      "net_profit": "-0.89%"
+    },
+    {
+      "date": "Friday, November 17, 2023",
+      "symbol": "1000LUNC/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 30.7,
+      "net_profit": "1.54%"
+    },
+    {
+      "date": "Saturday, November 18, 2023",
+      "symbol": "WLD/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -20.9,
+      "net_profit": "-1.05%"
+    },
+    {
+      "date": "Saturday, November 18, 2023",
+      "symbol": "SOL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 37.1,
+      "net_profit": "1.85%"
+    },
+    {
+      "date": "Sunday, November 19, 2023",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 19.3,
+      "net_profit": "0.96%"
+    },
+    {
+      "date": "Monday, November 20, 2023",
+      "symbol": "PHB/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -24.0,
+      "net_profit": "-1.20%"
+    },
+    {
+      "date": "Tuesday, November 21, 2023",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 40.0,
+      "net_profit": "2.00%"
+    },
+    {
+      "date": "Friday, November 24, 2023",
+      "symbol": "ARB/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -19.2,
+      "net_profit": "-0.96%"
+    },
+    {
+      "date": "Sunday, November 26, 2023",
+      "symbol": "TLM/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 21.3,
+      "net_profit": "1.07%"
+    },
+    {
+      "date": "Monday, November 27, 2023",
+      "symbol": "GAL/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -19.0,
+      "net_profit": "-0.95%"
+    },
+    {
+      "date": "Tuesday, November 28, 2023",
+      "symbol": "AGIX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -16.3,
+      "net_profit": "-0.81%"
+    },
+    {
+      "date": "Tuesday, November 28, 2023",
+      "symbol": "ETH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 31.5,
+      "net_profit": "1.57%"
+    },
+    {
+      "date": "Thursday, November 30, 2023",
+      "symbol": "MAGIC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -16.2,
+      "net_profit": "-0.81%"
+    }
+  ],
+  "dec-2023": [
+    {
+      "date": "Friday, December 1, 2023",
+      "symbol": "ETH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 31.5,
+      "net_profit": "1.57%"
+    },
+    {
+      "date": "Friday, December 1, 2023",
+      "symbol": "AGLD/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -20.0,
+      "net_profit": "-1.00%"
+    },
+    {
+      "date": "Saturday, December 2, 2023",
+      "symbol": "XRP/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 30.1,
+      "net_profit": "1.51%"
+    },
+    {
+      "date": "Monday, December 4, 2023",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 25.1,
+      "net_profit": "1.26%"
+    },
+    {
+      "date": "Monday, December 4, 2023",
+      "symbol": "LTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 18.1,
+      "net_profit": "0.91%"
+    },
+    {
+      "date": "Monday, December 4, 2023",
+      "symbol": "RUNE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 18.8,
+      "net_profit": "0.94%"
+    },
+    {
+      "date": "Thursday, December 7, 2023",
+      "symbol": "NEAR/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -23.8,
+      "net_profit": "-1.19%"
+    },
+    {
+      "date": "Thursday, December 7, 2023",
+      "symbol": "OP/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 66.3,
+      "net_profit": "3.31%"
+    },
+    {
+      "date": "Friday, December 8, 2023",
+      "symbol": "SOL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 17.2,
+      "net_profit": "0.86%"
+    },
+    {
+      "date": "Sunday, December 10, 2023",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 25.3,
+      "net_profit": "1.26%"
+    },
+    {
+      "date": "Sunday, December 10, 2023",
+      "symbol": "ATOM/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 19.9,
+      "net_profit": "1.00%"
+    },
+    {
+      "date": "Sunday, December 10, 2023",
+      "symbol": "WLD/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -20.9,
+      "net_profit": "-1.05%"
+    },
+    {
+      "date": "Monday, December 11, 2023",
+      "symbol": "ETH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 22.7,
+      "net_profit": "1.14%"
+    },
+    {
+      "date": "Thursday, December 14, 2023",
+      "symbol": "ETH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 10.4,
+      "net_profit": "0.52%"
+    },
+    {
+      "date": "Friday, December 15, 2023",
+      "symbol": "CHZ/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 18.5,
+      "net_profit": "0.92%"
+    },
+    {
+      "date": "Monday, December 18, 2023",
+      "symbol": "TIA/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 45.8,
+      "net_profit": "2.29%"
+    },
+    {
+      "date": "Wednesday, December 20, 2023",
+      "symbol": "SNX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 28.8,
+      "net_profit": "1.44%"
+    },
+    {
+      "date": "Thursday, December 21, 2023",
+      "symbol": "XRP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 19.3,
+      "net_profit": "0.97%"
+    },
+    {
+      "date": "Saturday, December 23, 2023",
+      "symbol": "ADA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 31.8,
+      "net_profit": "1.59%"
+    },
+    {
+      "date": "Friday, December 29, 2023",
+      "symbol": "AAVE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 26.4,
+      "net_profit": "1.32%"
+    }
+  ],
+  "jan-2024": [
+    {
+      "date": "Monday, January 1, 2024",
+      "symbol": "DUSK/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -20.0,
+      "net_profit": "-1.00%"
+    },
+    {
+      "date": "Monday, January 1, 2024",
+      "symbol": "BNB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 21.6,
+      "net_profit": "1.08%"
+    },
+    {
+      "date": "Tuesday, January 2, 2024",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 27.7,
+      "net_profit": "1.39%"
+    },
+    {
+      "date": "Wednesday, January 3, 2024",
+      "symbol": "IOTA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 39.9,
+      "net_profit": "1.99%"
+    },
+    {
+      "date": "Wednesday, January 3, 2024",
+      "symbol": "NEAR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 44.6,
+      "net_profit": "2.23%"
+    },
+    {
+      "date": "Sunday, January 7, 2024",
+      "symbol": "GMT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 31.5,
+      "net_profit": "1.58%"
+    },
+    {
+      "date": "Monday, January 8, 2024",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 29.4,
+      "net_profit": "1.47%"
+    },
+    {
+      "date": "Monday, January 8, 2024",
+      "symbol": "ICP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 33.8,
+      "net_profit": "1.69%"
+    },
+    {
+      "date": "Tuesday, January 9, 2024",
+      "symbol": "JOE/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (2.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 37.9,
+      "net_profit": "1.90%"
+    },
+    {
+      "date": "Wednesday, January 10, 2024",
+      "symbol": "NEAR/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -25.9,
+      "net_profit": "-1.29%"
+    },
+    {
+      "date": "Friday, January 12, 2024",
+      "symbol": "RNDR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 35.0,
+      "net_profit": "1.75%"
+    },
+    {
+      "date": "Tuesday, January 16, 2024",
+      "symbol": "FXS/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": -10.8,
+      "net_profit": "-0.54%"
+    },
+    {
+      "date": "Wednesday, January 17, 2024",
+      "symbol": "CHZ/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (2.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 20.3,
+      "net_profit": "1.01%"
+    },
+    {
+      "date": "Wednesday, January 17, 2024",
+      "symbol": "BTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (20.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -24.3,
+      "net_profit": "-1.22%"
+    },
+    {
+      "date": "Thursday, January 18, 2024",
+      "symbol": "FTM/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 26.1,
+      "net_profit": "1.31%"
+    },
+    {
+      "date": "Friday, January 19, 2024",
+      "symbol": "MINA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 27.2,
+      "net_profit": "1.36%"
+    },
+    {
+      "date": "Monday, January 22, 2024",
+      "symbol": "RAD/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 24.1,
+      "net_profit": "1.21%"
+    },
+    {
+      "date": "Tuesday, January 23, 2024",
+      "symbol": "ACH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 44.5,
+      "net_profit": "2.22%"
+    },
+    {
+      "date": "Friday, January 26, 2024",
+      "symbol": "SUI/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 32.5,
+      "net_profit": "1.63%"
+    },
+    {
+      "date": "Monday, January 29, 2024",
+      "symbol": "CHR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 21.2,
+      "net_profit": "1.06%"
+    },
+    {
+      "date": "Tuesday, January 30, 2024",
+      "symbol": "OP/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -19.4,
+      "net_profit": "-0.97%"
+    }
+  ],
+  "feb-2024": [
+    {
+      "date": "Friday, February 2, 2024",
+      "symbol": "AVAX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (2.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 19.9,
+      "net_profit": "1.99%"
+    },
+    {
+      "date": "Sunday, February 11, 2024",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 20.5,
+      "net_profit": "2.05%"
+    },
+    {
+      "date": "Sunday, February 11, 2024",
+      "symbol": "1000SHIB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 5,
+      "last_target": 1,
+      "profit_percent": 23.3,
+      "net_profit": "1.16%"
+    },
+    {
+      "date": "Monday, February 12, 2024",
+      "symbol": "FTM/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -20.1,
+      "net_profit": "-2.01%"
+    },
+    {
+      "date": "Wednesday, February 14, 2024",
+      "symbol": "ZEC/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 5,
+      "last_target": 3,
+      "profit_percent": 63.8,
+      "net_profit": "3.19%"
+    },
+    {
+      "date": "Friday, February 2, 2024",
+      "symbol": "1INCH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "last_target": 3,
+      "profit_percent": 57.5,
+      "net_profit": "5.75%"
+    },
+    {
+      "date": "Saturday, February 10, 2024",
+      "symbol": "WLD/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "last_target": 3,
+      "profit_percent": 52.4,
+      "net_profit": "2.62%"
+    },
+    {
+      "date": "Wednesday, February 14, 2024",
+      "symbol": "NKN/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "last_target": 3,
+      "profit_percent": 47.2,
+      "net_profit": "2.36%"
+    },
+    {
+      "date": "Friday, February 16, 2024",
+      "symbol": "ICX/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "last_target": 3,
+      "profit_percent": 45.8,
+      "net_profit": "2.29%"
+    },
+    {
+      "date": "Friday, February 16, 2024",
+      "symbol": "KLAY/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -31.5,
+      "net_profit": "-3.15%"
+    },
+    {
+      "date": "Sunday, February 18, 2024",
+      "symbol": "KNC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "last_target": 2,
+      "profit_percent": 26.6,
+      "net_profit": "1.33%"
+    },
+    {
+      "date": "Tuesday, February 20, 2024",
+      "symbol": "JTO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 32.2,
+      "net_profit": "1.61%"
+    },
+    {
+      "date": "Friday, February 23, 2024",
+      "symbol": "MASK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "last_target": 2,
+      "profit_percent": 51.0,
+      "net_profit": "5.10%"
+    },
+    {
+      "date": "Wednesday, February 28, 2024",
+      "symbol": "SOL/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "last_target": 3,
+      "profit_percent": 49.8,
+      "net_profit": "2.49%"
+    },
+    {
+      "date": "Thursday, February 29, 2024",
+      "symbol": "HIFI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "last_target": 2,
+      "profit_percent": 30.7,
+      "net_profit": "1.54%"
+    },
+    {
+      "date": "Thursday, February 15, 2024",
+      "symbol": "NMR/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 10,
+      "last_target": 2,
+      "profit_percent": 34.8,
+      "net_profit": "3.48%"
+    },
+    {
+      "date": "Friday, February 16, 2024",
+      "symbol": "AGIX/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 5,
+      "last_target": 3,
+      "profit_percent": 37.4,
+      "net_profit": "1.87%"
+    },
+    {
+      "date": "Friday, February 16, 2024",
+      "symbol": "QNT/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -20.4,
+      "net_profit": "-2.04%"
+    },
+    {
+      "date": "Friday, February 16, 2024",
+      "symbol": "CTSI/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -21.1,
+      "net_profit": "-2.11%"
+    },
+    {
+      "date": "Sunday, February 18, 2024",
+      "symbol": "1000FLOKI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 5,
+      "last_target": 1,
+      "profit_percent": 21.3,
+      "net_profit": "1.06%"
+    },
+    {
+      "date": "Sunday, February 18, 2024",
+      "symbol": "ATOM/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 10,
+      "last_target": 3,
+      "profit_percent": 50.9,
+      "net_profit": "5.09%"
+    },
+    {
+      "date": "Wednesday, February 21, 2024",
+      "symbol": "SEI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 5,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 23.5,
+      "net_profit": "1.17%"
+    },
+    {
+      "date": "Friday, February 23, 2024",
+      "symbol": "SUI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 5,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 26.0,
+      "net_profit": "1.30%"
+    },
+    {
+      "date": "Friday, February 23, 2024",
+      "symbol": "FLOW/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 46.3,
+      "net_profit": "4.63%"
+    },
+    {
+      "date": "Saturday, February 24, 2024",
+      "symbol": "ALT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 34.8,
+      "net_profit": "3.48%"
+    },
+    {
+      "date": "Saturday, February 24, 2024",
+      "symbol": "ENJ/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 10,
+      "last_target": 3,
+      "profit_percent": 42.3,
+      "net_profit": "4.23%"
+    },
+    {
+      "date": "Monday, February 26, 2024",
+      "symbol": "AXS/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 5,
+      "last_target": 3,
+      "profit_percent": 43.3,
+      "net_profit": "2.17%"
+    },
+    {
+      "date": "Monday, February 26, 2024",
+      "symbol": "BTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -25.7,
+      "net_profit": "-2.57%"
+    },
+    {
+      "date": "Wednesday, February 28, 2024",
+      "symbol": "ADA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -21.8,
+      "net_profit": "-2.18%"
+    },
+    {
+      "date": "Thursday, February 29, 2024",
+      "symbol": "KAVA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 5,
+      "last_target": 1,
+      "profit_percent": 11.2,
+      "net_profit": "0.56%"
+    }
+  ],
+  "mar-2024": [
+    {
+      "date": "Saturday, March 2, 2024",
+      "symbol": "KAVA/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 36.2,
+      "net_profit": "1.81%"
+    },
+    {
+      "date": "Saturday, March 2, 2024",
+      "symbol": "BTC/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (10.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 57.9,
+      "net_profit": "2.89%"
+    },
+    {
+      "date": "Saturday, March 2, 2024",
+      "symbol": "SOL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 39.2,
+      "net_profit": "1.96%"
+    },
+    {
+      "date": "Sunday, March 3, 2024",
+      "symbol": "JTO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 21.7,
+      "net_profit": "1.09%"
+    },
+    {
+      "date": "Tuesday, March 5, 2024",
+      "symbol": "ALT/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -25.5,
+      "net_profit": "-1.27%"
+    },
+    {
+      "date": "Tuesday, March 5, 2024",
+      "symbol": "ADA/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 31.1,
+      "net_profit": "1.55%"
+    },
+    {
+      "date": "Thursday, March 7, 2024",
+      "symbol": "IOTA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 18.6,
+      "net_profit": "0.93%"
+    },
+    {
+      "date": "Friday, March 8, 2024",
+      "symbol": "KAVA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 31.8,
+      "net_profit": "1.59%"
+    },
+    {
+      "date": "Friday, March 8, 2024",
+      "symbol": "MATIC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -20.6,
+      "net_profit": "-1.03%"
+    },
+    {
+      "date": "Sunday, March 10, 2024",
+      "symbol": "LRC/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 45.5,
+      "net_profit": "2.28%"
+    },
+    {
+      "date": "Tuesday, March 12, 2024",
+      "symbol": "SAND/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 40.3,
+      "net_profit": "2.01%"
+    },
+    {
+      "date": "Wednesday, March 13, 2024",
+      "symbol": "LDO/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -24.9,
+      "net_profit": "-1.25%"
+    },
+    {
+      "date": "Thursday, March 14, 2024",
+      "symbol": "TON/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 7.4,
+      "net_profit": "0.37%"
+    },
+    {
+      "date": "Thursday, March 14, 2024",
+      "symbol": "WLD/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 51.5,
+      "net_profit": "2.58%"
+    },
+    {
+      "date": "Friday, March 15, 2024",
+      "symbol": "GALA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": -12.9,
+      "net_profit": "-0.64%"
+    },
+    {
+      "date": "Saturday, March 16, 2024",
+      "symbol": "SUI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 20.8,
+      "net_profit": "1.04%"
+    },
+    {
+      "date": "Saturday, March 16, 2024",
+      "symbol": "TON/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -25.4,
+      "net_profit": "-1.27%"
+    },
+    {
+      "date": "Saturday, March 16, 2024",
+      "symbol": "SEI/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -28.9,
+      "net_profit": "-1.44%"
+    },
+    {
+      "date": "Saturday, March 16, 2024",
+      "symbol": "IOTA/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 38.5,
+      "net_profit": "1.92%"
+    },
+    {
+      "date": "Saturday, March 16, 2024",
+      "symbol": "RUNE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 25.1,
+      "net_profit": "1.26%"
+    },
+    {
+      "date": "Saturday, March 16, 2024",
+      "symbol": "ETH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 19.8,
+      "net_profit": "0.99%"
+    },
+    {
+      "date": "Sunday, March 17, 2024",
+      "symbol": "JOE/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 47.5,
+      "net_profit": "2.37%"
+    },
+    {
+      "date": "Monday, March 18, 2024",
+      "symbol": "SUI/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -24.9,
+      "net_profit": "-1.24%"
+    },
+    {
+      "date": "Tuesday, March 19, 2024",
+      "symbol": "SOL/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 46.6,
+      "net_profit": "2.33%"
+    },
+    {
+      "date": "Wednesday, March 20, 2024",
+      "symbol": "ETH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 30.8,
+      "net_profit": "1.54%"
+    },
+    {
+      "date": "Wednesday, March 20, 2024",
+      "symbol": "GALA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -24.6,
+      "net_profit": "-1.23%"
+    },
+    {
+      "date": "Friday, March 22, 2024",
+      "symbol": "DGB/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": -6.1,
+      "net_profit": "-0.30%"
+    },
+    {
+      "date": "Saturday, March 23, 2024",
+      "symbol": "ATA/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 34.7,
+      "net_profit": "1.73%"
+    },
+    {
+      "date": "Saturday, March 23, 2024",
+      "symbol": "EOS/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 18.0,
+      "net_profit": "0.90%"
+    },
+    {
+      "date": "Monday, March 25, 2024",
+      "symbol": "PIXEL/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": -5.8,
+      "net_profit": "-0.29%"
+    },
+    {
+      "date": "Tuesday, March 26, 2024",
+      "symbol": "IOTA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": -18.1,
+      "net_profit": "-0.90%"
+    },
+    {
+      "date": "Tuesday, March 26, 2024",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 6.0,
+      "net_profit": "0.30%"
+    },
+    {
+      "date": "Friday, March 29, 2024",
+      "symbol": "ARK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 12.7,
+      "net_profit": "0.63%"
+    },
+    {
+      "date": "Friday, March 29, 2024",
+      "symbol": "APT/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -8.5,
+      "net_profit": "-0.42%"
+    },
+    {
+      "date": "Friday, March 29, 2024",
+      "symbol": "ETC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 10.1,
+      "net_profit": "0.51%"
+    },
+    {
+      "date": "Sunday, March 31, 2024",
+      "symbol": "CELO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 21.5,
+      "net_profit": "1.07%"
+    }
+  ],
+  "apr-2024": [
+    {
+      "date": "Monday, April 1, 2024",
+      "symbol": "BCH/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -22.7,
+      "net_profit": "-2.27%"
+    },
+    {
+      "date": "Tuesday, April 2, 2024",
+      "symbol": "ARK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 2,
+      "profit_percent": 45.7,
+      "net_profit": "4.57%"
+    },
+    {
+      "date": "Tuesday, April 2, 2024",
+      "symbol": "ASTR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 5,
+      "last_target": 2,
+      "profit_percent": 43.6,
+      "net_profit": "2.18%"
+    },
+    {
+      "date": "Tuesday, April 2, 2024",
+      "symbol": "BAT/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -21.2,
+      "net_profit": "-2.12%"
+    },
+    {
+      "date": "Thursday, April 4, 2024",
+      "symbol": "SOL/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 37.7,
+      "net_profit": "3.77%"
+    },
+    {
+      "date": "Friday, April 5, 2024",
+      "symbol": "APE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -20.7,
+      "net_profit": "-2.07%"
+    },
+    {
+      "date": "Friday, April 5, 2024",
+      "symbol": "JTO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 30.1,
+      "net_profit": "3.01%"
+    },
+    {
+      "date": "Saturday, April 6, 2024",
+      "symbol": "KAVA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -19.3,
+      "net_profit": "-1.93%"
+    },
+    {
+      "date": "Saturday, April 6, 2024",
+      "symbol": "CHZ/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "last_target": 1,
+      "profit_percent": 32.7,
+      "net_profit": "1.63%"
+    },
+    {
+      "date": "Sunday, April 7, 2024",
+      "symbol": "ORDI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 21.1,
+      "net_profit": "2.11%"
+    },
+    {
+      "date": "Monday, April 8, 2024",
+      "symbol": "ARB/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -37.6,
+      "net_profit": "-3.76%"
+    },
+    {
+      "date": "Monday, April 8, 2024",
+      "symbol": "QTUM/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 5,
+      "last_target": 1,
+      "profit_percent": 26.8,
+      "net_profit": "1.34%"
+    },
+    {
+      "date": "Monday, April 8, 2024",
+      "symbol": "CELR/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "last_target": 3,
+      "profit_percent": 51.0,
+      "net_profit": "5.10%"
+    },
+    {
+      "date": "Tuesday, April 9, 2024",
+      "symbol": "GAL/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -21.2,
+      "net_profit": "-2.12%"
+    },
+    {
+      "date": "Tuesday, April 9, 2024",
+      "symbol": "GALA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 20.6,
+      "net_profit": "2.06%"
+    },
+    {
+      "date": "Wednesday, April 10, 2024",
+      "symbol": "PERP/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -24.3,
+      "net_profit": "-2.43%"
+    },
+    {
+      "date": "Tuesday, April 9, 2024",
+      "symbol": "ENS/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 5,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 54.9,
+      "net_profit": "2.75%"
+    },
+    {
+      "date": "Wednesday, April 10, 2024",
+      "symbol": "BTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -28.0,
+      "net_profit": "-2.80%"
+    },
+    {
+      "date": "Tuesday, April 9, 2024",
+      "symbol": "LTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 20.5,
+      "net_profit": "2.05%"
+    },
+    {
+      "date": "Wednesday, April 10, 2024",
+      "symbol": "PIXEL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "last_target": 2,
+      "profit_percent": 33.8,
+      "net_profit": "1.69%"
+    },
+    {
+      "date": "Thursday, April 11, 2024",
+      "symbol": "MANA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -21.4,
+      "net_profit": "-2.14%"
+    },
+    {
+      "date": "Thursday, April 11, 2024",
+      "symbol": "MAGIC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 19.8,
+      "net_profit": "1.98%"
+    },
+    {
+      "date": "Saturday, April 13, 2024",
+      "symbol": "DOGE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -24.1,
+      "net_profit": "-2.41%"
+    },
+    {
+      "date": "Thursday, April 11, 2024",
+      "symbol": "MAGIC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 19.8,
+      "net_profit": "1.98%"
+    },
+    {
+      "date": "Saturday, April 13, 2024",
+      "symbol": "VET/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -21.5,
+      "net_profit": "-2.15%"
+    },
+    {
+      "date": "Friday, April 12, 2024",
+      "symbol": "ORBS/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 18.4,
+      "net_profit": "1.84%"
+    },
+    {
+      "date": "Saturday, April 13, 2024",
+      "symbol": "GMT/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -35.3,
+      "net_profit": "-3.53%"
+    },
+    {
+      "date": "Friday, April 12, 2024",
+      "symbol": "FLOW/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 21.4,
+      "net_profit": "2.14%"
+    },
+    {
+      "date": "Saturday, April 13, 2024",
+      "symbol": "DOGE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -24.1,
+      "net_profit": "-2.41%"
+    },
+    {
+      "date": "Saturday, April 13, 2024",
+      "symbol": "DOT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 5,
+      "last_target": 2,
+      "profit_percent": 46.9,
+      "net_profit": "2.34%"
+    },
+    {
+      "date": "Sunday, April 14, 2024",
+      "symbol": "ETH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 18.5,
+      "net_profit": "1.85%"
+    },
+    {
+      "date": "Wednesday, April 17, 2024",
+      "symbol": "RNDR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 22.1,
+      "net_profit": "2.21%"
+    },
+    {
+      "date": "Wednesday, April 17, 2024",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 8.1,
+      "net_profit": "0.81%"
+    },
+    {
+      "date": "Thursday, April 18, 2024",
+      "symbol": "ETH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 24.4,
+      "net_profit": "2.44%"
+    },
+    {
+      "date": "Thursday, April 18, 2024",
+      "symbol": "NEO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 2,
+      "profit_percent": 32.4,
+      "net_profit": "3.24%"
+    },
+    {
+      "date": "Tuesday, April 23, 2024",
+      "symbol": "1000PEPE/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 5,
+      "last_target": 3,
+      "profit_percent": 56.4,
+      "net_profit": "2.82%"
+    },
+    {
+      "date": "Wednesday, April 24, 2024",
+      "symbol": "IOTX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 19.9,
+      "net_profit": "1.99%"
+    },
+    {
+      "date": "Friday, April 26, 2024",
+      "symbol": "STX/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 48.6,
+      "net_profit": "2.43%"
+    },
+    {
+      "date": "Saturday, April 27, 2024",
+      "symbol": "RNDR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 22.1,
+      "net_profit": "2.21%"
+    },
+    {
+      "date": "Sunday, April 28, 2024",
+      "symbol": "CELO/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -23.8,
+      "net_profit": "-2.38%"
+    },
+    {
+      "date": "Saturday, April 27, 2024",
+      "symbol": "SFP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 3.0,
+      "net_profit": "0.30%"
+    },
+    {
+      "date": "Sunday, April 28, 2024",
+      "symbol": "OP/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -21.1,
+      "net_profit": "-2.11%"
+    },
+    {
+      "date": "Monday, April 29, 2024",
+      "symbol": "ALT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 5,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 49.9,
+      "net_profit": "2.50%"
+    }
+  ],
+  "may-2024": [
+    {
+      "date": "Wednesday, May 1, 2024",
+      "symbol": "1000PEPE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 56.4,
+      "net_profit": "2.82%"
+    },
+    {
+      "date": "Wednesday, May 1, 2024",
+      "symbol": "RNDR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (6.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 57.5,
+      "net_profit": "2.88%"
+    },
+    {
+      "date": "Thursday, May 2, 2024",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 41.1,
+      "net_profit": "2.05%"
+    },
+    {
+      "date": "Saturday, May 4, 2024",
+      "symbol": "BNB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (6.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 19.2,
+      "net_profit": "0.96%"
+    },
+    {
+      "date": "Wednesday, May 8, 2024",
+      "symbol": "AGIX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 14.3,
+      "net_profit": "0.71%"
+    },
+    {
+      "date": "Friday, May 10, 2024",
+      "symbol": "FTM/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 0,
+      "profit_percent": -22.8,
+      "net_profit": "-1.14%"
+    },
+    {
+      "date": "Monday, May 13, 2024",
+      "symbol": "JTO/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 47.3,
+      "net_profit": "2.36%"
+    },
+    {
+      "date": "Thursday, May 16, 2024",
+      "symbol": "UMA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 7.0,
+      "net_profit": "0.35%"
+    },
+    {
+      "date": "Friday, May 17, 2024",
+      "symbol": "JASMY/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 71.0,
+      "net_profit": "3.55%"
+    }
+  ],
+  "jun-2024": [
+    {
+      "date": "Sunday, June 2, 2024",
+      "symbol": "AXS/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 24.2,
+      "net_profit": "2.42%"
+    },
+    {
+      "date": "Monday, June 3, 2024",
+      "symbol": "PORTAL/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -38.9,
+      "net_profit": "-3.89%"
+    },
+    {
+      "date": "Tuesday, June 4, 2024",
+      "symbol": "OP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 27.1,
+      "net_profit": "2.71%"
+    },
+    {
+      "date": "Wednesday, June 5, 2024",
+      "symbol": "SOL/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 53.2,
+      "net_profit": "5.32%"
+    },
+    {
+      "date": "Friday, June 7, 2024",
+      "symbol": "BTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -29.7,
+      "net_profit": "-2.97%"
+    },
+    {
+      "date": "Monday, June 10, 2024",
+      "symbol": "MATIC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 18.2,
+      "net_profit": "1.82%"
+    },
+    {
+      "date": "Wednesday, June 12, 2024",
+      "symbol": "ETH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 47.5,
+      "net_profit": "4.75%"
+    },
+    {
+      "date": "Friday, June 14, 2024",
+      "symbol": "BNB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 35.6,
+      "net_profit": "3.56%"
+    },
+    {
+      "date": "Monday, June 17, 2024",
+      "symbol": "DOGE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -23.5,
+      "net_profit": "-2.35%"
+    },
+    {
+      "date": "Thursday, June 20, 2024",
+      "symbol": "LINK/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 44.2,
+      "net_profit": "4.42%"
+    }
+  ],
+  "jul-2024": [
+    {
+      "date": "Monday, July 1, 2024",
+      "symbol": "JASMY/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -41.2,
+      "net_profit": "-2.06%"
+    },
+    {
+      "date": "Wednesday, July 3, 2024",
+      "symbol": "COTI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 137.0,
+      "net_profit": "6.85%"
+    },
+    {
+      "date": "Friday, July 5, 2024",
+      "symbol": "SOL/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 52.1,
+      "net_profit": "5.21%"
+    },
+    {
+      "date": "Monday, July 8, 2024",
+      "symbol": "BTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -33.7,
+      "net_profit": "-3.37%"
+    },
+    {
+      "date": "Wednesday, July 10, 2024",
+      "symbol": "ETH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 49.8,
+      "net_profit": "4.98%"
+    }
+  ],
+  "aug-2024": [
+    {
+      "date": "Wednesday, August 7, 2024",
+      "symbol": "COTI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 51.0,
+      "net_profit": "5.10%"
+    },
+    {
+      "date": "Tuesday, August 6, 2024",
+      "symbol": "ZEC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -41.6,
+      "net_profit": "-4.16%"
+    },
+    {
+      "date": "Thursday, August 8, 2024",
+      "symbol": "SOL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 1,
+      "profit_percent": 22.0,
+      "net_profit": "2.20%"
+    },
+    {
+      "date": "Monday, August 12, 2024",
+      "symbol": "BTC/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 41.2,
+      "net_profit": "4.12%"
+    },
+    {
+      "date": "Thursday, August 15, 2024",
+      "symbol": "ETH/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 10,
+      "last_target": 0,
+      "profit_percent": -28.9,
+      "net_profit": "-2.89%"
+    }
+  ],
+  "sep-2024": [
+    {
+      "date": "Monday, September 2, 2024",
+      "symbol": "DUSK/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -37.0,
+      "net_profit": "-3.70%"
+    },
+    {
+      "date": "Tuesday, September 3, 2024",
+      "symbol": "CHR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 18.9,
+      "net_profit": "0.47%"
+    },
+    {
+      "date": "Sunday, September 8, 2024",
+      "symbol": "ALICE/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 68.3,
+      "net_profit": "6.83%"
+    },
+    {
+      "date": "Sunday, September 8, 2024",
+      "symbol": "RUNE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -38.4,
+      "net_profit": "-3.84%"
+    },
+    {
+      "date": "Sunday, September 8, 2024",
+      "symbol": "LINK/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 45.4,
+      "net_profit": "4.54%"
+    },
+    {
+      "date": "Monday, September 9, 2024",
+      "symbol": "JOE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 63.2,
+      "net_profit": "1.58%"
+    },
+    {
+      "date": "Monday, September 9, 2024",
+      "symbol": "NEAR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 20.8,
+      "net_profit": "0.52%"
+    },
+    {
+      "date": "Wednesday, September 11, 2024",
+      "symbol": "LTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 6.9,
+      "net_profit": "0.17%"
+    },
+    {
+      "date": "Thursday, September 12, 2024",
+      "symbol": "ONE/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 43.5,
+      "net_profit": "1.09%"
+    },
+    {
+      "date": "Thursday, September 12, 2024",
+      "symbol": "FTM/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 79.4,
+      "net_profit": "1.99%"
+    },
+    {
+      "date": "Friday, September 13, 2024",
+      "symbol": "ETH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 53.1,
+      "net_profit": "5.31%"
+    },
+    {
+      "date": "Saturday, September 14, 2024",
+      "symbol": "COTI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 37.0,
+      "net_profit": "0.92%"
+    },
+    {
+      "date": "Saturday, September 14, 2024",
+      "symbol": "OM/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 66.8,
+      "net_profit": "6.68%"
+    },
+    {
+      "date": "Sunday, September 15, 2024",
+      "symbol": "LIT/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -36.3,
+      "net_profit": "-3.63%"
+    },
+    {
+      "date": "Tuesday, September 17, 2024",
+      "symbol": "THETA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -20.9,
+      "net_profit": "-2.09%"
+    },
+    {
+      "date": "Tuesday, September 17, 2024",
+      "symbol": "SOL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 6.1,
+      "net_profit": "0.61%"
+    },
+    {
+      "date": "Thursday, September 19, 2024",
+      "symbol": "CAKE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 30.4,
+      "net_profit": "0.76%"
+    },
+    {
+      "date": "Friday, September 20, 2024",
+      "symbol": "JTO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 17.3,
+      "net_profit": "1.73%"
+    },
+    {
+      "date": "Saturday, September 21, 2024",
+      "symbol": "STRK/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -23.1,
+      "net_profit": "-2.31%"
+    },
+    {
+      "date": "Sunday, September 22, 2024",
+      "symbol": "RENDER/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 45.9,
+      "net_profit": "1.15%"
+    },
+    {
+      "date": "Tuesday, September 24, 2024",
+      "symbol": "DYDX/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 42.5,
+      "net_profit": "1.06%"
+    },
+    {
+      "date": "Tuesday, September 24, 2024",
+      "symbol": "VET/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 22.7,
+      "net_profit": "0.57%"
+    },
+    {
+      "date": "Tuesday, September 24, 2024",
+      "symbol": "SOL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 14.8,
+      "net_profit": "0.37%"
+    },
+    {
+      "date": "Tuesday, September 24, 2024",
+      "symbol": "ICP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (2.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 12.8,
+      "net_profit": "0.32%"
+    },
+    {
+      "date": "Thursday, September 26, 2024",
+      "symbol": "KLAY/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 21.3,
+      "net_profit": "0.53%"
+    },
+    {
+      "date": "Monday, September 30, 2024",
+      "symbol": "OXT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 27.1,
+      "net_profit": "0.68%"
+    },
+    {
+      "date": "Monday, September 30, 2024",
+      "symbol": "UNI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 21.4,
+      "net_profit": "0.53%"
+    }
+  ],
+  "oct-2024": [
+    {
+      "date": "Wednesday, October 2, 2024",
+      "symbol": "ROSE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 19.0,
+      "net_profit": "0.47%"
+    },
+    {
+      "date": "Wednesday, October 2, 2024",
+      "symbol": "BEL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 13.4,
+      "net_profit": "0.34%"
+    },
+    {
+      "date": "Thursday, October 3, 2024",
+      "symbol": "LTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -33.3,
+      "net_profit": "-3.33%"
+    },
+    {
+      "date": "Sunday, October 6, 2024",
+      "symbol": "RSR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 18.4,
+      "net_profit": "0.46%"
+    },
+    {
+      "date": "Wednesday, October 9, 2024",
+      "symbol": "MEW/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 97.2,
+      "net_profit": "9.72%"
+    },
+    {
+      "date": "Wednesday, October 9, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -39.6,
+      "net_profit": "-3.96%"
+    },
+    {
+      "date": "Wednesday, October 9, 2024",
+      "symbol": "LSK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 17.6,
+      "net_profit": "1.76%"
+    },
+    {
+      "date": "Friday, October 11, 2024",
+      "symbol": "ACH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 21.2,
+      "net_profit": "0.53%"
+    },
+    {
+      "date": "Monday, October 14, 2024",
+      "symbol": "DOT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (7.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 14.9,
+      "net_profit": "0.37%"
+    },
+    {
+      "date": "Tuesday, October 15, 2024",
+      "symbol": "ALT/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -44.6,
+      "net_profit": "-4.46%"
+    },
+    {
+      "date": "Tuesday, October 15, 2024",
+      "symbol": "NEAR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 20.2,
+      "net_profit": "2.02%"
+    },
+    {
+      "date": "Wednesday, October 16, 2024",
+      "symbol": "ARB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 20.0,
+      "net_profit": "2.00%"
+    },
+    {
+      "date": "Wednesday, October 16, 2024",
+      "symbol": "CELR/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 43.6,
+      "net_profit": "4.36%"
+    },
+    {
+      "date": "Saturday, October 19, 2024",
+      "symbol": "MAGIC/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 41.3,
+      "net_profit": "1.03%"
+    },
+    {
+      "date": "Saturday, October 19, 2024",
+      "symbol": "RONIN/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -25.3,
+      "net_profit": "-2.53%"
+    },
+    {
+      "date": "Sunday, October 20, 2024",
+      "symbol": "ATOM/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 11.1,
+      "net_profit": "1.11%"
+    },
+    {
+      "date": "Monday, October 21, 2024",
+      "symbol": "JUP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 25.0,
+      "net_profit": "0.62%"
+    },
+    {
+      "date": "Tuesday, October 22, 2024",
+      "symbol": "RUNE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 17.7,
+      "net_profit": "0.44%"
+    },
+    {
+      "date": "Wednesday, October 23, 2024",
+      "symbol": "PENDLE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -24.5,
+      "net_profit": "-2.45%"
+    },
+    {
+      "date": "Thursday, October 24, 2024",
+      "symbol": "PYTH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 11.2,
+      "net_profit": "0.28%"
+    },
+    {
+      "date": "Friday, October 25, 2024",
+      "symbol": "COTI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 16.1,
+      "net_profit": "0.40%"
+    },
+    {
+      "date": "Saturday, October 26, 2024",
+      "symbol": "LTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 12.8,
+      "net_profit": "0.32%"
+    },
+    {
+      "date": "Saturday, October 26, 2024",
+      "symbol": "WIF/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 15.4,
+      "net_profit": "0.39%"
+    },
+    {
+      "date": "Sunday, October 27, 2024",
+      "symbol": "ALT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 17.6,
+      "net_profit": "0.44%"
+    },
+    {
+      "date": "Monday, October 28, 2024",
+      "symbol": "WLD/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 11.6,
+      "net_profit": "0.29%"
+    },
+    {
+      "date": "Wednesday, October 30, 2024",
+      "symbol": "APT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 28.0,
+      "net_profit": "0.70%"
+    },
+    {
+      "date": "Wednesday, October 30, 2024",
+      "symbol": "AAVE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -22.5,
+      "net_profit": "-2.25%"
+    }
+  ],
+  "nov-2024": [
+    {
+      "date": "Saturday, November 2, 2024",
+      "symbol": "JUP/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 78.9,
+      "net_profit": "3.94%"
+    },
+    {
+      "date": "Wednesday, November 6, 2024",
+      "symbol": "PENDLE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -44.5,
+      "net_profit": "-4.45%"
+    },
+    {
+      "date": "Saturday, November 9, 2024",
+      "symbol": "WLD/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 53.1,
+      "net_profit": "5.31%"
+    },
+    {
+      "date": "Saturday, November 9, 2024",
+      "symbol": "WIF/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 59.6,
+      "net_profit": "5.96%"
+    },
+    {
+      "date": "Sunday, November 10, 2024",
+      "symbol": "LINK/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 75.6,
+      "net_profit": "3.78%"
+    },
+    {
+      "date": "Sunday, November 10, 2024",
+      "symbol": "AVAX/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 87.6,
+      "net_profit": "4.38%"
+    },
+    {
+      "date": "Monday, November 11, 2024",
+      "symbol": "OP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 21.7,
+      "net_profit": "1.09%"
+    },
+    {
+      "date": "Monday, November 11, 2024",
+      "symbol": "RSR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 10.6,
+      "net_profit": "0.53%"
+    },
+    {
+      "date": "Tuesday, November 12, 2024",
+      "symbol": "BRETT/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 112.5,
+      "net_profit": "11.25%"
+    },
+    {
+      "date": "Wednesday, November 13, 2024",
+      "symbol": "GMX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 20.3,
+      "net_profit": "1.01%"
+    },
+    {
+      "date": "Thursday, November 14, 2024",
+      "symbol": "TON/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 15.1,
+      "net_profit": "0.76%"
+    },
+    {
+      "date": "Sunday, November 17, 2024",
+      "symbol": "TON/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 56.0,
+      "net_profit": "2.80%"
+    },
+    {
+      "date": "Monday, November 18, 2024",
+      "symbol": "1INCH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 111.2,
+      "net_profit": "5.56%"
+    },
+    {
+      "date": "Monday, November 18, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 17.3,
+      "net_profit": "0.87%"
+    },
+    {
+      "date": "Friday, November 22, 2024",
+      "symbol": "BAND/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 50.1,
+      "net_profit": "2.51%"
+    },
+    {
+      "date": "Sunday, November 24, 2024",
+      "symbol": "JASMY/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 10.0,
+      "net_profit": "0.50%"
+    },
+    {
+      "date": "Sunday, November 24, 2024",
+      "symbol": "CELO/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -41.1,
+      "net_profit": "-4.11%"
+    },
+    {
+      "date": "Monday, November 25, 2024",
+      "symbol": "RENDER/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 49.2,
+      "net_profit": "4.92%"
+    },
+    {
+      "date": "Tuesday, November 26, 2024",
+      "symbol": "INJ/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 16.0,
+      "net_profit": "0.80%"
+    }
+  ],
+  "dec-2024": [
+    {
+      "date": "Sunday, December 1, 2024",
+      "symbol": "EDU/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 41.8,
+      "net_profit": "4.18%"
+    },
+    {
+      "date": "Sunday, December 1, 2024",
+      "symbol": "ALGO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 67.6,
+      "net_profit": "1.69%"
+    },
+    {
+      "date": "Tuesday, December 3, 2024",
+      "symbol": "BNB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 19.3,
+      "net_profit": "0.96%"
+    },
+    {
+      "date": "Tuesday, December 3, 2024",
+      "symbol": "PHB/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 46.4,
+      "net_profit": "1.16%"
+    },
+    {
+      "date": "Wednesday, December 4, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 35.7,
+      "net_profit": "3.57%"
+    },
+    {
+      "date": "Thursday, December 5, 2024",
+      "symbol": "IOTX/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -49.5,
+      "net_profit": "-4.95%"
+    },
+    {
+      "date": "Thursday, December 5, 2024",
+      "symbol": "MEW/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 54.4,
+      "net_profit": "5.44%"
+    },
+    {
+      "date": "Friday, December 6, 2024",
+      "symbol": "ETH/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -16.5,
+      "net_profit": "-1.65%"
+    },
+    {
+      "date": "Saturday, December 7, 2024",
+      "symbol": "MYRO/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -46.6,
+      "net_profit": "-4.66%"
+    },
+    {
+      "date": "Sunday, December 8, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -58.0,
+      "net_profit": "-5.80%"
+    },
+    {
+      "date": "Tuesday, December 10, 2024",
+      "symbol": "SOL/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 36.0,
+      "net_profit": "3.60%"
+    },
+    {
+      "date": "Tuesday, December 10, 2024",
+      "symbol": "LTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 50.1,
+      "net_profit": "1.25%"
+    },
+    {
+      "date": "Tuesday, December 10, 2024",
+      "symbol": "ALGO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 50.4,
+      "net_profit": "1.26%"
+    },
+    {
+      "date": "Wednesday, December 11, 2024",
+      "symbol": "MANTA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 25.1,
+      "net_profit": "2.51%"
+    },
+    {
+      "date": "Saturday, December 14, 2024",
+      "symbol": "GOAT/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -50.6,
+      "net_profit": "-5.06%"
+    },
+    {
+      "date": "Sunday, December 15, 2024",
+      "symbol": "UXLINK/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 72.0,
+      "net_profit": "1.80%"
+    },
+    {
+      "date": "Monday, December 16, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -49.9,
+      "net_profit": "-4.99%"
+    },
+    {
+      "date": "Tuesday, December 17, 2024",
+      "symbol": "MANTA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 30.2,
+      "net_profit": "3.02%"
+    },
+    {
+      "date": "Wednesday, December 18, 2024",
+      "symbol": "TIA/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 87.0,
+      "net_profit": "2.18%"
+    },
+    {
+      "date": "Friday, December 20, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 18.9,
+      "net_profit": "0.95%"
+    },
+    {
+      "date": "Saturday, December 21, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 10.0,
+      "net_profit": "0.25%"
+    },
+    {
+      "date": "Monday, December 23, 2024",
+      "symbol": "TIA/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 95.0,
+      "net_profit": "9.50%"
+    },
+    {
+      "date": "Tuesday, December 24, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 17.9,
+      "net_profit": "0.90%"
+    },
+    {
+      "date": "Friday, December 27, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -46.0,
+      "net_profit": "-4.60%"
+    },
+    {
+      "date": "Saturday, December 28, 2024",
+      "symbol": "TIA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 17.7,
+      "net_profit": "0.89%"
+    }
+  ],
+  "jan-2025": [
+    {
+      "date": "Wednesday, January 1, 2025",
+      "symbol": "DOGE/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 4,
+      "profit_percent": 46.0,
+      "net_profit": "4.60%"
+    },
+    {
+      "date": "Wednesday, January 1, 2025",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 35.9,
+      "net_profit": "1.80%"
+    },
+    {
+      "date": "Wednesday, January 1, 2025",
+      "symbol": "APE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 24.0,
+      "net_profit": "1.20%"
+    },
+    {
+      "date": "Friday, January 3, 2025",
+      "symbol": "NEAR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 42.4,
+      "net_profit": "4.24%"
+    },
+    {
+      "date": "Saturday, January 4, 2025",
+      "symbol": "VANRY/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -40.0,
+      "net_profit": "-4.00%"
+    },
+    {
+      "date": "Saturday, January 4, 2025",
+      "symbol": "DYDX/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -41.6,
+      "net_profit": "-4.16%"
+    },
+    {
+      "date": "Saturday, January 11, 2025",
+      "symbol": "EDU/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 49.7,
+      "net_profit": "2.48%"
+    },
+    {
+      "date": "Saturday, January 11, 2025",
+      "symbol": "BRETT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 41.9,
+      "net_profit": "2.10%"
+    },
+    {
+      "date": "Sunday, January 12, 2025",
+      "symbol": "FLOW/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 28.0,
+      "net_profit": "1.40%"
+    },
+    {
+      "date": "Monday, January 13, 2025",
+      "symbol": "GALA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 24.4,
+      "net_profit": "1.22%"
+    },
+    {
+      "date": "Monday, January 13, 2025",
+      "symbol": "ALGO/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 98.3,
+      "net_profit": "4.91%"
+    },
+    {
+      "date": "Tuesday, January 14, 2025",
+      "symbol": "ADA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 24.7,
+      "net_profit": "1.24%"
+    },
+    {
+      "date": "Wednesday, January 15, 2025",
+      "symbol": "C98/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -41.7,
+      "net_profit": "-4.17%"
+    },
+    {
+      "date": "Wednesday, January 15, 2025",
+      "symbol": "MEW/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 33.6,
+      "net_profit": "1.68%"
+    },
+    {
+      "date": "Thursday, January 16, 2025",
+      "symbol": "CRV/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (6.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 60.5,
+      "net_profit": "3.03%"
+    },
+    {
+      "date": "Thursday, January 16, 2025",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 28.2,
+      "net_profit": "1.41%"
+    },
+    {
+      "date": "Friday, January 17, 2025",
+      "symbol": "FIL/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -25.5,
+      "net_profit": "-2.55%"
+    },
+    {
+      "date": "Saturday, January 18, 2025",
+      "symbol": "ALGO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 30.8,
+      "net_profit": "1.54%"
+    },
+    {
+      "date": "Saturday, January 18, 2025",
+      "symbol": "ICP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 19.7,
+      "net_profit": "0.98%"
+    },
+    {
+      "date": "Saturday, January 18, 2025",
+      "symbol": "1000BONK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 32.7,
+      "net_profit": "1.63%"
+    },
+    {
+      "date": "Sunday, January 19, 2025",
+      "symbol": "DENT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 30.5,
+      "net_profit": "3.05%"
+    },
+    {
+      "date": "Sunday, January 19, 2025",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 8.1,
+      "net_profit": "0.41%"
+    },
+    {
+      "date": "Monday, January 20, 2025",
+      "symbol": "DOGE/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 42.9,
+      "net_profit": "4.29%"
+    },
+    {
+      "date": "Tuesday, January 21, 2025",
+      "symbol": "XLM/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 24.9,
+      "net_profit": "1.24%"
+    },
+    {
+      "date": "Tuesday, January 21, 2025",
+      "symbol": "1000BONK/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -42.6,
+      "net_profit": "-4.26%"
+    },
+    {
+      "date": "Wednesday, January 22, 2025",
+      "symbol": "LTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -22.6,
+      "net_profit": "-2.26%"
+    },
+    {
+      "date": "Thursday, January 23, 2025",
+      "symbol": "IOTA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 39.9,
+      "net_profit": "2.00%"
+    },
+    {
+      "date": "Thursday, January 23, 2025",
+      "symbol": "BRETT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 38.0,
+      "net_profit": "1.90%"
+    },
+    {
+      "date": "Saturday, January 25, 2025",
+      "symbol": "XRP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 19.5,
+      "net_profit": "1.95%"
+    },
+    {
+      "date": "Sunday, January 26, 2025",
+      "symbol": "QNT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 20.9,
+      "net_profit": "1.04%"
+    }
+  ],
+  "feb-2025": [
+    {
+      "date": "Monday, January 27, 2025",
+      "symbol": "AVAX/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -41.1,
+      "net_profit": "-41.09"
+    },
+    {
+      "date": "Monday, January 27, 2025",
+      "symbol": "BCH/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 67.1,
+      "net_profit": "67.11"
+    },
+    {
+      "date": "Monday, January 27, 2025",
+      "symbol": "BNB/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 47.9,
+      "net_profit": "47.91"
+    },
+    {
+      "date": "Monday, January 27, 2025",
+      "symbol": "GRT/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 53.9,
+      "net_profit": "26.96"
+    },
+    {
+      "date": "Tuesday, January 28, 2025",
+      "symbol": "RENDER/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 50.4,
+      "net_profit": "25.22"
+    },
+    {
+      "date": "Wednesday, January 29, 2025",
+      "symbol": "SKL/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -45.6,
+      "net_profit": "-45.64"
+    },
+    {
+      "date": "Friday, January 31, 2025",
+      "symbol": "GALA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -28.5,
+      "net_profit": "-28.54"
+    },
+    {
+      "date": "Saturday, February 1, 2025",
+      "symbol": "DOGE/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -26.8,
+      "net_profit": "-26.78"
+    },
+    {
+      "date": "Sunday, February 2, 2025",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 28.3,
+      "net_profit": "28.28"
+    },
+    {
+      "date": "Sunday, February 2, 2025",
+      "symbol": "XRP/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -42.3,
+      "net_profit": "-42.30"
+    },
+    {
+      "date": "Monday, February 3, 2025",
+      "symbol": "QNT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 27.2,
+      "net_profit": "13.62"
+    },
+    {
+      "date": "Monday, February 3, 2025",
+      "symbol": "MASK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 23.3,
+      "net_profit": "11.67"
+    },
+    {
+      "date": "Tuesday, February 4, 2025",
+      "symbol": "SOL/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -46.4,
+      "net_profit": "-46.41"
+    },
+    {
+      "date": "Tuesday, February 4, 2025",
+      "symbol": "AVAX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 51.4,
+      "net_profit": "25.69"
+    },
+    {
+      "date": "Friday, February 7, 2025",
+      "symbol": "BCH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 39.9,
+      "net_profit": "19.97"
+    },
+    {
+      "date": "Tuesday, February 11, 2025",
+      "symbol": "XVS/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 3,
+      "profit_percent": 63.4,
+      "net_profit": "31.72"
+    },
+    {
+      "date": "Wednesday, February 12, 2025",
+      "symbol": "NEAR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 32.9,
+      "net_profit": "16.46"
+    },
+    {
+      "date": "Friday, February 14, 2025",
+      "symbol": "LINK/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -30.8,
+      "net_profit": "-30.82"
+    },
+    {
+      "date": "Friday, February 14, 2025",
+      "symbol": "AI/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -30.4,
+      "net_profit": "-30.40"
+    },
+    {
+      "date": "Monday, February 17, 2025",
+      "symbol": "LDO/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -47.4,
+      "net_profit": "-47.41"
+    },
+    {
+      "date": "Monday, February 17, 2025",
+      "symbol": "LTC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -24.2,
+      "net_profit": "-24.21"
+    },
+    {
+      "date": "Tuesday, February 18, 2025",
+      "symbol": "CHR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 21.2,
+      "net_profit": "10.61"
+    },
+    {
+      "date": "Friday, February 21, 2025",
+      "symbol": "DUSK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 41.1,
+      "net_profit": "20.53"
+    },
+    {
+      "date": "Friday, February 21, 2025",
+      "symbol": "CHR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 33.8,
+      "net_profit": "16.89"
+    },
+    {
+      "date": "Saturday, February 22, 2025",
+      "symbol": "KAVA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 32.5,
+      "net_profit": "16.27"
+    },
+    {
+      "date": "Monday, February 24, 2025",
+      "symbol": "CELO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 23.0,
+      "net_profit": "11.51"
+    },
+    {
+      "date": "Wednesday, February 26, 2025",
+      "symbol": "MYRO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 28.7,
+      "net_profit": "14.36"
+    }
+  ],
+  "mar-2025": [
+    {
+      "date": "Wednesday, February 26, 2025",
+      "symbol": "SEI/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 23.0,
+      "net_profit": "2.30%"
+    },
+    {
+      "date": "Thursday, February 27, 2025",
+      "symbol": "CELR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 59.7,
+      "net_profit": "2.99%"
+    },
+    {
+      "date": "Thursday, February 27, 2025",
+      "symbol": "BTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 21.1,
+      "net_profit": "2.11%"
+    },
+    {
+      "date": "Thursday, February 27, 2025",
+      "symbol": "DOT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 24.0,
+      "net_profit": "1.20%"
+    },
+    {
+      "date": "Friday, February 28, 2025",
+      "symbol": "QNT/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 3,
+      "profit_percent": 64.1,
+      "net_profit": "6.41%"
+    },
+    {
+      "date": "Friday, February 28, 2025",
+      "symbol": "AVAX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 42.6,
+      "net_profit": "2.13%"
+    },
+    {
+      "date": "Sunday, March 2, 2025",
+      "symbol": "GRASS/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 4,
+      "profit_percent": 63.9,
+      "net_profit": "3.20%"
+    },
+    {
+      "date": "Monday, March 3, 2025",
+      "symbol": "COTI/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -35.3,
+      "net_profit": "-3.53%"
+    },
+    {
+      "date": "Monday, March 3, 2025",
+      "symbol": "ADA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 66.4,
+      "net_profit": "6.64%"
+    },
+    {
+      "date": "Saturday, March 8, 2025",
+      "symbol": "AVAX/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 2,
+      "profit_percent": 52.7,
+      "net_profit": "5.27%"
+    },
+    {
+      "date": "Sunday, March 9, 2025",
+      "symbol": "RENDER/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 48.9,
+      "net_profit": "4.89%"
+    },
+    {
+      "date": "Tuesday, March 11, 2025",
+      "symbol": "BCH/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -46.1,
+      "net_profit": "-4.61%"
+    },
+    {
+      "date": "Wednesday, March 12, 2025",
+      "symbol": "JUP/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 29.0,
+      "net_profit": "1.45%"
+    },
+    {
+      "date": "Friday, March 14, 2025",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 32.1,
+      "net_profit": "1.60%"
+    },
+    {
+      "date": "Friday, March 14, 2025",
+      "symbol": "KAVA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 60.3,
+      "net_profit": "3.02%"
+    },
+    {
+      "date": "Friday, March 14, 2025",
+      "symbol": "ETH/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 200,
+      "last_target": 1,
+      "profit_percent": 28.5,
+      "net_profit": "5.71%"
+    },
+    {
+      "date": "Thursday, March 20, 2025",
+      "symbol": "XRP/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 200,
+      "last_target": 0,
+      "profit_percent": -42.9,
+      "net_profit": "-8.58%"
+    },
+    {
+      "date": "Sunday, March 23, 2025",
+      "symbol": "LAYER/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -41.1,
+      "net_profit": "-4.11%"
+    },
+    {
+      "date": "Monday, March 24, 2025",
+      "symbol": "CFX/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 200,
+      "last_target": 0,
+      "profit_percent": -37.6,
+      "net_profit": "-7.53%"
+    },
+    {
+      "date": "Tuesday, March 25, 2025",
+      "symbol": "DUSK/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 35.0,
+      "net_profit": "1.75%"
+    },
+    {
+      "date": "Wednesday, March 26, 2025",
+      "symbol": "KSM/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 200,
+      "last_target": 0,
+      "profit_percent": -36.5,
+      "net_profit": "-7.30%"
+    },
+    {
+      "date": "Wednesday, March 26, 2025",
+      "symbol": "SOL/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (4.0X)",
+      "used_dollars": 100,
+      "last_target": 0,
+      "profit_percent": -58.8,
+      "net_profit": "-5.88%"
+    },
+    {
+      "date": "Saturday, March 29, 2025",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 22.1,
+      "net_profit": "1.10%"
+    },
+    {
+      "date": "Saturday, March 29, 2025",
+      "symbol": "LTC/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 49.9,
+      "net_profit": "4.99%"
+    },
+    {
+      "date": "Monday, March 31, 2025",
+      "symbol": "QNT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 49.7,
+      "net_profit": "2.48%"
+    }
+  ],
+  "apr-2025": [
+    {
+      "date": "Tuesday, April 01, 2025",
+      "symbol": "MKR/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 2,
+      "profit_percent": 35.7,
+      "net_profit": "1.79%"
+    },
+    {
+      "date": "Thursday, April 03, 2025",
+      "symbol": "QNT/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (3.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 51.2,
+      "net_profit": "2.56%"
+    },
+    {
+      "date": "Friday, April 04, 2025",
+      "symbol": "BTC/USDT",
+      "status": "All Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 3,
+      "profit_percent": 92.5,
+      "net_profit": "9.25%"
+    },
+    {
+      "date": "Sunday, April 06, 2025",
+      "symbol": "LINK/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 148.7,
+      "net_profit": "7.44%"
+    },
+    {
+      "date": "Thursday, April 10, 2025",
+      "symbol": "ZEC/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -53.6,
+      "net_profit": "-5.36%"
+    },
+    {
+      "date": "Thursday, April 10, 2025",
+      "symbol": "EOS/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "last_target": 1,
+      "profit_percent": 54.9,
+      "net_profit": "5.49%"
+    },
+    {
+      "date": "Tuesday, April 15, 2025",
+      "symbol": "MANA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 83.1,
+      "net_profit": "4.16%"
+    },
+    {
+      "date": "Wednesday, April 16, 2025",
+      "symbol": "DUSK/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -50.2,
+      "net_profit": "-5.02%"
+    },
+    {
+      "date": "Thursday, April 17, 2025",
+      "symbol": "FXS/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -73.6,
+      "net_profit": "-7.36%"
+    },
+    {
+      "date": "Monday, April 21, 2025",
+      "symbol": "WOO/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 2,
+      "profit_percent": 71.6,
+      "net_profit": "3.58%"
+    },
+    {
+      "date": "Monday, April 21, 2025",
+      "symbol": "STG/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 47.7,
+      "net_profit": "2.39%"
+    },
+    {
+      "date": "Monday, April 21, 2025",
+      "symbol": "MANTA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 55.4,
+      "net_profit": "2.77%"
+    },
+    {
+      "date": "Tuesday, April 22, 2025",
+      "symbol": "MEW/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 54.1,
+      "net_profit": "2.70%"
+    },
+    {
+      "date": "Thursday, April 24, 2025",
+      "symbol": "ALPHA/USDT",
+      "status": "Stopped Out",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 100,
+      "type": "Short",
+      "last_target": 0,
+      "profit_percent": -37.9,
+      "net_profit": "-3.79%"
+    },
+    {
+      "date": "Friday, April 25, 2025",
+      "symbol": "MEW/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "type": "Short",
+      "last_target": 1,
+      "profit_percent": 17.6,
+      "net_profit": "0.88%"
+    },
+    {
+      "date": "Monday, April 28, 2025",
+      "symbol": "THETA/USDT",
+      "status": "Partial Targets Achieved",
+      "leverage": "Isolated (5.0X)",
+      "used_dollars": 50,
+      "last_target": 1,
+      "profit_percent": 8.6,
+      "net_profit": "0.43%"
+    }
+  ]
+}

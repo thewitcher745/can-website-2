@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
+import Logo from "../Logo";
 
 interface TooltipProps {
   data: any;
@@ -65,7 +66,8 @@ const Tooltip = ({ data, position, containerRef }: TooltipProps) => {
       className="absolute z-100 bg-white border border-gray-200 rounded-lg shadow-lg p-4 text-sm text-gray-800 pointer-events-none"
       style={style}
     >
-      <div className="flex items-center mb-3">
+      <div className="flex items-center mb-3 gap-2">
+        <Logo symbol={data.symbol} size="8" padding="0" />
         <h3 className="font-bold text-base">{data.name}</h3>
         <span className="text-gray-500 ml-2">{data.symbol.toUpperCase()}</span>
       </div>

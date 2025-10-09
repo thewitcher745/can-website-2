@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { AnalysisPostMeta } from "@src/types";
+import Logo from "@src/shared/ui/Logo";
 
 const PostLogo: React.FC<{ thumbnail: string; altText: string }> = ({
   thumbnail,
@@ -34,8 +35,8 @@ const ImageElement = ({ post }: { post: AnalysisPostMeta }) => {
       className={"relative overflow-hidden rounded-xl flex flex-col mb-2"}
     >
       <div className="relative w-full shadow-xl">
-        <div className="absolute right-0 bottom-0 m-5 sm:m-8 lg:m-10 w-12 h-12 md:h-15 md:w-15 lg:w-21 lg:h-21 xl:w-30 xl:h-30 opacity-70">
-          <PostLogo thumbnail={post.thumbnail} altText={`${post.title} logo`} />
+        <div className="absolute right-0 bottom-0 m-5 rounded-full overflow-hidden sm:m-8 lg:m-10 w-12 h-12 md:h-15 md:w-15 lg:w-21 lg:h-21 xl:w-30 xl:h-30 opacity-70">
+          <Logo symbol={post.coins[0].toUpperCase()} size="full" padding="1" />
         </div>
         <img
           width={2000}
@@ -78,12 +79,6 @@ const CaptionElement = ({
     return (
       <div className="w-full flex flex-col justify-between p-2 pt-0">
         <div className="flex w-full items-center p-2 pt-0">
-          {/* <div className="w-1/6 mr-2 hidden xs:block">
-            <PostLogo
-              thumbnail={post.thumbnail}
-              altText={`${post.title} logo`}
-            />
-          </div> */}
           <div className="text-text-main text-md xs:text-lg xs:font-semibold">
             <h2>{post.title}</h2>
           </div>

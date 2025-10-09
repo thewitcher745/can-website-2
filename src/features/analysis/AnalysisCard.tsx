@@ -2,15 +2,20 @@ import Link from "next/link";
 
 import PostDescription from "./PostDescription";
 import PostTags from "./PostTags";
-import PostLogo from "./PostLogo";
 import PostTime from "./PostTime";
 import PostTitle from "./PostTitle";
 import { AnalysisPostMeta } from "@src/types";
+import Logo from "@src/shared/ui/Logo";
 
 const TopHalf: React.FC<{ post: AnalysisPostMeta }> = ({ post }) => {
   return (
-    <div className="flex items-center h-full md:h-1/3 md:mb-6 relative">
-      <PostLogo thumbnail={post.thumbnail} altText={`${post.title} logo`} />
+    <div className="flex gap-2 py-6 items-center h-full md:h-1/3 md:mb-6 relative">
+      <Logo
+        symbol={post.coins[0].toUpperCase()}
+        fixedLogoUrl={post.thumbnail}
+        size="20"
+        padding="1"
+      />
       <PostTitle title={post.title} slug={post.slug} />
     </div>
   );
