@@ -114,6 +114,7 @@ export interface PostTitleProps {
   title: string;
   slug: string;
   className?: string;
+  isVip?: boolean;
 }
 
 export interface ChartItemProps {
