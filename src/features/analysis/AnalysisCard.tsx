@@ -33,9 +33,14 @@ const BottomHalf: React.FC<{ post: AnalysisPostMeta }> = ({ post }) => {
   );
 };
 
-const AnalysisCard: React.FC<{ post: AnalysisPostMeta }> = ({ post }) => {
+const AnalysisCard: React.FC<{ post: AnalysisPostMeta; isVip: boolean }> = ({
+  post,
+  isVip,
+}) => {
   return (
-    <Link href={`/analysis/${post.slug}`}>
+    <Link
+      href={isVip ? `/vip_analysis/${post.slug}` : `/analysis/${post.slug}`}
+    >
       <div
         key={post.slug}
         className="border border-border rounded p-2 flex flex-col h-auto md:h-80 min-w-xxs card-hover"
