@@ -132,7 +132,13 @@ const AnalysisListContainer = () => {
         ) : (
           posts
             .slice(0, nPostsToShow)
-            .map((post) => <AnalysisCard key={post.slug} post={post} />)
+            .map((post) => (
+              <AnalysisCard
+                key={post.slug}
+                post={post}
+                isVip={activeTab === "vip"}
+              />
+            ))
         )}
       </div>
       {posts.length > nPostsToShow && (

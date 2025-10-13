@@ -74,7 +74,10 @@ ol {
 .blog-article p {
   background-color: transparent;
 }
-.article a:hover {
+.blog-article a {
+  text-decoration: underline;
+}
+.blog-article a:hover {
   color: var(--color-primary);
   text-decoration: none;
 }
