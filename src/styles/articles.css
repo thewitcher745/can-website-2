@@ -20,8 +20,10 @@
 }
 .analysis-article img {
   padding: 1rem;
+  cursor: pointer;
 }
 .analysis-article p {
+  position: relative;
   background-color: transparent;
   padding: 0.4rem 0;
 }

@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Head from "next/head";
 
-import Navbar from "@shared/ui/navbar/Navbar";
 import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
 import { Article } from "@src/types";
+import ChartModal from "@src/features/analysis/ChartModal";
 
 const AnalysisPostPage: React.FC = () => {
   const router = useRouter();
   const { slug } = router.query;
+
   const [posts, setPosts] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [modalImgSrc, setModalImgSrc] = useState<string | null>(null);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!slug) return;
@@ -24,8 +28,91 @@ const AnalysisPostPage: React.FC = () => {
       })
       .then((data) => setPosts(Array.isArray(data) ? data : []))
       .catch((e) => setError(e.message))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
   }, [slug]);
+
+  useEffect(() => {
+    if (loading || !contentRef.current) return;
+
+    const container = contentRef.current;
+    const images = container.querySelectorAll("article img");
+    const cleanupFunctions: (() => void)[] = [];
+
+    images.forEach((img) => {
+      const imgElement = img as HTMLElement;
+
+      // Wrap image in a relative container if not already wrapped
+      let wrapper = imgElement.parentElement;
+      if (!wrapper?.classList.contains("img-overlay-wrapper")) {
+        wrapper = document.createElement("div");
+        wrapper.classList.add(
+          "img-overlay-wrapper",
+          "relative",
+          "inline-block"
+        );
+        imgElement.parentNode?.insertBefore(wrapper, imgElement);
+        wrapper.appendChild(imgElement);
+      }
+
+      // Create overlay
+      const overlay = document.createElement("div");
+      overlay.classList.add(
+        "img-overlay",
+        "hidden",
+        "absolute",
+        "w-full",
+        "h-full",
+        "left-0",
+        "top-0",
+        "pointer-events-none",
+        "bg-gray-600/60",
+        "justify-center",
+        "items-center",
+        "flex"
+      );
+      const overlayText = document.createElement("span");
+      overlayText.classList.add("text-xl");
+      overlayText.innerHTML = "Click to expand.";
+      wrapper.appendChild(overlay);
+      overlay.appendChild(overlayText);
+
+      // Event handlers
+      const handleClick = (event: Event) => {
+        setModalImgSrc((event?.target as HTMLElement).getAttribute("src"));
+        setModalVisible(true);
+      };
+
+      const handleMouseEnter = () => {
+        overlay.classList.remove("hidden");
+        overlay.classList.add("block");
+      };
+
+      const handleMouseLeave = () => {
+        overlay.classList.add("hidden");
+        overlay.classList.remove("block");
+      };
+
+      // Add listeners
+      imgElement.addEventListener("click", handleClick);
+      imgElement.addEventListener("mouseenter", handleMouseEnter);
+      imgElement.addEventListener("mouseleave", handleMouseLeave);
+
+      // Store cleanup function
+      cleanupFunctions.push(() => {
+        imgElement.removeEventListener("click", handleClick);
+        imgElement.removeEventListener("mouseenter", handleMouseEnter);
+        imgElement.removeEventListener("mouseleave", handleMouseLeave);
+        overlay.remove();
+      });
+    });
+
+    // Cleanup function
+    return () => {
+      cleanupFunctions.forEach((cleanup) => cleanup());
+    };
+  }, [loading, posts, modalVisible]); // Re-run when posts change
 
   if (loading)
     return (
@@ -103,7 +190,7 @@ const AnalysisPostPage: React.FC = () => {
       <Head>
         <title>{mainPost.title} - CAN Trading</title>
       </Head>
-      <main className="bg-background min-h-screen">
+      <main className="bg-background flex justify-center min-h-screen">
         <div className="max-w-4xl mx-auto py-8 px-4 pt-6">
           <Link
             href="/analysis"
@@ -128,6 +215,7 @@ const AnalysisPostPage: React.FC = () => {
               })}
             </div>
             <article
+              ref={contentRef}
               className="analysis-article prose prose-invert max-w-none text-text-main"
               dangerouslySetInnerHTML={{ __html: mainPost.content_html }}
             />
@@ -170,6 +258,12 @@ const AnalysisPostPage: React.FC = () => {
             </div>
           )}
         </div>
+        {modalImgSrc && modalVisible && (
+          <ChartModal
+            imgSrc={modalImgSrc}
+            closeModal={() => setModalVisible(false)}
+          />
+        )}
       </main>
       <Footer />
     </>
