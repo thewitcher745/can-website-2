@@ -33,14 +33,19 @@ const AnalysisPostPage: React.FC = () => {
       });
   }, [slug]);
 
+  const mainPost = posts[0];
+  const updates = posts.slice(1);
+
   useEffect(() => {
-    if (loading || !contentRef.current) return;
+    if (loading || !contentRef.current || updates.length === 0) return;
 
     const container = contentRef.current;
     const images = container.querySelectorAll("article img");
+
     const cleanupFunctions: (() => void)[] = [];
 
     images.forEach((img) => {
+      console.log(img);
       const imgElement = img as HTMLElement;
 
       // Wrap image in a relative container if not already wrapped
@@ -112,7 +117,7 @@ const AnalysisPostPage: React.FC = () => {
     return () => {
       cleanupFunctions.forEach((cleanup) => cleanup());
     };
-  }, [loading, posts, modalVisible]); // Re-run when posts change
+  }, [loading, posts, updates, modalVisible]); // Re-run when posts change
 
   if (loading)
     return (
@@ -182,16 +187,13 @@ const AnalysisPostPage: React.FC = () => {
       </>
     );
 
-  const mainPost = posts[0];
-  const updates = posts.slice(1);
-
   return (
     <>
       <Head>
         <title>{mainPost.title} - CAN Trading</title>
       </Head>
       <main className="bg-background flex justify-center min-h-screen">
-        <div className="max-w-4xl mx-auto py-8 px-4 pt-6">
+        <div ref={contentRef} className="max-w-4xl mx-auto py-8 px-4 pt-6">
           <Link
             href="/analysis"
             className="text-primary hover:underline text-sm"
@@ -215,7 +217,6 @@ const AnalysisPostPage: React.FC = () => {
               })}
             </div>
             <article
-              ref={contentRef}
               className="analysis-article prose prose-invert max-w-none text-text-main"
               dangerouslySetInnerHTML={{ __html: mainPost.content_html }}
             />
