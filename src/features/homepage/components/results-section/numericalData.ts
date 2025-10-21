@@ -26,8 +26,6 @@ export default function getTrades(monthName: string): Trade[] {
 }
 
 export function toWaterfallDataset(monthName: string): WaterfallPoint[] {
-  console.log(monthName);
-
   const trades = getTrades(monthName);
   let cumulative = 0;
   return trades.map((t, i) => {
