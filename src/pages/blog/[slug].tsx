@@ -97,7 +97,7 @@ const BlogPostPage: React.FC = () => {
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl mx-auto py-8 px-4 pt-6">
           <Link href="/blog" className="text-primary hover:underline text-sm">
-            ← Back to Blog
+            ← Back to Trading & Risk Management
           </Link>
           <div className="rounded-lg p-8 mt-4">
             <h1 className="text-xl md:text-3xl font-semibold mb-4 text-text-main hover:text-primary transition-colors">

@@ -80,7 +80,7 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
   const tables = useMemo(
     () => [
       {
-        title: "Blog",
+        title: "Trading & Risk Management",
         data: blog,
         slug: "blog",
       },
