@@ -26,7 +26,13 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
           {
             dataKey: "idx",
             scaleType: "band",
-            label: "Trade #",
+            label: "Signal #",
+            valueFormatter: (idx, context) => `Signal #${idx}`,
+          },
+        ]}
+        yAxis={[
+          {
+            label: "Gross profit",
           },
         ]}
         slotProps={{

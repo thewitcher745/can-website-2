@@ -9,6 +9,15 @@ const ArticlesMenuItems = ({ isMobile }: { isMobile: boolean }) => {
   return (
     <>
       <Link
+        href="/blog"
+        className={`text-nowrap flex items-center gap-2 text-text-main hover:text-orange px-3 py-4 text-sm font-medium transition-all hover:text-primary ${
+          isMobile ? "justify-center sm:justify-start" : ""
+        }`}
+      >
+        <FaPencilAlt className="w-6 h-6" />
+        <span>Trading & Risk Management</span>
+      </Link>
+      <Link
         href="/news"
         className={`text-nowrap flex items-center gap-2 text-text-main hover:text-orange px-3 py-4 text-sm font-medium transition-all hover:text-primary ${
           isMobile ? "justify-center sm:justify-start" : ""
@@ -25,15 +34,6 @@ const ArticlesMenuItems = ({ isMobile }: { isMobile: boolean }) => {
       >
         <TbChartCandle className="w-6 h-6" />
         <span> Fundamental Analysis</span>
-      </Link>
-      <Link
-        href="/blog"
-        className={`text-nowrap flex items-center gap-2 text-text-main hover:text-orange px-3 py-4 text-sm font-medium transition-all hover:text-primary ${
-          isMobile ? "justify-center sm:justify-start" : ""
-        }`}
-      >
-        <FaPencilAlt className="w-6 h-6" />
-        <span>Blog</span>
       </Link>
     </>
   );

@@ -15,7 +15,6 @@ interface TokenPageData extends HighPotentialTokenMeta {
 export default function HighPotentialTokenPage() {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(slug);
   const [tokenData, setTokenData] = useState<TokenPageData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

@@ -92,12 +92,14 @@ const Blog: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Blog - CAN Trading</title>
+        <title>Trading & Risk Management - CAN Trading</title>
       </Head>
       ""
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-6">
-          <h1 className="text-3xl font-bold mb-8 text-primary px-2">Blog</h1>
+          <h1 className="text-3xl font-bold mb-8 text-primary px-2">
+            Trading & Risk Management
+          </h1>
           <p className="text-text-main text-xl mb-6 px-2">
             Explore the latest insights and stories from our team of experts.
           </p>
