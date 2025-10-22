@@ -53,7 +53,7 @@ const DesktopNav = () => {
         <span className="text-center">Technical Analysis</span>
       </NavDesktopLink>
       <NavDesktopLink href="/vip">
-        <span className="text-center">VIP Services</span>
+        <span className="text-center">VIP Signals</span>
       </NavDesktopLink>
       <NavDesktopLink href="/results">
         <span className="text-center">VIP Results</span>
