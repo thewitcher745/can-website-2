@@ -32,6 +32,11 @@ const availableMonths = [
   "feb-2025",
   "mar-2025",
   "apr-2025",
+  "may-2025",
+  "jun-2025",
+  "jul-2025",
+  "aug-2025",
+  "sep-2025",
 ];
 
 // Generate image file names for each month using imagesCountPerMonth
