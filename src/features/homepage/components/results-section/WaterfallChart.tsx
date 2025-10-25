@@ -22,6 +22,7 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
     <div id="waterfall-chart" className="w-full h-full">
       <BarChart
         dataset={dataset as any}
+        skipAnimation={true}
         xAxis={[
           {
             dataKey: "idx",
@@ -72,6 +73,7 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
         ]}
         sx={{
           // Optional theming to mimic your screenshot
+          "*": { color: "w-full" },
           "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": { fontWeight: 500 },
           "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
             fontWeight: 500,
