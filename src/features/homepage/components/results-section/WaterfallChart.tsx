@@ -33,6 +33,10 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
         yAxis={[
           {
             label: "Gross profit",
+            valueFormatter: (value: number) =>
+              dataset[0].bottomPadding > 0
+                ? String(value)
+                : String(value + dataset[0].bottomPadding),
           },
         ]}
         slotProps={{
@@ -48,7 +52,7 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
             dataKey: "base",
             stack: "wf",
             color: "transparent",
-            label: "Cumulative total",
+            label: "Total gross profit",
             valueFormatter: (value: number) => null,
           },
           {

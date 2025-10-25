@@ -1,0 +1,19 @@
+Date	Symbol	Status	Leverage	$ Used	Type	Last Target	Profit %	Net Profit	1000$
+Thursday, May 29, 2025	GRT/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	2	99.8	4.99%	 $49.91 
+Friday, May 30, 2025	1INCH/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	2	85.8	4.29%	 $42.89 
+Friday, May 30, 2025	RENDER/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	45.2	2.26%	 $22.62 
+Sunday, June 1, 2025	IOTA/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	36.5	1.82%	 $18.25 
+Wednesday, June 4, 2025	CELO/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	1	22.4	1.12%	 $11.19 
+Thursday, June 5, 2025	RUNE/USDT	All Targets Achieved	Isolated (5.0X)	100	Short	2	79.6	7.96%	 $79.61 
+Friday, June 6, 2025	JUP/USDT	All Targets Achieved	Isolated (5.0X)	50	Short	2	93.6	4.68%	 $46.79 
+Friday, June 6, 2025	SEI/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	46.2	2.31%	 $23.11 
+Sunday, June 8, 2025	ONE/USDT	All Targets Achieved	Isolated (5.0X)	50	Short	2	66.2	3.31%	 $33.08 
+Monday, June 9, 2025	ICP/USDT	Stopped Out	Isolated (5.0X)	100	Long	0	-53.1	-5.31%	 $(53.13)
+Wednesday, June 11, 2025	ENS/USDT	Stopped Out	Isolated (5.0X)	100	Long	0	-47.6	-4.76%	 $(47.62)
+Friday, June 13, 2025	CFX/USDT	All Targets Achieved	Isolated (5.0X)	50	Short	2	77.6	3.88%	 $38.82 
+Friday, June 13, 2025	CHR/USDT	All Targets Achieved	Isolated (5.0X)	50	Short	2	67.0	3.35%	 $33.48 
+Tuesday, June 17, 2025	WLD/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Long	1	66.0	6.60%	 $65.99 
+Friday, June 20, 2025	LTC/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	46.4	2.32%	 $23.21 
+Saturday, June 21, 2025	SEI/USDT	All Targets Achieved	Isolated (5.0X)	50	Long	3	97.5	4.88%	 $48.77 
+Friday, June 27, 2025	XRP/USDT	Stopped Out	Isolated (5.0X)	100	Short	1	-14.1	-1.41%	 $(14.06)
+Sunday, June 29, 2025	KAIA/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	13.5	0.67%	 $6.74 

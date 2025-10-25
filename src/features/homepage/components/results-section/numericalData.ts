@@ -1,4 +1,4 @@
-import tradeDataByMonthRaw from "@features/full-results/resultsTableData.json";
+import { tradeDataByMonth } from "@src/features/full-results/resultsTableData";
 
 export interface Trade {
   date: string;
@@ -7,6 +7,7 @@ export interface Trade {
 }
 
 export interface WaterfallPoint {
+  bottomPadding: number;
   idx: number;
   date: string;
   base: number;
@@ -15,19 +16,36 @@ export interface WaterfallPoint {
   total: number;
 }
 
-// Type the JSON import to allow string indexing
-const tradeDataByMonth = tradeDataByMonthRaw as unknown as Record<
-  string,
-  Trade[]
->;
-
 export default function getTrades(monthName: string): Trade[] {
-  return tradeDataByMonth[monthName] ?? [];
+  if (monthName in tradeDataByMonth) {
+    const key = monthName as keyof typeof tradeDataByMonth;
+    const entries = tradeDataByMonth[key] ?? [];
+    return entries.map((e) => ({
+      date: e.date,
+      symbol: e.symbol,
+      profit_percent: e.profit_percent,
+    }));
+  }
+  return [];
+}
+
+// Find the lowest value of an array's cumulative total
+export function getLowestPoint(trades: Trade[]): any {
+  let cumulative = 0;
+  const cumTotal = trades.map((t) => {
+    cumulative += t.profit_percent;
+    return cumulative;
+  });
+  return Math.min(...cumTotal);
 }
 
 export function toWaterfallDataset(monthName: string): WaterfallPoint[] {
   const trades = getTrades(monthName);
-  let cumulative = 0;
+  const lowestPoint = getLowestPoint(trades);
+  const bottomPadding =
+    lowestPoint < 0 ? Math.round(lowestPoint / 100) * 100 : 0;
+  let cumulative = Math.abs(bottomPadding);
+
   return trades.map((t, i) => {
     const delta = t.profit_percent;
     // For positive delta: base is current cumulative and inc is delta
@@ -38,6 +56,7 @@ export function toWaterfallDataset(monthName: string): WaterfallPoint[] {
     const dec = isPos ? 0 : -delta; // positive height for the negative bar
     cumulative += delta;
     return {
+      bottomPadding,
       idx: i + 1,
       date: t.date,
       base,

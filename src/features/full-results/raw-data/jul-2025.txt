@@ -1,0 +1,20 @@
+Date	Symbol	Status	Leverage	$ Used	Type	Last Target	Profit %	Net Profit	1000$
+Tuesday, December 24, 2024	CRV/USDT	Partial Targets Achieved	Isolated (1.0X)	100	Long	1	61.04	6.10%	 $61.04 
+Thursday, March 13, 2025	NEAR/USDT	Partial Targets Achieved	Isolated (1.0X)	100	Long	1	53.61	5.36%	 $53.61 
+Thursday, March 13, 2025	CKB/USDT	Partial Targets Achieved	Isolated (1.0X)	100	Long	1	114.77	11.48%	 $114.77 
+Thursday, May 15, 2025	BRETT/USDT	Partial Targets Achieved	Isolated (1.0X)	100	Long	1	35.15	3.52%	 $35.15 
+Thursday, July 3, 2025	JUP/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Long	1	41.35	4.14%	 $41.35 
+Friday, July 4, 2025	DYDX/USDT	All Targets Achieved	Isolated (5.0X)	50	Long	2	71.29	3.56%	 $35.65 
+Saturday, July 5, 2025	PENGU/USDT	Partial Targets Achieved	Isolated (1.0X)	50	Long	1	123.15	6.16%	 $61.58 
+Wednesday, July 9, 2025	ONE/USDT	All Targets Achieved	Isolated (5.0X)	50	Long	2	99.79	4.99%	 $49.90 
+Friday, July 11, 2025	XAI/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Long	1	40.10	4.01%	 $40.10 
+Friday, July 11, 2025	APT/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	39.78	1.99%	 $19.89 
+Friday, July 11, 2025	CHR/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	47.33	2.37%	 $23.67 
+Monday, July 14, 2025	NEAR/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	2	63.20	3.16%	 $31.60 
+Friday, July 18, 2025	ADA/USDT	At Etnry Zone	Isolated (5.0X)	50	Long	0	0.11	0.01%	 $0.06 
+Tuesday, July 22, 2025	ONE/USDT	All Targets Achieved	Isolated (5.0X)	50	Short	2	92.44	4.62%	 $46.22 
+Tuesday, July 22, 2025	LINK/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	17.12	0.86%	 $8.56 
+Wednesday, July 23, 2025	ALICE/USDT	All Targets Achieved	Isolated (5.0X)	50	Short	2	63.61	3.18%	 $31.80 
+Monday, July 28, 2025	S/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	1	39.48	1.97%	 $19.74 
+Tuesday, July 29, 2025	LDO/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	1	55.80	2.79%	 $27.90 
+Thursday, July 31, 2025	IOTA/USDT	Stopped Out	Isolated (5.0X)	100	Long	0	-14.75	-1.48%	 $(14.75)
