@@ -27,13 +27,13 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
           {
             dataKey: "idx",
             scaleType: "band",
-            label: "Signal #",
-            valueFormatter: (idx, context) => `Signal #${idx}`,
+            label: "Signal Number",
+            valueFormatter: (idx, context) => `${idx}`,
           },
         ]}
         yAxis={[
           {
-            label: "Gross profit",
+            label: "Gross profit %",
             valueFormatter: (value: number) =>
               dataset[0].bottomPadding > 0
                 ? String(value)
