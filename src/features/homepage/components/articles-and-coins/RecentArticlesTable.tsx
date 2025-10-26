@@ -58,7 +58,7 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
       },
       { title: "Recent News", data: news, slug: "news" },
     ],
-    [news, fundamentals, blog]
+    [news, blog]
   );
 
   const nextSlide = () => {

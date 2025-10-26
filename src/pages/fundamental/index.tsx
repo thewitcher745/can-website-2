@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import Footer from "@shared/ui/Footer";
 import { ArticleMeta } from "@src/types";
-import Listings from "@src/features/articles/slug/Listings";
+import Listings from "@src/features/articles/Listings";
 import { GetStaticProps } from "next";
 import { createListingGetStaticProps } from "@src/features/articles/listingIsr";
 
@@ -35,7 +35,8 @@ const Fundamental: React.FC<FundamentalIndexProps> = ({ items }) => {
             Fundamental Analysis
           </h1>
           <p className="text-text-main text-xl mb-6 px-2">
-            Discover the latest insights into fundamental analysis and gain a deeper understanding of the markets.
+            Discover the latest insights into fundamental analysis and gain a
+            deeper understanding of the markets.
           </p>
           <Listings
             items={filteredPosts}
@@ -50,8 +51,6 @@ const Fundamental: React.FC<FundamentalIndexProps> = ({ items }) => {
     </>
   );
 };
-
-
 
 export default Fundamental;
 

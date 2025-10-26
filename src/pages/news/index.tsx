@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import Footer from "@shared/ui/Footer";
 import { ArticleMeta } from "@src/types";
-import Listings from "@src/features/articles/slug/Listings";
+import Listings from "@src/features/articles/Listings";
 import { GetStaticProps } from "next";
 import { createListingGetStaticProps } from "@src/features/articles/listingIsr";
 
@@ -20,7 +20,9 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
   };
 
   const filteredArticles = filterTags
-    ? items.filter((article) => filterTags?.some((tag) => article.tags.includes(tag)))
+    ? items.filter((article) =>
+        filterTags?.some((tag) => article.tags.includes(tag))
+      )
     : items;
 
   return (
@@ -33,7 +35,8 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
         <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 pt-6 px-4">
           <h1 className="text-3xl font-bold mb-8 text-primary px-2">News</h1>
           <p className="text-text-main text-xl mb-6 px-2">
-            Stay updated with the latest news and announcements from CAN Trading.
+            Stay updated with the latest news and announcements from CAN
+            Trading.
           </p>
           <Listings
             items={filteredArticles}

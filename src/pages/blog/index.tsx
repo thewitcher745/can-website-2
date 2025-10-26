@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import Footer from "@shared/ui/Footer";
 import { ArticleMeta } from "@src/types";
-import Listings from "@src/features/articles/slug/Listings";
+import Listings from "@src/features/articles/Listings";
 import { GetStaticProps } from "next";
 import { createListingGetStaticProps } from "@src/features/articles/listingIsr";
 

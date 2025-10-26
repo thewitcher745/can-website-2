@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+
 import { ArticleMeta } from "@src/types";
 import { formatRelativeTime } from "@src/utils";
 
@@ -54,8 +55,7 @@ const Listings: React.FC<ListingsProps> = ({
                   <img
                     src={article.thumbnail}
                     alt={article.title}
-                    className="h-full w-full"
-                    style={{ objectFit: "cover" }}
+                    className="h-full w-full object-cover object-top"
                   />
                 </Link>
               </div>
@@ -64,7 +64,9 @@ const Listings: React.FC<ListingsProps> = ({
                 <div className="text-wrap h-full">
                   <div className="line-clamp-2 sm:line-clamp-3 md:line-clamp-4 lg:h-1/2 md:h-1/3">
                     <h2 className="text-md font-normal mx-3 sm:mx-0 text-text-main hover:text-primary transition-colors mb-2">
-                      <Link href={`${baseHref}/${article.slug}`}>{article.title}</Link>
+                      <Link href={`${baseHref}/${article.slug}`}>
+                        {article.title}
+                      </Link>
                     </h2>
                   </div>
                   <div className="line-clamp-3">
@@ -95,4 +97,3 @@ const Listings: React.FC<ListingsProps> = ({
 };
 
 export default Listings;
-
