@@ -1,5 +1,30 @@
 [
   {
+    "label": "sep-2025",
+    "winrate": 72,
+    "grossProfit": 1361.58
+  },
+  {
+    "label": "aug-2025",
+    "winrate": 90,
+    "grossProfit": 1067.49
+  },
+  {
+    "label": "jul-2025",
+    "winrate": 95,
+    "grossProfit": 1044.36
+  },
+  {
+    "label": "jun-2025",
+    "winrate": 83,
+    "grossProfit": 828.51
+  },
+  {
+    "label": "may-2025",
+    "winrate": 82,
+    "grossProfit": 837.31
+  },
+  {
     "label": "apr-2025",
     "winrate": 75,
     "grossProfit": 505.88

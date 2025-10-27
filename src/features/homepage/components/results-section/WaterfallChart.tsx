@@ -22,17 +22,22 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
     <div id="waterfall-chart" className="w-full h-full">
       <BarChart
         dataset={dataset as any}
+        skipAnimation={true}
         xAxis={[
           {
             dataKey: "idx",
             scaleType: "band",
-            label: "Signal #",
-            valueFormatter: (idx, context) => `Signal #${idx}`,
+            label: "Signal Number",
+            valueFormatter: (idx, context) => `${idx}`,
           },
         ]}
         yAxis={[
           {
-            label: "Gross profit",
+            label: "Gross profit %",
+            valueFormatter: (value: number) =>
+              dataset[0].bottomPadding > 0
+                ? String(value)
+                : String(value + dataset[0].bottomPadding),
           },
         ]}
         slotProps={{
@@ -48,7 +53,7 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
             dataKey: "base",
             stack: "wf",
             color: "transparent",
-            label: "Cumulative total",
+            label: "Total gross profit",
             valueFormatter: (value: number) => null,
           },
           {
@@ -68,6 +73,7 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
         ]}
         sx={{
           // Optional theming to mimic your screenshot
+          "*": { color: "w-full" },
           "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": { fontWeight: 500 },
           "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
             fontWeight: 500,

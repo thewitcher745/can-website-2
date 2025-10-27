@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { FaTelegram, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaTelegram, FaTiktok, FaXTwitter } from "react-icons/fa6";
 
 const Banner = ({ className }: { className?: string }) => {
   return (
@@ -8,8 +8,8 @@ const Banner = ({ className }: { className?: string }) => {
       className={`w-full relative flex justify-center max-w-6xl sm:pt-20 ${className}`}
     >
       <div className="w-250 flex p-10 pt-25 md:p-10 rounded-t-4xl bg-gradient-to-b from-orange-400 to-background overflow-x-hidden overflow-y-visible">
-        <div className="w-180 md:w-82 lg:w-120">
-          <div className="border-b border-gray-800 pb-4">
+        <div className="w-full">
+          <div className="w-full md:w-82 lg:w-120 border-b border-gray-800 pb-4">
             <span className="text-white font-bold text-4xl text-wrap">
               Join us!
             </span>
@@ -21,25 +21,43 @@ const Banner = ({ className }: { className?: string }) => {
             </p>
           </div>
           <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-start items-center mt-2 gap-2 sm:gap-4">
-            <div className="hidden md:hidden lg:block bg-offwhite p-3 w-50 h-20 rounded-xl mt-4 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
+            <div className="hidden md:hidden lg:flex bg-offwhite p-3 w-50 h-20 rounded-xl mt-4 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
               <a
                 href="https://t.me/CryptoANalysis_CAN"
                 className="text-black text-lg text-wrap font-semibold flex items-center gap-4"
               >
                 <FaTelegram className="text-3xl" />
-                <span className="text-black">Follow us on Telegram</span>
+                <span className="text-black">Our Telegram</span>
               </a>
             </div>
-            <div className="hidden md:hidden lg:block bg-offwhite p-3 w-50 h-20 rounded-xl mt-4 items-center justify-center hover:bg-primary transition duration-200">
+            <div className="hidden md:hidden lg:flex bg-offwhite p-3 w-50 h-20 rounded-xl mt-4 items-center justify-center hover:bg-primary transition duration-200">
               <a
                 href="https://x.com/COINEO963"
                 className="text-black text-lg text-wrap font-semibold flex items-center gap-4"
               >
                 <FaXTwitter className="text-3xl" />
-                <span className="text-black">Connect with us on X</span>
+                <span className="text-black">Our X/Twitter</span>
               </a>
             </div>
-            <div className="block lg:hidden bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
+            <div className="hidden md:hidden lg:flex bg-offwhite p-3 w-50 h-20 rounded-xl mt-4 items-center justify-center hover:bg-primary transition duration-200">
+              <a
+                href="https://www.instagram.com/CryptoANalysis_CAN"
+                className="text-black text-lg text-wrap font-semibold flex items-center gap-4"
+              >
+                <FaInstagram className="text-3xl" />
+                <span className="text-black">Our Instagram</span>
+              </a>
+            </div>
+            <div className="hidden md:hidden lg:flex bg-offwhite p-3 w-50 h-20 rounded-xl mt-4 items-center justify-center hover:bg-primary transition duration-200">
+              <a
+                href="https://www.tiktok.com/@cryptoanalysis_can"
+                className="text-black text-lg text-wrap font-semibold flex items-center gap-4"
+              >
+                <FaTiktok className="text-3xl" />
+                <span className="text-black">Our TikTok</span>
+              </a>
+            </div>
+            <div className="flex lg:hidden bg-offwhite p-2 w-40 border border-red-500 h-12 rounded-xl mt-0 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
               <a
                 href="https://t.me/CryptoANalysis_CAN"
                 className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
@@ -48,13 +66,31 @@ const Banner = ({ className }: { className?: string }) => {
                 <span className="text-black">Telegram</span>
               </a>
             </div>
-            <div className="block lg:hidden bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center hover:bg-primary transition duration-200">
+            <div className="flex lg:hidden bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center hover:bg-primary transition duration-200">
               <a
                 href="https://x.com/COINEO963"
                 className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
               >
                 <FaXTwitter className="text-3xl" />
                 <span className="text-black">X</span>
+              </a>
+            </div>
+            <div className="flex lg:hidden bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center hover:bg-primary transition duration-200">
+              <a
+                href="https://instagram.com/coinanalysis_can"
+                className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
+              >
+                <FaInstagram className="text-3xl" />
+                <span className="text-black">Instagram</span>
+              </a>
+            </div>
+            <div className="flex lg:hidden bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center hover:bg-primary transition duration-200">
+              <a
+                href="https://www.tiktok.com/@cryptoanalysis_can"
+                className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
+              >
+                <FaTiktok className="text-3xl" />
+                <span className="text-black">TikTok</span>
               </a>
             </div>
           </div>

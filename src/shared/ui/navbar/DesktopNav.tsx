@@ -5,10 +5,12 @@ import ArticlesMenuButton from "./ArticlesMenu";
 const NavDesktopLink = ({
   href,
   linksToMatch,
+  isLink = true,
   children,
 }: {
   href: string;
   linksToMatch?: string[] | string;
+  isLink?: boolean;
   children: React.ReactNode;
 }) => {
   const router = useRouter();
@@ -29,18 +31,32 @@ const NavDesktopLink = ({
     isCurrentPath = href === currentPath;
   }
 
-  return (
-    <Link
-      href={href}
-      className={`flex items-center justify-center h-full hover:text-orange sm:px-3 lg:px-6 py-2 text-sm font-medium ${
-        isCurrentPath
-          ? "border-b-4 text-primary border-orange-400"
-          : "text-text-main"
-      }`}
-    >
-      {children}
-    </Link>
-  );
+  if (isLink) {
+    return (
+      <Link
+        href={href}
+        className={`flex items-center justify-center h-full hover:text-orange sm:px-3 lg:px-6 py-2 text-sm font-medium ${
+          isCurrentPath
+            ? "border-b-4 text-primary border-orange-400"
+            : "text-text-main"
+        }`}
+      >
+        {children}
+      </Link>
+    );
+  } else {
+    return (
+      <div
+        className={`flex items-center justify-center h-full hover:text-orange sm:px-3 lg:px-6 py-2 text-sm font-medium ${
+          isCurrentPath
+            ? "border-b-4 text-primary border-orange-400"
+            : "text-text-main"
+        }`}
+      >
+        {children}
+      </div>
+    );
+  }
 };
 
 const DesktopNav = () => {
@@ -53,12 +69,13 @@ const DesktopNav = () => {
         <span className="text-center">Technical Analysis</span>
       </NavDesktopLink>
       <NavDesktopLink href="/vip">
-        <span className="text-center">VIP Services</span>
+        <span className="text-center">VIP Signals</span>
       </NavDesktopLink>
       <NavDesktopLink href="/results">
         <span className="text-center">VIP Results</span>
       </NavDesktopLink>
       <NavDesktopLink
+        isLink={false}
         linksToMatch={["/news", "/blog", "/fundamental"]}
         href="#"
       >

@@ -1,0 +1,131 @@
+Date	Symbol	Status	Leverage	$ Used	Type	Last Target	Profit %	Net Profit	 $1,000.00 
+Monday, September 1, 2025	CHZ/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-29.6	-1.48%	 $(14.82)
+Wednesday, September 3, 2025	ALGO/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-28.5	-1.42%	 $(14.23)
+Wednesday, September 3, 2025	YFI/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-30.0	-1.50%	 $(15.02)
+Thursday, September 4, 2025	CHZ/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-30.2	-1.51%	 $(15.11)
+Thursday, September 4, 2025	XVG/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-29.8	-1.49%	 $(14.88)
+Thursday, September 4, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.50 
+Friday, September 5, 2025	ACH/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-9.6	-0.48%	 $(4.79)
+Friday, September 5, 2025	ACH/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-9.6	-0.48%	 $(4.79)
+Saturday, September 6, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	12.3	0.62%	 $6.16 
+Saturday, September 6, 2025	SNX/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	2	14.9	0.75%	 $7.46 
+Saturday, September 6, 2025	YFI/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	53.4	2.67%	 $26.70 
+Saturday, September 6, 2025	ZEN/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-30.1	-1.50%	 $(15.03)
+Sunday, September 7, 2025	ATA/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.5	0.27%	 $2.74 
+Sunday, September 7, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.48 
+Sunday, September 7, 2025	ALGO/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-14.9	-0.74%	 $(7.43)
+Sunday, September 7, 2025	ALGO/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.1	0.25%	 $2.53 
+Sunday, September 7, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	4.9	0.25%	 $2.47 
+Sunday, September 7, 2025	ALICE/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	50.6	2.53%	 $25.28 
+Sunday, September 7, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	4.9	0.25%	 $2.47 
+Sunday, September 7, 2025	SNX/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.2	0.26%	 $2.61 
+Sunday, September 7, 2025	ALICE/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-28.1	-1.40%	 $(14.04)
+Sunday, September 7, 2025	YFI/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	52.3	2.62%	 $26.15 
+Monday, September 8, 2025	SNX/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.1	0.25%	 $2.54 
+Monday, September 8, 2025	YFI/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-30.0	-1.50%	 $(14.98)
+Monday, September 8, 2025	ATA/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	2	28.4	1.42%	 $14.21 
+Monday, September 8, 2025	SNX/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.1	0.25%	 $2.54 
+Monday, September 8, 2025	ACH/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	50.3	2.51%	 $25.13 
+Monday, September 8, 2025	ALICE/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	3	32.4	1.62%	 $16.22 
+Tuesday, September 9, 2025	SNX/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.3	2.51%	 $25.14 
+Tuesday, September 9, 2025	XVG/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	49.8	2.49%	 $24.91 
+Tuesday, September 9, 2025	SNX/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.3	2.51%	 $25.14 
+Tuesday, September 9, 2025	ALICE/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	3	87.0	4.35%	 $43.49 
+Tuesday, September 9, 2025	XVG/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	104.4	5.22%	 $52.22 
+Tuesday, September 9, 2025	CHZ/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	2	17.3	0.87%	 $8.66 
+Tuesday, September 9, 2025	YFI/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	49.8	2.49%	 $24.90 
+Tuesday, September 9, 2025	CHZ/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	2	16.8	0.84%	 $8.42 
+Wednesday, September 10, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.48 
+Wednesday, September 10, 2025	ATA/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.7	2.54%	 $25.35 
+Wednesday, September 10, 2025	XVG/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	91.2	4.56%	 $45.59 
+Wednesday, September 10, 2025	ATA/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	2	15.2	0.76%	 $7.61 
+Wednesday, September 10, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.1	0.26%	 $2.55 
+Thursday, September 11, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.1	0.26%	 $2.55 
+Friday, September 12, 2025	ALGO/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-30.0	-1.50%	 $(15.00)
+Friday, September 12, 2025	ATA/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	9.5	0.47%	 $4.75 
+Friday, September 12, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.51 
+Friday, September 12, 2025	CHZ/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	49.7	2.49%	 $24.86 
+Friday, September 12, 2025	CHZ/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.49 
+Friday, September 12, 2025	SNX/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	100.5	5.02%	 $50.24 
+Saturday, September 13, 2025	CHZ/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-31.0	-1.55%	 $(15.50)
+Saturday, September 13, 2025	ALGO/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	3	69.8	3.49%	 $34.89 
+Saturday, September 13, 2025	SNX/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	96.6	4.83%	 $48.28 
+Saturday, September 13, 2025	YFI/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-29.8	-1.49%	 $(14.88)
+Sunday, September 14, 2025	SNX/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	49.9	2.49%	 $24.93 
+Sunday, September 14, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.50 
+Sunday, September 14, 2025	XVG/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.1	0.26%	 $2.55 
+Sunday, September 14, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.51 
+Sunday, September 14, 2025	ACH/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	50.0	2.50%	 $25.00 
+Monday, September 15, 2025	ALGO/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.0	0.25%	 $2.52 
+Monday, September 15, 2025	SNX/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	4.9	0.24%	 $2.43 
+Monday, September 15, 2025	ALGO/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.0	2.50%	 $24.99 
+Monday, September 15, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	4.9	0.24%	 $2.45 
+Monday, September 15, 2025	ALICE/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.6	0.28%	 $2.79 
+Tuesday, September 16, 2025	ALGO/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-32.0	-1.60%	 $(15.99)
+Tuesday, September 16, 2025	SNX/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-31.5	-1.58%	 $(15.76)
+Tuesday, September 16, 2025	ALGO/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	2	14.9	0.74%	 $7.44 
+Tuesday, September 16, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.48 
+Tuesday, September 16, 2025	CHZ/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-30.0	-1.50%	 $(15.02)
+Wednesday, September 17, 2025	CHZ/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	61.0	3.05%	 $30.50 
+Wednesday, September 17, 2025	ALICE/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	6.9	0.35%	 $3.46 
+Wednesday, September 17, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.3	0.26%	 $2.65 
+Wednesday, September 17, 2025	XVG/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	6.3	0.32%	 $3.17 
+Wednesday, September 17, 2025	ALICE/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	6.9	0.35%	 $3.46 
+Wednesday, September 17, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.1	0.26%	 $2.56 
+Wednesday, September 17, 2025	ZEN/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-30.2	-1.51%	 $(15.09)
+Wednesday, September 17, 2025	SNX/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-29.4	-1.47%	 $(14.68)
+Wednesday, September 17, 2025	CHZ/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-36.6	-1.83%	 $(18.30)
+Wednesday, September 17, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	3	31.7	1.59%	 $15.87 
+Wednesday, September 17, 2025	ALGO/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-29.8	-1.49%	 $(14.89)
+Wednesday, September 17, 2025	ATA/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	49.7	2.48%	 $24.84 
+Thursday, September 18, 2025	ZEN/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.0	0.25%	 $2.50 
+Thursday, September 18, 2025	YFI/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-29.8	-1.49%	 $(14.91)
+Thursday, September 18, 2025	ALGO/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.4	2.52%	 $25.18 
+Thursday, September 18, 2025	SNX/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-30.6	-1.53%	 $(15.28)
+Friday, September 19, 2025	ACH/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-29.7	-1.48%	 $(14.83)
+Friday, September 19, 2025	CHZ/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-32.1	-1.60%	 $(16.04)
+Friday, September 19, 2025	ATA/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	49.7	2.48%	 $24.84 
+Friday, September 19, 2025	SNX/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-30.1	-1.50%	 $(15.03)
+Friday, September 19, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	4.9	0.24%	 $2.44 
+Friday, September 19, 2025	XVG/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	3	29.9	1.50%	 $14.96 
+Friday, September 19, 2025	ALICE/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.6	0.28%	 $2.79 
+Friday, September 19, 2025	ALICE/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.6	0.28%	 $2.79 
+Saturday, September 20, 2025	SNX/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-29.3	-1.46%	 $(14.64)
+Saturday, September 20, 2025	SNX/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-29.3	-1.46%	 $(14.64)
+Saturday, September 20, 2025	CHZ/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.51 
+Saturday, September 20, 2025	CHZ/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.51 
+Saturday, September 20, 2025	XVG/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	2	14.9	0.74%	 $7.44 
+Sunday, September 21, 2025	YFI/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-30.1	-1.50%	 $(15.05)
+Sunday, September 21, 2025	XVG/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.48 
+Sunday, September 21, 2025	ACH/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-25.7	-1.28%	 $(12.85)
+Sunday, September 21, 2025	YFI/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-19.5	-0.98%	 $(9.76)
+Tuesday, September 23, 2025	SNX/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.7	2.53%	 $25.33 
+Tuesday, September 23, 2025	SNX/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	4.8	0.24%	 $2.40 
+Tuesday, September 23, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.48 
+Tuesday, September 23, 2025	ACH/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.50 
+Tuesday, September 23, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.48 
+Tuesday, September 23, 2025	CHZ/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	2	15.0	0.75%	 $7.48 
+Wednesday, September 24, 2025	ALGO/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	60.4	3.02%	 $30.20 
+Wednesday, September 24, 2025	ATA/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.9	2.54%	 $25.43 
+Wednesday, September 24, 2025	SNX/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	4.8	0.24%	 $2.40 
+Wednesday, September 24, 2025	ZEN/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.0	0.25%	 $2.51 
+Wednesday, September 24, 2025	ZEN/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.1	2.51%	 $25.06 
+Thursday, September 25, 2025	ATA/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.4	2.52%	 $25.19 
+Thursday, September 25, 2025	CHZ/USDT	Stopped Out	Isolated (20.0X)	50	Long	0	-49.6	-2.48%	 $(24.82)
+Thursday, September 25, 2025	YFI/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	5.0	0.25%	 $2.48 
+Thursday, September 25, 2025	CHZ/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	2	15.0	0.75%	 $7.48 
+Thursday, September 25, 2025	ATA/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	50.4	2.52%	 $25.19 
+Friday, September 26, 2025	ZEN/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	2	24.7	1.24%	 $12.36 
+Friday, September 26, 2025	ZEN/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-49.3	-2.46%	 $(24.63)
+Saturday, September 27, 2025	CHZ/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	49.6	2.48%	 $24.82 
+Saturday, September 27, 2025	ALGO/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	3	31.0	1.55%	 $15.51 
+Sunday, September 28, 2025	ALGO/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.1	0.25%	 $2.55 
+Sunday, September 28, 2025	ATA/USDT	All Targets Achieved	Isolated (20.0X)	50	Short	4	51.2	2.56%	 $25.58 
+Monday, September 29, 2025	ALICE/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Long	1	6.6	0.33%	 $3.28 
+Monday, September 29, 2025	ZEN/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-50.2	-2.51%	 $(25.09)
+Monday, September 29, 2025	ALGO/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	9.0	0.45%	 $4.48 
+Monday, September 29, 2025	ZEN/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.0	0.25%	 $2.49 
+Monday, September 29, 2025	ALGO/USDT	Partial Targets Achieved	Isolated (20.0X)	50	Short	1	5.1	0.25%	 $2.54 
+Monday, September 29, 2025	ALICE/USDT	All Targets Achieved	Isolated (20.0X)	50	Long	4	39.3	1.97%	 $19.67 
+Tuesday, September 30, 2025	ZEN/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-30.2	-1.51%	 $(15.08)
+Wednesday, October 1, 2025	ZEN/USDT	Stopped Out	Isolated (20.0X)	50	Short	0	-30.0	-1.50%	 $(15.00)

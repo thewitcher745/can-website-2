@@ -1,0 +1,21 @@
+Date	Symbol	Status	Leverage	$ Used	Type	Last Target	Profit %	Net Profit	1000$
+Thursday, May 1, 2025	BAND/USDT	Partial Targets Achieved	Isolated (1.0X)	100	Long	2	127.02	12.70%	 $127.02 
+Monday, June 2, 2025	LINK/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Long	1	44.96	4.50%	 $44.96 
+Wednesday, May 28, 2025	SKL/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Long	2	117.12	11.71%	 $117.12 
+Thursday, July 24, 2025	ADA/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Long	2	80.39	8.04%	 $80.39 
+Wednesday, July 23, 2025	ETH/USDT	All Targets Achieved	Isolated (5.0X)	50	Long	2	74.71	3.74%	 $37.36 
+Thursday, July 24, 2025	LINK/USDT	All Targets Achieved	Isolated (5.0X)	100	Long	3	102.10	10.21%	 $102.10 
+Saturday, August 2, 2025	SOL/USDT	All Targets Achieved	Isolated (5.0X)	50	Long	3	127.69	6.38%	 $63.85 
+Wednesday, August 6, 2025	POL/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	2	89.97	4.50%	 $44.98 
+Saturday, August 9, 2025	STG/USDT	Stopped Out	Isolated (5.0X)	100	Short	0	-48.02	-4.80%	 $(48.02)
+Monday, August 11, 2025	LDO/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	41.94	2.10%	 $20.97 
+Monday, August 11, 2025	MANA/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Short	1	40.02	4.00%	 $40.02 
+Monday, August 11, 2025	ALGO/USDT	Stopped Out	Isolated (5.0X)	100	Short	0	-40.11	-4.01%	 $(40.11)
+Thursday, August 14, 2025	LDO/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	60.98	3.05%	 $30.49 
+Saturday, August 16, 2025	BAT/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	36.04	1.80%	 $18.02 
+Sunday, August 17, 2025	ATOM/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Long	1	20.09	2.01%	 $20.09 
+Monday, August 18, 2025	ETH/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	2	59.78	2.99%	 $29.89 
+Tuesday, August 19, 2025	DUSK/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Long	1	45.56	2.28%	 $22.78 
+Tuesday, August 26, 2025	ATOM/USDT	Partial Targets Achieved	Isolated (5.0X)	100	Short	1	40.18	4.02%	 $40.18 
+Tuesday, August 26, 2025	TIA/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	1	33.14	1.66%	 $16.57 
+Friday, August 29, 2025	FIL/USDT	Partial Targets Achieved	Isolated (5.0X)	50	Short	1	13.93	0.70%	 $6.96 
