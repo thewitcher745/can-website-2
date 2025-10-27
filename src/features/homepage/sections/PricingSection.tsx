@@ -51,11 +51,11 @@ const PricingSection: React.FC = () => (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-          We Believe in Financial Freedom
+          We Believe in Financial Freedom Through Trading
         </h2>
         <p className="text-lg text-primary-light max-w-2xl mx-auto mb-4">
-          In our hard work to find it, we would like to help others along the
-          way as well.
+          In our hard work to find it, we would like to help others on their
+          trading journey as well.
         </p>
         <h3 className="text-xl font-semibold text-primary mb-2">
           What CAN you expect from our{" "}
