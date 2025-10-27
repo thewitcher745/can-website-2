@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import {
   ChevronLeft,
   ChevronRight,
-  ChevronDown,
-  ChevronUp,
 } from "lucide-react";
 import Link from "next/link";
 
 import { buildApiUrl } from "@src/config";
 import { TopCoin, TopCoinLists } from "@src/types";
-import Logo from "@src/shared/ui/Logo";
+import TableRow from "./TableRow";
 
 const TopCoinsTable = ({ className }: { className?: string }) => {
   const [data, setData] = useState<TopCoinLists | null>(null);
@@ -89,67 +87,12 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
     );
   };
 
-  const renderCaret = (change: number) => {
-    const isPositive = change >= 0;
-    const colorClass = isPositive ? "text-success" : "text-error";
-    return (
-      <div className={`h-4 w-4 ${colorClass} pr-3`}>
-        {isPositive ? (
-          <ChevronUp className="h-4 w-4" />
-        ) : (
-          <ChevronDown className="h-4 w-4" />
-        )}
-      </div>
-    );
-  };
-
   const renderTableRows = (coins: TopCoin[]) => {
     const rows = [];
     for (let i = 0; i < 5; i++) {
       const coin = coins[i];
 
-      rows.push(
-        <tr key={i} className="border-b border-border h-1/5">
-          {coin ? (
-            <>
-              <td className="px-2 py-2 w-1/2">
-                <div className="flex items-center gap-3">
-                  <Logo symbol={coin.symbol} />
-                  <div className="flex flex-col truncate">
-                    <span className="truncate font-semibold text-sm">
-                      {coin.name}
-                    </span>
-                    <span className="text-xs font-medium text-text-muted">
-                      {coin.symbol}USDT
-                    </span>
-                  </div>
-                </div>
-              </td>
-              <td className="opacity-80 text-md font-light px-4 py-2 w-1/4">
-                ${coin.price}
-              </td>
-              <td
-                className={`px-4 py-2 font-bold w-1/4 ${
-                  coin.change >= 0 ? "text-success" : "text-error"
-                }`}
-              >
-                <div className="flex items-center gap-1">
-                  {renderCaret(coin.change)}
-                  <span className="text-sm font-semibold text-nowrap">
-                    {Math.abs(coin.change).toFixed(2)} %
-                  </span>
-                </div>
-              </td>
-            </>
-          ) : (
-            <>
-              <td className="px-4 py-2 w-1/2">&nbsp;</td>
-              <td className="px-4 py-2 w-1/4">&nbsp;</td>
-              <td className="px-4 py-2 w-1/4">&nbsp;</td>
-            </>
-          )}
-        </tr>
-      );
+      rows.push(<TableRow coin={coin} />);
     }
     return rows;
   };

@@ -3,8 +3,8 @@ import Link from "next/link";
 
 import FearAndGreed from "@shared/ui/technicals/FearAndGreed";
 import Dominance from "@shared/ui/technicals/Dominance";
-import TopCoinsTable from "../components/articles-and-coins/TopCoinsTable";
-import RecentArticlesTable from "../components/articles-and-coins/RecentArticlesTable";
+import TopCoinsTable from "../components/articles-and-coins/top-coins/TopCoinsTable";
+import RecentArticlesTable from "../components/articles-and-coins/recent-articles/RecentArticlesTable";
 
 const TopRowGadgetsSection: React.FC = () => {
   return (

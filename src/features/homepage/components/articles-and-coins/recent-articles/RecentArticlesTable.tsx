@@ -9,7 +9,6 @@ import { normalizeItem } from "./utils";
 
 const RecentArticlesTable = ({ className }: { className?: string }) => {
   const [news, setNews] = useState<ArticleItem[]>([]);
-  const [fundamentals, setFundamentals] = useState<ArticleItem[]>([]);
   const [blog, setBlog] = useState<ArticleItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,22 +19,18 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
       try {
         setLoading(true);
         setError(null);
-        const [blogRes, newsRes, fundRes] = await Promise.all([
+        const [blogRes, newsRes] = await Promise.all([
           fetch(buildApiUrl(`/api/blog`)),
           fetch(buildApiUrl(`/api/recent_news`)),
-          fetch(buildApiUrl(`/api/recent_fundamental`)),
         ]);
 
         if (!blogRes.ok) throw new Error("Failed to fetch recent blog posts.");
         if (!newsRes.ok) throw new Error("Failed to fetch recent news.");
-        if (!fundRes.ok) throw new Error("Failed to fetch recent fundamental.");
 
         const blogJson: ArticleItemRaw[] = await blogRes.json();
         const newsJson: ArticleItemRaw[] = await newsRes.json();
-        const fundJson: ArticleItemRaw[] = await fundRes.json();
 
         setNews(newsJson.map(normalizeItem));
-        setFundamentals(fundJson.map(normalizeItem));
         setBlog(blogJson.map(normalizeItem));
       } catch (err) {
         setError(
