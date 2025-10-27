@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
 
 import { buildApiUrl } from "@src/config";
 import Footer from "@src/shared/ui/Footer";
-import Navbar from "@shared/ui/navbar/Navbar";
 import { HighPotentialTokenMeta } from "@src/types";
 
 interface TokenPageData extends HighPotentialTokenMeta {
@@ -97,44 +97,49 @@ export default function HighPotentialTokenPage() {
       ""
       <main className="bg-background min-h-screen">
         <section className="w-full flex justify-center pt-6">
-          <div className="max-w-custom flex lg:flex-row flex-col w-full px-4 gap-4">
-            <div className="flex flex-col gap-2 w-full lg:w-1/4">
-              <div className="flex flex-wrap gap-4 rounded-xl border border-text-muted p-2 items-center justify-center sm:justify-start lg:justify-center 2xl:justify-between">
-                <div
-                  className={`w-20 h-20 rounded-full border-6 border-${tokenData.category} aspect-square overflow-hidden`}
-                >
-                  <img
-                    src={tokenData.logo}
-                    alt={tokenData.name}
-                    className="size-full object-fit shadow-lg"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 p-2">
-                  <div className="flex gap-4 items-center justify-between">
-                    <span className="text-text-muted">Token name:</span>
-                    <span className="text-text-main text-right text-xl">
-                      {tokenData.name}
-                    </span>
+          <div className="max-w-custom flex flex-col w-full px-4 gap-4">
+            <Link href="/" className="text-primary hover:underline text-sm">
+              ← Back to Homepage
+            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 w-full">
+              <div className="flex flex-col  gap-2 w-full lg:w-1/4">
+                <div className="flex flex-wrap gap-4 rounded-xl border border-text-muted p-2 items-center justify-center sm:justify-start lg:justify-center 2xl:justify-between">
+                  <div
+                    className={`w-20 h-20 rounded-full border-6 border-${tokenData.category} aspect-square overflow-hidden`}
+                  >
+                    <img
+                      src={tokenData.logo}
+                      alt={tokenData.name}
+                      className="size-full object-fit shadow-lg"
+                    />
                   </div>
-                  <div className="flex gap-4 items-center justify-between">
-                    <span className="text-text-muted">Symbol:</span>
-                    <span className="text-text-main text-xl">
-                      {tokenData.symbol.toUpperCase()}
-                    </span>
+                  <div className="flex flex-col gap-4 p-2">
+                    <div className="flex gap-4 items-center justify-between">
+                      <span className="text-text-muted">Token name:</span>
+                      <span className="text-text-main text-right text-xl">
+                        {tokenData.name}
+                      </span>
+                    </div>
+                    <div className="flex gap-4 items-center justify-between">
+                      <span className="text-text-muted">Symbol:</span>
+                      <span className="text-text-main text-xl">
+                        {tokenData.symbol.toUpperCase()}
+                      </span>
+                    </div>
                   </div>
                 </div>
+                <img
+                  src={tokenData.image}
+                  alt={tokenData.name}
+                  className="w-full object-contain rounded-xl"
+                />
               </div>
-              <img
-                src={tokenData.image}
-                alt={tokenData.name}
-                className="w-full object-contain rounded-xl"
-              />
-            </div>
-            <div className="w-full lg:w-1/2 flex-grow">
-              <article
-                className="high-potential-article text-text-main"
-                dangerouslySetInnerHTML={{ __html: tokenData.content_html }}
-              />
+              <div className="w-full lg:w-1/2 flex-grow">
+                <article
+                  className="high-potential-article text-text-main"
+                  dangerouslySetInnerHTML={{ __html: tokenData.content_html }}
+                />
+              </div>
             </div>
           </div>
         </section>
