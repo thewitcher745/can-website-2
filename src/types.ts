@@ -185,6 +185,8 @@ export interface Article {
   author: string;
   content_html: string;
   time: string;
+  thumbnail: string;
+  desc: string;
   slug: string;
   tags: string[];
   title: string;
