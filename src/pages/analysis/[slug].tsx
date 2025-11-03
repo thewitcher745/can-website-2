@@ -58,14 +58,14 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
           content={`https://can-website-staging.netlify.app/analysis/${mainPost.slug}`}
         />
         <meta property="og:site_name" content="CAN Trading" />
-        <meta property="og:image" content={mainPost.thumbnail} />
+        <meta property="og:image" content={mainPost.image} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={mainPost.title} />
         <meta
           name="twitter:description"
           content={mainPost.desc || "Technical analysis by CAN Trading"}
         />
-        <meta name="twitter:image" content={mainPost.thumbnail} />
+        <meta name="twitter:image" content={mainPost.image} />
       </Head>
       <main className="bg-background flex justify-center min-h-screen">
         <div ref={contentRef} className="max-w-4xl mx-auto py-8 px-4 pt-6">
