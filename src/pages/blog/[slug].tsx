@@ -13,6 +13,25 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ article }) => {
     <>
       <Head>
         <title>{`${article.title} - CAN Trading`}</title>
+        <meta property="og:title" content={article.title} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:description"
+          content={article.desc || "Trading & Risk Management Insights by CAN Trading"}
+        />
+        <meta
+          property="og:url"
+          content={`https://can-trading.com/blog/${article.slug}`}
+        />
+        <meta property="og:site_name" content="CAN Trading" />
+        <meta property="og:image" content="/images/showcase/can-banner.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.title} />
+        <meta
+          name="twitter:description"
+          content={article.desc || "Trading & Risk Management Insights by CAN Trading"}
+        />
+        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       <main className="bg-background min-h-screen">
         <ArticleElement

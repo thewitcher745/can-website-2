@@ -47,6 +47,25 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
     <>
       <Head>
         <title>{`${mainPost.title} - CAN Trading`}</title>
+        <meta property="og:title" content={mainPost.title} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:description"
+          content={mainPost.desc || "Technical analysis by CAN Trading"}
+        />
+        <meta
+          property="og:url"
+          content={`https://can-trading.com/analysis/${mainPost.slug}`}
+        />
+        <meta property="og:site_name" content="CAN Trading" />
+        <meta property="og:image" content="/images/showcase/can-banner.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={mainPost.title} />
+        <meta
+          name="twitter:description"
+          content={mainPost.desc || "Technical analysis by CAN Trading"}
+        />
+        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       <main className="bg-background flex justify-center min-h-screen">
         <div ref={contentRef} className="max-w-4xl mx-auto py-8 px-4 pt-6">
@@ -66,7 +85,11 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
               </h2>
               <div className="flex flex-col gap-4">
                 {updates.map((update, idx) => (
-                  <Update key={`${update.slug || "update"}-${idx}`} update={update} idx={idx} />
+                  <Update
+                    key={`${update.slug || "update"}-${idx}`}
+                    update={update}
+                    idx={idx}
+                  />
                 ))}
               </div>
             </div>
