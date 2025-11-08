@@ -26,15 +26,6 @@ const ArticlesMenuItems = ({ isMobile }: { isMobile: boolean }) => {
         <BiNews className="w-6 h-6" />
         <span>News</span>
       </Link>
-      <Link
-        href="/fundamental"
-        className={`text-nowrap flex items-center gap-2 text-text-main hover:text-orange px-3 py-4 text-sm font-medium transition-all hover:text-primary ${
-          isMobile ? "justify-center sm:justify-start" : ""
-        }`}
-      >
-        <TbChartCandle className="w-6 h-6" />
-        <span> Fundamental Analysis</span>
-      </Link>
     </>
   );
 };
