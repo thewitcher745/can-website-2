@@ -7,7 +7,7 @@ function chartHighlighting(
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   return () => {
-    if (!contentRef.current || updates.length === 0) return;
+    if (!contentRef.current) return;
 
     const container = contentRef.current;
     const images = container.querySelectorAll("article img");
