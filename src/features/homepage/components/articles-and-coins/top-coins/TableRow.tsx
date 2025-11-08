@@ -3,6 +3,7 @@ import Logo from "@src/shared/ui/Logo";
 import { TopCoin } from "@src/types";
 
 const TableRow = ({ coin }: { coin: TopCoin }) => {
+  if (!coin) return null;
   return (
     <tr key={coin.symbol} className="border-b border-border h-1/5">
       {coin ? (
