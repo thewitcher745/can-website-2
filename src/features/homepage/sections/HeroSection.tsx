@@ -43,12 +43,12 @@ const HeroSection: React.FC = () => {
             </h1>
             {/* Subtitle with fade-in */}
             <p className="text-lg md:text-xl lg:text-2xl text-primary font-semibold mb-2 animate-fade-in-delay-1">
-              Expert Financial Technical Analysis
+              Accurate & Reliable Technical Analysis
             </p>
             {/* Description with fade-in */}
             <p className="text-lg text-primary-light mb-8 animate-fade-in-delay-2">
-              Providing professional trading signals and risk management
-              strategies for individuals.
+              Providing accurate and reliable cryptocurrency trading signals and
+              risk management strategies for individuals.
             </p>
             <div className="flex space-x-4 animate-fade-in-delay-3">
               <Link

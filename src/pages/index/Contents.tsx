@@ -14,8 +14,8 @@ const Staging: React.FC = () => {
       <HeroSection />
       <div className="px-4 w-full flex flex-col justify-center items-center">
         <TopRowGadgetsSection />
-        <TopMarketCapCoinsSection />
         <MostRecentAnalysisSection />
+        <TopMarketCapCoinsSection />
         <VideosSection />
         <HighPotentialTokensSection />
         <HeatmapSection />
