@@ -49,7 +49,7 @@ const MostRecentAnalysisSection = () => {
             href="/analysis"
             className="text-2xl font-bold mb-2 text-text-main transition-colors duration-200 flex items-center"
           >
-            <h2 className="title-hover underline">Latest Analysis</h2>
+            <h2 className="title-hover underline">Latest Technical Analysis</h2>
             <ChevronRight className="h-8 w-8 text-text-muted" />
           </Link>
         </div>
