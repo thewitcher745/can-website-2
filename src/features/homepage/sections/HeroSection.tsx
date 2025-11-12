@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { FaTelegram } from "react-icons/fa6";
 
 const heroImages = [
   "/images/showcase/can-banner.png",
@@ -52,10 +52,19 @@ const HeroSection: React.FC = () => {
             </p>
             <div className="flex space-x-4 animate-fade-in-delay-3">
               <Link
-                href="/vip"
-                className="bg-primary text-black px-6 py-3 border-1 border-primary rounded-md font-semibold hover:bg-transparent hover:text-primary hover:border-primary hover:border-1 transition shadow-sm"
+                href="https://t.me/CryptoANalysis_CAN"
+                className="bg-primary text-black px-3 py-3 border-1 border-primary rounded-md font-semibold hover:bg-transparent hover:text-primary hover:border-primary hover:border-1 transition shadow-sm"
               >
-                Get Started
+                <div className="flex items-center gap-2">
+                  <FaTelegram className="w-8 h-8" />
+                  <span>Join Telegram Channel</span>
+                </div>
+              </Link>
+              <Link
+                href="/vip"
+                className="text-primary flex justify-center items-center px-4 py-3 border-1 border-primary rounded-md font-semibold hover:bg-primary/60 hover:text-text-main hover:border-primary/60 hover:border-1 transition shadow-sm"
+              >
+                View VIP Results
               </Link>
             </div>
           </div>

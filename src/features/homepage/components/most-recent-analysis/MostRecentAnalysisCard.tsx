@@ -80,7 +80,7 @@ const CaptionElement = ({
       <div className="w-full flex flex-col justify-between p-2 pt-0">
         <div className="flex w-full items-center p-2 pt-0">
           <div className="text-text-main text-md xs:text-lg xs:font-semibold">
-            <h2>{post.title}</h2>
+            <h3>{post.title}</h3>
           </div>
         </div>
         <div className="px-2 mb-2 h-12 hidden xs:block">

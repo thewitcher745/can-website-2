@@ -36,6 +36,7 @@ main {
 
 @theme {
   --color-primary: #ffcb37;
+  --color-primary-dark: #f7840f;
   --color-primary-light: #ffedd5;
   --color-primary-soft: #fdba74;
   --color-secondary: #2563eb;

@@ -100,6 +100,9 @@ const TopMarketCapCoinsSection = () => {
     >
       <div className="max-w-custom p-4 py-8 rounded radius-6 w-full">
         <div ref={tableContainerRef} className="overflow-x-auto relative">
+          <h2 className="text-2xl mb-4 font-bold text-text-main cursor-default">
+            Top Market Cap Coins
+          </h2>
           <table className="text-text-main w-full min-w-lg table-fixed">
             <thead>
               <tr>
@@ -235,12 +238,12 @@ const TopMarketCapCoinsSection = () => {
                       <div className="flex items-center gap-3">
                         <Logo symbol={coin.symbol} size="12" padding="1" />
                         <div className="flex flex-col truncate">
-                          <span className="truncate font-semibold text-sm">
+                          <h3 className="truncate font-semibold text-sm">
                             {coin.name}
-                          </span>
-                          <span className="text-xs font-medium text-text-muted">
+                          </h3>
+                          <h4 className="text-xs font-medium text-text-muted">
                             {coin.symbol.toUpperCase()}
-                          </span>
+                          </h4>
                         </div>
                       </div>
                     </td>

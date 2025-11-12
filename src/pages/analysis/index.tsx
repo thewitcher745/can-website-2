@@ -7,6 +7,7 @@ import { buildApiUrl } from "@src/config";
 import { AnalysisPostMeta } from "@src/types";
 import MostRecent from "@features/homepage/components/most-recent-analysis/MostRecent";
 import AnalysisListContainer from "@features/analysis/AnalysisListContainer";
+import BannerMini from "@src/features/homepage/components/promotions/BannerMini";
 
 const Analysis: React.FC = () => {
   const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
@@ -106,7 +107,7 @@ const Analysis: React.FC = () => {
         <section id="most-recent" className="w-full flex justify-center pt-4">
           <div className="max-w-[100rem] w-full flex flex-col self-start sm:text-left">
             <h2 className="text-xl md:text-3xl font-bold mb-2 text-primary hover:text-primary-light transition-colors duration-200">
-              Latest analysis
+              Latest Technical Analysis
             </h2>
             {mostRecentElement}
           </div>
@@ -115,6 +116,9 @@ const Analysis: React.FC = () => {
         <section id="all-analysis" className="w-full flex justify-center">
           <AnalysisListContainer />
         </section>
+        <div className="w-full flex justify-center mt-8">
+          <BannerMini />
+        </div>
       </main>
       <Footer />
     </>

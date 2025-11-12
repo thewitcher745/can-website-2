@@ -63,16 +63,16 @@ const Listings: React.FC<ListingsProps> = ({
               <div className="w-1/2 h-full sm:h-1/2 sm:w-full sm:px-3 sm:pb-3 grow-1 flex flex-col justify-between">
                 <div className="text-wrap h-full">
                   <div className="line-clamp-2 sm:line-clamp-3 md:line-clamp-4 lg:h-1/2 md:h-1/3">
-                    <h2 className="text-md font-normal mx-3 sm:mx-0 text-text-main hover:text-primary transition-colors mb-2">
-                      <Link href={`${baseHref}/${article.slug}`}>
+                    <Link href={`${baseHref}/${article.slug}`}>
+                      <h2 className="text-md font-normal mx-3 sm:mx-0 text-text-main hover:text-primary transition-colors mb-2">
                         {article.title}
-                      </Link>
-                    </h2>
+                      </h2>
+                    </Link>
                   </div>
                   <div className="line-clamp-3">
-                    <span className="text-text-muted hidden md:block text-sm mx-2 sm:mx-0 mb-3 md:h-1/2">
+                    <p className="text-text-muted hidden md:block text-sm mx-2 sm:mx-0 mb-3 md:h-1/2">
                       {article.desc}
-                    </span>
+                    </p>
                   </div>
                 </div>
 
