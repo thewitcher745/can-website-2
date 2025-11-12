@@ -35,7 +35,7 @@ const Banner = ({ className }: { className?: string }) => {
             </div>
             <div className="flex bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center hover:bg-primary transition duration-200">
               <a
-                href="https://instagram.com/coinanalysis_can"
+                href="https://instagram.com/CryptoANalysis_CAN"
                 className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
               >
                 <FaInstagram className="text-3xl" />
