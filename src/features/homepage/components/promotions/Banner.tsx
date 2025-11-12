@@ -7,11 +7,11 @@ const Banner = ({ className }: { className?: string }) => {
     <section
       className={`w-full relative flex justify-center max-w-6xl sm:pt-20 ${className}`}
     >
-      <div className="w-250 flex p-10 pt-25 md:p-10 rounded-t-4xl bg-gradient-to-b from-orange-400 to-background overflow-x-hidden overflow-y-visible">
+      <div className="w-250 flex p-10 pt-25 md:p-10 rounded-xl bg-gradient-to-br from-primary-dark to-primary/60 overflow-x-hidden overflow-y-visible">
         <div className="w-full">
-          <div className="w-full md:w-82 lg:w-120 border-b border-gray-800 pb-4">
+          <div className="w-full text-center md:text-left md:w-82 lg:w-120 border-b border-gray-800 pb-4">
             <span className="text-white font-bold text-4xl text-wrap">
-              Join us!
+              Stay connected with our community!
             </span>
             <p className="text-white text-lg text-wrap mt-4">
               Make the most out of market movements using our signals. Get the
@@ -57,7 +57,7 @@ const Banner = ({ className }: { className?: string }) => {
                 <span className="text-black">Our TikTok</span>
               </a>
             </div>
-            <div className="flex lg:hidden bg-offwhite p-2 w-40 border border-red-500 h-12 rounded-xl mt-0 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
+            <div className="flex lg:hidden bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
               <a
                 href="https://t.me/CryptoANalysis_CAN"
                 className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
