@@ -10,6 +10,7 @@ import ChartModal from "@src/features/analysis/slug/ChartModal";
 import Update from "@src/features/analysis/slug/Update";
 import MainPost from "@src/features/analysis/slug/MainPost";
 import chartHighlighting from "@src/features/analysis/slug/chartHighlighting";
+import BannerMini from "@src/features/homepage/components/promotions/BannerMini";
 
 type AnalysisPostPageProps = { posts: Article[] };
 
@@ -94,6 +95,7 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
               </div>
             </div>
           )}
+          <BannerMini />
         </div>
         {modalImgSrc && modalVisible && (
           <ChartModal

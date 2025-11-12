@@ -7,6 +7,7 @@ import { buildApiUrl } from "@src/config";
 import { AnalysisPostMeta } from "@src/types";
 import MostRecent from "@features/homepage/components/most-recent-analysis/MostRecent";
 import AnalysisListContainer from "@features/analysis/AnalysisListContainer";
+import BannerMini from "@src/features/homepage/components/promotions/BannerMini";
 
 const Analysis: React.FC = () => {
   const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
@@ -115,6 +116,9 @@ const Analysis: React.FC = () => {
         <section id="all-analysis" className="w-full flex justify-center">
           <AnalysisListContainer />
         </section>
+        <div className="w-full flex justify-center mt-8">
+          <BannerMini />
+        </div>
       </main>
       <Footer />
     </>
