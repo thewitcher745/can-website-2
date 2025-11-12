@@ -11,7 +11,7 @@ const HeatmapSection: React.FC = () => {
           href="/coins/overview"
           className="text-text-main font-bold transition-all duration-200 flex items-center pb-4"
         >
-          <h2 className="text-2xl font-bold text-text-main title-hover underline">
+          <h2 className="text-2xl mb-4 font-bold text-text-main title-hover underline">
             Crypto Heatmap
           </h2>
           <ChevronRight className="h-8 w-8 text-text-muted" />

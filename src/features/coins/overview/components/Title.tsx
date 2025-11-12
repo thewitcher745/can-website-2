@@ -10,13 +10,13 @@ const Title = ({
   center?: boolean;
 }) => {
   return (
-    <div
+    <h2
       className={`w-full mb-2 text-text-main flex ${
         center ? "justify-center" : "justify-center lg:justify-start"
       } ${sub ? "font-semibold text-xl" : "font-bold text-2xl"} ${className}`}
     >
-      <span>{title}</span>
-    </div>
+      {title}
+    </h2>
   );
 };
 

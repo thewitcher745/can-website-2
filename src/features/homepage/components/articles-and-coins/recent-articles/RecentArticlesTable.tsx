@@ -99,9 +99,9 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-1">
         <Link href={`/${tables[currentIndex].slug}`}>
           <div className="flex">
-            <h3 className="text-lg underline font-bold text-text-main title-hover">
+            <h2 className="text-lg underline font-bold text-text-main title-hover">
               {tables[currentIndex].title}
-            </h3>
+            </h2>
             <ChevronRight className="h-8 w-8 text-text-muted self-end" />
           </div>
         </Link>

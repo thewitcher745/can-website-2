@@ -57,9 +57,9 @@ const MostRecentAnalysisSelector = ({
                   : "opacity-20 group-hover:opacity-80"
               }`}
             >
-              <p className="text-text-main text-sm selector-caption">
+              <h3 className="text-text-main text-sm selector-caption">
                 {recentAnalysis[index].title}
-              </p>
+              </h3>
             </div>
           </div>
         ))}

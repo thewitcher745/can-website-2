@@ -20,9 +20,9 @@ const TopRowGadgetsSection: React.FC = () => {
               href="/coins/overview"
               className="flex items-center justify-center w-full"
             >
-              <h3 className="text-lg font-bold underline text-text-main title-hover">
+              <h2 className="text-lg font-bold underline text-text-main title-hover">
                 Fear and Greed
-              </h3>
+              </h2>
               <ChevronRight className="h-8 w-8 text-text-muted self-end" />
             </Link>
             <FearAndGreed sizingClasses="w-full xs:w-3/5 sm:w-full" />
@@ -32,9 +32,9 @@ const TopRowGadgetsSection: React.FC = () => {
               href="/coins/overview"
               className="flex items-center justify-center w-full"
             >
-              <h3 className="text-lg font-bold underline text-text-main title-hover">
+              <h2 className="text-lg font-bold underline text-text-main title-hover">
                 Market Dominance
-              </h3>
+              </h2>
               <ChevronRight className="h-8 w-8 text-text-muted self-end" />
             </Link>
             <Dominance />

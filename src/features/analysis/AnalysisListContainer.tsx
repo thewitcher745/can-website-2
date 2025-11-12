@@ -79,27 +79,27 @@ const AnalysisListContainer = () => {
     <div className="max-w-[100rem] w-full mx-auto pb-8">
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
         <div className="flex items-center gap-4 mt-4 md:mt-0">
-          <button
+          <h2
             onClick={() => setActiveTab("all")}
-            className={`py-2 font-bold text-xl md:text-3xl ${
+            className={`py-2 font-bold text-xl md:text-3xl cursor-pointer ${
               activeTab === "all"
                 ? "text-primary underline"
                 : "text-primary/40 hover:text-primary/80"
             }`}
           >
             📝 All Analysis
-          </button>
+          </h2>
           <h2 className="text-3xl text-primary">/</h2>
-          <button
+          <h2
             onClick={() => setActiveTab("vip")}
-            className={`py-2 font-bold text-xl md:text-3xl ${
+            className={`py-2 font-bold text-xl md:text-3xl cursor-pointer ${
               activeTab === "vip"
                 ? "text-primary underline"
                 : "text-primary/40 hover:text-primary/80"
             }`}
           >
             🔥VIP Analysis
-          </button>
+          </h2>
         </div>
       </div>
 

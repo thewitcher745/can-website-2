@@ -12,12 +12,10 @@ const TableRow = ({ coin }: { coin: TopCoin }) => {
             <div className="flex items-center gap-3">
               <Logo symbol={coin.symbol} />
               <div className="flex flex-col truncate">
-                <span className="truncate font-semibold text-sm">
-                  {coin.name}
-                </span>
-                <span className="text-xs font-medium text-text-muted">
+                <h3 className="truncate font-semibold text-sm">{coin.name}</h3>
+                <h4 className="text-xs font-medium text-text-muted">
                   {coin.symbol}USDT
-                </span>
+                </h4>
               </div>
             </div>
           </td>
