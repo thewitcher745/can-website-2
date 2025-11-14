@@ -179,7 +179,7 @@ const ResultsPage: React.FC = () => {
           <div className="flex gap-2 w-full text-xl px-2 pb-4 text-primary">
             Our VIP Services can be viewed{" "}
             <Link
-              href="https://t.me/CryptoANalysis_CAN"
+              href="https://t.me/+2znhsiCGpI81MzQ0"
               className="title-hover underline"
             >
               HERE.
@@ -254,7 +254,7 @@ const ResultsPage: React.FC = () => {
           <ResultsTable selectedMonth={currentMonthYearKey} />
           <div className="mt-12 flex  flex-wrap justify-center w-full text-xl text-text-main">
             <Link
-              href="https://t.me/CryptoANalysis_CAN"
+              href="https://t.me/+2znhsiCGpI81MzQ0"
               className="text-nowrap flex gap-1 items-center mr-1 title-hover "
             >
               <span>Join our</span>
