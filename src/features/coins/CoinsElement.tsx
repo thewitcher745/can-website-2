@@ -34,7 +34,29 @@ const CoinsElement = ({ activeTab }: { activeTab: string }) => {
   return (
     <>
       <Head>
-        <title>Cryptocurrencies - CAN Trading</title>
+        <meta
+          name="description"
+          content={`View the latest cryptocurrency data. Track price movements, market caps, and trading volumes.`}
+        />
+        <meta property="og:title" content={`Cryptocurrencies - CAN Trading`} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content={`View the latest cryptocurrency data. Track price movements, market caps, and trading volumes.`}
+        />
+        <meta
+          property="og:url"
+          content={`https://can-trading.com/coins/${activeTab}`}
+        />
+        <meta property="og:site_name" content="CAN Trading" />
+        <meta property="og:image" content="/images/showcase/can-banner.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Cryptocurrencies - CAN Trading`} />
+        <meta
+          name="twitter:description"
+          content={`View the latest cryptocurrency data. Track price movements, market caps, and trading volumes.`}
+        />
+        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       <main className="px-4 w-full bg-background flex flex-col items-center min-h-screen">
         <section className="pt-4 w-full justify-center flex flex-col items-center">

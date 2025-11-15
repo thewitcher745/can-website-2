@@ -39,7 +39,6 @@ const Blog: React.FC<BlogIndexProps> = ({ items }) => {
         <meta name="twitter:description" content="Insights, news, and analysis about cryptocurrency markets and trading strategies from CAN Trading" />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
-      ""
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-6">
           <h1 className="text-3xl font-bold mb-8 text-primary px-2">

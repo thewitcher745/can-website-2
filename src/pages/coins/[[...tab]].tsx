@@ -48,17 +48,6 @@ const CoinsTab = () => {
     <>
       <Head>
         <title>{`${activeTabName} - Cryptocurrency Market - CAN Trading`}</title>
-        <meta name="description" content={`View the latest ${activeTabName.toLowerCase()} in crypto. Track price movements, market caps, and trading volumes.`} />
-        <meta property="og:title" content={`${activeTabName} - CAN Trading`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:description" content={`View the latest ${activeTabName.toLowerCase()} in crypto. Track price movements, market caps, and trading volumes.`} />
-        <meta property="og:url" content={`https://can-trading.com/coins/${currentTab?.[0] || 'gainers_losers'}`} />
-        <meta property="og:site_name" content="CAN Trading" />
-        <meta property="og:image" content="/images/showcase/can-banner.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${activeTabName} - CAN Trading`} />
-        <meta name="twitter:description" content={`View the latest ${activeTabName.toLowerCase()} in the cryptocurrency market. Track price movements, market caps, and trading volumes.`} />
-        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       <CoinsElement activeTab={currentTab?.[0] || 'gainers_losers'} />
     </>
