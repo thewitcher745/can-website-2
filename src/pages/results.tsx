@@ -165,7 +165,18 @@ const ResultsPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Results - CAN Trading</title>
+        <title>Trading Results - CAN Trading</title>
+        <meta name="description" content="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes." />
+        <meta property="og:title" content="Trading Results - CAN Trading" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes." />
+        <meta property="og:url" content="https://can-trading.com/results" />
+        <meta property="og:site_name" content="CAN Trading" />
+        <meta property="og:image" content="/images/showcase/can-banner.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Trading Results - CAN Trading" />
+        <meta name="twitter:description" content="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes." />
+        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       <main className="results-page min-h-screen bg-background pb-12">
         <div className="max-w-7xl mx-auto px-4 pt-12">

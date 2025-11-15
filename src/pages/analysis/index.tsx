@@ -101,7 +101,18 @@ const Analysis: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Analysis - CAN Trading</title>
+        <title>Technical Analysis - CAN Trading</title>
+        <meta name="description" content="Latest cryptocurrency technical analysis and market insights from CAN Trading experts" />
+        <meta property="og:title" content="Technical Analysis - CAN Trading" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Latest cryptocurrency technical analysis and market insights from CAN Trading experts" />
+        <meta property="og:url" content="https://can-trading.com/analysis" />
+        <meta property="og:site_name" content="CAN Trading" />
+        <meta property="og:image" content="/images/showcase/can-banner.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Technical Analysis - CAN Trading" />
+        <meta name="twitter:description" content="Latest cryptocurrency technical analysis and market insights from CAN Trading experts" />
+        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       <main className="bg-background min-h-screen px-4">
         <section id="most-recent" className="w-full flex justify-center pt-4">
