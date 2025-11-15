@@ -28,7 +28,18 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
   return (
     <>
       <Head>
-        <title>News - CAN Trading</title>
+        <title>Latest Crypto News - CAN Trading</title>
+        <meta name="description" content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading" />
+        <meta property="og:title" content="Latest Crypto News - CAN Trading" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading" />
+        <meta property="og:url" content="https://can-trading.com/news" />
+        <meta property="og:site_name" content="CAN Trading" />
+        <meta property="og:image" content="/images/showcase/can-banner.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Latest Crypto News - CAN Trading" />
+        <meta name="twitter:description" content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading" />
+        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       ""
       <main className="bg-background min-h-screen">

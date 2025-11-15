@@ -12,7 +12,18 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CAN Trading - Home</title>
+        <title>VIP Trading Signals - CAN Trading</title>
+        <meta name="description" content="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team" />
+        <meta property="og:title" content="VIP Trading Signals - CAN Trading" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team" />
+        <meta property="og:url" content="https://can-trading.com/vip" />
+        <meta property="og:site_name" content="CAN Trading" />
+        <meta property="og:image" content="/images/showcase/can-banner.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="VIP Trading Signals - CAN Trading" />
+        <meta name="twitter:description" content="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team" />
+        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       ""
       <main>
