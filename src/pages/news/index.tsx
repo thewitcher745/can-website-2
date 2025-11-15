@@ -41,7 +41,6 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
         <meta name="twitter:description" content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading" />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
-      ""
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 pt-6 px-4">
           <h1 className="text-3xl font-bold mb-8 text-primary px-2">News</h1>
