@@ -27,6 +27,17 @@ const Fundamental: React.FC<FundamentalIndexProps> = ({ items }) => {
     <>
       <Head>
         <title>Fundamental Analysis - CAN Trading</title>
+        <meta name="description" content="In-depth fundamental analysis of cryptocurrencies and blockchain projects. Research reports, tokenomics, and project evaluations." />
+        <meta property="og:title" content="Fundamental Analysis - CAN Trading" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="In-depth fundamental analysis of cryptocurrencies and blockchain projects. Research reports, tokenomics, and project evaluations." />
+        <meta property="og:url" content="https://can-trading.com/fundamental" />
+        <meta property="og:site_name" content="CAN Trading" />
+        <meta property="og:image" content="/images/showcase/can-banner.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Fundamental Analysis - CAN Trading" />
+        <meta name="twitter:description" content="In-depth fundamental analysis of cryptocurrencies and blockchain projects. Research reports, tokenomics, and project evaluations." />
+        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       ""
       <main className="bg-background min-h-screen">
