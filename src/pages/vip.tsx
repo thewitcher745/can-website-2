@@ -13,16 +13,28 @@ export default function Home() {
     <>
       <Head>
         <title>VIP Trading Signals - CAN Trading</title>
-        <meta name="description" content="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team" />
+        <meta
+          name="description"
+          content="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team"
+        />
         <meta property="og:title" content="VIP Trading Signals - CAN Trading" />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team" />
+        <meta
+          property="og:description"
+          content="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team"
+        />
         <meta property="og:url" content="https://can-trading.com/vip" />
         <meta property="og:site_name" content="CAN Trading" />
         <meta property="og:image" content="/images/showcase/can-banner.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="VIP Trading Signals - CAN Trading" />
-        <meta name="twitter:description" content="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team" />
+        <meta
+          name="twitter:title"
+          content="VIP Trading Signals - CAN Trading"
+        />
+        <meta
+          name="twitter:description"
+          content="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team"
+        />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       ""
@@ -32,7 +44,7 @@ export default function Home() {
         <PricingSection />
         <div className="mt-12 flex flex-wrap justify-center w-full text-xl text-text-main">
           <Link
-            href="/vip"
+            href="https://t.me/+2znhsiCGpI81MzQ0"
             className="text-nowrap flex gap-1 items-center mr-1 title-hover "
           >
             <span>Join our</span>
