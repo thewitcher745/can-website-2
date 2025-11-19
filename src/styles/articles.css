@@ -63,11 +63,13 @@ ol {
   font-size: 1.6rem;
   font-weight: 600;
   padding: 0.5rem 0;
+  color: var(--color-primary);
 }
 .blog-article h1 {
   font-size: 1.875rem;
   font-weight: 700;
   padding: 0.5rem 0;
+  color: var(--color-primary);
 }
 .blog-article img {
   padding: 1rem;
