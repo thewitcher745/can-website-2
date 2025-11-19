@@ -17,7 +17,7 @@ const Banner = ({ className }: { className?: string }) => {
           <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-start items-center mt-2 gap-2 sm:gap-4">
             <div className="flex bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
               <a
-                href="https://t.me/CryptoANalysis_CAN"
+                href="https://t.me/+2znhsiCGpI81MzQ0"
                 className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
               >
                 <FaTelegram className="text-3xl" />

@@ -73,7 +73,7 @@ const MobileNav = ({
           </Link>
           <ArticlesMenuButton isMobile={true} />
           <Link
-            href="https://t.me/CryptoANalysis_CAN"
+            href="https://t.me/+2znhsiCGpI81MzQ0"
             className=" hover:text-orange-500 text-text-main py-2 pt-4 border-t-1 text-center text-base font-medium hover:bg-orange transition"
             onClick={closeMenu}
           >

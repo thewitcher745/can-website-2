@@ -81,7 +81,7 @@ const DesktopNav = () => {
       >
         <ArticlesMenuButton isMobile={false} />
       </NavDesktopLink>
-      <NavDesktopLink href="https://t.me/CryptoANalysis_CAN">
+      <NavDesktopLink href="https://t.me/+2znhsiCGpI81MzQ0">
         Contact Us
       </NavDesktopLink>
     </div>

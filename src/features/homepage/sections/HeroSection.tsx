@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
             </p>
             <div className="flex space-x-4 animate-fade-in-delay-3">
               <Link
-                href="https://t.me/CryptoANalysis_CAN"
+                href="https://t.me/+2znhsiCGpI81MzQ0"
                 className="bg-primary text-black px-3 py-3 border-1 border-primary rounded-md font-semibold hover:bg-transparent hover:text-primary hover:border-primary hover:border-1 transition shadow-sm"
               >
                 <div className="flex items-center gap-2">

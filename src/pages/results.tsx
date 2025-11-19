@@ -166,16 +166,25 @@ const ResultsPage: React.FC = () => {
     <>
       <Head>
         <title>Trading Results - CAN Trading</title>
-        <meta name="description" content="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes." />
+        <meta
+          name="description"
+          content="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes."
+        />
         <meta property="og:title" content="Trading Results - CAN Trading" />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes." />
+        <meta
+          property="og:description"
+          content="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes."
+        />
         <meta property="og:url" content="https://can-trading.com/results" />
         <meta property="og:site_name" content="CAN Trading" />
         <meta property="og:image" content="/images/showcase/can-banner.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Trading Results - CAN Trading" />
-        <meta name="twitter:description" content="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes." />
+        <meta
+          name="twitter:description"
+          content="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes."
+        />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       <main className="results-page min-h-screen bg-background pb-12">
@@ -190,7 +199,7 @@ const ResultsPage: React.FC = () => {
           <div className="flex gap-2 w-full text-xl px-2 pb-4 text-primary">
             Our VIP Services can be viewed{" "}
             <Link
-              href="https://t.me/CryptoANalysis_CAN"
+              href="https://t.me/+2znhsiCGpI81MzQ0"
               className="title-hover underline"
             >
               HERE.
@@ -265,7 +274,7 @@ const ResultsPage: React.FC = () => {
           <ResultsTable selectedMonth={currentMonthYearKey} />
           <div className="mt-12 flex  flex-wrap justify-center w-full text-xl text-text-main">
             <Link
-              href="https://t.me/CryptoANalysis_CAN"
+              href="https://t.me/+2znhsiCGpI81MzQ0"
               className="text-nowrap flex gap-1 items-center mr-1 title-hover "
             >
               <span>Join our</span>
