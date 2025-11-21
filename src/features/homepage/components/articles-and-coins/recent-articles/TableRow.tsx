@@ -19,7 +19,7 @@ const TableRow = ({
         <div className="py-2">
           <Link href={`/${tableSlug}/${item.slug}`}>
             <div className="flex h-full items-center gap-2 px-1 w-full">
-              <div className="flex-grow h-14 w-20">
+              <div className="h-14 min-w-20 max-w-20">
                 <img
                   src={
                     item.thumbnail
