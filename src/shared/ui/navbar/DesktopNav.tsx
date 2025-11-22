@@ -81,9 +81,7 @@ const DesktopNav = () => {
       >
         <ArticlesMenuButton isMobile={false} />
       </NavDesktopLink>
-      <NavDesktopLink href="https://t.me/+2znhsiCGpI81MzQ0">
-        Contact Us
-      </NavDesktopLink>
+      <NavDesktopLink href="/telegram">Contact Us</NavDesktopLink>
     </div>
   );
 };

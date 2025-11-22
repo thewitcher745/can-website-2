@@ -12,7 +12,7 @@ import { FaXTwitter } from "react-icons/fa6";
 const socials = [
   {
     name: "Telegram",
-    url: "https://t.me/+2znhsiCGpI81MzQ0",
+    url: "/telegram",
     icon: <FaTelegram />,
   },
   {
@@ -70,7 +70,7 @@ const Footer: React.FC = () => (
         <div className="flex items-center gap-2 mb-1">
           <FaTelegram className="text-primary" />
           <a
-            href="https://t.me/+2znhsiCGpI81MzQ0"
+            href="/telegram"
             className="hover:underline"
             target="_blank"
             rel="noopener noreferrer"

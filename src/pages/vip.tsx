@@ -44,7 +44,7 @@ export default function Home() {
         <PricingSection />
         <div className="mt-12 flex flex-wrap justify-center w-full text-xl text-text-main">
           <Link
-            href="https://t.me/+2znhsiCGpI81MzQ0"
+            href="/telegram"
             className="text-nowrap flex gap-1 items-center mr-1 title-hover "
           >
             <span>Join our</span>
