@@ -110,7 +110,7 @@ const PricingSection: React.FC = () => (
                 {pkg.description}
               </div>
               <Link
-                href="https://t.me/+2znhsiCGpI81MzQ0"
+                href="/telegram"
                 className={`w-full flex-grow flex justify-center items-end px-4 py-2 rounded-lg font-semibold transition text-sm ${
                   pkg.highlight
                     ? "underline text-text-main hover:text-primary-soft"
