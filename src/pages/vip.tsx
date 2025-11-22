@@ -45,6 +45,8 @@ export default function Home() {
         <div className="mt-12 flex flex-wrap justify-center w-full text-xl text-text-main">
           <Link
             href="/telegram"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-nowrap flex gap-1 items-center mr-1 title-hover "
           >
             <span>Join our</span>

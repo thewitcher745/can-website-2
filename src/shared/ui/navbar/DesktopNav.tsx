@@ -5,11 +5,13 @@ import ArticlesMenuButton from "./ArticlesMenu";
 const NavDesktopLink = ({
   href,
   linksToMatch,
+  newWindow = false,
   isLink = true,
   children,
 }: {
   href: string;
   linksToMatch?: string[] | string;
+  newWindow?: boolean;
   isLink?: boolean;
   children: React.ReactNode;
 }) => {
@@ -35,6 +37,8 @@ const NavDesktopLink = ({
     return (
       <Link
         href={href}
+        target={newWindow ? "_blank" : ""}
+        rel={newWindow ? "noopener noreferrer" : ""}
         className={`flex items-center justify-center h-full hover:text-orange sm:px-3 lg:px-6 py-2 text-sm font-medium ${
           isCurrentPath
             ? "border-b-4 text-primary border-orange-400"
@@ -81,7 +85,9 @@ const DesktopNav = () => {
       >
         <ArticlesMenuButton isMobile={false} />
       </NavDesktopLink>
-      <NavDesktopLink href="/telegram">Contact Us</NavDesktopLink>
+      <NavDesktopLink href="/telegram" newWindow>
+        Contact Us
+      </NavDesktopLink>
     </div>
   );
 };

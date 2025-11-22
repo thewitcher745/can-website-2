@@ -18,6 +18,8 @@ const Banner = ({ className }: { className?: string }) => {
             <div className="flex bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
               <a
                 href="/telegram"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
               >
                 <FaTelegram className="text-3xl" />

@@ -53,6 +53,8 @@ const HeroSection: React.FC = () => {
             <div className="flex space-x-4 animate-fade-in-delay-3">
               <Link
                 href="/telegram"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary text-black px-3 py-3 border-1 border-primary rounded-md font-semibold hover:bg-transparent hover:text-primary hover:border-primary hover:border-1 transition shadow-sm"
               >
                 <div className="flex items-center gap-2">
