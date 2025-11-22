@@ -10,10 +10,10 @@ const CoinsTab = () => {
   
   // Determine the active tab for meta tags
   const getActiveTabName = () => {
-    if (!currentTab || currentTab.length === 0) return 'gainers & losers';
+    if (!currentTab || currentTab.length === 0) return 'Gainers & Losers';
     switch(currentTab[0]) {
-      case 'trending': return 'trending coins';
-      case 'overview': return 'market overview';
+      case 'trending': return 'Trending Coins';
+      case 'overview': return 'Market Overview';
       case 'gainers_losers':
       default:
         return 'Gainers & Losers';
