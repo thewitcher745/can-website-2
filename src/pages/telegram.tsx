@@ -8,7 +8,7 @@ const TelegramRedirect: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       window.location.href = "https://t.me/+2znhsiCGpI81MzQ0";
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
