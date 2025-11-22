@@ -23,7 +23,9 @@ const Banner = ({ className }: { className?: string }) => {
           <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-start items-center mt-2 gap-2 sm:gap-4">
             <div className="hidden md:hidden lg:flex bg-offwhite p-3 w-50 h-20 rounded-xl mt-4 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
               <a
-                href="https://t.me/+2znhsiCGpI81MzQ0"
+                href="/telegram"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-black text-lg text-wrap font-semibold flex items-center gap-4"
               >
                 <FaTelegram className="text-3xl" />
@@ -59,7 +61,10 @@ const Banner = ({ className }: { className?: string }) => {
             </div>
             <div className="flex lg:hidden bg-offwhite p-2 w-40 h-12 rounded-xl mt-0 items-center justify-center shadow-lg hover:bg-primary transition duration-200">
               <a
-                href="https://t.me/+2znhsiCGpI81MzQ0"
+                href="/telegram"
+                
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-black text-lg text-wrap font-semibold flex items-center justify-center gap-4"
               >
                 <FaTelegram className="text-3xl" />
