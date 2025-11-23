@@ -11,10 +11,16 @@
   background-size: 20% 100%;
   animation: l1 1s infinite linear;
 }
+
 @keyframes l1 {
   0%  {background-size: 20% 100%,20% 100%,20% 100%}
   33% {background-size: 20% 10% ,20% 100%,20% 100%}
   50% {background-size: 20% 100%,20% 10% ,20% 100%}
   66% {background-size: 20% 100%,20% 100%,20% 10% }
   100%{background-size: 20% 100%,20% 100%,20% 100%}
+}
+
+#redirect-loader .loader {
+  --c: no-repeat linear-gradient(var(--color-primary) 0 0);
+  opacity: 100%;
 }
