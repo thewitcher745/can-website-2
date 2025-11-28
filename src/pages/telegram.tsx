@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Footer from "@src/shared/ui/Footer";
 import { GenericLoader } from "@src/shared/ui/loaders";
 
+
 const TelegramRedirect: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,3 +47,4 @@ const TelegramRedirect: React.FC = () => {
 };
 
 export default TelegramRedirect;
+
