@@ -1,16 +1,18 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect } from "react";
 
 import Footer from "@src/shared/ui/Footer";
 import { GenericLoader } from "@src/shared/ui/loaders";
 
+
 const TelegramRedirect: React.FC = () => {
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     window.location.href = "https://t.me/+2znhsiCGpI81MzQ0";
-  //   }, 1000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.location.href = "https://t.me/+2znhsiCGpI81MzQ0";
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -45,3 +47,4 @@ const TelegramRedirect: React.FC = () => {
 };
 
 export default TelegramRedirect;
+
