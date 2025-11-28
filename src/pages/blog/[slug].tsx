@@ -5,6 +5,7 @@ import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
 import { Article } from "@src/types";
 import ArticleElement from "@src/features/articles/slug/ArticleElement";
+import Banner from "@src/features/homepage/components/promotions/BannerMini";
 
 type BlogPostPageProps = { article: Article };
 
@@ -17,7 +18,9 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ article }) => {
         <meta property="og:type" content="article" />
         <meta
           property="og:description"
-          content={article.desc || "Trading & Risk Management Insights by CAN Trading"}
+          content={
+            article.desc || "Trading & Risk Management Insights by CAN Trading"
+          }
         />
         <meta
           property="og:url"
@@ -29,16 +32,21 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ article }) => {
         <meta name="twitter:title" content={article.title} />
         <meta
           name="twitter:description"
-          content={article.desc || "Trading & Risk Management Insights by CAN Trading"}
+          content={
+            article.desc || "Trading & Risk Management Insights by CAN Trading"
+          }
         />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
-      <main className="bg-background min-h-screen">
+      <main className="bg-background min-h-screen flex flex-col items-center">
         <ArticleElement
           article={article}
           backHref="/blog"
           backText="Trading & Risk Management"
         />
+        <div className="max-w-custom">
+          <Banner />
+        </div>
       </main>
       <Footer />
     </>

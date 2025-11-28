@@ -1,10 +1,12 @@
 import React from "react";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
+
 import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
 import { Article } from "@src/types";
 import ArticleElement from "@src/features/articles/slug/ArticleElement";
+import Banner from "@src/features/homepage/components/promotions/BannerMini";
 
 type NewsArticlePageProps = { article: Article };
 
@@ -17,7 +19,10 @@ const NewsArticlePage: React.FC<NewsArticlePageProps> = ({ article }) => {
         <meta property="og:type" content="article" />
         <meta
           property="og:description"
-          content={article.desc || "Latest cryptocurrency news and updates from CAN Trading"}
+          content={
+            article.desc ||
+            "Latest cryptocurrency news and updates from CAN Trading"
+          }
         />
         <meta
           property="og:url"
@@ -29,12 +34,18 @@ const NewsArticlePage: React.FC<NewsArticlePageProps> = ({ article }) => {
         <meta name="twitter:title" content={article.title} />
         <meta
           name="twitter:description"
-          content={article.desc || "Latest cryptocurrency news and updates from CAN Trading"}
+          content={
+            article.desc ||
+            "Latest cryptocurrency news and updates from CAN Trading"
+          }
         />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
-      <main className="bg-background min-h-screen">
+      <main className="bg-background min-h-screen  flex flex-col items-center">
         <ArticleElement article={article} backHref="/news" backText="News" />
+        <div className="max-w-custom">
+          <Banner />
+        </div>
       </main>
       <Footer />
     </>
