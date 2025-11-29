@@ -28,7 +28,7 @@ const HeroSection: React.FC = () => {
     >
       <div className="2xl:max-w-[100rem] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="md:flex items-center gap-8">
-          <div className="md:w-1/2">
+          <div className="flex flex-col items-center md:items-start md:w-1/2">
             {/* Animated Title */}
             <h1
               className="text-3xl lg:text-4xl font-bold text-primary leading-tight mb-6 animate-hero-title"
@@ -46,27 +46,29 @@ const HeroSection: React.FC = () => {
               Accurate & Reliable Technical Analysis
             </p>
             {/* Description with fade-in */}
-            <p className="text-lg text-primary-light mb-8 animate-fade-in-delay-2">
+            <p className="text-center md:text-left text-lg text-primary-light mb-8 animate-fade-in-delay-2">
               Providing accurate and reliable cryptocurrency trading signals and
               risk management strategies for individuals.
             </p>
-            <div className="flex space-x-4 animate-fade-in-delay-3">
+            <div className="flex flex-wrap justify-center space-x-4 animate-fade-in-delay-3">
               <Link
                 href="/telegram"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary text-black px-3 py-3 border-1 border-primary rounded-md font-semibold hover:bg-transparent hover:text-primary hover:border-primary hover:border-1 transition shadow-sm"
+                className="flex items-center py-2 my-1 bg-primary text-black px-3 border-2 border-primary rounded-full font-semibold hover:bg-transparent hover:text-primary hover:border-primary transition shadow-xl shadow-primary/50"
               >
                 <div className="flex items-center gap-2">
-                  <FaTelegram className="w-8 h-8" />
-                  <span>Join Telegram Channel</span>
+                  <FaTelegram className="w-6 h-6" />
+                  <span className="text-center w-full">
+                    Join Telegram Channel
+                  </span>
                 </div>
               </Link>
               <Link
                 href="/vip"
-                className="text-primary flex justify-center items-center px-4 py-3 border-1 border-primary rounded-md font-semibold hover:bg-primary/60 hover:text-text-main hover:border-primary/60 hover:border-1 transition shadow-sm"
+                className="text-primary flex py-2 my-1 justify-center items-center px-4 border-2 border-primary rounded-full font-semibold hover:bg-primary/60 hover:text-text-main hover:border-primary/60 transition shadow-lg shadow-primary/50"
               >
-                View VIP Results
+                <span className="text-center w-full">View VIP Results</span>
               </Link>
             </div>
           </div>
