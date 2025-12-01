@@ -56,6 +56,7 @@ main {
   --color-gold: #ffd700;
   --color-silver: #c0c0c0;
   --color-bronze: #cd7f32;
+  --color-text-secondary: #cccccc;
 
   --breakpoint-xs: 25rem;
   --animate-fade-in: fade-in 1s ease-out;
