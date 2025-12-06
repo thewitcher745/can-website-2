@@ -41,26 +41,23 @@ const HeroSection: React.FC = () => {
             >
               CAN Trading Signals
             </h1>
-            {/* Subtitle with fade-in */}
-            <p className="text-lg md:text-xl lg:text-2xl text-primary font-semibold mb-2 animate-fade-in-delay-1">
-              Accurate & Reliable Technical Analysis
-            </p>
             {/* Description with fade-in */}
             <p className="text-center md:text-left text-lg text-primary-light mb-8 animate-fade-in-delay-2">
               Providing accurate and reliable cryptocurrency trading signals and
               risk management strategies for individuals.
             </p>
-            <div className="flex flex-wrap justify-center space-x-4 animate-fade-in-delay-3">
+            {/* Desktop CTA buttons */}
+            <div className="hidden md:flex flex-wrap justify-center gap-2 animate-fade-in-delay-3">
               <Link
                 href="/telegram"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center py-2 my-1 bg-primary text-black px-3 border-2 border-primary rounded-full font-semibold hover:bg-transparent hover:text-primary hover:border-primary transition shadow-xl shadow-primary/50"
+                className="flex justify-center items-center py-2 my-1 bg-primary text-black px-3 border-2 border-primary rounded-full font-semibold hover:bg-transparent hover:text-primary hover:border-primary transition shadow-xl shadow-primary/50"
               >
                 <div className="flex items-center gap-2">
                   <FaTelegram className="w-6 h-6" />
                   <span className="text-center w-full">
-                    Join Telegram Channel
+                    Get access to all analysis
                   </span>
                 </div>
               </Link>
@@ -68,7 +65,7 @@ const HeroSection: React.FC = () => {
                 href="/vip"
                 className="text-primary flex py-2 my-1 justify-center items-center px-4 border-2 border-primary rounded-full font-semibold hover:bg-primary/60 hover:text-text-main hover:border-primary/60 transition shadow-lg shadow-primary/50"
               >
-                <span className="text-center w-full">View VIP Results</span>
+                <span className="text-center w-full">VIP Results</span>
               </Link>
             </div>
           </div>
@@ -102,6 +99,28 @@ const HeroSection: React.FC = () => {
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-black/10 to-orange-500/10 pointer-events-none rounded-2xl" />
             </div>
+          </div>
+          {/* Mobile CTA buttons */}
+          <div className="flex md:hidden flex-wrap justify-center gap-2 animate-fade-in-delay-3">
+            <Link
+              href="/telegram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex justify-center items-center py-2 my-1 bg-primary text-black px-3 border-2 border-primary rounded-full font-semibold hover:bg-transparent hover:text-primary hover:border-primary transition shadow-xl shadow-primary/50"
+            >
+              <div className="flex items-center gap-2">
+                <FaTelegram className="w-6 h-6" />
+                <span className="text-center w-full">
+                  Get access to all analysis
+                </span>
+              </div>
+            </Link>
+            <Link
+              href="/vip"
+              className="text-primary flex py-2 my-1 justify-center items-center px-4 border-2 border-primary rounded-full font-semibold hover:bg-primary/60 hover:text-text-main hover:border-primary/60 transition shadow-lg shadow-primary/50"
+            >
+              <span className="text-center w-full">VIP Results</span>
+            </Link>
           </div>
         </div>
       </div>
