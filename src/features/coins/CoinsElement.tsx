@@ -58,7 +58,7 @@ const CoinsElement = ({ activeTab }: { activeTab: string }) => {
         />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
-      <main className="px-4 w-full bg-background flex flex-col items-center min-h-screen">
+      <main className="px-4 pb-8 w-full bg-background flex flex-col items-center min-h-screen">
         <section className="pt-4 w-full justify-center flex flex-col items-center">
           <TabSelector activeTab={activeTab} />
           {element}

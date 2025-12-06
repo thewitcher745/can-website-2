@@ -55,7 +55,9 @@ const MobileCTAButton = ({
 
 const Banner = ({ className }: { className?: string }) => {
   return (
-    <section className={`w-full relative flex justify-center ${className}`}>
+    <section
+      className={`w-full mb-10 mt-4 relative flex justify-center ${className}`}
+    >
       <div className="relative w-250 max-w-full border border-border flex p-10 pt-40 md:p-10 rounded-xl bg-gradient-to-b md:bg-radial-[at_top_right] from-primary/40 from-0% via-transparent via-60% to-transparent overflow-x-hidden overflow-y-visible">
         <div className="w-full z-10">
           <div className="w-full text-center md:text-left md:w-82 lg:w-120 border-b-2 border-primary pb-4">
