@@ -12,7 +12,7 @@ export const TableRowPlaceholder = ({ pulse = true }: { pulse?: boolean }) => {
           }`}
         ></div>
       </td>
-      <td className="px-6 py-4 w-1/4">
+      <td className="px-6 py-2 w-1/4">
         <div
           className={`h-5 bg-gray-700 rounded w-full ${
             pulse ? "animate-pulse" : ""
@@ -69,7 +69,7 @@ const TableRow = ({
           </div>
         </div>
       </td>
-      <td className="px-2 py-4">${coin.price}</td>
+      <td className="px-2 py-2">${coin.price}</td>
       <td className="px-2 py-4 h-full flex-col gap-2 text-success font-bold">
         <div className="flex items-center gap-1">
           <Caret change={coin.change} />
