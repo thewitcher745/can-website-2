@@ -56,7 +56,7 @@ const MobileCTAButton = ({
 const Banner = ({ className }: { className?: string }) => {
   return (
     <section
-      className={`w-full relative flex justify-center max-w-6xl sm:pt-20 ${className}`}
+      className={`w-full relative flex justify-center max-w-6xl sm:pt-5 ${className}`}
     >
       <div className="relative w-250 border border-border flex p-10 pt-40 md:p-10 rounded-xl bg-gradient-to-b md:bg-radial-[at_top_right] from-primary/40 from-0% via-transparent via-60% to-transparent overflow-x-hidden overflow-y-visible">
         <div className="w-full z-10">
@@ -66,8 +66,8 @@ const Banner = ({ className }: { className?: string }) => {
             </span>
             <p className="text-text-secondary text-wrap mt-4">
               Make the most out of market movements using our signals. Get the
-              latest news and analysis, learn risk management and crypto
-              trading.
+              latest news and analysis, learn risk management and crypto trading
+              for free!
             </p>
           </div>
           <div className="hidden sm:flex flex-wrap justify-center md:justify-start items-center my-6 gap-2 sm:gap-4">
