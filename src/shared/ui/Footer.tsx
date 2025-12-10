@@ -40,7 +40,7 @@ const socials = [
 const Footer: React.FC = () => (
   <footer
     id="contact"
-    className="bg-background text-text-main pt-12 pb-8 px-4 border-t border-background"
+    className="bg-background pt-2 text-text-main pb-8 px-4 border-t border-background"
   >
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
       {/* About CAN */}

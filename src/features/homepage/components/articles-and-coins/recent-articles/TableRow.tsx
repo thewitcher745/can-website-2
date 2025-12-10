@@ -16,7 +16,7 @@ const TableRow = ({
       className="flex items-center h-1/4 border-b border-border hover:bg-surface transition-all duration-200"
     >
       {item ? (
-        <div className="py-2">
+        <div className="py-2 w-full">
           <Link href={`/${tableSlug}/${item.slug}`}>
             <div className="flex h-full items-center gap-2 px-1 w-full">
               <div className="h-14 min-w-20 max-w-20">

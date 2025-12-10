@@ -8,7 +8,7 @@ const StatBox: React.FC<{
 }> = ({ className, icon, stat, caption }) => {
   const renderedIcon = React.isValidElement(icon)
     ? React.cloneElement(icon, {
-        className: `h-16 w-16 text-primary ${
+        className: `h-16 w-16 bg-primary/10 text-primary/80 rounded-lg p-4 ${
           icon.props.className ?? ""
         }`.trim(),
       })
@@ -16,7 +16,7 @@ const StatBox: React.FC<{
 
   return (
     <div
-      className={`w-full h-full max-w-sm flex flex-col items-center gap-4 flex-nowrap border border-highlight rounded-3xl p-6 py-10 ${
+      className={`w-full h-full max-w-sm flex flex-col items-center gap-4 flex-nowrap bg-surface/80 rounded-xl p-6 py-10 ${
         className ?? ""
       }`}
     >

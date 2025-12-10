@@ -126,7 +126,7 @@ const TrendingCoinsTable = ({ maxRows = 10 }: { maxRows: number }) => {
                 >
                   Name/Symbol
                 </th>
-                <th className="px-6 py-4 text-start w-[20%] min-w-sm">Price</th>
+                <th className="px-3 py-4 text-start w-[20%] min-w-sm">Price</th>
                 <th className="px-6 py-4 text-start w-[30%] min-w-sm">
                   24h Change%
                 </th>
@@ -162,7 +162,7 @@ const TrendingCoinsTable = ({ maxRows = 10 }: { maxRows: number }) => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4">{formatPrice(coin.price)}</td>
+                      <td className="px-3 py-4">{formatPrice(coin.price)}</td>
                       <td
                         className={`px-6 py-4 h-full flex-col gap-2 ${
                           coin.change >= 0 ? "text-success" : "text-error"

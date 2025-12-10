@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 import { buildApiUrl } from "@src/config";
@@ -98,7 +95,7 @@ const TopCoinsTable = ({ className }: { className?: string }) => {
   };
 
   return (
-    <div className={`p-3 rounded-md flex flex-col ${className}`}>
+    <div className={`px-3 rounded-md flex flex-col ${className}`}>
       <div className="flex justify-between flex-col-reverse sm:flex-row items-center mb-4">
         <Link href={`/${tables[currentIndex].slug}`}>
           <div className="flex">
