@@ -44,7 +44,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ article }) => {
           backHref="/blog"
           backText="Trading & Risk Management"
         />
-        <div className="max-w-custom">
+        <div className="px-4 w-full">
           <Banner />
         </div>
       </main>

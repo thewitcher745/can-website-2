@@ -59,10 +59,10 @@ const ServicesSection: React.FC = () => (
             key={service.title}
             className="bg-surface p-8 rounded-xl transition duration-300 hover:-translate-y-2 hover:shadow-lg card-hover group"
           >
-            <div className="bg-surface w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <div className="bg-surface w-16 h-16 rounded-full flex items-center justify-center sm:mb-6 mx-auto">
               {service.icon}
             </div>
-            <div className="h-0.5 w-0 group-hover:w-full bg-primary transition-all duration-300 mx-auto mb-6 rounded-full" />
+            <div className="hidden sm:block h-0.5 w-0 group-hover:w-full bg-primary transition-all duration-300 mx-auto mb-6 rounded-full" />
             <h3 className="text-xl font-semibold text-text-main mb-3 text-center">
               {service.title}
             </h3>

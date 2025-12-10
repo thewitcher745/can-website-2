@@ -1,12 +1,10 @@
 import Head from "next/head";
-import Link from "next/link";
-import { FaTelegram } from "react-icons/fa6";
 
-import Navbar from "@shared/ui/navbar/Navbar";
 import ServicesSection from "@features/homepage/sections/ServicesSection";
 import ResultsSection from "@features/homepage/sections/ResultsSection";
 import PricingSection from "@features/homepage/sections/PricingSection";
 import Footer from "@shared/ui/Footer";
+import Banner from "@src/features/homepage/components/promotions/Banner";
 
 export default function Home() {
   return (
@@ -38,22 +36,12 @@ export default function Home() {
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       ""
-      <main>
+      <main className="pb-16 pt-4 bg-background flex flex-col items-center">
         <ServicesSection />
         <ResultsSection />
         <PricingSection />
-        <div className="mt-12 flex flex-wrap justify-center w-full text-xl text-text-main">
-          <Link
-            href="/telegram"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-nowrap flex gap-1 items-center mr-1 title-hover "
-          >
-            <span>Join our</span>
-            <FaTelegram />
-            <span className="underline"> Telegram channel</span>
-          </Link>
-          <span> for more free analysis!</span>
+        <div className="px-4 w-full">
+          <Banner />
         </div>
       </main>
       <Footer />

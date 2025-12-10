@@ -43,7 +43,7 @@ const NewsArticlePage: React.FC<NewsArticlePageProps> = ({ article }) => {
       </Head>
       <main className="bg-background min-h-screen  flex flex-col items-center">
         <ArticleElement article={article} backHref="/news" backText="News" />
-        <div className="max-w-custom">
+        <div className="px-4 w-full">
           <Banner />
         </div>
       </main>

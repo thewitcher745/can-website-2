@@ -20,7 +20,7 @@ const Staging: React.FC = () => {
         <HighPotentialTokensSection />
         <HeatmapSection />
         <OurStats />
-        <div className="w-full pt-20 sm:pt-0 flex justify-center">
+        <div className="w-full sm:pt-0 flex justify-center">
           <Banner />
         </div>
       </div>

@@ -10,7 +10,7 @@ import ChartModal from "@src/features/analysis/slug/ChartModal";
 import Update from "@src/features/analysis/slug/Update";
 import MainPost from "@src/features/analysis/slug/MainPost";
 import chartHighlighting from "@src/features/analysis/slug/chartHighlighting";
-import BannerMini from "@src/features/homepage/components/promotions/BannerMini";
+import Banner from "@src/features/homepage/components/promotions/BannerMini";
 
 type AnalysisPostPageProps = { posts: Article[] };
 
@@ -68,8 +68,11 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
         />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
-      <main className="bg-background flex justify-center min-h-screen">
-        <div ref={contentRef} className="max-w-4xl mx-auto py-8 px-4 pt-6">
+      <main className="bg-background flex flex-col items-center min-h-screen">
+        <div
+          ref={contentRef}
+          className="max-w-4xl w-full mx-auto py-8 px-4 pt-6"
+        >
           <Link
             href="/analysis"
             className="text-primary hover:underline text-sm"
@@ -95,7 +98,7 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
               </div>
             </div>
           )}
-          <BannerMini />
+          <Banner />
         </div>
         {modalImgSrc && modalVisible && (
           <ChartModal
