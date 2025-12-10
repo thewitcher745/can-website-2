@@ -12,16 +12,16 @@ import Navbar from "@shared/ui/navbar/Navbar";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <Script id="gtag-config" strategy="afterInteractive">
-          {`
+      <Script id="gtag-config" strategy="beforeInteractive">
+        {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-NZJH59BG');
         `}
-        </Script>
+      </Script>
+      <Head>
         <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
       </Head>
       <noscript>
