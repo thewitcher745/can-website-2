@@ -208,3 +208,38 @@ export interface MarketDominanceData {
   btcDominanceChange: number;
   ethDominanceChange: number;
 }
+
+interface CoinUrls {
+  announcements: string[];
+  chat: string[];
+  explorer: string[];
+  facebook: string[];
+  message_board: string[];
+  reddit: string[];
+  source_code: string[];
+  technical_doc: string[];
+  twitter: string[];
+  website: string[];
+}
+
+export interface CoinMetaInfo {
+  description: string;
+  logo: string;
+  name: string;
+  symbol: string;
+  urls: CoinUrls;
+}
+
+export interface CoinCMCInfo {
+  change_1h: number;
+  change_24h: number;
+  change_30d: number;
+  change_7d: number;
+  diluted_market_cap: number;
+  dominance: number;
+  market_cap: number;
+  name: string;
+  rank: number;
+  symbol: string;
+  volume_24h: number;
+}
