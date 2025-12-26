@@ -9,6 +9,7 @@ import KeyMetricsSection from "@features/coin/KeyMetricsSection";
 import OfficialLinksSection from "@features/coin/OfficialLinksSection";
 import TechnicalAnalysisSection from "@features/coin/TechnicalAnalysisSection";
 import CoinDescriptionSection from "@features/coin/CoinDescriptionSection";
+import ClosingPriceHistorySection from "@features/coin/ClosingPriceHistorySection";
 import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
 import { AnalysisPostMeta, CoinCMCInfo, CoinMetaInfo } from "@src/types";
@@ -18,6 +19,9 @@ type CoinPageProps = {
   meta: CoinMetaInfo | null;
   cmc: CoinCMCInfo | null;
   analysisPosts: AnalysisPostMeta[];
+  closingPricePeriod: number;
+  closingPricePoints: { time: number; close: number }[] | null;
+  closingPriceError?: string | null;
 };
 
 const CoinPage: NextPage<CoinPageProps> = ({
@@ -25,6 +29,9 @@ const CoinPage: NextPage<CoinPageProps> = ({
   meta,
   cmc,
   analysisPosts = [],
+  closingPricePeriod,
+  closingPricePoints,
+  closingPriceError,
 }) => {
   if (!meta && !cmc) {
     return (
@@ -63,6 +70,12 @@ const CoinPage: NextPage<CoinPageProps> = ({
               <OfficialLinksSection meta={meta} />
             </div>
             <div className="lg:flex-1 flex flex-col gap-6">
+              <ClosingPriceHistorySection
+                symbol={symbol}
+                period={closingPricePeriod}
+                points={closingPricePoints}
+                error={closingPriceError}
+              />
               <CoinDescriptionSection meta={meta} />
               <TechnicalAnalysisSection
                 symbol={symbol}
@@ -82,19 +95,55 @@ export const getServerSideProps: GetServerSideProps<CoinPageProps> = async (
 ) => {
   const symbolParam = ctx.params?.symbol;
 
+  const periodParam = ctx.query?.period;
+  const parsedPeriod =
+    typeof periodParam === "string" ? Number(periodParam) : undefined;
+  const closingPricePeriod =
+    parsedPeriod && [30, 90, 180, 365, 500].includes(parsedPeriod)
+      ? parsedPeriod
+      : 30;
+
   if (!symbolParam || typeof symbolParam !== "string") {
     return { notFound: true };
   }
 
   try {
-    const [metaRes, cmcRes] = await Promise.all([
+    const [metaRes, cmcRes, chartRes] = await Promise.all([
       fetch(buildApiUrl(`/api/coin_info/meta?symbol=${symbolParam}`)),
       fetch(buildApiUrl(`/api/coin_info/cmc?symbol=${symbolParam}`)),
+      fetch(
+        buildApiUrl(
+          `/api/coin_info/chart?symbol=${symbolParam}&period=${closingPricePeriod}`
+        )
+      ),
     ]);
 
     const meta = metaRes.ok ? ((await metaRes.json()) as CoinMetaInfo) : null;
     const cmc = cmcRes.ok ? ((await cmcRes.json()) as CoinCMCInfo) : null;
     let analysisPosts: AnalysisPostMeta[] = [];
+    let closingPricePoints: { time: number; close: number }[] | null = null;
+    let closingPriceError: string | null = null;
+
+    try {
+      if (chartRes.ok) {
+        const data = await chartRes.json();
+
+        if (data && Array.isArray(data)) {
+          closingPricePoints = data.map((p: any) => ({
+            time: p.time,
+            close: p.close,
+          }));
+        } else {
+          closingPricePoints = [];
+        }
+      } 
+      else {
+        closingPriceError = "Oops! Something went wrong.";
+      }
+    } catch {
+      closingPriceError = "Oops! Something went wrong.";
+      closingPricePoints = null;
+    }
 
     try {
       const analysisRes = await fetch(
@@ -120,6 +169,9 @@ export const getServerSideProps: GetServerSideProps<CoinPageProps> = async (
         meta,
         cmc,
         analysisPosts,
+        closingPricePeriod,
+        closingPricePoints,
+        closingPriceError,
       },
     };
   } catch (error) {
