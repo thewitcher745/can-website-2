@@ -1,6 +1,7 @@
 import Logo from "@shared/ui/Logo";
 import { reduceNumber } from "@src/utils";
 import Caret from "@src/shared/ui/Caret";
+import CoinLink from "@src/shared/ui/CoinLink";
 
 export const TableRowPlaceholder = ({ pulse = true }: { pulse?: boolean }) => {
   return (
@@ -53,21 +54,25 @@ const TableRow = ({
           isScrolled ? "sticky-shadow-visible" : ""
         }`}
       >
-        <div className="flex items-center gap-3">
-          <div className="hidden lg:block">
-            <Logo symbol={coin.symbol} padding="1" size="10" />
-          </div>
-          <div className="block lg:hidden">
-            <Logo symbol={coin.symbol} padding="1" size="8" />
-          </div>
+        <CoinLink symbol={coin.symbol}>
+          <div className="flex items-center gap-3">
+            <div className="hidden lg:block">
+              <Logo symbol={coin.symbol} padding="1" size="10" />
+            </div>
+            <div className="block lg:hidden">
+              <Logo symbol={coin.symbol} padding="1" size="8" />
+            </div>
 
-          <div className="flex flex-col truncate">
-            <span className="truncate font-semibold text-sm">{coin.name}</span>
-            <span className="text-xs font-medium text-text-muted">
-              {coin.symbol}USDT
-            </span>
+            <div className="flex flex-col truncate">
+              <span className="truncate font-semibold text-sm">
+                {coin.name}
+              </span>
+              <span className="text-xs font-medium text-text-muted">
+                {coin.symbol}USDT
+              </span>
+            </div>
           </div>
-        </div>
+        </CoinLink>
       </td>
       <td className="px-2 py-2">${coin.price}</td>
       <td className="px-2 py-4 h-full flex-col gap-2 text-success font-bold">
