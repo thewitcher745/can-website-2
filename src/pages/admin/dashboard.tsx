@@ -40,11 +40,11 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleDelete = async (slug: string) => {
+  const handleDelete = async (slug: string, type: string) => {
     if (confirm("Are you sure you want to delete this post?")) {
       try {
         const response = await fetch(
-          buildApiUrl(`/api/admin/articles/${slug}`),
+          buildApiUrl(`/api/admin/deleteArticle?type=${type}&slug=${slug}`),
           {
             method: "DELETE",
             headers: {
@@ -150,7 +150,7 @@ const AdminDashboard = () => {
                         </button>
                         <button
                           className="px-3 py-1.5 bg-error hover:bg-error-light hover:text-black text-white text-sm rounded transition-colors"
-                          onClick={() => handleDelete(post.slug)}
+                          onClick={() => handleDelete(post.slug, post.type)}
                         >
                           Delete
                         </button>

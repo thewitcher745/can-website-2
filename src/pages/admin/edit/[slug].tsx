@@ -49,7 +49,7 @@ const EditPost = () => {
       const type = router.query.type;
 
       const response = await fetch(
-        buildApiUrl(`/api/admin/article?type=${type}&slug=${slugParam}`),
+        buildApiUrl(`/api/admin/getArticle?type=${type}&slug=${slugParam}`),
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
