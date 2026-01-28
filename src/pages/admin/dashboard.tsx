@@ -4,13 +4,12 @@ import withAuth from "@src/features/admin/withAuth";
 import { buildApiUrl } from "@src/config";
 
 interface Post {
-  id: string;
-  title: string;
   slug: string;
+  type: string;
   status: "published" | "draft";
-  author: string;
-  publishDate: string;
-  category: string;
+  published_at: string;
+  title: string;
+  vip: boolean | null;
 }
 
 const AdminDashboard = () => {
@@ -19,50 +18,50 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let cancelled = false;
+    fetchPosts();
+  }, []);
 
-    (async () => {
-      try {
-        // Simulate fetching posts from Flask API
-        const mockPosts: Post[] = [
-          {
-            id: "1",
-            title: "Bitcoin Market Analysis Q1 2024",
-            slug: "bitcoin-market-analysis-q1-2024",
-            status: "published",
-            author: "Admin",
-            publishDate: "2024-01-15",
-            category: "analysis",
-          },
-          {
-            id: "2",
-            title: "Top 5 High Potential Altcoins",
-            slug: "top-5-high-potential-altcoins",
-            status: "draft",
-            author: "Admin",
-            publishDate: "2024-02-10",
-            category: "high-potential",
-          },
-        ];
-
-        setTimeout(() => {
-          if (cancelled) return;
-          setPosts(mockPosts);
-          setLoading(false);
-        }, 800);
-      } catch {
-        if (cancelled) return;
+  const fetchPosts = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(buildApiUrl("/api/admin/articles"), {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
+        },
+      });
+      const data = await response.json();
+      if (data.ok) {
+        setPosts(data.items);
       }
-    })();
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    return () => {
-      cancelled = true;
-    };
-  }, [router]);
-
-  const handleDelete = (id: string) => {
+  const handleDelete = async (slug: string) => {
     if (confirm("Are you sure you want to delete this post?")) {
-      setPosts(posts.filter((post) => post.id !== id));
+      try {
+        const response = await fetch(
+          buildApiUrl(`/api/admin/articles/${slug}`),
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
+            },
+          },
+        );
+        if (response.ok) {
+          setPosts(posts.filter((post) => post.slug !== slug));
+          alert("Post deleted successfully");
+        } else {
+          alert("Failed to delete post");
+        }
+      } catch (error) {
+        console.error("Error deleting post:", error);
+        alert("Error deleting post");
+      }
     }
   };
 
@@ -91,16 +90,12 @@ const AdminDashboard = () => {
                   <th className="p-4 text-left border-b border-border">
                     Title
                   </th>
-                  <th className="p-4 text-left border-b border-border">
-                    Author
-                  </th>
-                  <th className="p-4 text-left border-b border-border">
-                    Category
-                  </th>
+                  <th className="p-4 text-left border-b border-border">Type</th>
                   <th className="p-4 text-left border-b border-border">Date</th>
                   <th className="p-4 text-left border-b border-border">
                     Status
                   </th>
+                  <th className="p-4 text-left border-b border-border">VIP</th>
                   <th className="p-4 text-left border-b border-border">
                     Actions
                   </th>
@@ -109,18 +104,17 @@ const AdminDashboard = () => {
               <tbody>
                 {posts.map((post) => (
                   <tr
-                    key={post.id}
+                    key={post.slug}
                     className="hover:bg-background/50 transition-colors"
                   >
                     <td className="p-4 border-b border-border">{post.title}</td>
                     <td className="p-4 border-b border-border">
-                      {post.author}
+                      <span className="capitalize">
+                        {post.type.replace("_", " ")}
+                      </span>
                     </td>
                     <td className="p-4 border-b border-border">
-                      {post.category}
-                    </td>
-                    <td className="p-4 border-b border-border">
-                      {post.publishDate}
+                      {new Date(post.published_at).toLocaleDateString()}
                     </td>
                     <td className="p-4 border-b border-border">
                       <span
@@ -134,18 +128,29 @@ const AdminDashboard = () => {
                       </span>
                     </td>
                     <td className="p-4 border-b border-border">
+                      {post.vip === true ? (
+                        <span className="text-primary font-bold">YES</span>
+                      ) : post.vip === false ? (
+                        <span className="text-text-muted">NO</span>
+                      ) : (
+                        <span className="text-text-muted italic">-</span>
+                      )}
+                    </td>
+                    <td className="p-4 border-b border-border">
                       <div className="flex gap-2">
                         <button
                           className="px-3 py-1.5 bg-secondary hover:bg-secondary-light hover:text-black text-white text-sm rounded transition-colors"
                           onClick={() =>
-                            router.push(`/admin/edit/${post.slug}`)
+                            router.push(
+                              `/admin/edit/${post.slug}?type=${post.type}`,
+                            )
                           }
                         >
                           Edit
                         </button>
                         <button
                           className="px-3 py-1.5 bg-error hover:bg-error-light hover:text-black text-white text-sm rounded transition-colors"
-                          onClick={() => handleDelete(post.id)}
+                          onClick={() => handleDelete(post.slug)}
                         >
                           Delete
                         </button>

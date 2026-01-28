@@ -46,8 +46,10 @@ const EditPost = () => {
   const fetchPostData = async () => {
     setLoading(true);
     try {
+      const type = router.query.type;
+
       const response = await fetch(
-        buildApiUrl(`/api/admin/posts/${slugParam}`),
+        buildApiUrl(`/api/admin/article?type=${type}&slug=${slugParam}`),
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
@@ -57,9 +59,26 @@ const EditPost = () => {
       if (!response.ok) {
         throw new Error("Failed to fetch post data");
       }
-      const data = await response.json();
-      setMetadata(data.metadata);
-      setContent(data.content);
+      const data = (await response.json()).data;
+      // Expecting data to have metadata and body (which we'll set to content)
+      if (data.meta) {
+        const { published_at, ...restMetadata } = data.meta;
+
+        // Handle ISO format: 2025-11-26T12:45:00+03:30
+        const [datePart, fullTimePart] = published_at.split("T");
+        // fullTimePart could be "12:45:00+03:30" or just "12:45:00"
+        const [timePart] = fullTimePart.split(/[+-]/); // Split by + or - to remove timezone
+        const [hours, minutes] = timePart.split(":");
+
+        setMetadata({
+          ...restMetadata,
+          publishDate: datePart,
+          time: `${hours}:${minutes}`,
+        });
+      }
+      if (data.body) {
+        setContent(data.body);
+      }
     } catch (error) {
       console.error("Error fetching post:", error);
       alert("Error loading post data.");
@@ -148,18 +167,32 @@ const EditPost = () => {
     const val =
       type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
 
-    setMetadata((prev) => ({
-      ...prev,
-      [name]: val,
-      // Auto-generate slug from title if it's a new post
-      slug:
-        name === "title" && !isEditing
-          ? value
-              .toLowerCase()
-              .replace(/\s+/g, "-")
-              .replace(/[^\w-]+/g, "")
-          : prev.slug,
-    }));
+    // If in editing mode, make slug and type unchangable.
+    if (name !== "slug") {
+      setMetadata((prev) => {
+        const next = {
+          ...prev,
+          [name]: val,
+          // Auto-generate slug from title if it's a new post
+          slug:
+            name === "title" && !isEditing && typeof val === "string"
+              ? val
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/[^\w-]+/g, "")
+              : prev.slug,
+        };
+        return next;
+      });
+    } else {
+      setMetadata((prev) => {
+        const next = {
+          ...prev,
+          [name]: typeof val === "string" ? val : String(val),
+        };
+        return next;
+      });
+    }
   };
 
   const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -209,12 +242,10 @@ const EditPost = () => {
     };
 
     try {
-      const url = isEditing
-        ? buildApiUrl(`/api/admin/posts/${slugParam}`)
-        : buildApiUrl("/api/admin/postNewArticle");
+      const url = buildApiUrl("/api/admin/postNewArticle");
 
       const response = await fetch(url, {
-        method: isEditing ? "PUT" : "POST",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
@@ -285,8 +316,15 @@ const EditPost = () => {
               name="type"
               value={metadata.type}
               onChange={handleTypeChange}
-              className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer font-bold text-lg"
+              className={`p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none cursor-${
+                isEditing ? "not-allowed" : "pointer"
+              } font-bold text-lg`}
               disabled={isEditing}
+              onClick={(e) => {
+                if (isEditing) {
+                  e.preventDefault();
+                }
+              }}
             >
               <option value="blog">Blog Article</option>
               <option value="analysis">Technical Analysis</option>
@@ -354,20 +392,23 @@ const EditPost = () => {
             </>
           )}
 
-          <div className="flex flex-col">
-            <label htmlFor="slug" className="mb-2 text-sm text-text-muted">
-              Slug (URL)
-            </label>
-            <input
-              id="slug"
-              name="slug"
-              type="text"
-              value={metadata.slug}
-              onChange={handleMetadataChange}
-              placeholder="post-url-slug"
-              className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50"
-            />
-          </div>
+          {!isEditing && (
+            <div className="flex flex-col">
+              <label htmlFor="slug" className="mb-2 text-sm text-text-muted">
+                Slug (URL)
+              </label>
+              <input
+                id="slug"
+                name="slug"
+                type="text"
+                value={metadata.slug}
+                onChange={handleMetadataChange}
+                placeholder="post-url-slug"
+                className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50"
+                readOnly={isEditing}
+              />
+            </div>
+          )}
 
           <div className="flex flex-col">
             <label htmlFor="author" className="mb-2 text-sm text-text-muted">
@@ -456,9 +497,9 @@ const EditPost = () => {
             <ImageUpload
               label="Thumbnail"
               value={metadata.thumbnail}
-              onChange={(url) =>
-                setMetadata((prev) => ({ ...prev, thumbnail: url }))
-              }
+              onChange={(url) => {
+                setMetadata((prev) => ({ ...prev, thumbnail: url }));
+              }}
               helperText="Recommended: 1200x630px"
             />
           )}
@@ -468,9 +509,9 @@ const EditPost = () => {
               <ImageUpload
                 label="Main Image"
                 value={metadata.image}
-                onChange={(url) =>
-                  setMetadata((prev) => ({ ...prev, image: url }))
-                }
+                onChange={(url) => {
+                  setMetadata((prev) => ({ ...prev, image: url }));
+                }}
                 helperText="High quality analysis chart/image"
               />
               <div className="flex flex-col">
@@ -530,17 +571,17 @@ const EditPost = () => {
               <ImageUpload
                 label="Logo"
                 value={metadata.logo}
-                onChange={(url) =>
-                  setMetadata((prev) => ({ ...prev, logo: url }))
-                }
+                onChange={(url) => {
+                  setMetadata((prev) => ({ ...prev, logo: url }));
+                }}
                 helperText="Token logo (SVG or PNG preferred)"
               />
               <ImageUpload
                 label="Main Image"
                 value={metadata.image}
-                onChange={(url) =>
-                  setMetadata((prev) => ({ ...prev, image: url }))
-                }
+                onChange={(url) => {
+                  setMetadata((prev) => ({ ...prev, image: url }));
+                }}
                 helperText="High potential token showcase image"
                 className="md:col-span-2"
               />

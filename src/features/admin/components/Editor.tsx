@@ -36,6 +36,25 @@ const Editor: React.FC<EditorProps> = ({ data, onChange, holder }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (data && ejInstance.current) {
+      const editor = ejInstance.current;
+      editor.isReady.then(() => {
+        // Only render if data is different and not empty
+        if (data.blocks && data.blocks.length > 0) {
+          // Check if the current editor content is empty or different
+          editor.save().then((currentData) => {
+            if (
+              JSON.stringify(currentData.blocks) !== JSON.stringify(data.blocks)
+            ) {
+              editor.render(data);
+            }
+          });
+        }
+      });
+    }
+  }, [data]);
+
   const initEditor = () => {
     const editor = new EditorJS({
       holder: holder,
