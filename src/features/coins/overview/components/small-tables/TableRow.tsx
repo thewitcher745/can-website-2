@@ -2,6 +2,7 @@ import { TopCoin } from "@src/types";
 import Logo from "@shared/ui/Logo";
 import { formatPrice } from "@src/utils";
 import Caret from "@shared/ui/Caret";
+import CoinLink from "@src/shared/ui/CoinLink";
 
 export const TableRowPlaceholder = ({ pulse = true }: { pulse?: boolean }) => (
   <tr className="border-b border-border h-1/5">
@@ -30,17 +31,19 @@ const TableRow = ({ coin }: { coin: TopCoin }) => {
       {coin ? (
         <>
           <td className="px-2 py-2 w-1/2">
-            <div className="flex items-center gap-2">
-              <Logo symbol={coin.symbol} padding="1" size="10" />
-              <div className="flex flex-col truncate">
-                <span className="truncate text-text-main font-semibold text-sm">
-                  {coin.name}
-                </span>
-                <span className="text-xs font-medium text-text-muted">
-                  {coin.symbol}USDT
-                </span>
+            <CoinLink symbol={coin.symbol}>
+              <div className="flex items-center gap-2">
+                <Logo symbol={coin.symbol} padding="1" size="10" />
+                <div className="flex flex-col truncate">
+                  <span className="truncate text-text-main font-semibold text-sm">
+                    {coin.name}
+                  </span>
+                  <span className="text-xs font-medium text-text-muted">
+                    {coin.symbol}USDT
+                  </span>
+                </div>
               </div>
-            </div>
+            </CoinLink>
           </td>
           <td className="opacity-80 text-text-main text-md font-light py-2 w-1/4">
             {formatPrice(coin.price)}
