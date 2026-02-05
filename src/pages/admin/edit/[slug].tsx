@@ -286,7 +286,7 @@ const EditPost = () => {
 
   return (
     <div className="pt-24 bg-surface text-text-main rounded-xl shadow-xl border border-border flex justify-center">
-      <div className="w-full max-w-custom">
+      <div className="w-full max-w-custom px-4">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <h1 className="m-0 text-2xl font-bold text-primary">
             {isEditing ? "Edit Post" : "Create New Post"}
