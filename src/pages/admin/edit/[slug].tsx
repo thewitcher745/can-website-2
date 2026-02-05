@@ -118,7 +118,7 @@ const EditPost = () => {
     if (metadata.type === "high_potential") {
       setMetadata((prev) => ({
         ...prev,
-        tokenName: "Solana",
+        title: "Solana",
         symbol: "SOL",
         slug: "solana-potential",
         author: "Admin",
@@ -173,14 +173,25 @@ const EditPost = () => {
         const next = {
           ...prev,
           [name]: val,
-          // Auto-generate slug from title if it's a new post
+          // Auto-generate slug from title if it's a new post, or from symbol if high_potential
           slug:
-            name === "title" && !isEditing && typeof val === "string"
+            name === "title" &&
+            !isEditing &&
+            typeof val === "string" &&
+            metadata.type !== "high_potential"
               ? val
                   .toLowerCase()
                   .replace(/\s+/g, "-")
                   .replace(/[^\w-]+/g, "")
-              : prev.slug,
+              : name === "symbol" &&
+                  !isEditing &&
+                  typeof val === "string" &&
+                  metadata.type === "high_potential"
+                ? val
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")
+                    .replace(/[^\w-]+/g, "")
+                : prev.slug,
         };
         console.log(next);
         return next;
@@ -209,7 +220,7 @@ const EditPost = () => {
       if (newType === "high_potential") {
         return {
           ...base,
-          tokenName: "",
+          title: "",
           symbol: "",
           category: "Bronze",
           logo: "",
@@ -360,17 +371,14 @@ const EditPost = () => {
           {metadata.type === "high_potential" && (
             <>
               <div className="flex flex-col">
-                <label
-                  htmlFor="tokenName"
-                  className="mb-2 text-sm text-text-muted"
-                >
-                  Token Name
+                <label htmlFor="title" className="mb-2 text-sm text-text-muted">
+                  Title (Token Name i.e. HYPEUSDT)
                 </label>
                 <input
-                  id="tokenName"
-                  name="tokenName"
+                  id="title"
+                  name="title"
                   type="text"
-                  value={metadata.tokenName || ""}
+                  value={metadata.title || ""}
                   onChange={handleMetadataChange}
                   placeholder="Bitcoin"
                   className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all"
@@ -381,7 +389,7 @@ const EditPost = () => {
                   htmlFor="symbol"
                   className="mb-2 text-sm text-text-muted"
                 >
-                  Symbol
+                  Symbol (i.e. HYPE)
                 </label>
                 <input
                   id="symbol"
