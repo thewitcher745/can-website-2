@@ -6,12 +6,12 @@ export interface EditorMetadata {
   slug: string;
   author: string;
   tags: string;
-  publishDate: string;
+  date: string;
+  time: string;
   status: string;
   // Blog & News & Analysis
   description?: string;
   thumbnail?: string;
-  time?: string;
   // Analysis
   isVip?: boolean;
   image?: string;
@@ -183,7 +183,6 @@ export interface ArticleItemRaw {
   slug: string;
   thumbnail: string;
   title: string;
-  publishedAt: string;
   time: string;
   timestamp: string;
   date: string;
@@ -193,7 +192,7 @@ export interface ArticleItem {
   slug: string;
   thumbnail: string;
   title: string;
-  publishedAt: Date;
+  time: Date;
 }
 
 export interface ArticleMeta {

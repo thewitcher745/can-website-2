@@ -7,7 +7,8 @@ interface Post {
   slug: string;
   type: string;
   status: "published" | "draft";
-  published_at: string;
+  time: string;
+  lastModifiedTime: number;
   title: string;
   vip: boolean | null;
 }
@@ -91,7 +92,9 @@ const AdminDashboard = () => {
                     Title
                   </th>
                   <th className="p-4 text-left border-b border-border">Type</th>
-                  <th className="p-4 text-left border-b border-border">Date</th>
+                  <th className="p-4 text-left border-b border-border">
+                    Last modified time
+                  </th>
                   <th className="p-4 text-left border-b border-border">
                     Status
                   </th>
@@ -114,7 +117,11 @@ const AdminDashboard = () => {
                       </span>
                     </td>
                     <td className="p-4 border-b border-border">
-                      {new Date(post.published_at).toLocaleDateString()}
+                      {new Date(post.lastModifiedTime).toLocaleDateString()}{" "}
+                      {new Date(post.lastModifiedTime).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
                     </td>
                     <td className="p-4 border-b border-border">
                       <span

@@ -25,7 +25,7 @@ const EditPost = () => {
     slug: "",
     author: "",
     tags: "",
-    publishDate: new Date().toISOString().split("T")[0],
+    date: new Date().toISOString().split("T")[0],
     time: new Date().toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
@@ -62,17 +62,17 @@ const EditPost = () => {
       const data = (await response.json()).data;
       // Expecting data to have metadata and body (which we'll set to content)
       if (data.meta) {
-        const { published_at, ...restMetadata } = data.meta;
+        const { time, ...restMetadata } = data.meta;
 
         // Handle ISO format: 2025-11-26T12:45:00+03:30
-        const [datePart, fullTimePart] = published_at.split("T");
+        const [datePart, fullTimePart] = time.split("T");
         // fullTimePart could be "12:45:00+03:30" or just "12:45:00"
         const [timePart] = fullTimePart.split(/[+-]/); // Split by + or - to remove timezone
         const [hours, minutes] = timePart.split(":");
 
         setMetadata({
           ...restMetadata,
-          publishDate: datePart,
+          date: datePart,
           time: `${hours}:${minutes}`,
         });
       }
@@ -182,6 +182,7 @@ const EditPost = () => {
                   .replace(/[^\w-]+/g, "")
               : prev.slug,
         };
+        console.log(next);
         return next;
       });
     } else {
@@ -190,6 +191,7 @@ const EditPost = () => {
           ...prev,
           [name]: typeof val === "string" ? val : String(val),
         };
+        console.log(next);
         return next;
       });
     }
@@ -230,16 +232,18 @@ const EditPost = () => {
 
     // Combine publishDate and time into ISO 8601 with timezone (e.g., 2025-11-26T12:45:17+03:30)
     const timezoneOffset = "+03:30"; // USER specified offset
-    const combinedDateTime = `${metadata.publishDate}T${metadata.time}:00${timezoneOffset}`;
+    const combinedDateTime = `${metadata.date}T${metadata.time}:00${timezoneOffset}`;
 
-    const { publishDate, time, ...restMetadata } = metadata;
+    const { date, time, ...restMetadata } = metadata;
 
     const postData = {
       ...restMetadata,
-      published_at: combinedDateTime,
+      time: combinedDateTime,
       status,
       body: content,
     };
+
+    console.log(postData);
 
     try {
       const url = buildApiUrl("/api/admin/postNewArticle");
@@ -426,17 +430,14 @@ const EditPost = () => {
           </div>
 
           <div className="flex flex-col">
-            <label
-              htmlFor="publishDate"
-              className="mb-2 text-sm text-text-muted"
-            >
+            <label htmlFor="date" className="mb-2 text-sm text-text-muted">
               Publish Date
             </label>
             <input
-              id="publishDate"
-              name="publishDate"
+              id="date"
+              name="date"
               type="date"
-              value={metadata.publishDate}
+              value={metadata.date}
               onChange={handleMetadataChange}
               className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all [color-scheme:dark]"
             />

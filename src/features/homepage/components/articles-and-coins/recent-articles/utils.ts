@@ -19,12 +19,11 @@ export const parseDate = (value: unknown): Date | null => {
 };
 
 export const normalizeItem = (raw: ArticleItemRaw): ArticleItem => {
-  const publishedCandidate =
-    raw.publishedAt ?? raw.time ?? raw.timestamp ?? raw.date ?? null;
+  const timeCandidate = raw.time ?? raw.timestamp ?? raw.date ?? null;
   return {
     slug: raw.slug,
     thumbnail: raw.thumbnail,
     title: raw.title,
-    publishedAt: parseDate(publishedCandidate as unknown)!,
+    time: parseDate(timeCandidate as unknown)!,
   };
 };
