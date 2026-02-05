@@ -10,7 +10,7 @@ interface Post {
   time: string;
   lastModifiedTime: number;
   title: string;
-  vip: boolean | null;
+  isVip: boolean | null;
 }
 
 const AdminDashboard = () => {
@@ -135,9 +135,9 @@ const AdminDashboard = () => {
                       </span>
                     </td>
                     <td className="p-4 border-b border-border">
-                      {post.vip === true ? (
+                      {post.isVip === true ? (
                         <span className="text-primary font-bold">YES</span>
-                      ) : post.vip === false ? (
+                      ) : post.isVip === false ? (
                         <span className="text-text-muted">NO</span>
                       ) : (
                         <span className="text-text-muted italic">-</span>
