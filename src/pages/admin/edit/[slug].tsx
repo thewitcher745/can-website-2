@@ -36,6 +36,7 @@ const EditPost = () => {
 
   const [content, setContent] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [isSlugExists, setIsSlugExists] = useState(false);
 
   React.useEffect(() => {
     if (isEditing && slugParam) {
@@ -193,7 +194,6 @@ const EditPost = () => {
                     .replace(/[^\w-]+/g, "")
                 : prev.slug,
         };
-        console.log(next);
         return next;
       });
     } else {
@@ -202,7 +202,6 @@ const EditPost = () => {
           ...prev,
           [name]: typeof val === "string" ? val : String(val),
         };
-        console.log(next);
         return next;
       });
     }
@@ -254,10 +253,10 @@ const EditPost = () => {
       body: content,
     };
 
-    console.log(postData);
-
     try {
-      const url = buildApiUrl("/api/admin/postNewArticle");
+      const url = isEditing
+        ? buildApiUrl(`/api/admin/postNewArticle?edit=true`)
+        : buildApiUrl("/api/admin/postNewArticle");
 
       const response = await fetch(url, {
         method: "POST",
@@ -269,6 +268,12 @@ const EditPost = () => {
       });
 
       if (!response.ok) {
+        if (response.status === 409) {
+          alert(
+            "A post of the same type with this slug already exists. Edit the slug on this one or delete the old one to publish this article.",
+          );
+          setIsSlugExists(true);
+        }
         throw new Error(`Failed to save post: ${response.statusText}`);
       }
 
@@ -276,9 +281,8 @@ const EditPost = () => {
         `Post ${status === "published" ? "published" : "saved as draft"} successfully!`,
       );
       router.push("/admin/dashboard");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error saving post:", error);
-      alert("Error saving post. Please check the console for details.");
     } finally {
       setLoading(false);
     }
@@ -404,23 +408,29 @@ const EditPost = () => {
             </>
           )}
 
-            <div className="flex flex-col">
-              <label htmlFor="slug" className="mb-2 text-sm text-text-muted">
-                Slug (URL)
-              </label>
-              <input
-                id="slug"
-                name="slug"
-                type="text"
-                value={metadata.slug}
-                onChange={handleMetadataChange}
-                placeholder="post-url-slug"
-              className={`p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50 ${
+          <div className="flex flex-col">
+            <label htmlFor="slug" className="mb-2 text-sm text-text-muted">
+              Slug (URL)
+              {isSlugExists && (
+                <span className="mb-2 ml-4 text-sm text-error">
+                  This slug already exists.
+                </span>
+              )}
+            </label>
+
+            <input
+              id="slug"
+              name="slug"
+              type="text"
+              value={metadata.slug}
+              onChange={handleMetadataChange}
+              placeholder="post-url-slug"
+              className={`p-3 rounded-lg border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50 ${
                 isEditing ? "pointer-events-none" : "pointer"
-              }`}
-                readOnly={isEditing}
-              />
-            </div>
+              } ${isSlugExists ? "border-error" : "border-border"}`}
+              readOnly={isEditing}
+            />
+          </div>
 
           <div className="flex flex-col">
             <label htmlFor="author" className="mb-2 text-sm text-text-muted">
