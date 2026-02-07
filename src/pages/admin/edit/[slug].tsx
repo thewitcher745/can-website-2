@@ -500,9 +500,7 @@ const EditPost = () => {
 
         {/* Dynamic Fields Based on Article Type */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 pb-8 border-b border-border">
-          {(metadata.type === "blog" ||
-            metadata.type === "news" ||
-            metadata.type === "analysis") && (
+          {(metadata.type === "blog" || metadata.type === "news") && (
             <ImageUpload
               label="Thumbnail"
               value={metadata.thumbnail}
