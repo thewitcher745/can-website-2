@@ -1,4 +1,4 @@
-import { AnalysisPostMeta } from "@src/types";
+import { ListedAnalysisPost } from "@src/types";
 import Logo from "@src/shared/ui/Logo";
 
 const PostLogo: React.FC<{ symbol: string }> = ({ symbol }) => {
@@ -12,7 +12,7 @@ const MostRecentAnalysisSelector = ({
   setIsTransitioning,
   timerRef,
 }: {
-  recentAnalysis: AnalysisPostMeta[];
+  recentAnalysis: ListedAnalysisPost[];
   currentSlide: number;
   setCurrentSlide: (slide: number) => void;
   setIsTransitioning: (transitioning: boolean) => void;
@@ -48,7 +48,7 @@ const MostRecentAnalysisSelector = ({
               }`}
               aria-label={`Go to slide ${index + 1}`}
             >
-              <PostLogo symbol={recentAnalysis[index].coins[0].toUpperCase()} />
+              <PostLogo symbol={recentAnalysis[index].meta.coins[0].toUpperCase()} />
             </div>
             <div
               className={`flex-col hidden xl:flex transition-all duration-200 ${
@@ -58,7 +58,7 @@ const MostRecentAnalysisSelector = ({
               }`}
             >
               <h3 className="text-text-main text-sm selector-caption">
-                {recentAnalysis[index].title}
+                {recentAnalysis[index].meta.title}
               </h3>
             </div>
           </div>

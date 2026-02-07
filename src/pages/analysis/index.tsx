@@ -1,16 +1,15 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
-import Navbar from "@shared/ui/navbar/Navbar";
 import Footer from "@src/shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
-import { AnalysisPostMeta } from "@src/types";
+import { ListedAnalysisPost } from "@src/types";
 import MostRecent from "@features/homepage/components/most-recent-analysis/MostRecent";
 import AnalysisListContainer from "@features/analysis/AnalysisListContainer";
 import BannerMini from "@src/features/homepage/components/promotions/BannerMini";
 
 const Analysis: React.FC = () => {
-  const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
+  const [posts, setPosts] = useState<ListedAnalysisPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,10 +21,10 @@ const Analysis: React.FC = () => {
       })
       .then(setPosts)
       .catch((e) => setError(e.message))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
-
-  const filteredPosts = posts;
 
   if (loading)
     return (

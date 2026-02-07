@@ -52,15 +52,18 @@ export interface Video {
 }
 
 export interface AnalysisPostMeta {
-  thumbnail: string;
   image: string;
   author: string;
   time: string;
-  slug: string;
   tags: string[];
   coins: string[];
   title: string;
-  desc: string;
+  description: string;
+}
+
+export interface ListedAnalysisPost {
+  slug: string;
+  meta: AnalysisPostMeta;
 }
 
 export interface TopCoin {

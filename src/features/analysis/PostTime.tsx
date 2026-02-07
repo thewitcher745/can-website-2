@@ -13,7 +13,8 @@ const PostTime = ({
         hiddenOnMobile ? "hidden sm:block" : ""
       }`}
     >
-      Last updated {time}
+      Last updated {new Date(time).toLocaleDateString()}{" "}
+      {new Date(time).toLocaleTimeString()}
     </div>
   );
 };
