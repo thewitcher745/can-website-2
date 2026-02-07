@@ -181,17 +181,17 @@ const EditPost = () => {
             typeof val === "string" &&
             metadata.type !== "high_potential"
               ? val
+                  .replace(/[^a-zA-Z0-9\s]/g, "")
                   .toLowerCase()
                   .replace(/\s+/g, "-")
-                  .replace(/[^\w-]+/g, "")
               : name === "symbol" &&
                   !isEditing &&
                   typeof val === "string" &&
                   metadata.type === "high_potential"
                 ? val
+                    .replace(/[^a-zA-Z0-9\s]/g, "")
                     .toLowerCase()
                     .replace(/\s+/g, "-")
-                    .replace(/[^\w-]+/g, "")
                 : prev.slug,
         };
         return next;
