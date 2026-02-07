@@ -404,7 +404,6 @@ const EditPost = () => {
             </>
           )}
 
-          {!isEditing && (
             <div className="flex flex-col">
               <label htmlFor="slug" className="mb-2 text-sm text-text-muted">
                 Slug (URL)
@@ -416,11 +415,12 @@ const EditPost = () => {
                 value={metadata.slug}
                 onChange={handleMetadataChange}
                 placeholder="post-url-slug"
-                className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50"
+              className={`p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50 ${
+                isEditing ? "pointer-events-none" : "pointer"
+              }`}
                 readOnly={isEditing}
               />
             </div>
-          )}
 
           <div className="flex flex-col">
             <label htmlFor="author" className="mb-2 text-sm text-text-muted">
