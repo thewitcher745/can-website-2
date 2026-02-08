@@ -82,12 +82,24 @@ export interface TopCoinLists {
   top_volume: TopCoin[];
 }
 
-export interface HighPotentialTokenMeta {
-  name: string;
-  symbol: string;
+export interface HighPotentialArticleMeta {
+  author: string;
   category: string;
-  slug: string;
+  description: string;
+  image: string;
+  lastModifiedTime: number;
   logo: string;
+  status: string;
+  symbol: string;
+  tags: string[];
+  time: string;
+  title: string;
+  type: string;
+}
+
+export interface ListedHighPotentialArticle {
+  meta: HighPotentialArticleMeta;
+  slug: string;
 }
 
 export interface DesktopSidebarProps {

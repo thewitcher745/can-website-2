@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
+
 import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
 import { Article } from "@src/types";
