@@ -182,41 +182,18 @@ export interface GainerLoser {
   volume: number;
 }
 
-export interface ArticleItemRaw {
-  slug: string;
-  thumbnail: string;
-  title: string;
-  time: string;
-  timestamp: string;
-  date: string;
-}
-
-export interface ArticleItem {
-  slug: string;
-  thumbnail: string;
-  title: string;
-  time: Date;
-}
-
 export interface ArticleMeta {
   author: string;
-  time: string;
-  slug: string;
+  description: string;
   tags: string[];
+  time: string;
   title: string;
-  desc: string;
   thumbnail?: string;
 }
 
-export interface Article {
-  author: string;
-  content_html: string;
-  time: string;
-  image: string;
-  desc: string;
+export interface ListedArticle {
   slug: string;
-  tags: string[];
-  title: string;
+  meta: ArticleMeta;
 }
 
 export interface TopMarketCapCoin {
