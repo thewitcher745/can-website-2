@@ -87,14 +87,12 @@ export interface HighPotentialArticleMeta {
   category: string;
   description: string;
   image: string;
-  lastModifiedTime: number;
   logo: string;
   status: string;
   symbol: string;
   tags: string[];
   time: string;
   title: string;
-  type: string;
 }
 
 export interface ListedHighPotentialArticle {
