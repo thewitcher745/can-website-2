@@ -2,20 +2,21 @@
 
 .analysis-article {
     padding: 1rem 0;
+    color: var(--color-text-main)
   }
 .analysis-article h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: revert;
+  font-weight: revert;
   padding: 0.5rem 0;
 }
 .analysis-article h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: revert;
+  font-weight: revert;
   padding: 0.5rem 0;
 }
 .analysis-article h1 {
-  font-size: 1.875rem;
-  font-weight: 700;
+  font-size: revert;
+  font-weight: revert;
   padding: 0.5rem 0;
 }
 .analysis-article img {
