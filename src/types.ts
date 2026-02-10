@@ -123,6 +123,12 @@ export interface AnalysisPost {
   body: ArticleBody;
 }
 
+export interface ArticlePost {
+  slug: string;
+  meta: AnalysisPostMeta;
+  body: ArticleBody;
+}
+
 export interface TopCoin {
   change: number;
   change_24h: number;
