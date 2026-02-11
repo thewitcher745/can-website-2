@@ -1,12 +1,12 @@
 import Head from "next/head";
 import React, { useState } from "react";
 import Footer from "@shared/ui/Footer";
-import { ArticleMeta } from "@src/types";
+import { ListedArticle } from "@src/types";
 import Listings from "@src/features/articles/Listings";
 import { GetStaticProps } from "next";
 import { createListingGetStaticProps } from "@src/features/articles/listingIsr";
 
-type NewsIndexProps = { items: ArticleMeta[] };
+type NewsIndexProps = { items: ListedArticle[] };
 
 const News: React.FC<NewsIndexProps> = ({ items }) => {
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
@@ -21,7 +21,7 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
 
   const filteredArticles = filterTags
     ? items.filter((article) =>
-        filterTags?.some((tag) => article.tags.includes(tag))
+        filterTags?.some((tag) => article.meta.tags.includes(tag)),
       )
     : items;
 
@@ -29,16 +29,25 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
     <>
       <Head>
         <title>Latest Crypto News - CAN Trading</title>
-        <meta name="description" content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading" />
+        <meta
+          name="description"
+          content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading"
+        />
         <meta property="og:title" content="Latest Crypto News - CAN Trading" />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading" />
+        <meta
+          property="og:description"
+          content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading"
+        />
         <meta property="og:url" content="https://can-trading.com/news" />
         <meta property="og:site_name" content="CAN Trading" />
         <meta property="og:image" content="/images/showcase/can-banner.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Latest Crypto News - CAN Trading" />
-        <meta name="twitter:description" content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading" />
+        <meta
+          name="twitter:description"
+          content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading"
+        />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
       <main className="bg-background min-h-screen">

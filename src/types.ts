@@ -123,9 +123,18 @@ export interface AnalysisPost {
   body: ArticleBody;
 }
 
+export interface ArticlePostMeta {
+  thumbnail: string;
+  author: string;
+  time: string;
+  tags: string[];
+  title: string;
+  description: string;
+}
+
 export interface ArticlePost {
   slug: string;
-  meta: AnalysisPostMeta;
+  meta: ArticlePostMeta;
   body: ArticleBody;
 }
 
@@ -161,6 +170,10 @@ export interface HighPotentialArticleMeta {
 export interface ListedHighPotentialArticle {
   meta: HighPotentialArticleMeta;
   slug: string;
+}
+
+export interface HighPotentialPost extends ListedHighPotentialArticle {
+  body: ArticleBody;
 }
 
 export interface DesktopSidebarProps {
