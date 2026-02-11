@@ -100,19 +100,22 @@ ol {
 }
 
 /* --------------------- High Potential section styles */
+.high-potential-article {
+  color: var(--color-text-main)
+}
 .high-potential-article h3 {
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: revert;
+  font-weight: revert;
   padding: 0.5rem 0;
 }
 .high-potential-article h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: revert;
+  font-weight: revert;
   padding: 0.8rem 0;
 }
 .high-potential-article h1 {
-  font-size: 1.875rem;
-  font-weight: 700;
+  font-size: revert;
+  font-weight: revert;
   padding: 1rem 0;
 }
 .high-potential-article img {

@@ -5,17 +5,13 @@ import Link from "next/link";
 
 import { buildApiUrl } from "@src/config";
 import Footer from "@src/shared/ui/Footer";
-import { HighPotentialTokenMeta } from "@src/types";
-
-interface TokenPageData extends HighPotentialTokenMeta {
-  content_html: string;
-  image: string;
-}
+import { HighPotentialPost } from "@src/types";
+import ArticleElement from "@src/features/high-potential/ArticleElement";
 
 export default function HighPotentialTokenPage() {
   const router = useRouter();
   const { slug } = router.query;
-  const [tokenData, setTokenData] = useState<TokenPageData | null>(null);
+  const [article, setArticle] = useState<HighPotentialPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -27,7 +23,7 @@ export default function HighPotentialTokenPage() {
           throw new Error("Failed to fetch high potential token data.");
         return res.json();
       })
-      .then(setTokenData)
+      .then(setArticle)
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, [slug]);
@@ -72,7 +68,7 @@ export default function HighPotentialTokenPage() {
     );
   }
 
-  if (!tokenData) {
+  if (!article) {
     return (
       <>
         <Head>
@@ -105,11 +101,11 @@ export default function HighPotentialTokenPage() {
               <div className="flex flex-col  gap-2 w-full lg:w-1/4">
                 <div className="flex flex-wrap gap-4 rounded-xl border border-text-muted p-2 items-center justify-center sm:justify-start lg:justify-center 2xl:justify-between">
                   <div
-                    className={`w-20 h-20 rounded-full border-6 border-${tokenData.category} aspect-square overflow-hidden`}
+                    className={`w-20 h-20 rounded-full border-6 border-${article.meta.category} aspect-square overflow-hidden`}
                   >
                     <img
-                      src={tokenData.logo}
-                      alt={tokenData.name}
+                      src={article.meta.logo}
+                      alt={article.meta.title}
                       className="size-full object-fit shadow-lg"
                     />
                   </div>
@@ -117,27 +113,26 @@ export default function HighPotentialTokenPage() {
                     <div className="flex gap-4 items-center justify-between">
                       <span className="text-text-muted">Token name:</span>
                       <span className="text-text-main text-right text-xl">
-                        {tokenData.name}
+                        {article.meta.title}
                       </span>
                     </div>
                     <div className="flex gap-4 items-center justify-between">
                       <span className="text-text-muted">Symbol:</span>
                       <span className="text-text-main text-xl">
-                        {tokenData.symbol.toUpperCase()}
+                        {article.meta.symbol.toUpperCase()}
                       </span>
                     </div>
                   </div>
                 </div>
                 <img
-                  src={tokenData.image}
-                  alt={tokenData.name}
+                  src={article.meta.image}
+                  alt={article.meta.title}
                   className="w-full object-contain rounded-xl"
                 />
               </div>
               <div className="w-full lg:w-1/2 flex-grow">
-                <article
-                  className="high-potential-article text-text-main"
-                  dangerouslySetInnerHTML={{ __html: tokenData.content_html }}
+                <ArticleElement
+                  article={article}
                 />
               </div>
             </div>
@@ -148,3 +143,4 @@ export default function HighPotentialTokenPage() {
     </>
   );
 }
+
