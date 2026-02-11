@@ -1,93 +1,17 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 
 import { buildApiUrl } from "@src/config";
 import Footer from "@src/shared/ui/Footer";
-import { HighPotentialPost } from "@src/types";
+import { HighPotentialPost, ListedHighPotentialArticle } from "@src/types";
 import ArticleElement from "@src/features/high-potential/ArticleElement";
 
-export default function HighPotentialTokenPage() {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [article, setArticle] = useState<HighPotentialPost | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+type HighPotentialPostPageProps = { article: HighPotentialPost };
 
-  useEffect(() => {
-    if (!slug) return;
-    fetch(buildApiUrl(`/api/high_potential_tokens/${slug}`))
-      .then((res) => {
-        if (!res.ok)
-          throw new Error("Failed to fetch high potential token data.");
-        return res.json();
-      })
-      .then(setArticle)
-      .catch((e) => setError(e.message))
-      .finally(() => setLoading(false));
-  }, [slug]);
-
-  if (loading) {
-    return (
-      <>
-        <Head>
-          <title>CAN Trading</title>
-        </Head>
-        ""
-        <main className="pt-20 bg-background min-h-screen">
-          <section id="videos" className="py-16">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-10 text-white">
-                Loading token data...
-              </div>
-            </div>
-          </section>
-        </main>
-        <Footer />
-      </>
-    );
-  }
-
-  if (error) {
-    return (
-      <>
-        <Head>
-          <title>CAN Trading</title>
-        </Head>
-        ""
-        <main className="pt-20 bg-background min-h-screen">
-          <section id="videos" className="py-16">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-10 text-red-500">{error}</div>
-            </div>
-          </section>
-        </main>
-        <Footer />
-      </>
-    );
-  }
-
-  if (!article) {
-    return (
-      <>
-        <Head>
-          <title>CAN Trading</title>
-        </Head>
-        ""
-        <main className="pt-20 bg-background min-h-screen">
-          <section id="videos" className="py-16">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-10 text-white">
-                No videos found.
-              </div>
-            </div>
-          </section>
-        </main>
-        <Footer />
-      </>
-    );
-  }
+const HighPotentialPostPage: React.FC<HighPotentialPostPageProps> = ({
+  article,
+}) => {
   return (
     <>
       ""
@@ -131,9 +55,7 @@ export default function HighPotentialTokenPage() {
                 />
               </div>
               <div className="w-full lg:w-1/2 flex-grow">
-                <ArticleElement
-                  article={article}
-                />
+                <ArticleElement article={article} />
               </div>
             </div>
           </div>
@@ -142,5 +64,35 @@ export default function HighPotentialTokenPage() {
       <Footer />
     </>
   );
-}
+};
 
+export const getStaticPaths: GetStaticPaths = async () => {
+  try {
+    const res = await fetch(buildApiUrl(`/api/high_potential_tokens`));
+    if (!res.ok) throw new Error("Failed to fetch high potential token slugs");
+    const data: ListedHighPotentialArticle[] = await res.json();
+    const paths = (Array.isArray(data) ? data : []).map((post) => ({
+      params: { slug: post.slug },
+    }));
+    return { paths, fallback: "blocking" };
+  } catch {
+    return { paths: [], fallback: "blocking" };
+  }
+};
+
+export const getStaticProps: GetStaticProps<
+  HighPotentialPostPageProps
+> = async (context) => {
+  const slug = context.params?.slug as string;
+  try {
+    const res = await fetch(buildApiUrl(`/api/high_potential_tokens/${slug}`));
+    if (!res.ok) return { notFound: true, revalidate: 60 };
+    const data = await res.json();
+    if (!data) return { notFound: true, revalidate: 60 };
+    return { props: { article: data as HighPotentialPost }, revalidate: 86400 };
+  } catch (e) {
+    return { notFound: true, revalidate: 60 };
+  }
+};
+
+export default HighPotentialPostPage;
