@@ -12,13 +12,13 @@ import CoinDescriptionSection from "@features/coin/CoinDescriptionSection";
 import ClosingPriceHistorySection from "@features/coin/ClosingPriceHistorySection";
 import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
-import { AnalysisPostMeta, CoinCMCInfo, CoinMetaInfo } from "@src/types";
+import { AnalysisPost, CoinCMCInfo, CoinMetaInfo } from "@src/types";
 
 type CoinPageProps = {
   symbol: string;
   meta: CoinMetaInfo | null;
   cmc: CoinCMCInfo | null;
-  analysisPosts: AnalysisPostMeta[];
+  analysisPosts: AnalysisPost[];
   closingPricePeriod: number;
   closingPricePoints: { time: number; close: number }[] | null;
   closingPriceError?: string | null;
@@ -120,7 +120,7 @@ export const getServerSideProps: GetServerSideProps<CoinPageProps> = async (
 
     const meta = metaRes.ok ? ((await metaRes.json()) as CoinMetaInfo) : null;
     const cmc = cmcRes.ok ? ((await cmcRes.json()) as CoinCMCInfo) : null;
-    let analysisPosts: AnalysisPostMeta[] = [];
+    let analysisPosts: AnalysisPost[] = [];
     let closingPricePoints: { time: number; close: number }[] | null = null;
     let closingPriceError: string | null = null;
 
@@ -152,7 +152,7 @@ export const getServerSideProps: GetServerSideProps<CoinPageProps> = async (
       if (analysisRes.ok) {
         const data = await analysisRes.json();
         if (Array.isArray(data)) {
-          analysisPosts = data as AnalysisPostMeta[];
+          analysisPosts = data as AnalysisPost[];
         }
       }
     } catch {
