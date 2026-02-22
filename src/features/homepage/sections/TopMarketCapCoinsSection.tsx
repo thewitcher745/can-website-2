@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import Image from "next/image";
 
+import CoinLink from "@src/shared/ui/CoinLink";
 import { buildApiUrl } from "@src/config";
-import { getCoinLogoLink, reduceNumber, formatPrice } from "@src/utils";
+import { reduceNumber, formatPrice } from "@src/utils";
 import { HomepageTopCoinsTableRowPlaceholder } from "@src/shared/ui/loaders";
 import { TopMarketCapCoin } from "@src/types";
 import Logo from "@src/shared/ui/Logo";
@@ -235,17 +235,19 @@ const TopMarketCapCoinsSection = () => {
                         isScrolled ? "sticky-shadow-visible" : ""
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <Logo symbol={coin.symbol} size="12" padding="1" />
-                        <div className="flex flex-col truncate">
-                          <h3 className="truncate font-semibold text-sm">
-                            {coin.name}
-                          </h3>
-                          <h4 className="text-xs font-medium text-text-muted">
-                            {coin.symbol.toUpperCase()}
-                          </h4>
+                      <CoinLink symbol={coin.symbol}>
+                        <div className="flex items-center gap-3">
+                          <Logo symbol={coin.symbol} size="12" padding="1" />
+                          <div className="flex flex-col truncate">
+                            <h3 className="truncate font-semibold text-sm">
+                              {coin.name}
+                            </h3>
+                            <h4 className="text-xs font-medium text-text-muted">
+                              {coin.symbol.toUpperCase()}
+                            </h4>
+                          </div>
                         </div>
-                      </div>
+                      </CoinLink>
                     </td>
                     <td className="px-6 py-4">{formatPrice(coin.price)}</td>
                     <td className="px-6 py-4 hidden md:table-cell">

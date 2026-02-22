@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ChartItem from "./ChartItem";
 import { buildApiUrl } from "@src/config";
 import { ChartItemProps } from "@src/types";
+import CoinLink from "@src/shared/ui/CoinLink";
 
 // A set of 10 colorful barColors to use for each chartItem
 const barColors = [
@@ -51,19 +52,23 @@ const TopMarketCapChart = () => {
     <>
       {items.length > 0 ? (
         <ul className="flex flex-col items-center sm:block py-6">
-          <ChartItem
-            key={"BTC"}
-            chartItem={items[0]}
-            barColor={barColors[0]}
-            widthPercentage={100}
-          />
-          {items.slice(1, 10).map((item, index) => (
+          <CoinLink symbol="BTC">
             <ChartItem
-              key={item.symbol}
-              chartItem={item}
-              barColor={barColors[(index + 1) % barColors.length]}
-              widthPercentage={calcWidthPercentage(item.market_cap)}
+              key={"BTC"}
+              chartItem={items[0]}
+              barColor={barColors[0]}
+              widthPercentage={100}
             />
+          </CoinLink>
+          {items.slice(1, 10).map((item, index) => (
+            <CoinLink symbol={item.symbol}>
+              <ChartItem
+                key={item.symbol}
+                chartItem={item}
+                barColor={barColors[(index + 1) % barColors.length]}
+                widthPercentage={calcWidthPercentage(item.market_cap)}
+              />
+            </CoinLink>
           ))}
         </ul>
       ) : (

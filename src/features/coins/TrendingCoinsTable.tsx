@@ -14,6 +14,7 @@ import { TopCoinsTableRowPlaceholer } from "@shared/ui/loaders";
 import { formatPrice, getCoinLogoLink } from "@src/utils";
 import { GainerLoser } from "@src/types";
 import Logo from "@src/shared/ui/Logo";
+import CoinLink from "@src/shared/ui/CoinLink";
 
 interface TrendingWithSparkline extends GainerLoser {
   sparkline: string;
@@ -150,17 +151,19 @@ const TrendingCoinsTable = ({ maxRows = 10 }: { maxRows: number }) => {
                           isScrolled ? "sticky-shadow-visible" : ""
                         }`}
                       >
-                        <div className="flex items-center gap-3">
-                          <Logo symbol={coin.symbol} padding="1" size="12" />
-                          <div className="flex flex-col truncate">
-                            <span className="truncate font-semibold text-sm">
-                              {coin.name}
-                            </span>
-                            <span className="text-xs font-medium text-text-muted">
-                              {coin.symbol}USDT
-                            </span>
+                        <CoinLink symbol={coin.symbol}>
+                          <div className="flex items-center gap-3">
+                            <Logo symbol={coin.symbol} padding="1" size="12" />
+                            <div className="flex flex-col truncate">
+                              <span className="truncate font-semibold text-sm">
+                                {coin.name}
+                              </span>
+                              <span className="text-xs font-medium text-text-muted">
+                                {coin.symbol}USDT
+                              </span>
+                            </div>
                           </div>
-                        </div>
+                        </CoinLink>
                       </td>
                       <td className="px-3 py-4">{formatPrice(coin.price)}</td>
                       <td

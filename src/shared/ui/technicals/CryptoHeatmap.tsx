@@ -4,6 +4,7 @@ import * as d3 from "d3";
 import { buildApiUrl } from "@src/config";
 import Tooltip from "./Tooltip";
 import { HeatmapPlaceholder } from "@src/shared/ui/loaders";
+import CoinLink from "@src/shared/ui/CoinLink";
 
 interface HeatmapNode {
   name: string;
@@ -154,7 +155,8 @@ const CryptoHeatmap: React.FC<HeatmapProps> = ({ height = 600 }) => {
           .attr("height", d.y1 - d.y0);
 
         const xhtmlDiv = foreignObject
-          .append("xhtml:div")
+          .append("xhtml:a")
+          .attr("href", `coin/${d.data.symbol}`)
           .attr(
             "class",
             "h-full w-full flex justify-center items-center treemap-label p-1 text-white overflow-hidden"

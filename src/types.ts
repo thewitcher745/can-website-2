@@ -1,3 +1,28 @@
+export type ArticleType = "blog" | "analysis" | "news" | "high_potential";
+
+export interface EditorMetadata {
+  type: ArticleType;
+  title: string;
+  slug: string;
+  author: string;
+  tags: string;
+  publishDate: string;
+  status: string;
+  // Blog & News & Analysis
+  description?: string;
+  thumbnail?: string;
+  time?: string;
+  // Analysis
+  isVip?: boolean;
+  image?: string;
+  coins?: string;
+  // High Potential
+  tokenName?: string;
+  symbol?: string;
+  category?: string;
+  logo?: string;
+}
+
 export interface MonthResult {
   label: string;
   winrate?: number;
@@ -207,4 +232,39 @@ export interface MarketDominanceData {
   ethDominance: number;
   btcDominanceChange: number;
   ethDominanceChange: number;
+}
+
+interface CoinUrls {
+  announcements: string[];
+  chat: string[];
+  explorer: string[];
+  facebook: string[];
+  message_board: string[];
+  reddit: string[];
+  source_code: string[];
+  technical_doc: string[];
+  twitter: string[];
+  website: string[];
+}
+
+export interface CoinMetaInfo {
+  description: string;
+  logo: string;
+  name: string;
+  symbol: string;
+  urls: CoinUrls;
+}
+
+export interface CoinCMCInfo {
+  change_1h: number;
+  change_24h: number;
+  change_30d: number;
+  change_7d: number;
+  diluted_market_cap: number;
+  dominance: number;
+  market_cap: number;
+  name: string;
+  rank: number;
+  symbol: string;
+  volume_24h: number;
 }

@@ -1,10 +1,13 @@
 import logoLinks from "@shared/logo_links.json";
 
 export const getCoinLogoLink = async (symbol: string) => {
-    return logoLinks[symbol as keyof typeof logoLinks] ??   "";
+  return logoLinks[symbol as keyof typeof logoLinks] ?? "";
 };
 
-export const formatRelativeTime = (time: Date | string, format: string = "long") => {
+export const formatRelativeTime = (
+  time: Date | string,
+  format: string = "long"
+) => {
   // Turns an exact timestamp to a time delta relative to the current time
   if (typeof time === "string") {
     time = new Date(time);
@@ -33,32 +36,34 @@ export const formatRelativeTime = (time: Date | string, format: string = "long")
   }
 
   if (!time) return "";
-    const now = Date.now();
-    
-    const diffMs = now - time.getTime();
-    if (diffMs < 0) return time.toLocaleString();
+  const now = Date.now();
 
-    const sec = Math.floor(diffMs / 1000);
-    if (sec < 60) return "Just now";
+  const diffMs = now - time.getTime();
+  if (diffMs < 0) return time.toLocaleString();
 
-    const min = Math.floor(sec / 60);
-    if (min < 60) return `${min} minute${min > 1 ? "s" : ""} ago`;
+  const sec = Math.floor(diffMs / 1000);
+  if (sec < 60) return "Just now";
 
-    const hr = Math.floor(min / 60);
-    if (hr < 24) return `${hr} hour${hr > 1 ? "s" : ""} ago`;
+  const min = Math.floor(sec / 60);
+  if (min < 60) return `${min} minute${min > 1 ? "s" : ""} ago`;
 
-    const day = Math.floor(hr / 24);
-    if (day < 7) return `${day} day${day > 1 ? "s" : ""} ago`;
+  const hr = Math.floor(min / 60);
+  if (hr < 24) return `${hr} hour${hr > 1 ? "s" : ""} ago`;
 
-    return time.toLocaleDateString();
-}
+  const day = Math.floor(hr / 24);
+  if (day < 7) return `${day} day${day > 1 ? "s" : ""} ago`;
+
+  return time.toLocaleDateString();
+};
 
 export const formatPrice = (num: number | string) => {
   const numericalNum = Number(num);
   // Converts the number to a string and separates the integer part every 3 digits from the right.
   const integerPart = String(numericalNum).split(".")[0];
   const decimalPart = String(numericalNum).split(".")[1];
-  return `$${integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${decimalPart ? "." + decimalPart : ""}`;
+  return `$${integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${
+    decimalPart ? "." + decimalPart : ""
+  }`;
 };
 
 export const reduceNumber = (num: number, precision: number = 2) => {
