@@ -1,3 +1,28 @@
+export type ArticleType = "blog" | "analysis" | "news" | "high_potential";
+
+export interface EditorMetadata {
+  type: ArticleType;
+  title: string;
+  slug: string;
+  author: string;
+  tags: string;
+  publishDate: string;
+  status: string;
+  // Blog & News & Analysis
+  description?: string;
+  thumbnail?: string;
+  time?: string;
+  // Analysis
+  isVip?: boolean;
+  image?: string;
+  coins?: string;
+  // High Potential
+  tokenName?: string;
+  symbol?: string;
+  category?: string;
+  logo?: string;
+}
+
 export interface MonthResult {
   label: string;
   winrate?: number;
