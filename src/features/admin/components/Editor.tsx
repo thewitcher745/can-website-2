@@ -1,19 +1,34 @@
 import React, { useEffect, useRef } from "react";
 import EditorJS from "@editorjs/editorjs";
+// @ts-ignore
 import Header from "@editorjs/header";
+// @ts-ignore
 import List from "@editorjs/list";
+// @ts-ignore
 import Table from "@editorjs/table";
+// @ts-ignore
 import ImageTool from "@editorjs/image";
+// @ts-ignore
 import InlineCode from "@editorjs/inline-code";
+// @ts-ignore
 import Marker from "@editorjs/marker";
+// @ts-ignore
 import Quote from "@editorjs/quote";
+// @ts-ignore
 import Paragraph from "@editorjs/paragraph";
+// @ts-ignore
 import LinkTool from "@editorjs/link";
+// @ts-ignore
 import Checklist from "@editorjs/checklist";
+// @ts-ignore
 import Delimiter from "@editorjs/delimiter";
+// @ts-ignore
 import Warning from "@editorjs/warning";
+// @ts-ignore
 import CodeTool from "@editorjs/code";
+// @ts-ignore
 import RawTool from "@editorjs/raw";
+// @ts-ignore
 import Embed from "@editorjs/embed";
 import { supabase } from "../../../lib/supabase";
 
