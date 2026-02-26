@@ -63,7 +63,11 @@
 //   );
 // };
 
-// export default Fundamental;
+const Fundamental = () => {
+  return <div></div>;
+};
+
+export default Fundamental;
 
 // export const getStaticProps: GetStaticProps<FundamentalIndexProps> =
 //   createListingGetStaticProps("/api/fundamental");

@@ -57,4 +57,8 @@
 //   }
 // };
 
-// export default FundamentalPostPage;
+const FundamentalPostPage = () => {
+  return <div></div>;
+};
+
+export default FundamentalPostPage;
