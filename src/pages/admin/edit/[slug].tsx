@@ -25,7 +25,7 @@ const EditPost = () => {
     slug: "",
     author: "",
     tags: "",
-    publishDate: new Date().toISOString().split("T")[0],
+    date: new Date().toISOString().split("T")[0],
     time: new Date().toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
@@ -36,6 +36,7 @@ const EditPost = () => {
 
   const [content, setContent] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [isSlugExists, setIsSlugExists] = useState(false);
 
   React.useEffect(() => {
     if (isEditing && slugParam) {
@@ -62,17 +63,17 @@ const EditPost = () => {
       const data = (await response.json()).data;
       // Expecting data to have metadata and body (which we'll set to content)
       if (data.meta) {
-        const { published_at, ...restMetadata } = data.meta;
+        const { time, ...restMetadata } = data.meta;
 
         // Handle ISO format: 2025-11-26T12:45:00+03:30
-        const [datePart, fullTimePart] = published_at.split("T");
+        const [datePart, fullTimePart] = time.split("T");
         // fullTimePart could be "12:45:00+03:30" or just "12:45:00"
         const [timePart] = fullTimePart.split(/[+-]/); // Split by + or - to remove timezone
         const [hours, minutes] = timePart.split(":");
 
         setMetadata({
           ...restMetadata,
-          publishDate: datePart,
+          date: datePart,
           time: `${hours}:${minutes}`,
         });
       }
@@ -118,7 +119,7 @@ const EditPost = () => {
     if (metadata.type === "high_potential") {
       setMetadata((prev) => ({
         ...prev,
-        tokenName: "Solana",
+        title: "Solana",
         symbol: "SOL",
         slug: "solana-potential",
         author: "Admin",
@@ -173,14 +174,25 @@ const EditPost = () => {
         const next = {
           ...prev,
           [name]: val,
-          // Auto-generate slug from title if it's a new post
+          // Auto-generate slug from title if it's a new post, or from symbol if high_potential
           slug:
-            name === "title" && !isEditing && typeof val === "string"
+            name === "title" &&
+            !isEditing &&
+            typeof val === "string" &&
+            metadata.type !== "high_potential"
               ? val
+                  .replace(/[^a-zA-Z0-9\s]/g, "")
                   .toLowerCase()
                   .replace(/\s+/g, "-")
-                  .replace(/[^\w-]+/g, "")
-              : prev.slug,
+              : name === "symbol" &&
+                  !isEditing &&
+                  typeof val === "string" &&
+                  metadata.type === "high_potential"
+                ? val
+                    .replace(/[^a-zA-Z0-9\s]/g, "")
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")
+                : prev.slug,
         };
         return next;
       });
@@ -207,7 +219,7 @@ const EditPost = () => {
       if (newType === "high_potential") {
         return {
           ...base,
-          tokenName: "",
+          title: "",
           symbol: "",
           category: "Bronze",
           logo: "",
@@ -230,19 +242,21 @@ const EditPost = () => {
 
     // Combine publishDate and time into ISO 8601 with timezone (e.g., 2025-11-26T12:45:17+03:30)
     const timezoneOffset = "+03:30"; // USER specified offset
-    const combinedDateTime = `${metadata.publishDate}T${metadata.time}:00${timezoneOffset}`;
+    const combinedDateTime = `${metadata.date}T${metadata.time}:00${timezoneOffset}`;
 
-    const { publishDate, time, ...restMetadata } = metadata;
+    const { date, time, ...restMetadata } = metadata;
 
     const postData = {
       ...restMetadata,
-      published_at: combinedDateTime,
+      time: combinedDateTime,
       status,
       body: content,
     };
 
     try {
-      const url = buildApiUrl("/api/admin/postNewArticle");
+      const url = isEditing
+        ? buildApiUrl(`/api/admin/postNewArticle?edit=true`)
+        : buildApiUrl("/api/admin/postNewArticle");
 
       const response = await fetch(url, {
         method: "POST",
@@ -254,6 +268,12 @@ const EditPost = () => {
       });
 
       if (!response.ok) {
+        if (response.status === 409) {
+          alert(
+            "A post of the same type with this slug already exists. Edit the slug on this one or delete the old one to publish this article.",
+          );
+          setIsSlugExists(true);
+        }
         throw new Error(`Failed to save post: ${response.statusText}`);
       }
 
@@ -261,9 +281,8 @@ const EditPost = () => {
         `Post ${status === "published" ? "published" : "saved as draft"} successfully!`,
       );
       router.push("/admin/dashboard");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error saving post:", error);
-      alert("Error saving post. Please check the console for details.");
     } finally {
       setLoading(false);
     }
@@ -271,7 +290,7 @@ const EditPost = () => {
 
   return (
     <div className="pt-24 bg-surface text-text-main rounded-xl shadow-xl border border-border flex justify-center">
-      <div className="w-full max-w-custom">
+      <div className="w-full max-w-custom px-4">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <h1 className="m-0 text-2xl font-bold text-primary">
             {isEditing ? "Edit Post" : "Create New Post"}
@@ -356,17 +375,14 @@ const EditPost = () => {
           {metadata.type === "high_potential" && (
             <>
               <div className="flex flex-col">
-                <label
-                  htmlFor="tokenName"
-                  className="mb-2 text-sm text-text-muted"
-                >
-                  Token Name
+                <label htmlFor="title" className="mb-2 text-sm text-text-muted">
+                  Title (Token Name i.e. HYPEUSDT)
                 </label>
                 <input
-                  id="tokenName"
-                  name="tokenName"
+                  id="title"
+                  name="title"
                   type="text"
-                  value={metadata.tokenName || ""}
+                  value={metadata.title || ""}
                   onChange={handleMetadataChange}
                   placeholder="Bitcoin"
                   className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all"
@@ -377,7 +393,7 @@ const EditPost = () => {
                   htmlFor="symbol"
                   className="mb-2 text-sm text-text-muted"
                 >
-                  Symbol
+                  Symbol (i.e. HYPE)
                 </label>
                 <input
                   id="symbol"
@@ -392,23 +408,29 @@ const EditPost = () => {
             </>
           )}
 
-          {!isEditing && (
-            <div className="flex flex-col">
-              <label htmlFor="slug" className="mb-2 text-sm text-text-muted">
-                Slug (URL)
-              </label>
-              <input
-                id="slug"
-                name="slug"
-                type="text"
-                value={metadata.slug}
-                onChange={handleMetadataChange}
-                placeholder="post-url-slug"
-                className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50"
-                readOnly={isEditing}
-              />
-            </div>
-          )}
+          <div className="flex flex-col">
+            <label htmlFor="slug" className="mb-2 text-sm text-text-muted">
+              Slug (URL)
+              {isSlugExists && (
+                <span className="mb-2 ml-4 text-sm text-error">
+                  This slug already exists.
+                </span>
+              )}
+            </label>
+
+            <input
+              id="slug"
+              name="slug"
+              type="text"
+              value={metadata.slug}
+              onChange={handleMetadataChange}
+              placeholder="post-url-slug"
+              className={`p-3 rounded-lg border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50 ${
+                isEditing ? "pointer-events-none" : "pointer"
+              } ${isSlugExists ? "border-error" : "border-border"}`}
+              readOnly={isEditing}
+            />
+          </div>
 
           <div className="flex flex-col">
             <label htmlFor="author" className="mb-2 text-sm text-text-muted">
@@ -426,17 +448,14 @@ const EditPost = () => {
           </div>
 
           <div className="flex flex-col">
-            <label
-              htmlFor="publishDate"
-              className="mb-2 text-sm text-text-muted"
-            >
+            <label htmlFor="date" className="mb-2 text-sm text-text-muted">
               Publish Date
             </label>
             <input
-              id="publishDate"
-              name="publishDate"
+              id="date"
+              name="date"
               type="date"
-              value={metadata.publishDate}
+              value={metadata.date}
               onChange={handleMetadataChange}
               className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all [color-scheme:dark]"
             />
@@ -491,9 +510,7 @@ const EditPost = () => {
 
         {/* Dynamic Fields Based on Article Type */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 pb-8 border-b border-border">
-          {(metadata.type === "blog" ||
-            metadata.type === "news" ||
-            metadata.type === "analysis") && (
+          {(metadata.type === "blog" || metadata.type === "news") && (
             <ImageUpload
               label="Thumbnail"
               value={metadata.thumbnail}

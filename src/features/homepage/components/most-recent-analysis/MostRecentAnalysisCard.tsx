@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { AnalysisPostMeta } from "@src/types";
+import { ListedAnalysisPost } from "@src/types";
 import Logo from "@src/shared/ui/Logo";
 
 const PostLogo: React.FC<{ thumbnail: string; altText: string }> = ({
@@ -28,7 +28,7 @@ const PostLogo: React.FC<{ thumbnail: string; altText: string }> = ({
   );
 };
 
-const ImageElement = ({ post }: { post: AnalysisPostMeta }) => {
+const ImageElement = ({ post }: { post: ListedAnalysisPost }) => {
   return (
     <div
       key={post.slug}
@@ -36,13 +36,17 @@ const ImageElement = ({ post }: { post: AnalysisPostMeta }) => {
     >
       <div className="relative w-full shadow-xl">
         <div className="absolute left-0 bottom-0 rounded-full overflow-hidden m-5 w-12 h-12 md:h-18 md:w-18 opacity-70">
-          <Logo symbol={post.coins[0].toUpperCase()} size="full" padding="1" />
+          <Logo
+            symbol={post.meta.coins[0].toUpperCase()}
+            size="full"
+            padding="1"
+          />
         </div>
         <img
           width={2000}
           height={2000}
-          src={post.image}
-          alt={post.title}
+          src={post.meta.image}
+          alt={post.meta.title}
           className={
             "object-contain self-center object-center aspect-[1631/760] transition-all ease-in-out"
           }
@@ -56,15 +60,15 @@ const CaptionElement = ({
   post,
   isMobile,
 }: {
-  post: AnalysisPostMeta;
+  post: ListedAnalysisPost;
   isMobile: boolean;
 }) => {
   const PostTags = () => {
     return (
       <div className="flex gap-1">
-        {post.tags.map((tag, index) => (
+        {post.meta.tags.map((tag, index) => (
           <span key={tag} className="py-1 text-primary text-xs rounded-full">
-            {`${tag}${index === post.tags.length - 1 ? "" : ","}`}
+            {`${tag}${index === post.meta.tags.length - 1 ? "" : ","}`}
           </span>
         ))}
       </div>
@@ -72,7 +76,12 @@ const CaptionElement = ({
   };
 
   const PostTime = () => {
-    return <span className="text-text-muted text-xs">{post.time}</span>;
+    return (
+      <span className="text-text-muted text-xs">
+        {new Date(post.meta.time).toLocaleDateString()}{" "}
+        {new Date(post.meta.time).toLocaleTimeString()}
+      </span>
+    );
   };
 
   if (isMobile) {
@@ -80,11 +89,13 @@ const CaptionElement = ({
       <div className="w-full flex flex-col justify-between p-2 pt-0">
         <div className="flex w-full items-center p-2 pt-0">
           <div className="text-text-main text-md xs:text-lg xs:font-semibold">
-            <h3>{post.title}</h3>
+            <h3>{post.meta.title}</h3>
           </div>
         </div>
         <div className="px-2 mb-2 h-12 hidden xs:block">
-          <p className="text-text-muted text-sm line-clamp-2">{post.desc}</p>
+          <p className="text-text-muted text-sm line-clamp-2">
+            {post.meta.description}
+          </p>
         </div>
         <div className="flex justify-between items-center px-2">
           <PostTime />
@@ -99,10 +110,12 @@ const CaptionElement = ({
       <div className="flex w-full items-center p-2">
         <div className="w-full flex flex-col gap-4">
           <div className="text-text-main text-lg md:text-xl lg:text-2xl font-semibold">
-            <h2>{post.title}</h2>
+            <h2>{post.meta.title}</h2>
           </div>
           <div className="h-12">
-            <p className="text-text-muted line-clamp-2">{post.desc}</p>
+            <p className="text-text-muted line-clamp-2">
+              {post.meta.description}
+            </p>
           </div>
           <div className="flex justify-between items-center px-2 md:px-0">
             <PostTime />
@@ -115,7 +128,7 @@ const CaptionElement = ({
 };
 
 const MostRecentAnalysisCard: React.FC<{
-  post: AnalysisPostMeta;
+  post: ListedAnalysisPost;
   isInView: boolean;
 }> = ({ post, isInView }) => {
   return (

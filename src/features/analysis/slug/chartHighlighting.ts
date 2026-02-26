@@ -1,10 +1,10 @@
-import { Article } from "@src/types";
+// import { Analysis } from "@src/types";
 
 function chartHighlighting(
   contentRef: React.RefObject<HTMLDivElement | null>,
-  updates: Article[],
+  // updates: Article[],
   setModalImgSrc: React.Dispatch<React.SetStateAction<string | null>>,
-  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
 ) {
   return () => {
     if (!contentRef.current) return;
@@ -24,7 +24,7 @@ function chartHighlighting(
         wrapper.classList.add(
           "img-overlay-wrapper",
           "relative",
-          "inline-block"
+          "inline-block",
         );
         imgElement.parentNode?.insertBefore(wrapper, imgElement);
         wrapper.appendChild(imgElement);
@@ -44,7 +44,7 @@ function chartHighlighting(
         "bg-gray-600/60",
         "justify-center",
         "items-center",
-        "flex"
+        "flex",
       );
       const overlayText = document.createElement("span");
       overlayText.classList.add("text-xl");

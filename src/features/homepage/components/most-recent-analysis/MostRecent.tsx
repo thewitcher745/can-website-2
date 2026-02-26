@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from "react";
 
 import MostRecentAnalysisCard from "./MostRecentAnalysisCard";
 import MostRecentAnalysisSelector from "./MostRecentAnalysisSelector";
-import { AnalysisPostMeta } from "@src/types";
+import { ListedAnalysisPost } from "@src/types";
 
 type MostRecentProps = {
-  recentAnalysis: AnalysisPostMeta[];
+  recentAnalysis: ListedAnalysisPost[];
 };
 
 const MostRecent: React.FC<MostRecentProps> = ({ recentAnalysis }) => {

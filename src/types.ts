@@ -6,12 +6,12 @@ export interface EditorMetadata {
   slug: string;
   author: string;
   tags: string;
-  publishDate: string;
+  date: string;
+  time: string;
   status: string;
   // Blog & News & Analysis
   description?: string;
   thumbnail?: string;
-  time?: string;
   // Analysis
   isVip?: boolean;
   image?: string;
@@ -51,16 +51,91 @@ export interface Video {
   title: string;
 }
 
+type HeaderBlock = {
+  type: "header";
+  data: { text: string; level: 1 | 2 | 3 | 4 | 5 | 6 };
+};
+
+type ParagraphBlock = {
+  type: "paragraph";
+  data: { text: string };
+};
+
+type ListBlock = {
+  type: "list";
+  data: {
+    style: "ordered" | "unordered";
+    items: {
+      content: string;
+      items: any;
+      meta: any;
+    }[];
+  };
+};
+
+type TableBlock = {
+  type: "table";
+  data: {
+    content: string[][];
+    withHeadings: boolean;
+  };
+};
+
+type ImageBlock = {
+  type: "image";
+  data: {
+    file: { url: string };
+    caption?: string;
+  };
+};
+
+export type ArticleBlock =
+  | HeaderBlock
+  | ParagraphBlock
+  | ListBlock
+  | TableBlock
+  | ImageBlock;
+
+export interface ArticleBody {
+  time: number;
+  version: string;
+  blocks: ArticleBlock[];
+}
+
 export interface AnalysisPostMeta {
-  thumbnail: string;
   image: string;
   author: string;
   time: string;
-  slug: string;
   tags: string[];
   coins: string[];
   title: string;
-  desc: string;
+  description: string;
+}
+
+export interface ListedAnalysisPost {
+  slug: string;
+  meta: AnalysisPostMeta;
+}
+
+export interface AnalysisPost {
+  slug: string;
+  meta: AnalysisPostMeta;
+  body: ArticleBody;
+}
+
+export interface ArticlePostMeta {
+  thumbnail: string;
+  author: string;
+  time: string;
+  tags: string[];
+  title: string;
+  description: string;
+}
+
+export interface ArticlePost {
+  slug: string;
+  meta: ArticlePostMeta;
+  body: ArticleBody;
 }
 
 export interface TopCoin {
@@ -79,12 +154,26 @@ export interface TopCoinLists {
   top_volume: TopCoin[];
 }
 
-export interface HighPotentialTokenMeta {
-  name: string;
-  symbol: string;
+export interface HighPotentialArticleMeta {
+  author: string;
   category: string;
-  slug: string;
+  description: string;
+  image: string;
   logo: string;
+  status: string;
+  symbol: string;
+  tags: string[];
+  time: string;
+  title: string;
+}
+
+export interface ListedHighPotentialArticle {
+  meta: HighPotentialArticleMeta;
+  slug: string;
+}
+
+export interface HighPotentialPost extends ListedHighPotentialArticle {
+  body: ArticleBody;
 }
 
 export interface DesktopSidebarProps {
@@ -179,42 +268,18 @@ export interface GainerLoser {
   volume: number;
 }
 
-export interface ArticleItemRaw {
-  slug: string;
-  thumbnail: string;
-  title: string;
-  publishedAt: string;
-  time: string;
-  timestamp: string;
-  date: string;
-}
-
-export interface ArticleItem {
-  slug: string;
-  thumbnail: string;
-  title: string;
-  publishedAt: Date;
-}
-
 export interface ArticleMeta {
   author: string;
-  time: string;
-  slug: string;
+  description: string;
   tags: string[];
+  time: string;
   title: string;
-  desc: string;
   thumbnail?: string;
 }
 
-export interface Article {
-  author: string;
-  content_html: string;
-  time: string;
-  image: string;
-  desc: string;
+export interface ListedArticle {
   slug: string;
-  tags: string[];
-  title: string;
+  meta: ArticleMeta;
 }
 
 export interface TopMarketCapCoin {
