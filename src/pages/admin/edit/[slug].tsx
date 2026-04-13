@@ -35,6 +35,7 @@ const EditPost = () => {
   });
 
   const [content, setContent] = useState<any>(null);
+  const [updates, setUpdates] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [isSlugExists, setIsSlugExists] = useState(false);
 
@@ -79,6 +80,10 @@ const EditPost = () => {
       }
       if (data.body) {
         setContent(data.body);
+      }
+      // Load existing updates if they exist
+      if (data.updates && Array.isArray(data.updates)) {
+        setUpdates(data.updates);
       }
     } catch (error) {
       console.error("Error fetching post:", error);
@@ -228,166 +233,243 @@ const EditPost = () => {
       } else if (newType === "analysis") {
         return {
           ...base,
-          isVip: false,
           image: "",
           coins: "",
+          isVip: false,
+        };
+      } else {
+        return {
+          ...base,
+          thumbnail: "",
         };
       }
-      return base;
     });
   };
 
-  const handleSave = async (status: string) => {
-    setLoading(true);
+  const handleAddUpdate = () => {
+    setUpdates((prev) => [
+      ...prev,
+      {
+        time: Date.now(),
+        blocks: [],
+        version: "2.31.3",
+      },
+    ]);
+  };
 
-    // Combine publishDate and time into ISO 8601 with timezone (e.g., 2025-11-26T12:45:17+03:30)
-    const timezoneOffset = "+03:30"; // USER specified offset
-    const combinedDateTime = `${metadata.date}T${metadata.time}:00${timezoneOffset}`;
+  const handleUpdateChange = (index: number, data: any) => {
+    setUpdates((prev) => {
+      const newUpdates = [...prev];
+      newUpdates[index] = data;
+      return newUpdates;
+    });
+  };
 
-    const { date, time, ...restMetadata } = metadata;
+  const handleRemoveUpdate = (index: number) => {
+    if (confirm("Are you sure you want to remove this update?")) {
+      setUpdates((prev) => prev.filter((_, i) => i !== index));
+    }
+  };
 
-    const postData = {
-      ...restMetadata,
-      time: combinedDateTime,
-      status,
-      body: content,
-    };
+  const checkSlugExists = async () => {
+    if (!metadata.slug || isEditing) {
+      setIsSlugExists(false);
+      return;
+    }
 
     try {
-      const url = isEditing
-        ? buildApiUrl(`/api/admin/postNewArticle?edit=true`)
-        : buildApiUrl("/api/admin/postNewArticle");
+      const response = await fetch(
+        buildApiUrl(`/api/admin/checkSlug?slug=${metadata.slug}`),
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
+          },
+        },
+      );
+      const data = await response.json();
+      setIsSlugExists(data.exists || false);
+    } catch (error) {
+      console.error("Error checking slug:", error);
+    }
+  };
 
-      const response = await fetch(url, {
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      checkSlugExists();
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [metadata.slug]);
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    try {
+      // Basic validation
+      if (!metadata.title || !metadata.slug || !metadata.author) {
+        alert("Please fill in all required fields.");
+        setLoading(false);
+        return;
+      }
+
+      const endpoint = isEditing
+        ? `/api/admin/updateArticle`
+        : `/api/admin/createArticle`;
+
+      // Build the payload
+      const payload: any = {
+        slug: metadata.slug,
+        type: metadata.type,
+        title: metadata.title,
+        author: metadata.author,
+        description: metadata.description || "",
+        tags: metadata.tags,
+        time: `${metadata.date}T${metadata.time}+03:30`,
+        status: metadata.status,
+        lastModifiedTime: Date.now(),
+        body: content,
+      };
+
+      // Add updates array for analysis posts
+      if (metadata.type === "analysis") {
+        payload.updates = updates;
+      }
+
+      // Type-specific fields
+      if (metadata.type === "blog" || metadata.type === "news") {
+        payload.thumbnail = metadata.thumbnail;
+      }
+
+      if (metadata.type === "analysis") {
+        payload.image = metadata.image;
+        payload.coins = metadata.coins ? metadata.coins : [];
+        payload.isVip = metadata.isVip || false;
+      }
+
+      if (metadata.type === "high_potential") {
+        payload.symbol = metadata.symbol;
+        payload.category = metadata.category;
+        payload.logo = metadata.logo;
+        payload.image = metadata.image;
+      }
+
+      const response = await fetch(buildApiUrl(endpoint), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
         },
-        body: JSON.stringify(postData),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
-        if (response.status === 409) {
-          alert(
-            "A post of the same type with this slug already exists. Edit the slug on this one or delete the old one to publish this article.",
-          );
-          setIsSlugExists(true);
-        }
-        throw new Error(`Failed to save post: ${response.statusText}`);
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to save post");
       }
 
       alert(
-        `Post ${status === "published" ? "published" : "saved as draft"} successfully!`,
+        isEditing ? "Post updated successfully!" : "Post created successfully!",
       );
-      router.push("/admin/dashboard");
-    } catch (error: any) {
+      router.push("/admin/posts");
+    } catch (error) {
       console.error("Error saving post:", error);
+      alert(
+        `Error: ${error instanceof Error ? error.message : "Unknown error"}`,
+      );
     } finally {
       setLoading(false);
     }
   };
 
+  if (loading && isEditing) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl text-text-muted">Loading...</div>
+      </div>
+    );
+  }
+
   return (
-    <div className="pt-24 bg-surface text-text-main rounded-xl shadow-xl border border-border flex justify-center">
-      <div className="w-full max-w-custom px-4">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-          <h1 className="m-0 text-2xl font-bold text-primary">
+    <div className="min-h-screen bg-background py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-4xl font-bold text-text-main">
             {isEditing ? "Edit Post" : "Create New Post"}
           </h1>
-          <div className="flex flex-wrap gap-4">
-            <button
-              className="px-6 py-2 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 rounded-lg font-semibold transition-colors"
-              onClick={fillSampleData}
-            >
-              Fill Sample Data
-            </button>
-            <button
-              className="px-6 py-2 bg-surface hover:bg-background text-text-main border border-border rounded-lg font-semibold transition-colors"
-              onClick={() => router.push("/admin/dashboard")}
-            >
-              Cancel
-            </button>
-            <button
-              className="px-6 py-2 bg-surface hover:bg-background text-text-main border border-border rounded-lg font-semibold transition-colors"
-              onClick={() => handleSave("draft")}
-              disabled={loading}
-            >
-              Save Draft
-            </button>
-            <button
-              className="px-6 py-2 bg-primary hover:bg-primary-dark text-black rounded-lg font-semibold transition-colors shadow-lg shadow-primary/20"
-              onClick={() => handleSave("published")}
-              disabled={loading}
-            >
-              {loading ? "Publishing..." : "Publish"}
-            </button>
-          </div>
+          <button
+            onClick={fillSampleData}
+            className="px-4 py-2 rounded-lg bg-secondary text-text-main hover:bg-secondary/80 transition-colors"
+          >
+            Fill Sample Data
+          </button>
         </div>
 
+        {/* Status and Actions */}
+        <div className="flex items-center justify-between mb-8 pb-6 border-b border-border">
+          <div className="flex items-center gap-4">
+            <label htmlFor="status" className="text-sm text-text-muted">
+              Status:
+            </label>
+            <select
+              id="status"
+              name="status"
+              value={metadata.status}
+              onChange={handleMetadataChange}
+              className="p-2 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer"
+            >
+              <option value="draft">Draft</option>
+              <option value="published">Published</option>
+            </select>
+          </div>
+          <button
+            onClick={handleSubmit}
+            disabled={loading || isSlugExists}
+            className="px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+          >
+            {loading ? "Saving..." : isEditing ? "Update Post" : "Create Post"}
+          </button>
+        </div>
+
+        {/* Basic Metadata */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 pb-8 border-b border-border">
-          <div className="flex flex-col md:col-span-2">
+          <div className="flex flex-col">
             <label htmlFor="type" className="mb-2 text-sm text-text-muted">
-              Content Type
+              Post Type
             </label>
             <select
               id="type"
               name="type"
               value={metadata.type}
               onChange={handleTypeChange}
-              className={`p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none cursor-${
-                isEditing ? "not-allowed" : "pointer"
-              } font-bold text-lg`}
+              className={`p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none ${
+                isEditing
+                  ? "pointer-events-none cursor-not-allowed"
+                  : "cursor-pointer"
+              }`}
               disabled={isEditing}
-              onClick={(e) => {
-                if (isEditing) {
-                  e.preventDefault();
-                }
-              }}
             >
-              <option value="blog">Blog Article</option>
-              <option value="analysis">Technical Analysis</option>
+              <option value="blog">Blog</option>
               <option value="news">News</option>
-              <option value="high_potential">High Potential Token</option>
+              <option value="analysis">Technical Analysis</option>
+              <option value="high_potential">High Potential</option>
             </select>
           </div>
 
-          {/* Standard Fields for Blog, Analysis, News */}
-          {metadata.type !== "high_potential" && (
-            <div className="flex flex-col md:col-span-2">
-              <label htmlFor="title" className="mb-2 text-sm text-text-muted">
-                Post Title
-              </label>
-              <input
-                id="title"
-                name="title"
-                type="text"
-                value={metadata.title}
-                onChange={handleMetadataChange}
-                placeholder="Enter post title..."
-                className="p-3 rounded-lg border border-border bg-background text-text-main text-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-text-muted/50"
-                required
-              />
-            </div>
-          )}
+          <div className="flex flex-col">
+            <label htmlFor="title" className="mb-2 text-sm text-text-muted">
+              Title
+            </label>
+            <input
+              id="title"
+              name="title"
+              type="text"
+              value={metadata.title}
+              onChange={handleMetadataChange}
+              placeholder="Enter post title"
+              className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50"
+            />
+          </div>
 
-          {/* High Potential Specific Fields (No Title) */}
           {metadata.type === "high_potential" && (
             <>
-              <div className="flex flex-col">
-                <label htmlFor="title" className="mb-2 text-sm text-text-muted">
-                  Title (Token Name i.e. HYPEUSDT)
-                </label>
-                <input
-                  id="title"
-                  name="title"
-                  type="text"
-                  value={metadata.title || ""}
-                  onChange={handleMetadataChange}
-                  placeholder="Bitcoin"
-                  className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all"
-                />
-              </div>
               <div className="flex flex-col">
                 <label
                   htmlFor="symbol"
@@ -606,13 +688,70 @@ const EditPost = () => {
           )}
         </div>
 
-        <div className="bg-white text-black p-8 rounded-lg min-h-[400px] mb-8 overflow-hidden shadow-inner ring-1 ring-border">
-          <Editor
-            holder="editorjs-container"
-            onChange={setContent}
-            data={content}
-          />
+        {/* Main Editor */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-text-main mb-4">
+            Main Content
+          </h2>
+          <div className="bg-white text-black p-8 rounded-lg min-h-[400px] overflow-hidden shadow-inner ring-1 ring-border">
+            <Editor
+              holder="editorjs-container"
+              onChange={setContent}
+              data={content}
+            />
+          </div>
         </div>
+
+        {/* Updates Section - Only for Analysis Posts */}
+        {metadata.type === "analysis" && (
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-bold text-text-main">
+                Updates {updates.length > 0 && `(${updates.length})`}
+              </h2>
+              <button
+                onClick={handleAddUpdate}
+                className="px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors font-medium"
+              >
+                + Add Update
+              </button>
+            </div>
+
+            {updates.length === 0 && (
+              <div className="text-center py-12 border-2 border-dashed border-border rounded-lg">
+                <p className="text-text-muted mb-4">
+                  No updates yet. Add an update to keep your analysis current.
+                </p>
+              </div>
+            )}
+
+            {updates.map((update, index) => (
+              <div
+                key={index}
+                className="mb-6 p-6 border border-border rounded-lg bg-background/50"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-semibold text-text-main">
+                    Update #{index + 1}
+                  </h3>
+                  <button
+                    onClick={() => handleRemoveUpdate(index)}
+                    className="px-3 py-1 rounded text-sm bg-error/10 text-error hover:bg-error/20 transition-colors"
+                  >
+                    Remove
+                  </button>
+                </div>
+                <div className="bg-white text-black p-6 rounded-lg min-h-[300px] overflow-hidden shadow-inner ring-1 ring-border">
+                  <Editor
+                    holder={`update-editor-${index}`}
+                    onChange={(data) => handleUpdateChange(index, data)}
+                    data={update}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
