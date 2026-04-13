@@ -311,8 +311,8 @@ const EditPost = () => {
       }
 
       const endpoint = isEditing
-        ? `/api/admin/updateArticle`
-        : `/api/admin/createArticle`;
+        ? buildApiUrl(`/api/admin/postNewArticle?edit=true`)
+        : buildApiUrl("/api/admin/postNewArticle");
 
       // Build the payload
       const payload: any = {
@@ -351,7 +351,7 @@ const EditPost = () => {
         payload.image = metadata.image;
       }
 
-      const response = await fetch(buildApiUrl(endpoint), {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -368,7 +368,7 @@ const EditPost = () => {
       alert(
         isEditing ? "Post updated successfully!" : "Post created successfully!",
       );
-      router.push("/admin/posts");
+      router.push("/admin/dashboard");
     } catch (error) {
       console.error("Error saving post:", error);
       alert(
