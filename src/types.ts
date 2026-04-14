@@ -121,6 +121,7 @@ export interface AnalysisPost {
   slug: string;
   meta: AnalysisPostMeta;
   body: ArticleBody;
+  updates?: ArticleBody[];
 }
 
 export interface ArticlePostMeta {

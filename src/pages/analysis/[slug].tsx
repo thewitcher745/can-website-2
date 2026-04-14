@@ -7,7 +7,7 @@ import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
 import { AnalysisPost, ListedAnalysisPost } from "@src/types";
 import ChartModal from "@src/features/analysis/slug/ChartModal";
-// import Update from "@src/features/analysis/slug/Update";
+import Update from "@src/features/analysis/slug/Update";
 import MainPost from "@src/features/analysis/slug/MainPost";
 import chartHighlighting from "@src/features/analysis/slug/chartHighlighting";
 import Banner from "@src/features/homepage/components/promotions/BannerMini";
@@ -19,17 +19,12 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Used when updates were separate from the main posts, re-enable when the updates have been moved to the new system.
-
-  // useEffect(chartHighlighting(contentRef, updates, setModalImgSrc, setModalVisible), [
-  //   post,
-  //   modalVisible,
-  // ]);
-
   useEffect(chartHighlighting(contentRef, setModalImgSrc, setModalVisible), [
     post,
     modalVisible,
   ]);
+
+  const updates = post.updates || [];
 
   if (!post)
     return (
@@ -86,7 +81,7 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
           <MainPost post={post} />
 
           {/* Updates feed */}
-          {/* {updates.length > 0 && (
+          {updates.length > 0 && (
             <div className="mt-8">
               <h2 className="text-xl font-semibold mb-4 text-primary">
                 Updates
@@ -94,14 +89,15 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
               <div className="flex flex-col gap-4">
                 {updates.map((update, idx) => (
                   <Update
-                    key={`${update.slug || "update"}-${idx}`}
-                    update={update}
-                    idx={idx}
+                    key={`update-${idx}`}
+                    updateBody={update}
+                    time={update.time}
                   />
                 ))}
               </div>
             </div>
-          )} */}
+          )}
+
           <Banner />
         </div>
         {modalImgSrc && modalVisible && (
@@ -138,6 +134,7 @@ export const getStaticProps: GetStaticProps<AnalysisPostPageProps> = async (
 
   try {
     const res = await fetch(buildApiUrl(`/api/analysis/${slug}`));
+    console.log(buildApiUrl(`/api/analysis/${slug}`));
     if (!res.ok) {
       return { notFound: true, revalidate: 60 };
     }
