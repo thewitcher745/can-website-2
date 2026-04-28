@@ -1,12 +1,12 @@
 import logoLinks from "@shared/logo_links.json";
 
-export const getCoinLogoLink = async (symbol: string) => {
+export const getCoinLogoLink = (symbol: string) => {
   return logoLinks[symbol as keyof typeof logoLinks] ?? "";
 };
 
 export const formatRelativeTime = (
   time: Date | string,
-  format: string = "long"
+  format: string = "long",
 ) => {
   // Turns an exact timestamp to a time delta relative to the current time
   if (typeof time === "string") {

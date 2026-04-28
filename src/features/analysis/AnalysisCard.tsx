@@ -15,7 +15,7 @@ const TopHalf: React.FC<{ post: ListedAnalysisPost; isVip: boolean }> = ({
     <div className="flex gap-2 py-6 items-center h-full md:h-1/3 md:mb-6 relative">
       <Logo
         symbol={post.meta.coins[0].toUpperCase()}
-        fixedLogoUrl={post.meta.image}
+        fixedLogoUrl={"/images/logos/default.png"}
         size="20"
         padding="1"
       />

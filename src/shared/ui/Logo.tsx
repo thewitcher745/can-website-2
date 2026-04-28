@@ -18,14 +18,12 @@ const Logo = ({
   className?: string;
 }) => {
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
-
   useEffect(() => {
     if (fixedLogoUrl) {
       setLogoUrl(fixedLogoUrl);
-      return;
     }
-    const fetchLogo = async () => {
-      const data = await getCoinLogoLink(symbol);
+    const fetchLogo = () => {
+      const data = getCoinLogoLink(symbol);
       if (data.length === 0) setLogoUrl("/images/logos/default.png");
       if (data) {
         setLogoUrl(data);
