@@ -36,6 +36,8 @@ const EditPost = () => {
 
   const [content, setContent] = useState<any>(null);
   const [updates, setUpdates] = useState<any[]>([]);
+  const [updateDates, setUpdateDates] = useState<string[]>([]);
+  const [updateTimes, setUpdateTimes] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [isSlugExists, setIsSlugExists] = useState(false);
 
@@ -84,6 +86,27 @@ const EditPost = () => {
       // Load existing updates if they exist
       if (data.updates && Array.isArray(data.updates)) {
         setUpdates(data.updates);
+        // Extract times from existing updates
+        const dates: string[] = [];
+        const times = data.updates.map((update: any) => {
+          if (update.time) {
+            const date = new Date(update.time);
+            dates.push(date.toISOString().split("T")[0]);
+            return date.toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false,
+            });
+          }
+          dates.push(new Date().toISOString().split("T")[0]);
+          return new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          });
+        });
+        setUpdateDates(dates);
+        setUpdateTimes(times);
       }
     } catch (error) {
       console.error("Error fetching post:", error);
@@ -247,20 +270,74 @@ const EditPost = () => {
   };
 
   const handleAddUpdate = () => {
+    const currentDate = new Date().toISOString().split("T")[0];
+    const currentTime = new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+    setUpdateDates((prev) => [...prev, currentDate]);
+    setUpdateTimes((prev) => [...prev, currentTime]);
     setUpdates((prev) => [
       ...prev,
       {
-        time: Date.now(),
+        time: new Date().getTime(),
         blocks: [],
         version: "2.31.3",
       },
     ]);
   };
 
+  const handleUpdateDateChange = (index: number, date: string) => {
+    setUpdateDates((prev) => {
+      const newDates = [...prev];
+      newDates[index] = date;
+      return newDates;
+    });
+
+    // Update the actual update time based on the date and time inputs
+    setUpdates((prev) => {
+      const newUpdates = [...prev];
+      const [hours, minutes] = (updateTimes[index] || "00:00").split(":");
+      const dateTime = new Date(date);
+      dateTime.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+      newUpdates[index] = {
+        ...newUpdates[index],
+        time: dateTime.getTime(),
+      };
+      return newUpdates;
+    });
+  };
+
+  const handleUpdateTimeChange = (index: number, time: string) => {
+    setUpdateTimes((prev) => {
+      console.log(time);
+      const newTimes = [...prev];
+      newTimes[index] = time;
+      return newTimes;
+    });
+
+    // Update the actual update time based on the input
+    setUpdates((prev) => {
+      const newUpdates = [...prev];
+      const [hours, minutes] = time.split(":");
+      const now = new Date(
+        updateDates[index] || new Date().toISOString().split("T")[0],
+      );
+      now.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+      newUpdates[index] = {
+        ...newUpdates[index],
+        time: now.getTime(),
+      };
+      return newUpdates;
+    });
+  };
+
   const handleUpdateChange = (index: number, data: any) => {
     setUpdates((prev) => {
       const newUpdates = [...prev];
       newUpdates[index] = data;
+      console.log(newUpdates);
       return newUpdates;
     });
   };
@@ -268,6 +345,8 @@ const EditPost = () => {
   const handleRemoveUpdate = (index: number) => {
     if (confirm("Are you sure you want to remove this update?")) {
       setUpdates((prev) => prev.filter((_, i) => i !== index));
+      setUpdateDates((prev) => prev.filter((_, i) => i !== index));
+      setUpdateTimes((prev) => prev.filter((_, i) => i !== index));
     }
   };
 
@@ -740,6 +819,42 @@ const EditPost = () => {
                   >
                     Remove
                   </button>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor={`update-date-${index}`}
+                      className="mb-2 text-sm text-text-muted"
+                    >
+                      Update Date
+                    </label>
+                    <input
+                      id={`update-date-${index}`}
+                      type="date"
+                      value={updateDates[index] || ""}
+                      onChange={(e) =>
+                        handleUpdateDateChange(index, e.target.value)
+                      }
+                      className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all [color-scheme:dark]"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor={`update-time-${index}`}
+                      className="mb-2 text-sm text-text-muted"
+                    >
+                      Update Time
+                    </label>
+                    <input
+                      id={`update-time-${index}`}
+                      type="time"
+                      value={updateTimes[index] || ""}
+                      onChange={(e) =>
+                        handleUpdateTimeChange(index, e.target.value)
+                      }
+                      className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all [color-scheme:dark]"
+                    />
+                  </div>
                 </div>
                 <div className="bg-white text-black p-6 rounded-lg min-h-[300px] overflow-hidden shadow-inner ring-1 ring-border">
                   <Editor
