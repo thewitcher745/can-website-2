@@ -1,4 +1,29 @@
 /* --------------------- Analysis section styles */
+@keyframes scroll-right {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%)
+    }
+}
+
+/* Gradient that matches card background on hover */
+.card-hover .tags-gradient {
+  background: linear-gradient(to left, var(--color-background), transparent);
+}
+
+.card-hover:hover .tags-gradient {
+  background: linear-gradient(to left, color-mix(in srgb, var(--color-surface) 60%, var(--color-background)), transparent);
+}
+
+.tags-scroll {
+  animation: none;
+}
+
+.group:hover .tags-scroll {
+  animation: scroll-right 8s linear infinite;
+}
 
 .analysis-article {
     padding: 1rem 0;

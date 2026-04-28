@@ -29,7 +29,10 @@ const BottomHalf: React.FC<{ post: ListedAnalysisPost }> = ({ post }) => {
     <div className="flex gap-2 flex-grow justify-between flex-wrap">
       <PostDescription description={post.meta.description} />
       <div className="w-full flex md:flex-col flex-wrap justify-between md:items-start items-center">
-        <PostTags tags={post.meta.tags} />
+        <div className="relative w-full">
+          <PostTags tags={post.meta.tags} className="tags-container" />
+          <div className="tags-gradient absolute right-0 top-0 w-10 h-full transition-all duration-200" />
+        </div>
         <PostTime time={post.meta.time} className="self-end md:self-auto" />
       </div>
     </div>
@@ -46,7 +49,7 @@ const AnalysisCard: React.FC<{ post: ListedAnalysisPost; isVip: boolean }> = ({
     >
       <div
         key={post.slug}
-        className="border border-border rounded p-2 flex flex-col h-auto md:h-80 min-w-xxs card-hover"
+        className="group border border-border rounded p-2 flex flex-col h-auto md:h-80 min-w-xxs card-hover bg-background"
       >
         <TopHalf isVip={isVip} post={post} />
         <BottomHalf post={post} />
