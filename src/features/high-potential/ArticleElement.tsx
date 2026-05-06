@@ -1,26 +1,11 @@
 import React from "react";
-import Link from "next/link";
-import { ArticlePost } from "@src/types";
-import renderBlock from "@src/shared/ui/articles/articleRenderer";
+
+import { HighPotentialPost } from "@src/types";
 import PostBody from "./PostBody";
 
-type ArticleElementProps = {
-  article: ArticlePost;
-  backHref: string;
-  backText: string;
-};
-
-const ArticleElement: React.FC<ArticleElementProps> = ({
-  article,
-  backHref,
-  backText,
-}) => {
-  const postBody = article.body;
+const ArticleElement = ({ article }: { article: HighPotentialPost }) => {
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 pt-6">
-      <Link href={backHref} className="text-primary hover:underline text-sm">
-        ← Back to {backText}
-      </Link>
       <div className="rounded-lg p-8 mt-4">
         <h1 className="text-xl md:text-3xl font-semibold mb-4 text-text-main hover:text-primary transition-colors">
           {article.meta.title}

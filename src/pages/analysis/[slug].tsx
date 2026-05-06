@@ -5,29 +5,28 @@ import Head from "next/head";
 
 import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
-import { Article, AnalysisPostMeta } from "@src/types";
+import { AnalysisPost, ListedAnalysisPost } from "@src/types";
 import ChartModal from "@src/features/analysis/slug/ChartModal";
 import Update from "@src/features/analysis/slug/Update";
 import MainPost from "@src/features/analysis/slug/MainPost";
 import chartHighlighting from "@src/features/analysis/slug/chartHighlighting";
 import Banner from "@src/features/homepage/components/promotions/BannerMini";
 
-type AnalysisPostPageProps = { posts: Article[] };
+type AnalysisPostPageProps = { post: AnalysisPost };
 
-const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
+const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
   const [modalImgSrc, setModalImgSrc] = useState<string | null>(null);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const mainPost = posts[0];
-  const updates = posts.slice(1);
+  useEffect(chartHighlighting(contentRef, setModalImgSrc, setModalVisible), [
+    post,
+    modalVisible,
+  ]);
 
-  useEffect(
-    chartHighlighting(contentRef, updates, setModalImgSrc, setModalVisible),
-    [posts, updates, modalVisible]
-  ); // Re-run when posts change
+  const updates = post.updates || [];
 
-  if (!posts || posts.length === 0)
+  if (!post)
     return (
       <>
         <Head>
@@ -47,24 +46,24 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
   return (
     <>
       <Head>
-        <title>{`${mainPost.title} - CAN Trading`}</title>
-        <meta property="og:title" content={mainPost.title} />
+        <title>{`${post.meta.title} - CAN Trading`}</title>
+        <meta property="og:title" content={post.meta.title} />
         <meta property="og:type" content="article" />
         <meta
           property="og:description"
-          content={mainPost.desc || "Technical analysis by CAN Trading"}
+          content={post.meta.description || "Technical analysis by CAN Trading"}
         />
         <meta
           property="og:url"
-          content={`https://can-trading.com/analysis/${mainPost.slug}`}
+          content={`https://can-trading.com/analysis/${post.slug}`}
         />
         <meta property="og:site_name" content="CAN Trading" />
         <meta property="og:image" content="/images/showcase/can-banner.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={mainPost.title} />
+        <meta name="twitter:title" content={post.meta.title} />
         <meta
           name="twitter:description"
-          content={mainPost.desc || "Technical analysis by CAN Trading"}
+          content={post.meta.description || "Technical analysis by CAN Trading"}
         />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
@@ -79,7 +78,7 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
           >
             ← Back to Analysis
           </Link>
-          <MainPost mainPost={mainPost} />
+          <MainPost post={post} />
 
           {/* Updates feed */}
           {updates.length > 0 && (
@@ -90,14 +89,15 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ posts }) => {
               <div className="flex flex-col gap-4">
                 {updates.map((update, idx) => (
                   <Update
-                    key={`${update.slug || "update"}-${idx}`}
-                    update={update}
-                    idx={idx}
+                    key={`update-${idx}`}
+                    updateBody={update}
+                    time={update.time}
                   />
                 ))}
               </div>
             </div>
           )}
+
           <Banner />
         </div>
         {modalImgSrc && modalVisible && (
@@ -116,10 +116,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   try {
     const res = await fetch(buildApiUrl(`/api/analysis`));
     if (!res.ok) throw new Error("Failed to fetch analysis posts.");
-    const data: AnalysisPostMeta[] = await res.json();
+    const data: ListedAnalysisPost[] = await res.json();
     const paths = (Array.isArray(data) ? data : []).map((post) => ({
       params: { slug: post.slug },
     }));
+
     return { paths, fallback: "blocking" };
   } catch {
     return { paths: [], fallback: "blocking" };
@@ -127,20 +128,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<AnalysisPostPageProps> = async (
-  context
+  context,
 ) => {
   const slug = context.params?.slug as string;
+
   try {
     const res = await fetch(buildApiUrl(`/api/analysis/${slug}`));
+    console.log(buildApiUrl(`/api/analysis/${slug}`));
     if (!res.ok) {
       return { notFound: true, revalidate: 60 };
     }
     const data = await res.json();
-    if (!Array.isArray(data) || data.length === 0) {
+    if (!data || (!Array.isArray(data) && !data.slug)) {
       return { notFound: true, revalidate: 60 };
     }
     return {
-      props: { posts: data as Article[] },
+      props: {
+        post: data as AnalysisPost,
+      },
       revalidate: 900,
     };
   } catch (e) {

@@ -4,39 +4,42 @@ import PostDescription from "./PostDescription";
 import PostTags from "./PostTags";
 import PostTime from "./PostTime";
 import PostTitle from "./PostTitle";
-import { AnalysisPostMeta } from "@src/types";
+import { ListedAnalysisPost } from "@src/types";
 import Logo from "@src/shared/ui/Logo";
 
-const TopHalf: React.FC<{ post: AnalysisPostMeta; isVip: boolean }> = ({
+const TopHalf: React.FC<{ post: ListedAnalysisPost; isVip: boolean }> = ({
   post,
   isVip,
 }) => {
   return (
     <div className="flex gap-2 py-6 items-center h-full md:h-1/3 md:mb-6 relative">
       <Logo
-        symbol={post.coins[0].toUpperCase()}
-        fixedLogoUrl={post.thumbnail}
+        symbol={post.meta.coins[0].toUpperCase()}
+        fixedLogoUrl={"/images/logos/default.png"}
         size="20"
         padding="1"
       />
-      <PostTitle isVip={isVip} title={post.title} slug={post.slug} />
+      <PostTitle isVip={isVip} title={post.meta.title} slug={post.slug} />
     </div>
   );
 };
 
-const BottomHalf: React.FC<{ post: AnalysisPostMeta }> = ({ post }) => {
+const BottomHalf: React.FC<{ post: ListedAnalysisPost }> = ({ post }) => {
   return (
     <div className="flex gap-2 flex-grow justify-between flex-wrap">
-      <PostDescription description={post.desc} />
+      <PostDescription description={post.meta.description} />
       <div className="w-full flex md:flex-col flex-wrap justify-between md:items-start items-center">
-        <PostTags tags={post.tags} />
-        <PostTime time={post.time} className="self-end md:self-auto" />
+        <div className="relative w-full">
+          <PostTags tags={post.meta.tags} className="tags-container" />
+          <div className="tags-gradient absolute right-0 top-0 w-10 h-full transition-all duration-200" />
+        </div>
+        <PostTime time={post.meta.time} className="self-end md:self-auto" />
       </div>
     </div>
   );
 };
 
-const AnalysisCard: React.FC<{ post: AnalysisPostMeta; isVip: boolean }> = ({
+const AnalysisCard: React.FC<{ post: ListedAnalysisPost; isVip: boolean }> = ({
   post,
   isVip,
 }) => {
@@ -46,7 +49,7 @@ const AnalysisCard: React.FC<{ post: AnalysisPostMeta; isVip: boolean }> = ({
     >
       <div
         key={post.slug}
-        className="border border-border rounded p-2 flex flex-col h-auto md:h-80 min-w-xxs card-hover"
+        className="group border border-border rounded p-2 flex flex-col h-auto md:h-80 min-w-xxs card-hover bg-background"
       >
         <TopHalf isVip={isVip} post={post} />
         <BottomHalf post={post} />

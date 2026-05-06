@@ -1,27 +1,27 @@
-import { HighPotentialTokenMeta } from "@src/types";
+import { HighPotentialArticleMeta } from "@src/types";
 
-const TokenCard = ({ token }: { token: HighPotentialTokenMeta }) => {
+const TokenCard = ({ tokenMeta }: { tokenMeta: HighPotentialArticleMeta }) => {
   return (
     <div className="w-40 h-full overflow-hidden rounded-xl shadow-xl border flex flex-col justify-center items-center border-text-muted card-hover">
       <div
         className={`w-full h-5 mb-2 ${
-          token.category === "gold"
+          tokenMeta.category === "Gold"
             ? "bg-gold"
-            : token.category === "silver"
-            ? "bg-silver"
-            : "bg-bronze"
+            : tokenMeta.category === "Silver"
+              ? "bg-silver"
+              : "bg-bronze"
         }`}
       />
       <div className="p-2 flex flex-col items-center">
         <div className="w-15 h-15 rounded-full aspect-square overflow-hidden">
           <img
-            src={token.logo}
-            alt={token.name}
+            src={tokenMeta.logo}
+            alt={tokenMeta.title}
             className="size-full object-cover"
           />
         </div>
-        <h2 className="text-text-main">{token.name}</h2>
-        <p className="text-text-muted">{token.symbol.toUpperCase()}</p>
+        <h2 className="text-text-main">{tokenMeta.title}</h2>
+        <p className="text-text-muted">{tokenMeta.symbol.toUpperCase()}</p>
       </div>
     </div>
   );

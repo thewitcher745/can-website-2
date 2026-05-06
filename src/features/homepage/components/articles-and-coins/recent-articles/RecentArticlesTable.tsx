@@ -3,13 +3,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 import { buildApiUrl } from "@src/config";
-import { ArticleItem, ArticleItemRaw } from "@src/types";
+import { ListedArticle } from "@src/types";
 import TableRow from "./TableRow";
-import { normalizeItem } from "./utils";
 
 const RecentArticlesTable = ({ className }: { className?: string }) => {
-  const [news, setNews] = useState<ArticleItem[]>([]);
-  const [blog, setBlog] = useState<ArticleItem[]>([]);
+  const [news, setNews] = useState<ListedArticle[]>([]);
+  const [blog, setBlog] = useState<ListedArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,21 +19,20 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
         setLoading(true);
         setError(null);
         const [blogRes, newsRes] = await Promise.all([
-          fetch(buildApiUrl(`/api/blog`)),
-          fetch(buildApiUrl(`/api/recent_news`)),
+          fetch(buildApiUrl(`/api/recent_blog?n=5`)),
+          fetch(buildApiUrl(`/api/recent_news?n=5`)),
         ]);
-
         if (!blogRes.ok) throw new Error("Failed to fetch recent blog posts.");
         if (!newsRes.ok) throw new Error("Failed to fetch recent news.");
 
-        const blogJson: ArticleItemRaw[] = await blogRes.json();
-        const newsJson: ArticleItemRaw[] = await newsRes.json();
+        const blogJson: ListedArticle[] = await blogRes.json();
+        const newsJson: ListedArticle[] = await newsRes.json();
 
-        setNews(newsJson.map(normalizeItem));
-        setBlog(blogJson.map(normalizeItem));
+        setNews(newsJson);
+        setBlog(blogJson);
       } catch (err) {
         setError(
-          err instanceof Error ? err.message : "An unknown error occurred"
+          err instanceof Error ? err.message : "An unknown error occurred",
         );
       } finally {
         setLoading(false);
@@ -53,7 +51,7 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
       },
       { title: "Recent News", data: news, slug: "news" },
     ],
-    [news, blog]
+    [news, blog],
   );
 
   const nextSlide = () => {
@@ -62,7 +60,7 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? tables.length - 1 : prevIndex - 1
+      prevIndex === 0 ? tables.length - 1 : prevIndex - 1,
     );
   };
 
@@ -85,7 +83,7 @@ const RecentArticlesTable = ({ className }: { className?: string }) => {
     );
   };
 
-  const renderTableRows = (items: ArticleItem[], tableSlug: string) => {
+  const renderTableRows = (items: ListedArticle[], tableSlug: string) => {
     const rows = [] as React.ReactNode[];
     for (let i = 0; i < 4; i++) {
       const item = items[i];

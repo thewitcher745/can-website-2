@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-import { ArticleItem } from "@src/types";
+import { ListedArticle } from "@src/types";
 import { formatRelativeTime } from "@src/utils";
 
 const TableRow = ({
   item,
   tableSlug = "news",
 }: {
-  item: ArticleItem;
+  item: ListedArticle;
   tableSlug: string;
 }) => {
   return (
@@ -22,24 +22,24 @@ const TableRow = ({
               <div className="h-14 min-w-20 max-w-20">
                 <img
                   src={
-                    item.thumbnail
-                      ? item.thumbnail
+                    item.meta.thumbnail
+                      ? item.meta.thumbnail
                       : `http://static.photos/finance/320x240/${item.slug}`
                   }
                   className="rounded object-cover flex-grow h-14 w-20"
-                  alt={item.title}
+                  alt={item.meta.title}
                 />
               </div>
 
               <div className="w-5/6 flex flex-col items-start gap-1">
                 <h3
                   className="block truncate max-w-full text-sm"
-                  title={item.title}
+                  title={item.meta.title}
                 >
-                  {item.title}
+                  {item.meta.title}
                 </h3>
                 <span className="py-1 w-1/4 text-left text-text-muted text-xs">
-                  {formatRelativeTime(item.publishedAt, "short")}
+                  {formatRelativeTime(item.meta.time, "short")}
                 </span>
               </div>
             </div>

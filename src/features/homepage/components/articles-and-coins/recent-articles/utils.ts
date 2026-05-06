@@ -1,5 +1,3 @@
-import { ArticleItem, ArticleItemRaw } from "@src/types";
-
 export const parseDate = (value: unknown): Date | null => {
   if (!value && value !== 0) return null;
   try {
@@ -16,14 +14,4 @@ export const parseDate = (value: unknown): Date | null => {
   } catch {
     return null;
   }
-};
-
-export const normalizeItem = (raw: ArticleItemRaw): ArticleItem => {
-  const timeCandidate = raw.time ?? raw.timestamp ?? raw.date ?? null;
-  return {
-    slug: raw.slug,
-    thumbnail: raw.thumbnail,
-    title: raw.title,
-    time: parseDate(timeCandidate as unknown)!,
-  };
 };

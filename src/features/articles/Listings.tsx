@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 
-import { ArticleMeta } from "@src/types";
+import { ListedArticle } from "@src/types";
 import { formatRelativeTime } from "@src/utils";
 
 type ListingsProps = {
-  items: ArticleMeta[];
+  items: ListedArticle[];
   baseHref: string; // e.g. "/blog" | "/news" | "/fundamental"
   filterTags: string[] | null;
   onRemoveTag: (tag: string) => void;
@@ -53,8 +53,8 @@ const Listings: React.FC<ListingsProps> = ({
               <div className="h-full w-30 sm:w-full sm:h-1/2 overflow-hidden rounded-sm sm:rounded-t-sm mb-2">
                 <Link href={`${baseHref}/${article.slug}`}>
                   <img
-                    src={article.thumbnail}
-                    alt={article.title}
+                    src={article.meta.thumbnail}
+                    alt={article.meta.title}
                     className="h-full w-full object-cover object-top"
                   />
                 </Link>
@@ -65,20 +65,20 @@ const Listings: React.FC<ListingsProps> = ({
                   <div className="line-clamp-2 sm:line-clamp-3 md:line-clamp-4 lg:h-1/2 md:h-1/3">
                     <Link href={`${baseHref}/${article.slug}`}>
                       <h2 className="text-md font-normal mx-3 sm:mx-0 text-text-main hover:text-primary transition-colors mb-2">
-                        {article.title}
+                        {article.meta.title}
                       </h2>
                     </Link>
                   </div>
                   <div className="line-clamp-3">
                     <p className="text-text-muted hidden md:block text-sm mx-2 sm:mx-0 mb-3 md:h-1/2">
-                      {article.desc}
+                      {article.meta.description}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex justify-between">
                   <div className="text-sm text-text-muted mb-1 mx-3 sm:mx-0">
-                    {formatRelativeTime(new Date(article.time), "long")}
+                    {formatRelativeTime(new Date(article.meta.time), "long")}
                   </div>
                   <Link
                     href={`${baseHref}/${article.slug}`}

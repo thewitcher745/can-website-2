@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import AnalysisCard from "./AnalysisCard";
-import { AnalysisPostMeta } from "@src/types";
+import { ListedAnalysisPost } from "@src/types";
 import { buildApiUrl } from "@src/config";
 import { FaPlus } from "react-icons/fa6";
 
@@ -10,7 +10,7 @@ type TabType = "all" | "vip";
 const AnalysisListContainer = () => {
   const [activeTab, setActiveTab] = useState<TabType>("all");
   const [nPostsToShow, setNPostsToShow] = useState(12);
-  const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
+  const [posts, setPosts] = useState<ListedAnalysisPost[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

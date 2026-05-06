@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { FaBookOpen } from "react-icons/fa";
 import { ChevronRight } from "lucide-react";
 
-import { AnalysisPostMeta } from "@src/types";
+import { ListedAnalysisPost } from "@src/types";
 import { buildApiUrl } from "@src/config";
 import MostRecent from "../components/most-recent-analysis/MostRecent";
 
 const MostRecentAnalysisSection = () => {
-  const [posts, setPosts] = useState<AnalysisPostMeta[]>([]);
+  const [posts, setPosts] = useState<ListedAnalysisPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

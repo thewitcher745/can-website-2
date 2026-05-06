@@ -9,18 +9,29 @@ const PostTags = ({
 }: PostTagsProps) => {
   return (
     <div
-      className={`flex flex-grow h-8 items-center px-2 gap-2 ${
-        hiddenOnMobile ? "hidden lg:flex" : ""
-      } ${className}`}
+      className={`w-full overflow-x-hidden ${hiddenOnMobile ? "hidden lg:block" : ""}`}
     >
-      {tags.map((tag) => (
-        <span
-          key={tag}
-          className="px-3 py-1 bg-primary/10 text-primary text-xs sm:text-sm rounded-full"
-        >
-          {tag}
-        </span>
-      ))}
+      <div
+        className={`tags-scroll flex h-8 items-center px-2 gap-2 ${className}`}
+      >
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className="px-3 py-1 bg-primary/10 text-primary text-xs sm:text-sm rounded-full whitespace-nowrap flex-shrink-0"
+          >
+            {tag}
+          </span>
+        ))}
+        {/* Duplicate tags for seamless loop */}
+        {tags.map((tag) => (
+          <span
+            key={`${tag}-duplicate`}
+            className="px-3 py-1 bg-primary/10 text-primary text-xs sm:text-sm rounded-full whitespace-nowrap flex-shrink-0"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };

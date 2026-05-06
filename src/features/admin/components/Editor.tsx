@@ -9,25 +9,9 @@ import Table from "@editorjs/table";
 // @ts-ignore
 import ImageTool from "@editorjs/image";
 // @ts-ignore
-import InlineCode from "@editorjs/inline-code";
-// @ts-ignore
-import Marker from "@editorjs/marker";
-// @ts-ignore
-import Quote from "@editorjs/quote";
-// @ts-ignore
 import Paragraph from "@editorjs/paragraph";
 // @ts-ignore
 import LinkTool from "@editorjs/link";
-// @ts-ignore
-import Checklist from "@editorjs/checklist";
-// @ts-ignore
-import Delimiter from "@editorjs/delimiter";
-// @ts-ignore
-import Warning from "@editorjs/warning";
-// @ts-ignore
-import CodeTool from "@editorjs/code";
-// @ts-ignore
-import RawTool from "@editorjs/raw";
 // @ts-ignore
 import Embed from "@editorjs/embed";
 import { supabase } from "../../../lib/supabase";
@@ -129,16 +113,8 @@ const Editor: React.FC<EditorProps> = ({ data, onChange, holder }) => {
             },
           },
         },
-        inlineCode: InlineCode,
-        marker: Marker,
-        quote: Quote,
         paragraph: Paragraph,
         linkTool: LinkTool,
-        checklist: Checklist,
-        delimiter: Delimiter,
-        warning: Warning,
-        code: CodeTool,
-        raw: RawTool,
         embed: Embed as any,
       },
     });

@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-import { AnalysisPostMeta } from "@src/types";
+import { AnalysisPost } from "@src/types";
 import Logo from "@shared/ui/Logo";
 
 import { formatPostTimestamp } from "./utils";
 
 type TechnicalAnalysisSectionProps = {
   symbol: string;
-  analysisPosts: AnalysisPostMeta[];
+  analysisPosts: AnalysisPost[];
 };
 
 const TechnicalAnalysisSection = ({
@@ -44,7 +44,7 @@ const TechnicalAnalysisSection = ({
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {analysisPosts.slice(0, 4).map((post) => {
-            const primarySymbol = post.coins?.[0] ?? symbol;
+            const primarySymbol = post.meta.coins?.[0] ?? symbol;
             return (
               <Link
                 key={post.slug}
@@ -52,27 +52,22 @@ const TechnicalAnalysisSection = ({
                 className="group border border-border rounded-2xl p-5 bg-background/40 hover:border-primary hover:bg-background/60 transition-colors flex flex-col gap-3"
               >
                 <div className="flex items-center gap-3">
-                  <Logo
-                    symbol={primarySymbol}
-                    fixedLogoUrl={post.thumbnail}
-                    size="12"
-                    padding="2"
-                  />
+                  <Logo symbol={primarySymbol} size="12" padding="2" />
                   <div>
                     <p className="text-xs uppercase tracking-[0.2em] text-primary-soft">
                       {primarySymbol.toUpperCase()}
                     </p>
                     <h3 className="text-lg font-semibold text-white group-hover:text-primary transition-colors">
-                      {post.title}
+                      {post.meta.title}
                     </h3>
                   </div>
                 </div>
                 <p className="text-sm text-text-muted line-clamp-3">
-                  {post.desc}
+                  {post.meta.description}
                 </p>
                 <div className="flex flex-wrap items-center gap-2 justify-between">
                   <div className="flex flex-wrap gap-1">
-                    {post.tags.slice(0, 2).map((tag) => (
+                    {post.meta.tags.slice(0, 2).map((tag) => (
                       <span
                         key={`${post.slug}-${tag}`}
                         className="text-xs px-2 py-1 rounded-full bg-background text-primary border border-border"
@@ -82,7 +77,7 @@ const TechnicalAnalysisSection = ({
                     ))}
                   </div>
                   <span className="text-xs text-text-muted">
-                    {formatPostTimestamp(post.time)}
+                    {formatPostTimestamp(post.meta.time)}
                   </span>
                 </div>
               </Link>

@@ -13,10 +13,15 @@ interface Post {
   isVip: boolean | null;
 }
 
+type SortField = "time" | "title" | "lastModifiedTime" | "type";
+type SortOrder = "asc" | "desc";
+
 const AdminDashboard = () => {
   const router = useRouter();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
+  const [sortField, setSortField] = useState<SortField>("lastModifiedTime");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
 
   useEffect(() => {
     fetchPosts();
@@ -39,6 +44,43 @@ const AdminDashboard = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSort = (field: SortField) => {
+    if (sortField === field) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortOrder("desc");
+    }
+  };
+
+  const sortedPosts = [...posts].sort((a, b) => {
+    let aValue: string | number;
+    let bValue: string | number;
+
+    if (sortField === "time") {
+      aValue = new Date(a.time).getTime();
+      bValue = new Date(b.time).getTime();
+    } else if (sortField === "lastModifiedTime") {
+      aValue = a.lastModifiedTime;
+      bValue = b.lastModifiedTime;
+    } else if (sortField === "type") {
+      aValue = a.type.toLowerCase();
+      bValue = b.type.toLowerCase();
+    } else {
+      aValue = a.title.toLowerCase();
+      bValue = b.title.toLowerCase();
+    }
+
+    if (aValue < bValue) return sortOrder === "asc" ? -1 : 1;
+    if (aValue > bValue) return sortOrder === "asc" ? 1 : -1;
+    return 0;
+  });
+
+  const SortIcon = ({ field }: { field: SortField }) => {
+    if (sortField !== field) return <span className="text-text-muted ml-1">⇅</span>;
+    return <span className="text-primary ml-1">{sortOrder === "asc" ? "↑" : "↓"}</span>;
   };
 
   const handleDelete = async (slug: string, type: string) => {
@@ -88,12 +130,33 @@ const AdminDashboard = () => {
             <table className="w-full border-collapse mt-4">
               <thead>
                 <tr className="bg-background text-text-muted text-xs font-semibold uppercase">
-                  <th className="p-4 text-left border-b border-border">
+                  <th
+                    className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
+                    onClick={() => handleSort("title")}
+                  >
                     Title
+                    <SortIcon field="title" />
                   </th>
-                  <th className="p-4 text-left border-b border-border">Type</th>
-                  <th className="p-4 text-left border-b border-border">
+                  <th
+                    className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
+                    onClick={() => handleSort("type")}
+                  >
+                    Type
+                    <SortIcon field="type" />
+                  </th>
+                  <th
+                    className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
+                    onClick={() => handleSort("time")}
+                  >
+                    Post Time
+                    <SortIcon field="time" />
+                  </th>
+                  <th
+                    className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
+                    onClick={() => handleSort("lastModifiedTime")}
+                  >
                     Last modified time
+                    <SortIcon field="lastModifiedTime" />
                   </th>
                   <th className="p-4 text-left border-b border-border">
                     Status
@@ -105,7 +168,7 @@ const AdminDashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {posts.map((post) => (
+                {sortedPosts.map((post) => (
                   <tr
                     key={post.slug}
                     className="hover:bg-background/50 transition-colors"
@@ -115,6 +178,13 @@ const AdminDashboard = () => {
                       <span className="capitalize">
                         {post.type.replace("_", " ")}
                       </span>
+                    </td>
+                    <td className="p-4 border-b border-border">
+                      {new Date(post.time).toLocaleDateString()}{" "}
+                      {new Date(post.time).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
                     </td>
                     <td className="p-4 border-b border-border">
                       {new Date(post.lastModifiedTime).toLocaleDateString()}{" "}
