@@ -20,7 +20,7 @@ const EditPost = () => {
   const isEditing = slugParam !== "new";
 
   const [metadata, setMetadata] = useState<EditorMetadata>({
-    type: "blog",
+    type: "analysis",
     title: "",
     slug: "",
     author: "",
@@ -31,7 +31,7 @@ const EditPost = () => {
       minute: "2-digit",
       hour12: false,
     }),
-    status: "draft",
+    status: "published",
   });
 
   const [content, setContent] = useState<any>(null);
