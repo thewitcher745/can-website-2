@@ -494,8 +494,8 @@ const EditPost = () => {
               onChange={handleMetadataChange}
               className="p-2 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer"
             >
-              <option value="draft">Draft</option>
               <option value="published">Published</option>
+              <option value="draft">Draft</option>
             </select>
           </div>
           <button
@@ -525,9 +525,9 @@ const EditPost = () => {
               }`}
               disabled={isEditing}
             >
+              <option value="analysis">Technical Analysis</option>
               <option value="blog">Blog</option>
               <option value="news">News</option>
-              <option value="analysis">Technical Analysis</option>
               <option value="high_potential">High Potential</option>
             </select>
           </div>
