@@ -63,12 +63,15 @@ const CaptionElement = ({
   post: ListedAnalysisPost;
   isMobile: boolean;
 }) => {
+  const limit = isMobile ? 2 : 4;
+  const tags = post.meta.tags.slice(0, limit);
+
   const PostTags = () => {
     return (
       <div className="flex gap-1">
-        {post.meta.tags.map((tag, index) => (
+        {tags.map((tag, index) => (
           <span key={tag} className="py-1 text-primary text-xs rounded-full">
-            {`${tag}${index === post.meta.tags.length - 1 ? "" : ","}`}
+            {`${tag}${index === tags.length - 1 ? "" : ","}`}
           </span>
         ))}
       </div>
