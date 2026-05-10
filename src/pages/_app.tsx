@@ -34,7 +34,7 @@ twq('config','ou3hs');
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-NZJH59BG');
+          })(window,document,'script','dataLayer','AW-17953959733');
         `}
       </Script>
 
@@ -46,7 +46,7 @@ twq('config','ou3hs');
       {/* GTag Noscript */}
       <noscript>
         <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-NZJH59BG"
+          src="https://www.googletagmanager.com/ns.html?id=AW-17953959733"
           height="0"
           width="0"
           style={{ display: "none", visibility: "hidden" }}
