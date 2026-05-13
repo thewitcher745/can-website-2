@@ -29,23 +29,19 @@ export interface ResultsChartsData {
   cumulativeProfitPercents: number[];
 }
 
+//
+export interface MonthOptionData {
+  label: string;
+  value: string;
+}
+
 export interface MonthYearStateData {
-  allYears: string[];
-  setAllYears: Dispatch<SetStateAction<string[]>>;
+  years: string[];
+  months: MonthOptionData[];
+
   selectedYear: string;
   setSelectedYear: Dispatch<SetStateAction<string>>;
-  allMonths: {
-    label: string;
-    value: string;
-  }[];
-  setAllMonths: Dispatch<
-    SetStateAction<
-      {
-        label: string;
-        value: string;
-      }[]
-    >
-  >;
+
   currentMonthYear: string;
   setCurrentMonthYear: Dispatch<SetStateAction<string>>;
 }

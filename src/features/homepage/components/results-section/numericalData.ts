@@ -19,7 +19,7 @@ export interface WaterfallPoint {
 export default function getTrades(monthName: string): Trade[] {
   if (monthName in tradesByMonth) {
     const key = monthName as keyof typeof tradesByMonth;
-    const entries = tradesByMonth[key] ?? [];
+    const entries = tradesByMonth[key]["insights"] ?? [];
     return entries.map((e) => ({
       date: e.date,
       symbol: e.symbol,

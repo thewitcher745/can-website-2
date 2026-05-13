@@ -1,17 +1,14 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { useMonthYearSelector } from "./hooks";
+import { useMonthYearState } from "./hooks";
 import { Category, CategoryStateData, MonthYearStateData } from "./types";
 
 // Month year context provider
 const initialMonthYearState: MonthYearStateData = {
-  allYears: [],
-  setAllYears: () => {},
-
+  years: [],
+  months: [],
+  
   selectedYear: "",
   setSelectedYear: () => {},
-
-  allMonths: [],
-  setAllMonths: () => {},
 
   currentMonthYear: "",
   setCurrentMonthYear: () => {},
@@ -22,7 +19,7 @@ const MonthYearContext = createContext<MonthYearStateData>(
 );
 
 export function MonthYearProvider({ children }: { children: ReactNode }) {
-  const value = useMonthYearSelector();
+  const value = useMonthYearState();
 
   return (
     <MonthYearContext.Provider value={value}>

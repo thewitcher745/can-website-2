@@ -9,30 +9,13 @@ import {
   ResultsChartsData,
   TradeData,
 } from "./types";
+import { deriveMonths, deriveYears } from "./utils";
 
-type UseTradesForMonthYearResult = {
-  data: TradeData[] | null;
+interface QueryResult<T> {
+  data: T;
   loading: boolean;
   error: string | null;
-};
-
-type UseSummaryForMonthYearResult = {
-  data: MonthSummaryData | null;
-  loading: boolean;
-  error: string | null;
-};
-
-type UseChartsDataForMonthYearResult = {
-  data: ResultsChartsData | null;
-  loading: boolean;
-  error: string | null;
-};
-
-type UseCategoriesForMonthYear = {
-  data: Category[];
-  loading: boolean;
-  error: string | null;
-};
+}
 
 /**
  * Fetches available categories for a month-year
@@ -43,7 +26,7 @@ type UseCategoriesForMonthYear = {
  */
 export function useCategoriesForMonthYear(
   monthYear: string,
-): UseCategoriesForMonthYear {
+): QueryResult<Category[]> {
   const { data, loading, error } = useQuery(
     () => resultsApi.getCategoriesForMonthYear(monthYear),
     [monthYear],
@@ -63,7 +46,7 @@ export function useCategoriesForMonthYear(
 export function useTradesForMonthYearCategory(
   monthYear: string,
   category: Category,
-): UseTradesForMonthYearResult {
+): QueryResult<TradeData[] | null> {
   const { data, loading, error } = useQuery(
     () => resultsApi.getTradesForMonthYear(monthYear, category),
     [monthYear, category],
@@ -82,7 +65,7 @@ export function useTradesForMonthYearCategory(
 export function useSummaryForMonthYearCategory(
   monthYear: string,
   category: Category,
-): UseSummaryForMonthYearResult {
+): QueryResult<MonthSummaryData | null> {
   const { data, loading, error } = useQuery(
     () => resultsApi.getSummaryForMonthYear(monthYear, category),
     [monthYear, category],
@@ -101,7 +84,7 @@ export function useSummaryForMonthYearCategory(
 export function useChartsDataForMonthYearCategory(
   monthYear: string,
   category: "insights" | "algorithm",
-): UseChartsDataForMonthYearResult {
+): QueryResult<ResultsChartsData | null> {
   const { data, loading, error } = useQuery(
     () => resultsApi.getChartsDataForMonthYear(monthYear, category),
     [monthYear, category],
@@ -110,106 +93,37 @@ export function useChartsDataForMonthYearCategory(
   return { data, loading, error };
 }
 
-const monthOrder: { [key: string]: number } = {
-  jan: 1,
-  feb: 2,
-  mar: 3,
-  apr: 4,
-  may: 5,
-  jun: 6,
-  jul: 7,
-  aug: 8,
-  sep: 9,
-  oct: 10,
-  nov: 11,
-  dec: 12,
-};
-
-/**
- * Utility function for results page monthYear selector
- */
-const parseMonthYearString = (
-  monthYear: string,
-): { monthKey: string; year: string; monthName: string } => {
-  const [monthKey, year] = monthYear.split("-");
-  const monthName = new Date(
-    parseInt(year),
-    monthOrder[monthKey] - 1,
-    1,
-  ).toLocaleString("default", { month: "long" });
-  return { monthKey, year, monthName };
-};
-
 /**
  * Hook for handling month-year selection on results page.
  *
  * @returns Object containing list of all years, selected year, all months and current month-year
  * plus their dispatch functions.
  */
-export function useMonthYearSelector(): MonthYearStateData {
-  const [allYears, setAllYears] = useState<string[]>([]);
-  const [selectedYear, setSelectedYear] = useState<string>("");
-  const [allMonths, setAllMonths] = useState<
-    { label: string; value: string }[]
-  >([]);
-  const [currentMonthYear, setCurrentMonthYear] = useState<string>(""); // e.g., "mar-2025"
-
+export function useMonthYearState() {
   const { data } = useQuery(resultsApi.getAvailableMonthYears, []);
+  const available = data ?? [];
 
-  const availableMonthYears = data || [];
+  const years = deriveYears(available);
+  const [selectedYear, setSelectedYear] = useState<string>("");
 
+  // Set default year once
   useEffect(() => {
-    // Populate years, sorted descending
-    const years = [
-      ...new Set(
-        availableMonthYears.map((my) => parseMonthYearString(my).year),
-      ),
-    ].sort((a, b) => parseInt(b) - parseInt(a));
-    setAllYears(years);
+    if (years.length && !selectedYear) setSelectedYear(years[0]);
+  }, [years]);
 
-    if (years.length > 0) {
-      const latestYear = years[0];
-      setSelectedYear(latestYear);
-    }
-  }, [availableMonthYears]);
+  const months = deriveMonths(available, selectedYear);
+  const [currentMonthYear, setCurrentMonthYear] = useState<string>("");
 
+  // Set default month when year changes
   useEffect(() => {
-    if (selectedYear) {
-      const monthsInYear = availableMonthYears
-        .filter((my) => parseMonthYearString(my).year === selectedYear)
-        .map((my) => ({
-          original: my, // "mar-2025"
-          monthKey: parseMonthYearString(my).monthKey, // "mar"
-        }))
-        .sort((a, b) => monthOrder[b.monthKey] - monthOrder[a.monthKey]); // Sort months descending (Dec, Nov, ...)
-
-      const displayMonths = monthsInYear.map((m) => ({
-        label: parseMonthYearString(m.original).monthName, // "MARCH"
-        value: m.original, // "mar-2025"
-      }));
-      setAllMonths(displayMonths);
-
-      if (displayMonths.length > 0) {
-        // If currentMonthYear's year is different or it's not set, update it
-        if (
-          !currentMonthYear ||
-          parseMonthYearString(currentMonthYear).year !== selectedYear
-        ) {
-          setCurrentMonthYear(displayMonths[0].value); // Select the latest month of the new year
-        }
-      } else {
-        setCurrentMonthYear(""); // No months for this year
-      }
-    }
-  }, [selectedYear, currentMonthYear]); // Added currentMonthYear to dependencies to handle initial load correctly
+    setCurrentMonthYear(months[0]?.value ?? "");
+  }, [selectedYear]);
 
   return {
-    allYears,
-    setAllYears,
+    years,
     selectedYear,
     setSelectedYear,
-    allMonths,
-    setAllMonths,
+    months,
     currentMonthYear,
     setCurrentMonthYear,
   };

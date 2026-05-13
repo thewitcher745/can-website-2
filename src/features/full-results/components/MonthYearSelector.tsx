@@ -3,10 +3,10 @@ import { Calendar } from "lucide-react";
 
 const MonthYearSelector = () => {
   const {
-    allYears,
+    years,
     selectedYear,
     setSelectedYear,
-    allMonths,
+    months,
     currentMonthYear,
     setCurrentMonthYear,
   } = useMonthYear();
@@ -29,7 +29,7 @@ const MonthYearSelector = () => {
           value={selectedYear}
           onChange={(e) => setSelectedYear(e.target.value)}
         >
-          {allYears.map((year) => (
+          {years.map((year) => (
             <option key={year} value={year}>
               {year}
             </option>
@@ -50,9 +50,9 @@ const MonthYearSelector = () => {
           transition-colors cursor-pointer"
           value={currentMonthYear}
           onChange={(e) => setCurrentMonthYear(e.target.value)}
-          disabled={!selectedYear || allMonths.length === 0}
+          disabled={!selectedYear || months.length === 0}
         >
-          {allMonths.map((month) => (
+          {months.map((month) => (
             <option key={month.value} value={month.value}>
               {month.label}
             </option>

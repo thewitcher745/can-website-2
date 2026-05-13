@@ -84,37 +84,56 @@ export function calculateChartsData(trades: TradeData[]): ResultsChartsData {
     };
   }
 
-  const total = trades.length;
+  const nTotalTrades = trades.length;
 
-  const longTrades = trades.filter((t) => t.type === "Long").length;
-  const longTradesPercentage = (longTrades / total) * 100;
+  const stats = trades.reduce<{
+    wins: number;
+    longTrades: TradeData[];
+    profitPercents: number[];
+    lastCumulativeProfitValue: number;
+    cumulativeProfitPercents: number[];
+    targetCounts: Map<number, number>;
+  }>(
+    (acc, trade) => {
+      if (trade.profitPercent > 0) acc.wins++;
+      if (trade.type === "Long") acc.longTrades.push(trade);
+      acc.profitPercents.push(trade.profitPercent);
 
-  const wins = trades.filter((t) => t.profitPercent > 0).length;
-  const winrate = (wins / total) * 100;
+      acc.lastCumulativeProfitValue += trade.profitPercent;
+      acc.cumulativeProfitPercents.push(acc.lastCumulativeProfitValue);
 
-  const targetCounts = new Map<number, number>();
+      const target = trade.lastTarget;
+      acc.targetCounts.set(target, (acc.targetCounts.get(target) ?? 0) + 1);
 
-  for (const trade of trades) {
-    const target = trade.lastTarget;
-    targetCounts.set(target, (targetCounts.get(target) ?? 0) + 1);
-  }
+      return acc;
+    },
+    {
+      wins: 0,
+      longTrades: [],
+      profitPercents: [],
+      lastCumulativeProfitValue: 0,
+      cumulativeProfitPercents: [],
+      targetCounts: new Map(),
+    },
+  );
+
+  const nLongTrades = stats.longTrades.length;
+  const longTradesPercentage = (nLongTrades / nTotalTrades) * 100;
+
+  const winrate = (stats.wins / nTotalTrades) * 100;
+
+  const targetCounts = stats.targetCounts;
 
   const perTargetRatio = Array.from(targetCounts.entries()).map(
     ([targetId, count]) => ({
       targetId,
-      targetPercentage: (count / total) * 100,
+      targetPercentage: (count / nTotalTrades) * 100,
     }),
   );
 
-  const profitPercents = trades.map((t) => t.profitPercent);
+  const profitPercents = stats.profitPercents;
 
-  const cumulativeProfitPercents: number[] = [];
-  let cumulative = 0;
-
-  for (const p of profitPercents) {
-    cumulative += p;
-    cumulativeProfitPercents.push(cumulative);
-  }
+  const cumulativeProfitPercents = stats.cumulativeProfitPercents;
 
   return {
     longTradesPercentage,
