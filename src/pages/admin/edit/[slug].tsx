@@ -311,7 +311,6 @@ const EditPost = () => {
 
   const handleUpdateTimeChange = (index: number, time: string) => {
     setUpdateTimes((prev) => {
-      console.log(time);
       const newTimes = [...prev];
       newTimes[index] = time;
       return newTimes;
@@ -337,7 +336,6 @@ const EditPost = () => {
     setUpdates((prev) => {
       const newUpdates = [...prev];
       newUpdates[index] = data;
-      console.log(newUpdates);
       return newUpdates;
     });
   };

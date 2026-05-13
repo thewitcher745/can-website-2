@@ -134,7 +134,6 @@ export const getStaticProps: GetStaticProps<AnalysisPostPageProps> = async (
 
   try {
     const res = await fetch(buildApiUrl(`/api/analysis/${slug}`));
-    console.log(buildApiUrl(`/api/analysis/${slug}`));
     if (!res.ok) {
       return { notFound: true, revalidate: 60 };
     }
