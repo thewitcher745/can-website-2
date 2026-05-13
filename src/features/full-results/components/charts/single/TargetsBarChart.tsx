@@ -10,8 +10,8 @@ import {
   Rectangle,
 } from "recharts";
 
-import { useChartsDataForMonthYear } from "@src/domains/results/hooks";
-import { ResultsChartsData } from "@src/domains/results/types";
+import { useChartsDataForMonthYearCategory } from "@src/domains/results/hooks";
+import { ResultsChartsData, Category } from "@src/domains/results/types";
 import GenericError from "@src/shared/ui/GenericError";
 import { GenericLoader } from "@src/shared/ui/loaders";
 import TopTitledChartWrapper from "./TopTitledChartWrapper";
@@ -101,8 +101,17 @@ const TargetsBarChartBase = ({ data }: { data?: ResultsChartsData | null }) => {
   );
 };
 
-const TargetsBarChart = ({ monthYear }: { monthYear: string }) => {
-  const { data, loading, error } = useChartsDataForMonthYear(monthYear);
+const TargetsBarChart = ({
+  monthYear,
+  category,
+}: {
+  monthYear: string;
+  category: Category;
+}) => {
+  const { data, loading, error } = useChartsDataForMonthYearCategory(
+    monthYear,
+    category,
+  );
 
   if (loading) {
     return (

@@ -1,8 +1,9 @@
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { useMonthYearSelector } from "./hooks";
-import { MonthYearStateData } from "./types";
+import { Category, CategoryStateData, MonthYearStateData } from "./types";
 
-const initialState: MonthYearStateData = {
+// Month year context provider
+const initialMonthYearState: MonthYearStateData = {
   allYears: [],
   setAllYears: () => {},
 
@@ -16,9 +17,11 @@ const initialState: MonthYearStateData = {
   setCurrentMonthYear: () => {},
 };
 
-const MonthYearContext = createContext<MonthYearStateData>(initialState);
+const MonthYearContext = createContext<MonthYearStateData>(
+  initialMonthYearState,
+);
 
-export function MonthYearProvider({ children }: { children: ReactNode[] }) {
+export function MonthYearProvider({ children }: { children: ReactNode }) {
   const value = useMonthYearSelector();
 
   return (
@@ -30,4 +33,26 @@ export function MonthYearProvider({ children }: { children: ReactNode[] }) {
 
 export function useMonthYear() {
   return useContext(MonthYearContext);
+}
+
+// Category context provider
+const initialCategoryState: CategoryStateData = {
+  category: "insights",
+  setCategory: () => {},
+};
+
+const CategoryContext = createContext<CategoryStateData>(initialCategoryState);
+
+export function CategoryProvider({ children }: { children: ReactNode }) {
+  const [category, setCategory] = useState<Category>("insights");
+
+  return (
+    <CategoryContext.Provider value={{ category, setCategory }}>
+      {children}
+    </CategoryContext.Provider>
+  );
+}
+
+export function useCategory() {
+  return useContext(CategoryContext);
 }

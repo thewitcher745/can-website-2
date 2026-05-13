@@ -1,16 +1,20 @@
 import { useState } from "react";
 
-import { useMonthYear } from "@src/domains/results/context";
-import { useTradesForMonthYear } from "@src/domains/results/hooks";
+import { useCategory, useMonthYear } from "@src/domains/results/context";
+import { useTradesForMonthYearCategory } from "@src/domains/results/hooks";
 import GlassCard from "@src/shared/ui/GlassCard";
 import Logo from "@src/shared/ui/Logo";
 
 const ResultsTable = () => {
   const { currentMonthYear: monthYear } = useMonthYear();
+  const { category } = useCategory();
 
   const [showAll, setShowAll] = useState(false);
 
-  const { data, loading, error } = useTradesForMonthYear(monthYear);
+  const { data, loading, error } = useTradesForMonthYearCategory(
+    monthYear,
+    category,
+  );
 
   const trades = data || [];
   const rowsToShow = showAll ? trades : trades.slice(0, 8);

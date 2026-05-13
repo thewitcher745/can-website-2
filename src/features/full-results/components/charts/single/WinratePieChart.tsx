@@ -1,10 +1,20 @@
-import { useChartsDataForMonthYear } from "@src/domains/results/hooks";
+import { useChartsDataForMonthYearCategory } from "@src/domains/results/hooks";
 import BinaryPieChartBase from "./BinaryPieChartBase";
 import { GenericLoader } from "@src/shared/ui/loaders";
 import GenericError from "@src/shared/ui/GenericError";
+import { Category } from "@src/domains/results/types";
 
-const WinratePieChart = ({ monthYear }: { monthYear: string }) => {
-  const { data, loading, error } = useChartsDataForMonthYear(monthYear);
+const WinratePieChart = ({
+  monthYear,
+  category,
+}: {
+  monthYear: string;
+  category: Category;
+}) => {
+  const { data, loading, error } = useChartsDataForMonthYearCategory(
+    monthYear,
+    category,
+  );
 
   const winrate = data?.winrate || 0;
 

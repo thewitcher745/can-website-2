@@ -11,13 +11,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { useChartsDataForMonthYear } from "@src/domains/results/hooks";
+import { useChartsDataForMonthYearCategory } from "@src/domains/results/hooks";
 import { ResultsChartsData } from "@src/domains/results/types";
 import GenericError from "@src/shared/ui/GenericError";
 import { GenericLoader } from "@src/shared/ui/loaders";
 import TopTitledChartWrapper from "./single/TopTitledChartWrapper";
 import GlassCard from "@src/shared/ui/GlassCard";
-import { useMonthYear } from "@src/domains/results/context";
+import { useCategory, useMonthYear } from "@src/domains/results/context";
 
 const MARGIN_USD = 50;
 
@@ -151,7 +151,12 @@ const CombinedProfitChartBase = ({
 
 const CombinedProfitChart = () => {
   const { currentMonthYear: monthYear } = useMonthYear();
-  const { data, loading, error } = useChartsDataForMonthYear(monthYear);
+  const { category } = useCategory();
+
+  const { data, loading, error } = useChartsDataForMonthYearCategory(
+    monthYear,
+    category,
+  );
 
   if (loading) {
     return (

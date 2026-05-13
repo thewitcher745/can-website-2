@@ -1,15 +1,16 @@
 import { DollarSign, TrendingUpDown, TrendingUp } from "lucide-react";
 
-import { useSummaryForMonthYear } from "@src/domains/results/hooks";
+import { useSummaryForMonthYearCategory } from "@src/domains/results/hooks";
 import SummaryItem from "./SummaryItem";
 import { GenericLoader } from "@src/shared/ui/loaders";
 import GenericError from "@src/shared/ui/GenericError";
 import GlassCard from "@src/shared/ui/GlassCard";
-import { useMonthYear } from "@src/domains/results/context";
+import { useCategory, useMonthYear } from "@src/domains/results/context";
 
 const Summary = () => {
   const { currentMonthYear: monthYear } = useMonthYear();
-  const { data, loading, error } = useSummaryForMonthYear(monthYear);
+  const { category } = useCategory();
+  const { data, loading, error } = useSummaryForMonthYearCategory(monthYear, category);
 
   const winrate = `${data?.winrate.toFixed(2) || 75.1}%`;
   const grossProfit = `+${data?.grossProfit.toFixed(2) || 674.3}%`;

@@ -7,10 +7,13 @@ import Banner from "@src/features/homepage/components/promotions/Banner";
 import CombinedProfitChart from "@src/features/full-results/components/charts/CombinedProfitChart";
 import Summary from "@src/features/full-results/components/summary/Summary";
 import CombinedWinrateLongShortTargetCharts from "@src/features/full-results/components/charts/CombinedWinrateLongShortTargetCharts";
-import { useMonthYearSelector } from "@src/domains/results/hooks";
 import MonthYearSelector from "@src/features/full-results/components/MonthYearSelector";
-import { MonthYearProvider } from "@src/domains/results/context";
+import {
+  MonthYearProvider,
+  CategoryProvider,
+} from "@src/domains/results/context";
 import Title from "@src/features/full-results/components/Title";
+import CategorySelector from "@src/features/full-results/components/CategorySelector";
 
 const ResultsPage: React.FC = () => {
   return (
@@ -44,22 +47,25 @@ const ResultsPage: React.FC = () => {
           <Title />
           <div className="z-99">
             <MonthYearProvider>
-              {/* MonthYear selectors */}
-              <MonthYearSelector />
+              <CategoryProvider>
+                {/* MonthYear and category selectors */}
+                <MonthYearSelector />
+                <CategorySelector />
 
-              {/* Summary section */}
-              <Summary />
+                {/* Summary section */}
+                <Summary />
 
-              {/* Charts section */}
-              <section id="charts" className="my-4">
-                <CombinedProfitChart />
-                <CombinedWinrateLongShortTargetCharts />
-              </section>
+                {/* Charts section */}
+                <section id="charts" className="my-4">
+                  <CombinedProfitChart />
+                  <CombinedWinrateLongShortTargetCharts />
+                </section>
 
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 mt-12 text-center">
-                Detailed Trade Log
-              </h2>
-              <ResultsTable />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 mt-12 text-center">
+                  Detailed Trade Log
+                </h2>
+                <ResultsTable />
+              </CategoryProvider>
             </MonthYearProvider>
           </div>
 

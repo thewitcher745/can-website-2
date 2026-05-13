@@ -49,3 +49,10 @@ export interface MonthYearStateData {
   currentMonthYear: string;
   setCurrentMonthYear: Dispatch<SetStateAction<string>>;
 }
+
+export type Category = "insights" | "algorithm";
+
+export interface CategoryStateData {
+  category: Category;
+  setCategory: Dispatch<SetStateAction<Category>>;
+}
