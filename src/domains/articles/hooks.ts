@@ -1,11 +1,11 @@
 import useQuery from "@src/lib/hooks/useQuery";
 import { getRecentBlog, getRecentNews } from "./api";
-import { ListedArticle } from "@src/types";
+import { ListedArticleMeta } from "./types";
 
 type UseRecentArticlesWidgetResult = {
   data: {
-    blog: ListedArticle[] | null;
-    news: ListedArticle[] | null;
+    blog: ListedArticleMeta[] | null;
+    news: ListedArticleMeta[] | null;
   };
   loading: boolean;
   error: string | null;

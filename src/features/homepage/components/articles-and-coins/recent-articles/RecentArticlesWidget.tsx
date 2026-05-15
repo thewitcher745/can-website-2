@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-import { ListedArticle } from "@src/domains/articles/types";
+import { ListedArticleMeta } from "@src/domains/articles/types";
 import TableRow from "./TableRow";
 import { useRecentArticlesWidget } from "@src/domains/articles/hooks";
 import { GenericLoader } from "@src/shared/ui/loaders";
@@ -47,7 +47,7 @@ const RecentArticlesWidget = ({ className }: { className?: string }) => {
     );
   };
 
-  const renderTableRows = (items: ListedArticle[], tableSlug: string) => {
+  const renderTableRows = (items: ListedArticleMeta[], tableSlug: string) => {
     const rows = [] as React.ReactNode[];
 
     if (loading || error || !items) {
@@ -65,7 +65,10 @@ const RecentArticlesWidget = ({ className }: { className?: string }) => {
     return rows;
   };
 
-  const renderContent = (blog: ListedArticle[], news: ListedArticle[]) => {
+  const renderContent = (
+    blog: ListedArticleMeta[],
+    news: ListedArticleMeta[],
+  ) => {
     const tables = [
       {
         title: "Trading & Risk Management",

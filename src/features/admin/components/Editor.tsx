@@ -1,126 +1,122 @@
-import React, { useEffect, useRef } from "react";
-import EditorJS from "@editorjs/editorjs";
-// @ts-ignore
+import EditorJS, { OutputData } from "@editorjs/editorjs";
 import Header from "@editorjs/header";
-// @ts-ignore
 import List from "@editorjs/list";
-// @ts-ignore
-import Table from "@editorjs/table";
-// @ts-ignore
 import ImageTool from "@editorjs/image";
-// @ts-ignore
-import Paragraph from "@editorjs/paragraph";
-// @ts-ignore
-import LinkTool from "@editorjs/link";
-// @ts-ignore
-import Embed from "@editorjs/embed";
-import { supabase } from "../../../lib/supabase";
+import { useEffect, useRef } from "react";
 
 interface EditorProps {
-  data?: any;
-  onChange: (data: any) => void;
-  holder: string;
+  initialData?: OutputData;
+  onChange?: (data: OutputData) => void;
 }
 
-const Editor: React.FC<EditorProps> = ({ data, onChange, holder }) => {
-  const ejInstance = useRef<EditorJS | null>(null);
+export default function Editor({ initialData, onChange }: EditorProps) {
+  const editorRef = useRef<EditorJS | null>(null);
+
+  const uploadToCloudinary = async (
+    file: File,
+    folder: string,
+  ): Promise<string> => {
+    try {
+      const token = localStorage.getItem("admin_token");
+      
+      // Step 1: Get signature from backend
+      const signatureResponse = await fetch(
+        `/api/cloudinary-signature?folder=${folder}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      if (!signatureResponse.ok) {
+        throw new Error("Failed to get upload signature");
+      }
+
+      const { signature, timestamp, cloudName, apiKey } =
+        await signatureResponse.json();
+
+      // Step 2: Build FormData with exact alphabetical order
+      const formData = new FormData();
+
+      formData.append("file", file);
+      formData.append("folder", folder);
+      formData.append("timestamp", timestamp.toString());
+      formData.append("api_key", apiKey);
+      formData.append("signature", signature);
+
+
+      // Step 3: Upload directly to Cloudinary
+      const uploadResponse = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
+
+      const result = await uploadResponse.json();
+
+      if (!uploadResponse.ok) {
+        console.error("❌ Cloudinary upload failed:", result);
+        throw new Error(result.error?.message || "Upload failed");
+      }
+
+      // Return the secure URL
+      return result.secure_url;
+    } catch (error) {
+      console.error("💥 Upload error:", error);
+      throw error;
+    }
+  };
 
   useEffect(() => {
-    if (!ejInstance.current) {
-      initEditor();
-    }
-    return () => {
-      ejInstance.current?.destroy();
-      ejInstance.current = null;
-    };
-  }, []);
-
-  useEffect(() => {
-    if (data && ejInstance.current) {
-      const editor = ejInstance.current;
-      editor.isReady.then(() => {
-        // Only render if data is different and not empty
-        if (data.blocks && data.blocks.length > 0) {
-          // Check if the current editor content is empty or different
-          editor.save().then((currentData) => {
-            if (
-              JSON.stringify(currentData.blocks) !== JSON.stringify(data.blocks)
-            ) {
-              editor.render(data);
-            }
-          });
-        }
-      });
-    }
-  }, [data]);
-
-  const initEditor = () => {
-    const editor = new EditorJS({
-      holder: holder,
-      data: data || {},
-      onReady: () => {
-        ejInstance.current = editor;
-      },
-      onChange: async () => {
-        const content = await editor.save();
-        onChange(content);
-      },
-      tools: {
-        header: Header,
-        list: List,
-        table: Table,
-        image: {
-          class: ImageTool,
-          config: {
-            uploader: {
-              uploadByFile: async (file: File) => {
-                try {
-                  const fileExt = file.name.split(".").pop();
-                  const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
-                  const filePath = `editor/${fileName}`;
-
-                  const { error: uploadError } = await supabase.storage
-                    .from("images")
-                    .upload(filePath, file);
-
-                  if (uploadError) throw uploadError;
-
-                  const {
-                    data: { publicUrl },
-                  } = supabase.storage.from("images").getPublicUrl(filePath);
-
+    if (!editorRef.current) {
+      const editor = new EditorJS({
+        holder: "editorjs",
+        data: initialData,
+        placeholder: "Start writing your post...",
+        tools: {
+          header: Header,
+          list: List,
+          image: {
+            class: ImageTool,
+            config: {
+              uploader: {
+                uploadByFile: async (file: File) => {
+                  const url = await uploadToCloudinary(file, "content");
                   return {
                     success: 1,
-                    file: {
-                      url: publicUrl,
-                    },
+                    file: { url },
                   };
-                } catch (error) {
-                  console.error("Editor upload error:", error);
-                  return {
-                    success: 0,
-                  };
-                }
-              },
-              uploadByUrl: async (url: string) => {
-                return {
-                  success: 1,
-                  file: {
-                    url: url,
-                  },
-                };
+                },
               },
             },
           },
         },
-        paragraph: Paragraph,
-        linkTool: LinkTool,
-        embed: Embed as any,
-      },
-    });
-  };
+        onChange: async () => {
+          if (onChange && editorRef.current) {
+            const data = await editorRef.current.save();
+            onChange(data);
+          }
+        },
+      });
 
-  return <div id={holder} className="editor-js-container" />;
-};
+      editorRef.current = editor;
+    }
 
-export default Editor;
+    return () => {
+      if (editorRef.current && editorRef.current.destroy) {
+        editorRef.current.destroy();
+        editorRef.current = null;
+      }
+    };
+  }, []);
+
+  return (
+    <div className="prose max-w-none">
+      <div id="editorjs" />
+    </div>
+  );
+}

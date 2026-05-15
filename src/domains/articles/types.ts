@@ -1,13 +1,11 @@
-export interface ArticleMeta {
-  author: string;
-  description: string;
-  tags: string[];
-  time: string;
-  title: string;
-  thumbnail?: string;
+import { BaseMeta, Body, Listed } from "@src/shared/types/content";
+
+export interface ArticleMeta extends BaseMeta {
+  thumbnail: string;
 }
 
-export interface ListedArticle {
-  slug: string;
-  meta: ArticleMeta;
+export type ListedArticleMeta = Listed<ArticleMeta>;
+
+export interface ArticlePost extends ListedArticleMeta {
+  body: Body;
 }

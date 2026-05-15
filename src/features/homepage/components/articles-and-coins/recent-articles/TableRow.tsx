@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 
-import { ListedArticle } from "@src/domains/articles/types";
 import { formatRelativeTime } from "@src/utils";
+import { ListedArticleMeta } from "@src/domains/articles/types";
 
 interface TableRowProps {
-  item?: ListedArticle;
+  item?: ListedArticleMeta;
   tableSlug?: string;
   placeholder?: boolean;
   i: number;
@@ -28,7 +29,9 @@ const TableRow = ({
           <Link href={`/${tableSlug}/${item.slug}`}>
             <div className="flex h-full items-center gap-2 px-1 w-full">
               <div className="h-14 min-w-20 max-w-20">
-                <img
+                <Image
+                  width={80}
+                  height={56}
                   src={
                     item.meta.thumbnail
                       ? item.meta.thumbnail

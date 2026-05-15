@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 
 import { buildApiUrl } from "@src/config";
@@ -48,7 +48,8 @@ const HighPotentialPostPage: React.FC<HighPotentialPostPageProps> = ({
                     </div>
                   </div>
                 </div>
-                <img
+                <Image
+                  fill
                   src={article.meta.image}
                   alt={article.meta.title}
                   className="w-full object-contain rounded-xl"
