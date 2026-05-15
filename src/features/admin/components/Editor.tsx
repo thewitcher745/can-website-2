@@ -5,11 +5,16 @@ import ImageTool from "@editorjs/image";
 import { useEffect, useRef } from "react";
 
 interface EditorProps {
-  initialData?: OutputData;
+  holder?: string;
+  data?: OutputData;
   onChange?: (data: OutputData) => void;
 }
 
-export default function Editor({ initialData, onChange }: EditorProps) {
+export default function Editor({
+  holder = "editorjs-container",
+  data,
+  onChange,
+}: EditorProps) {
   const editorRef = useRef<EditorJS | null>(null);
 
   const uploadToCloudinary = async (
@@ -18,7 +23,7 @@ export default function Editor({ initialData, onChange }: EditorProps) {
   ): Promise<string> => {
     try {
       const token = localStorage.getItem("admin_token");
-      
+
       // Step 1: Get signature from backend
       const signatureResponse = await fetch(
         `/api/cloudinary-signature?folder=${folder}`,
@@ -45,7 +50,6 @@ export default function Editor({ initialData, onChange }: EditorProps) {
       formData.append("timestamp", timestamp.toString());
       formData.append("api_key", apiKey);
       formData.append("signature", signature);
-
 
       // Step 3: Upload directly to Cloudinary
       const uploadResponse = await fetch(
@@ -75,7 +79,7 @@ export default function Editor({ initialData, onChange }: EditorProps) {
     if (!editorRef.current) {
       const editor = new EditorJS({
         holder: "editorjs",
-        data: initialData,
+        data: data,
         placeholder: "Start writing your post...",
         tools: {
           header: Header,
