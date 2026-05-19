@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Upload, X, Loader2 } from "lucide-react";
-import { supabase } from "../../../lib/supabase";
+import Image from "next/image";
 
 interface ImageUploadProps {
   label: string;
@@ -18,39 +18,89 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   helperText,
 }) => {
   const [uploading, setUploading] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const uploadToCloudinary = async (
+    file: File,
+    folder: string,
+  ): Promise<string> => {
+    try {
+      const token = localStorage.getItem("admin_token");
+
+      // Step 1: Get signature from backend
+      const signatureResponse = await fetch(
+        `/api/cloudinary-signature?folder=${folder}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      if (!signatureResponse.ok) {
+        throw new Error("Failed to get upload signature");
+      }
+
+      const { signature, timestamp, cloudName, apiKey } =
+        await signatureResponse.json();
+
+      // Step 2: Build FormData with exact alphabetical order
+      const formData = new FormData();
+
+      formData.append("file", file);
+      formData.append("folder", folder);
+      formData.append("timestamp", timestamp.toString());
+      formData.append("api_key", apiKey);
+      formData.append("signature", signature);
+
+      // Step 3: Upload directly to Cloudinary
+      const uploadResponse = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
+
+      const result = await uploadResponse.json();
+
+      if (!uploadResponse.ok) {
+        console.error("❌ Cloudinary upload failed:", result);
+        throw new Error(result.error?.message || "Upload failed");
+      }
+
+      // Return the secure URL
+      return result.secure_url;
+    } catch (error) {
+      console.error("💥 Upload error:", error);
+      throw error;
+    }
+  };
+
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    setUploading(true);
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image file");
+      return;
+    }
+
+    if (file.size > 1500000) {
+      alert("Image must be under 1.5MB");
+      return;
+    }
+
     try {
-      const fileExt = file.name.split(".").pop();
-      const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
-      const filePath = `articles/${fileName}`;
-
-      const { data, error: uploadError } = await supabase.storage
-        .from("images")
-        .upload(filePath, file);
-
-      if (uploadError) {
-        throw uploadError;
-      }
-
-      const {
-        data: { publicUrl },
-      } = supabase.storage.from("images").getPublicUrl(filePath);
-
-      onChange(publicUrl);
-    } catch (error: any) {
-      console.error("Error uploading image:", error);
-      alert("Error uploading image: " + (error.message || "Unknown error"));
+      setUploading(true);
+      const url = await uploadToCloudinary(file, "content");
+      onChange(url);
+    } catch (err: any) {
+      alert(err?.message || "Upload failed");
+      console.error(err);
     } finally {
       setUploading(false);
-      if (fileInputRef.current) {
-        fileInputRef.current.value = "";
-      }
+      e.target.value = "";
     }
   };
 
@@ -63,79 +113,60 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       <label className="mb-2 text-sm text-text-muted">{label}</label>
 
       <div
-        className={`relative border-2 border-dashed rounded-lg p-4 transition-all flex flex-col items-center justify-center min-h-[150px] ${
+        className={`relative border-2 border-dashed rounded-lg p-4 flex items-center justify-center min-h-[150px] ${
           value
             ? "border-primary/50 bg-primary/5"
-            : "border-border hover:border-primary/50 bg-background"
+            : "border-border hover:border-primary/50"
         }`}
       >
         {uploading ? (
           <div className="flex flex-col items-center">
-            <Loader2 className="w-8 h-8 text-primary animate-spin mb-2" />
+            <Loader2 className="w-8 h-8 animate-spin text-primary mb-2" />
             <span className="text-sm text-text-muted">Uploading...</span>
           </div>
         ) : value ? (
-          <div className="relative w-full aspect-video md:aspect-square max-h-[200px] flex items-center justify-center overflow-hidden rounded-md bg-black/20">
-            <img
+          <div className="relative w-full h-full max-h-[200px] flex items-center justify-center">
+            <Image
               src={value}
               alt={label}
-              className="max-w-full max-h-full object-contain"
+              fill
+              className="object-contain rounded"
+              unoptimized={!value.includes("cloudinary")}
             />
             <button
               onClick={handleRemove}
-              className="absolute top-2 right-2 p-1 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-lg transition-colors"
-              title="Remove image"
+              className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1"
             >
               <X size={16} />
             </button>
           </div>
         ) : (
-          <div
-            className="flex flex-col items-center cursor-pointer w-full h-full"
-            onClick={() => fileInputRef.current?.click()}
-          >
-            <div className="p-3 rounded-full bg-surface mb-3">
-              <Upload className="w-6 h-6 text-text-muted" />
-            </div>
-            <span className="text-sm font-medium text-text-main">
+          <label className="flex flex-col items-center cursor-pointer">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleFileSelect}
+              className="hidden"
+            />
+            <Upload className="w-6 h-6 mb-2 text-text-muted" />
+            <span className="text-sm text-text-main">
               Click to upload {label.toLowerCase()}
             </span>
             {helperText && (
               <span className="text-xs text-text-muted mt-1">{helperText}</span>
             )}
-          </div>
+          </label>
         )}
-
-        <input
-          type="file"
-          ref={fileInputRef}
-          onChange={handleFileChange}
-          accept="image/*"
-          className="hidden"
-        />
       </div>
 
-      <div className="mt-2 flex flex-col">
-        <div className="relative group">
-          <input
-            type="text"
-            value={value || ""}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder="Or paste an image URL here..."
-            className="w-full p-2.5 pr-10 text-sm rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50 shadow-sm"
-          />
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
-            <div
-              className={`w-2 h-2 rounded-full ${value ? "bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" : "bg-border"}`}
-              title={value ? "Valid link" : "Empty link"}
-            />
-          </div>
-        </div>
-        {helperText && !value && (
-          <span className="text-xs text-text-muted mt-1.5 ml-1">
-            {helperText}
-          </span>
-        )}
+      <div className="mt-2">
+        <input
+          type="text"
+          value={value || ""}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder="Or paste an image URL here..."
+          className="w-full p-2 text-sm border rounded border-border bg-background text-text-main"
+        />
       </div>
     </div>
   );

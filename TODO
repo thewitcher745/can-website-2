@@ -10,6 +10,7 @@
 - Unify utility elements
 - Make sections have no hardcoded classes, modularize all subelements and useEffects
 - Unify all api request methods and errors and loadings
+- Remove "time" from BaseMeta type declaration
 
 + Make the website truly SPA by uinfying Navbar loading on the entire website
 + Implement /coins page

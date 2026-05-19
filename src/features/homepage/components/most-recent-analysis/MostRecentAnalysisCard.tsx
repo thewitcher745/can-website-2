@@ -42,15 +42,14 @@ const ImageElement = ({ post }: { post: ListedAnalysisPost }) => {
             padding="1"
           />
         </div>
-        <img
-          width={2000}
-          height={2000}
-          src={post.meta.image}
-          alt={post.meta.title}
-          className={
-            "object-contain self-center object-center aspect-[1631/760] transition-all ease-in-out"
-          }
-        />
+        <div className="w-full aspect-[1631/760] relative">
+          <Image
+            fill
+            src={post.meta.image}
+            alt={post.meta.title}
+            className="object-contain self-center object-center transition-all ease-in-out"
+          />
+        </div>
       </div>
     </div>
   );

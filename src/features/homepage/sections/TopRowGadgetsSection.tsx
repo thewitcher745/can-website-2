@@ -3,16 +3,16 @@ import Link from "next/link";
 
 import FearAndGreed from "@shared/ui/technicals/FearAndGreed";
 import Dominance from "@shared/ui/technicals/Dominance";
-import TopCoinsTable from "../components/articles-and-coins/top-coins/TopCoinsTable";
-import RecentArticlesTable from "../components/articles-and-coins/recent-articles/RecentArticlesTable";
+import TopCoinsWidget from "../components/articles-and-coins/top-coins/TopCoinsWidget";
+import RecentArticlesWidget from "../components/articles-and-coins/recent-articles/RecentArticlesWidget";
 
 const TopRowGadgetsSection: React.FC = () => {
   return (
     <section id="top-row" className="w-full flex justify-center my-2">
       <div className="max-w-custom w-full flex flex-col lg:flex-row gap-2 justify-center items-center">
-        <div className="w-full xl:w-3/4 lg:w-2/3 grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 gap-2">
-          <RecentArticlesTable className="w-full" />
-          <TopCoinsTable className="w-full" />
+        <div className="w-full h-full xl:w-3/4 lg:w-2/3 grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 gap-2">
+          <RecentArticlesWidget className="w-full" />
+          <TopCoinsWidget className="w-full" />
         </div>
         <div className="w-full h-90 sm:h-45 lg:h-90 xl:w-1/4 lg:w-1/3 grid grid-cols-1 grid-rows-2 sm:grid-cols-2 sm:grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 gap-2">
           <div className="flex p-3 pb-0 justify-between flex-col items-center mb-1">

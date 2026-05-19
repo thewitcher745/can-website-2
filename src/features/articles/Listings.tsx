@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { ListedArticle } from "@src/types";
 import { formatRelativeTime } from "@src/utils";
@@ -52,8 +53,8 @@ const Listings: React.FC<ListingsProps> = ({
             >
               <div className="h-full w-30 sm:w-full sm:h-1/2 overflow-hidden rounded-sm sm:rounded-t-sm mb-2">
                 <Link href={`${baseHref}/${article.slug}`}>
-                  <img
-                    src={article.meta.thumbnail}
+                  <Image
+                    src={article.meta.thumbnail || ""}
                     alt={article.meta.title}
                     className="h-full w-full object-cover object-top"
                   />

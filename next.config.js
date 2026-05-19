@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
-const path = require('path');
+const path = require("path");
 
 const nextConfig = {
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@components/*': path.resolve(__dirname, './src/components/*'),
-      '@styles/*': path.resolve(__dirname, './src/styles/*'),
-      '@src/*': path.resolve(__dirname, './src/*'),
-      '@features': path.resolve(__dirname, './src/features'),
+      "@components/*": path.resolve(__dirname, "./src/components/*"),
+      "@styles/*": path.resolve(__dirname, "./src/styles/*"),
+      "@src/*": path.resolve(__dirname, "./src/*"),
+      "@features": path.resolve(__dirname, "./src/features"),
     };
     return config;
   },
@@ -54,7 +54,14 @@ const nextConfig = {
         hostname: "**.supabase.co",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
+      },
     ],
+    minimumCacheTTL: 2592000,
+    dangerouslyAllowSVG: true,
   },
 };
 

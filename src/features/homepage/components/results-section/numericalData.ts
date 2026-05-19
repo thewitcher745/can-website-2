@@ -1,4 +1,4 @@
-import { tradeDataByMonth } from "@src/features/full-results/resultsTableData";
+import tradesByMonth from "@src/domains/results/data/tradesByMonth";
 
 export interface Trade {
   date: string;
@@ -17,13 +17,13 @@ export interface WaterfallPoint {
 }
 
 export default function getTrades(monthName: string): Trade[] {
-  if (monthName in tradeDataByMonth) {
-    const key = monthName as keyof typeof tradeDataByMonth;
-    const entries = tradeDataByMonth[key] ?? [];
+  if (monthName in tradesByMonth) {
+    const key = monthName as keyof typeof tradesByMonth;
+    const entries = tradesByMonth[key]["insights"] ?? [];
     return entries.map((e) => ({
       date: e.date,
       symbol: e.symbol,
-      profit_percent: e.profit_percent,
+      profit_percent: e.profitPercent,
     }));
   }
   return [];
