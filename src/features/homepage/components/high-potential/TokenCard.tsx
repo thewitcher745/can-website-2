@@ -2,9 +2,9 @@ import { HighPotentialArticleMeta } from "@src/types";
 
 const TokenCard = ({ tokenMeta }: { tokenMeta: HighPotentialArticleMeta }) => {
   return (
-    <div className="w-40 h-full overflow-hidden rounded-xl shadow-xl border flex flex-col justify-center items-center border-text-muted card-hover">
+    <div className="relative w-40 pt-8 overflow-hidden rounded-xl shadow-xl border flex flex-col justify-center items-center border-text-muted card-hover">
       <div
-        className={`w-full h-5 mb-2 ${
+        className={`absolute top-0 w-full h-5 mb-2 ${
           tokenMeta.category === "Gold"
             ? "bg-gold"
             : tokenMeta.category === "Silver"
