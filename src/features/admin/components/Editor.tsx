@@ -78,7 +78,7 @@ export default function Editor({
   useEffect(() => {
     if (!editorRef.current) {
       const editor = new EditorJS({
-        holder: "editorjs",
+        holder: holder,
         data: data,
         placeholder: "Start writing your post...",
         tools: {
@@ -120,7 +120,7 @@ export default function Editor({
 
   return (
     <div className="prose max-w-none">
-      <div id="editorjs" />
+      <div id={holder} className="editorjs-container" />
     </div>
   );
 }
