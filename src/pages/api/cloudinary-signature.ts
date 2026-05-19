@@ -32,7 +32,7 @@ export default async function handler(
   }
 
   try {
-    const authRes = await fetchFn(buildApiUrl("/api/admin/me"), {
+    const authRes = await fetchFn(buildApiUrl("/api/v2/auth/me"), {
       headers: { Authorization: `Bearer ${token}` },
       signal: AbortSignal.timeout(10000),
     });

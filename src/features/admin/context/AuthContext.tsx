@@ -44,7 +44,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     }
 
     try {
-      const res = await fetch(buildApiUrl("/api/admin/me"), {
+      const res = await fetch(buildApiUrl("/api/v2/auth/me"), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
