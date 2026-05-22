@@ -14,7 +14,7 @@ type GetPostApiResult = ApiResponse<AnalysisPost>;
  * @returns GetPostsApiResult promise containing posts' data.
  */
 export async function getAnalysisPosts(
-  limit: number = 5,
+  limit: number | null = null,
   isVip: boolean | null = null,
   coin: string | null = null,
 ): Promise<GetPostsApiResult> {

@@ -29,7 +29,7 @@ export async function getBlogPosts(
  * @returns GetPostsApiResult promise containing posts' data.
  */
 export async function getNewsPosts(
-  limit: number = 5,
+  limit: number | null = null,
 ): Promise<GetPostsApiResult> {
   var params: Record<string, any> = {};
 
