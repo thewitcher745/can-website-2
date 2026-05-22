@@ -15,7 +15,9 @@ export async function getBlogPosts(
   limit: number | null = null,
 ): Promise<GetPostsApiResult> {
   var params = {};
+
   if (limit !== null) params = { limit };
+
   return apiClient.get<GetPostsApiResult>("/api/v2/posts/blog", params);
 }
 
@@ -32,7 +34,7 @@ export async function getNewsPosts(
   var params: Record<string, any> = {};
 
   if (limit !== null) params = { limit };
-  
+
   return apiClient.get<GetPostsApiResult>("/api/v2/posts/news", params);
 }
 

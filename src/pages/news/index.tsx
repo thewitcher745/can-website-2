@@ -1,10 +1,12 @@
 import Head from "next/head";
 import React, { useState } from "react";
+
 import Footer from "@shared/ui/Footer";
-import { ListedArticle } from "@src/types";
 import Listings from "@src/features/articles/Listings";
 import { GetStaticProps } from "next";
-import { createListingGetStaticProps } from "@src/features/articles/listingIsr";
+import { getNewsPosts } from "@src/domains/articles/api";
+import { createListingGetStaticProps } from "@src/lib/isr/listing";
+import { ListedArticle } from "@src/domains/articles/types";
 
 type NewsIndexProps = { items: ListedArticle[] };
 
@@ -74,4 +76,4 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
 export default News;
 
 export const getStaticProps: GetStaticProps<NewsIndexProps> =
-  createListingGetStaticProps("/api/news");
+  createListingGetStaticProps(getNewsPosts);

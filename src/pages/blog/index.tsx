@@ -2,10 +2,11 @@ import Head from "next/head";
 import React, { useState } from "react";
 
 import Footer from "@shared/ui/Footer";
-import { ListedArticle } from "@src/types";
+import { ListedArticle } from "@src/domains/articles/types";
 import Listings from "@src/features/articles/Listings";
 import { GetStaticProps } from "next";
-import { createListingGetStaticProps } from "@src/features/articles/listingIsr";
+import { createListingGetStaticProps } from "@src/lib/isr/listing";
+import { getBlogPosts } from "@src/domains/articles/api";
 
 type BlogIndexProps = { items: ListedArticle[] };
 
@@ -82,4 +83,4 @@ const Blog: React.FC<BlogIndexProps> = ({ items }) => {
 export default Blog;
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> =
-  createListingGetStaticProps("/api/blog");
+  createListingGetStaticProps(getBlogPosts);
