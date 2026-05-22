@@ -12,9 +12,11 @@ type GetPostApiResult = ApiResponse<ArticlePost>;
  * @returns GetPostsApiResult promise containing posts' data.
  */
 export async function getBlogPosts(
-  limit: number = 5,
+  limit: number | null = null,
 ): Promise<GetPostsApiResult> {
-  return apiClient.get<GetPostsApiResult>("/api/v2/posts/blog", { limit });
+  var params = {};
+  if (limit !== null) params = { limit };
+  return apiClient.get<GetPostsApiResult>("/api/v2/posts/blog", params);
 }
 
 /**
@@ -27,7 +29,11 @@ export async function getBlogPosts(
 export async function getNewsPosts(
   limit: number = 5,
 ): Promise<GetPostsApiResult> {
-  return apiClient.get<GetPostsApiResult>("/api/v2/posts/news", { limit });
+  var params: Record<string, any> = {};
+
+  if (limit !== null) params = { limit };
+  
+  return apiClient.get<GetPostsApiResult>("/api/v2/posts/news", params);
 }
 
 /**

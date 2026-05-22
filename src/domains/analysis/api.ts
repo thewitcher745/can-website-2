@@ -18,10 +18,11 @@ export async function getAnalysisPosts(
   isVip: boolean | null = null,
   coin: string | null = null,
 ): Promise<GetPostsApiResult> {
-  const params: Record<string, any> = { limit };
+  var params: Record<string, any> = {};
 
+  if (limit !== null) params = { limit };
   if (isVip !== null) params.vip = isVip ? "true" : "false";
-  if (coin) params.coin = coin;
+  if (coin !== null) params.coin = coin;
 
   return apiClient.get<GetPostsApiResult>("/api/v2/posts/analysis", params);
 }

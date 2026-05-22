@@ -12,11 +12,16 @@ type GetPostApiResult = ApiResponse<HighPotentialPost>;
  * @returns GetPostsApiResult promise containing posts' data.
  */
 export async function getHighPotentialPosts(
-  limit: number = 5,
+  limit: number | null = null,
 ): Promise<GetPostsApiResult> {
-  return apiClient.get<GetPostsApiResult>("/api/v2/posts/high-potential", {
-    limit,
-  });
+  var params: Record<string, any> = {};
+
+  if (limit !== null) params = { limit };
+
+  return apiClient.get<GetPostsApiResult>(
+    "/api/v2/posts/high-potential",
+    params,
+  );
 }
 
 /**
