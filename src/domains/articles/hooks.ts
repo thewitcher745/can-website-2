@@ -1,11 +1,11 @@
 import useQuery from "@src/lib/hooks/useQuery";
-import { getRecentBlog, getRecentNews } from "./api";
-import { ListedArticleMeta } from "./types";
+import { getBlogPosts, getNewsPosts } from "./api";
+import { ListedArticle } from "./types";
 
 type UseRecentArticlesWidgetResult = {
   data: {
-    blog: ListedArticleMeta[] | null;
-    news: ListedArticleMeta[] | null;
+    blog: ListedArticle[] | null;
+    news: ListedArticle[] | null;
   };
   loading: boolean;
   error: string | null;
@@ -22,17 +22,17 @@ type UseRecentArticlesWidgetResult = {
  */
 export function useRecentArticlesWidget(): UseRecentArticlesWidgetResult {
   const {
-    data: blogData,
+    data: blogResponse,
     loading: blogLoading,
     error: blogError,
     // refetch: blogRefetch,
-  } = useQuery(getRecentBlog, []);
+  } = useQuery(getBlogPosts, []);
   const {
-    data: newsData,
+    data: newsResponse,
     loading: newsLoading,
     error: newsError,
     // refetch: newsRefetch,
-  } = useQuery(getRecentNews, []);
+  } = useQuery(getNewsPosts, []);
 
   let loading = blogLoading || newsLoading;
 
@@ -40,8 +40,8 @@ export function useRecentArticlesWidget(): UseRecentArticlesWidgetResult {
 
   return {
     data: {
-      blog: blogData,
-      news: newsData,
+      blog: blogResponse?.data || [],
+      news: newsResponse?.data || [],
     },
     loading,
     error,
