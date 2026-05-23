@@ -1,6 +1,10 @@
 import React from "react";
 
-import { PostTimeProps } from "@src/types";
+interface PostTimeProps {
+  time: string;
+  className?: string;
+  hiddenOnMobile?: boolean;
+}
 
 const PostTime = ({
   time,

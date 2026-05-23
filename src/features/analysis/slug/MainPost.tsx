@@ -1,4 +1,4 @@
-import { AnalysisPost } from "@src/types";
+import { AnalysisPost } from "@src/domains/analysis/types";
 import PostBody from "./PostBody";
 
 const MainPost = ({ post }: { post: AnalysisPost }) => {
@@ -8,18 +8,18 @@ const MainPost = ({ post }: { post: AnalysisPost }) => {
         {post.meta.title}
       </h1>
       <div className="text-xs text-text-muted mb-4">
-        {new Date(post.meta.time).toLocaleDateString(undefined, {
+        {new Date(post.meta.publishedAt || "").toLocaleDateString(undefined, {
           year: "numeric",
           month: "2-digit",
           day: "2-digit",
         })}{" "}
-        {new Date(post.meta.time).toLocaleTimeString(undefined, {
+        {new Date(post.meta.publishedAt || "").toLocaleTimeString(undefined, {
           hour: "2-digit",
           minute: "2-digit",
           hour12: false,
         })}
       </div>
-      <PostBody postBody={post.body} />
+      <PostBody postBody={post.content.body} />
     </div>
   );
 };

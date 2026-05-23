@@ -1,38 +1,16 @@
 import { useState, useEffect } from "react";
 
 import AnalysisCard from "./AnalysisCard";
-import { ListedAnalysisPost } from "@src/types";
-import { buildApiUrl } from "@src/config";
 import { FaPlus } from "react-icons/fa6";
+import { ListedAnalysis } from "@src/domains/analysis/types";
 
 type TabType = "all" | "vip";
 
-const AnalysisListContainer = () => {
+const AnalysisListContainer = ({ posts }: { posts: ListedAnalysis[] }) => {
   const [activeTab, setActiveTab] = useState<TabType>("all");
   const [nPostsToShow, setNPostsToShow] = useState(12);
-  const [posts, setPosts] = useState<ListedAnalysisPost[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
-  // 1) Load from localStorage on first mount (client-only)
-  useEffect(() => {
-    try {
-      const savedTab = localStorage.getItem("analysis.activeTab");
-      if (savedTab === "all" || savedTab === "vip") {
-        setActiveTab(savedTab as TabType);
-      }
-
-      const savedN = localStorage.getItem("analysis.nPostsToShow");
-      const parsedN = savedN ? parseInt(savedN, 10) : NaN;
-      if (!Number.isNaN(parsedN) && parsedN > 0) {
-        setNPostsToShow(parsedN);
-      }
-    } catch {
-      // ignore storage errors
-    }
-  }, []);
-
-  // 2) Persist to localStorage whenever values change
+  // Persist to localStorage whenever values change
   useEffect(() => {
     try {
       localStorage.setItem("analysis.activeTab", activeTab);
@@ -42,38 +20,14 @@ const AnalysisListContainer = () => {
     }
   }, [activeTab, nPostsToShow]);
 
-  useEffect(() => {
-    if (activeTab === "vip") {
-      setLoading(true);
-      setError(null);
-      fetch(buildApiUrl(`/api/vip_analysis`))
-        .then((res) => {
-          if (!res.ok) throw new Error("Oops! Something went wrong.");
-          return res.json();
-        })
-        .then(setPosts)
-        .catch((e) => setError(e.message))
-        .finally(() => setLoading(false));
-    } else if (activeTab == "all") {
-      setLoading(true);
-      setError(null);
-      fetch(buildApiUrl(`/api/analysis`))
-        .then((res) => {
-          if (!res.ok) throw new Error("Oops! Something went wrong.");
-          return res.json();
-        })
-        .then(setPosts)
-        .catch((e) => setError(e.message))
-        .finally(() => setLoading(false));
-    }
-  }, [activeTab]);
-
   const addMorePosts = () => {
     setNPostsToShow((prev) => prev + 12);
   };
 
-  const noPostsMessage =
-    activeTab === "vip" ? "No VIP posts found." : "No posts found.";
+  const nonVipPosts = posts.filter((post) => !post.meta.isVip);
+  const vipPosts = posts.filter((post) => post.meta.isVip);
+
+  const postsToShow = activeTab == "vip" ? vipPosts : nonVipPosts;
 
   return (
     <div className="max-w-[100rem] w-full mx-auto pb-8">
@@ -117,31 +71,15 @@ const AnalysisListContainer = () => {
       )}
 
       <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        {loading ? (
-          <div className="col-span-full text-center py-8">
-            <div className="animate-pulse text-text-muted">Loading...</div>
-          </div>
-        ) : error ? (
-          <div className="col-span-full text-center py-8 text-red-500">
-            {error}
-          </div>
-        ) : posts.length === 0 ? (
-          <div className="text-center text-text-muted col-span-full py-8">
-            {noPostsMessage}
-          </div>
-        ) : (
-          posts
-            .slice(0, nPostsToShow)
-            .map((post) => (
-              <AnalysisCard
-                key={post.slug}
-                post={post}
-                isVip={activeTab === "vip"}
-              />
-            ))
-        )}
+        {postsToShow.slice(0, nPostsToShow).map((post) => (
+          <AnalysisCard
+            key={post.slug}
+            post={post}
+            isVip={activeTab === "vip"}
+          />
+        ))}
       </div>
-      {posts.length > nPostsToShow && (
+      {postsToShow.length > nPostsToShow && (
         <div className="flex justify-center mt-4">
           <button
             onClick={addMorePosts}

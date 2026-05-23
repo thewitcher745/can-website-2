@@ -1,8 +1,8 @@
+import { EditorJSBody } from "@src/shared/types/posts";
 import renderBlock from "@src/shared/ui/articles/articleRenderer";
-import { ArticleBody } from "@src/types";
 
 type UpdateProps = {
-  updateBody: ArticleBody;
+  updateBody: EditorJSBody;
   time: number | string;
 };
 

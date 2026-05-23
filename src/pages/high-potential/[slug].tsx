@@ -2,16 +2,17 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { buildApiUrl } from "@src/config";
 import Footer from "@src/shared/ui/Footer";
-import { HighPotentialPost, ListedHighPotentialArticle } from "@src/types";
 import ArticleElement from "@src/features/high-potential/ArticleElement";
+import {
+  getHighPotentialPost,
+  getHighPotentialPosts,
+} from "@src/domains/high-potential/api";
+import { HighPotentialPost } from "@src/domains/high-potential/types";
 
-type HighPotentialPostPageProps = { article: HighPotentialPost };
+type HighPotentialPostProps = { post: HighPotentialPost };
 
-const HighPotentialPostPage: React.FC<HighPotentialPostPageProps> = ({
-  article,
-}) => {
+const HighPotentialPostPage = ({ post }: HighPotentialPostProps) => {
   return (
     <>
       ""
@@ -25,11 +26,11 @@ const HighPotentialPostPage: React.FC<HighPotentialPostPageProps> = ({
               <div className="flex flex-col  gap-2 w-full lg:w-1/4">
                 <div className="flex flex-wrap gap-4 rounded-xl border border-text-muted p-2 items-center justify-center sm:justify-start lg:justify-center 2xl:justify-between">
                   <div
-                    className={`w-20 h-20 rounded-full border-6 border-${article.meta.category} aspect-square overflow-hidden`}
+                    className={`w-20 h-20 rounded-full border-6 border-${post.meta.category} aspect-square overflow-hidden`}
                   >
                     <img
-                      src={article.meta.logo}
-                      alt={article.meta.title}
+                      src={post.meta.logo}
+                      alt={post.meta.title}
                       className="size-full object-fit shadow-lg"
                     />
                   </div>
@@ -37,26 +38,26 @@ const HighPotentialPostPage: React.FC<HighPotentialPostPageProps> = ({
                     <div className="flex gap-4 items-center justify-between">
                       <span className="text-text-muted">Token name:</span>
                       <span className="text-text-main text-right text-xl">
-                        {article.meta.title}
+                        {post.meta.title}
                       </span>
                     </div>
                     <div className="flex gap-4 items-center justify-between">
                       <span className="text-text-muted">Symbol:</span>
                       <span className="text-text-main text-xl">
-                        {article.meta.symbol.toUpperCase()}
+                        {post.meta.symbol.toUpperCase()}
                       </span>
                     </div>
                   </div>
                 </div>
                 <Image
                   fill
-                  src={article.meta.image}
-                  alt={article.meta.title}
+                  src={post.meta.image}
+                  alt={post.meta.title}
                   className="w-full object-contain rounded-xl"
                 />
               </div>
               <div className="w-full lg:w-1/2 flex-grow">
-                <ArticleElement article={article} />
+                <ArticleElement article={post} />
               </div>
             </div>
           </div>
@@ -67,12 +68,11 @@ const HighPotentialPostPage: React.FC<HighPotentialPostPageProps> = ({
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   try {
-    const res = await fetch(buildApiUrl(`/api/high_potential_tokens`));
-    if (!res.ok) throw new Error("Failed to fetch high potential token slugs");
-    const data: ListedHighPotentialArticle[] = await res.json();
-    const paths = (Array.isArray(data) ? data : []).map((post) => ({
+    const res = await getHighPotentialPosts();
+
+    const paths = res.data.map((post) => ({
       params: { slug: post.slug },
     }));
     return { paths, fallback: "blocking" };
@@ -81,18 +81,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 };
 
-export const getStaticProps: GetStaticProps<
-  HighPotentialPostPageProps
-> = async (context) => {
+export const getStaticProps: GetStaticProps<HighPotentialPostProps> = async (
+  context,
+) => {
   const slug = context.params?.slug as string;
+
   try {
-    const res = await fetch(buildApiUrl(`/api/high_potential_tokens/${slug}`));
-    if (!res.ok) return { notFound: true, revalidate: 60 };
-    const data = await res.json();
-    if (!data) return { notFound: true, revalidate: 60 };
-    return { props: { article: data as HighPotentialPost }, revalidate: 86400 };
-  } catch (e) {
-    return { notFound: true, revalidate: 60 };
+    const res = await getHighPotentialPost(slug);
+    return {
+      props: {
+        post: res.data,
+      },
+      revalidate: 3600,
+    };
+  } catch {
+    return {
+      notFound: true,
+      revalidate: 10,
+    };
   }
 };
 

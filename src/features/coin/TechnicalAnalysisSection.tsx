@@ -1,9 +1,8 @@
 import Link from "next/link";
 
-import { AnalysisPost } from "@src/types";
 import Logo from "@shared/ui/Logo";
-
 import { formatPostTimestamp } from "./utils";
+import { AnalysisPost } from "@src/domains/analysis/types";
 
 type TechnicalAnalysisSectionProps = {
   symbol: string;
@@ -77,7 +76,7 @@ const TechnicalAnalysisSection = ({
                     ))}
                   </div>
                   <span className="text-xs text-text-muted">
-                    {formatPostTimestamp(post.meta.time)}
+                    {formatPostTimestamp(post.meta.publishedAt || "")}
                   </span>
                 </div>
               </Link>

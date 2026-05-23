@@ -1,4 +1,9 @@
-import { PostTitleProps } from "@src/types";
+interface PostTitleProps {
+  title: string;
+  slug: string;
+  className?: string;
+  isVip?: boolean;
+}
 
 const PostTitle = ({ title, slug, className = "", isVip }: PostTitleProps) => {
   return (

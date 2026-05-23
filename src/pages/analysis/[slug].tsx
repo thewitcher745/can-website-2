@@ -4,17 +4,17 @@ import Link from "next/link";
 import Head from "next/head";
 
 import Footer from "@shared/ui/Footer";
-import { buildApiUrl } from "@src/config";
-import { AnalysisPost, ListedAnalysisPost } from "@src/types";
 import ChartModal from "@src/features/analysis/slug/ChartModal";
 import Update from "@src/features/analysis/slug/Update";
 import MainPost from "@src/features/analysis/slug/MainPost";
 import chartHighlighting from "@src/features/analysis/slug/chartHighlighting";
 import Banner from "@src/features/homepage/components/promotions/BannerMini";
+import { getAnalysisPost, getAnalysisPosts } from "@src/domains/analysis/api";
+import { AnalysisPost } from "@src/domains/analysis/types";
 
-type AnalysisPostPageProps = { post: AnalysisPost };
+type AnalysisPostProps = { post: AnalysisPost };
 
-const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
+const AnalysisPostPage: React.FC<AnalysisPostProps> = ({ post }) => {
   const [modalImgSrc, setModalImgSrc] = useState<string | null>(null);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -24,24 +24,7 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
     modalVisible,
   ]);
 
-  const updates = post.updates || [];
-
-  if (!post)
-    return (
-      <>
-        <Head>
-          <title>Post not found - CAN Trading</title>
-        </Head>
-        <main className="bg-background min-h-screen">
-          <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
-            <span className="text-text-muted text-lg tracking-wide">
-              Post not found.
-            </span>
-          </div>
-        </main>
-        <Footer />
-      </>
-    );
+  const updates = post.content.updates || [];
 
   return (
     <>
@@ -112,43 +95,37 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   try {
-    const res = await fetch(buildApiUrl(`/api/analysis`));
-    if (!res.ok) throw new Error("Failed to fetch analysis posts.");
-    const data: ListedAnalysisPost[] = await res.json();
-    const paths = (Array.isArray(data) ? data : []).map((post) => ({
+    const res = await getAnalysisPosts();
+
+    const paths = res.data.map((post) => ({
       params: { slug: post.slug },
     }));
-
     return { paths, fallback: "blocking" };
   } catch {
     return { paths: [], fallback: "blocking" };
   }
 };
 
-export const getStaticProps: GetStaticProps<AnalysisPostPageProps> = async (
+export const getStaticProps: GetStaticProps<AnalysisPostProps> = async (
   context,
 ) => {
   const slug = context.params?.slug as string;
 
   try {
-    const res = await fetch(buildApiUrl(`/api/analysis/${slug}`));
-    if (!res.ok) {
-      return { notFound: true, revalidate: 60 };
-    }
-    const data = await res.json();
-    if (!data || (!Array.isArray(data) && !data.slug)) {
-      return { notFound: true, revalidate: 60 };
-    }
+    const res = await getAnalysisPost(slug);
     return {
       props: {
-        post: data as AnalysisPost,
+        post: res.data,
       },
-      revalidate: 900,
+      revalidate: 3600,
     };
-  } catch (e) {
-    return { notFound: true, revalidate: 60 };
+  } catch {
+    return {
+      notFound: true,
+      revalidate: 10,
+    };
   }
 };
 

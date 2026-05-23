@@ -1,28 +1,11 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { FaBookOpen } from "react-icons/fa";
 import { ChevronRight } from "lucide-react";
 
-import { ListedAnalysisPost } from "@src/types";
-import { buildApiUrl } from "@src/config";
 import MostRecent from "../components/most-recent-analysis/MostRecent";
+import { ListedAnalysis } from "@src/domains/analysis/types";
 
-const MostRecentAnalysisSection = () => {
-  const [posts, setPosts] = useState<ListedAnalysisPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch(buildApiUrl(`/api/analysis`))
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch analysis posts");
-        return res.json();
-      })
-      .then(setPosts)
-      .catch((e) => setError(e.message))
-      .finally(() => setLoading(false));
-  }, []);
-
+const MostRecentAnalysisSection = ({ posts }: { posts: ListedAnalysis[] }) => {
   // Change number of posts based on screen size
   const mostRecentElement = (
     <div>

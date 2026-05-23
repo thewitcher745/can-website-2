@@ -1,34 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { ListedAnalysisPost } from "@src/types";
 import Logo from "@src/shared/ui/Logo";
+import { ListedAnalysis } from "@src/domains/analysis/types";
 
-const PostLogo: React.FC<{ thumbnail: string; altText: string }> = ({
-  thumbnail,
-  altText,
-}) => {
-  if (!thumbnail?.length) return null;
-
-  return (
-    <div
-      className={`w-full bg-offwhite aspect-square rounded-full overflow-hidden border border-primary xs:relative left-0 top-0 translate-x-0 translate-y-0 opacity-100
-                  sm:p-2 xl:p-4 p-1`}
-    >
-      <div className="size-full overflow-hidden">
-        <Image
-          src={thumbnail}
-          alt={altText}
-          width={160}
-          height={160}
-          className="object-contain object-center size-full"
-        />
-      </div>
-    </div>
-  );
-};
-
-const ImageElement = ({ post }: { post: ListedAnalysisPost }) => {
+const ImageElement = ({ post }: { post: ListedAnalysis }) => {
   return (
     <div
       key={post.slug}
@@ -59,7 +35,7 @@ const CaptionElement = ({
   post,
   isMobile,
 }: {
-  post: ListedAnalysisPost;
+  post: ListedAnalysis;
   isMobile: boolean;
 }) => {
   const limit = isMobile ? 2 : 4;
@@ -80,8 +56,8 @@ const CaptionElement = ({
   const PostTime = () => {
     return (
       <span className="text-text-muted text-xs">
-        {new Date(post.meta.time).toLocaleDateString()}{" "}
-        {new Date(post.meta.time).toLocaleTimeString()}
+        {new Date(post.meta.publishedAt || "").toLocaleDateString()}{" "}
+        {new Date(post.meta.publishedAt || "").toLocaleTimeString()}
       </span>
     );
   };
@@ -130,7 +106,7 @@ const CaptionElement = ({
 };
 
 const MostRecentAnalysisCard: React.FC<{
-  post: ListedAnalysisPost;
+  post: ListedAnalysis;
   isInView: boolean;
 }> = ({ post, isInView }) => {
   return (

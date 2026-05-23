@@ -3,14 +3,14 @@ import React, { useState } from "react";
 
 import Footer from "@shared/ui/Footer";
 import { ListedArticle } from "@src/domains/articles/types";
-import Listings from "@src/features/articles/Listings";
+import Index from "@src/features/articles/Index";
 import { GetStaticProps } from "next";
 import { createListingGetStaticProps } from "@src/lib/isr/listing";
 import { getBlogPosts } from "@src/domains/articles/api";
 
 type BlogIndexProps = { items: ListedArticle[] };
 
-const Blog: React.FC<BlogIndexProps> = ({ items }) => {
+const Blog: React.FC<BlogIndexProps> = ({ items: posts }) => {
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
 
   const removeTag = (tag: string) => {
@@ -22,10 +22,10 @@ const Blog: React.FC<BlogIndexProps> = ({ items }) => {
   };
 
   const filteredPosts = filterTags
-    ? items.filter((post) =>
+    ? posts.filter((post) =>
         filterTags?.some((tag) => post.meta.tags.includes(tag)),
       )
-    : items;
+    : posts;
 
   return (
     <>
@@ -66,7 +66,7 @@ const Blog: React.FC<BlogIndexProps> = ({ items }) => {
           <p className="text-text-main text-xl mb-6 px-2">
             Explore the latest insights and stories from our team of experts.
           </p>
-          <Listings
+          <Index
             items={filteredPosts}
             baseHref="/blog"
             filterTags={filterTags}

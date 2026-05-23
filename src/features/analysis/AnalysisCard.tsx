@@ -4,10 +4,10 @@ import PostDescription from "./PostDescription";
 import PostTags from "./PostTags";
 import PostTime from "./PostTime";
 import PostTitle from "./PostTitle";
-import { ListedAnalysisPost } from "@src/types";
 import Logo from "@src/shared/ui/Logo";
+import { ListedAnalysis } from "@src/domains/analysis/types";
 
-const TopHalf: React.FC<{ post: ListedAnalysisPost; isVip: boolean }> = ({
+const TopHalf: React.FC<{ post: ListedAnalysis; isVip: boolean }> = ({
   post,
   isVip,
 }) => {
@@ -24,7 +24,7 @@ const TopHalf: React.FC<{ post: ListedAnalysisPost; isVip: boolean }> = ({
   );
 };
 
-const BottomHalf: React.FC<{ post: ListedAnalysisPost }> = ({ post }) => {
+const BottomHalf: React.FC<{ post: ListedAnalysis }> = ({ post }) => {
   return (
     <div className="flex gap-2 flex-grow justify-between flex-wrap">
       <PostDescription description={post.meta.description} />
@@ -33,13 +33,16 @@ const BottomHalf: React.FC<{ post: ListedAnalysisPost }> = ({ post }) => {
           <PostTags tags={post.meta.tags} className="tags-container" />
           <div className="tags-gradient absolute right-0 top-0 w-10 h-full transition-all duration-200" />
         </div>
-        <PostTime time={post.meta.time} className="self-end md:self-auto" />
+        <PostTime
+          time={post.meta.publishedAt || ""}
+          className="self-end md:self-auto"
+        />
       </div>
     </div>
   );
 };
 
-const AnalysisCard: React.FC<{ post: ListedAnalysisPost; isVip: boolean }> = ({
+const AnalysisCard: React.FC<{ post: ListedAnalysis; isVip: boolean }> = ({
   post,
   isVip,
 }) => {

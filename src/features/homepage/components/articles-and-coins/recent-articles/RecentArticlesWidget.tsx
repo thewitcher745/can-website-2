@@ -4,19 +4,14 @@ import Link from "next/link";
 
 import { ListedArticle } from "@src/domains/articles/types";
 import TableRow from "./TableRow";
-import { useRecentArticlesWidget } from "@src/domains/articles/hooks";
-import { GenericLoader } from "@src/shared/ui/loaders";
-import GenericError from "@src/shared/ui/GenericError";
+import { useHomePageData } from "@src/contexts/HomepageContext";
 
 const N_POSTS = 4;
 const N_TABLES = 2;
 
 const RecentArticlesWidget = ({ className }: { className?: string }) => {
-  const { data, loading, error } = useRecentArticlesWidget();
+  const { blogPosts: blog, newsPosts: news } = useHomePageData();
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const blog = data.blog;
-  const news = data.news;
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % N_TABLES);
@@ -50,25 +45,16 @@ const RecentArticlesWidget = ({ className }: { className?: string }) => {
   const renderTableRows = (items: ListedArticle[], tableSlug: string) => {
     const rows = [] as React.ReactNode[];
 
-    if (loading || error || !items) {
-      for (let i = 0; i < N_POSTS; i++) {
-        rows.push(<TableRow placeholder tableSlug={tableSlug} i={i} />);
-      }
-    } else {
-      for (let i = 0; i < N_POSTS; i++) {
-        const item = items[i];
+    for (let i = 0; i < N_POSTS; i++) {
+      const item = items[i];
 
-        rows.push(<TableRow item={item} tableSlug={tableSlug} i={i} />);
-      }
+      rows.push(<TableRow item={item} tableSlug={tableSlug} i={i} />);
     }
 
     return rows;
   };
 
-  const renderContent = (
-    blog: ListedArticle[],
-    news: ListedArticle[],
-  ) => {
+  const renderContent = (blog: ListedArticle[], news: ListedArticle[]) => {
     const tables = [
       {
         title: "Trading & Risk Management",
@@ -112,38 +98,6 @@ const RecentArticlesWidget = ({ className }: { className?: string }) => {
       </div>
     );
   };
-
-  if (loading) {
-    return (
-      <div className="relative">
-        {/* Blurred skeleton */}
-        <div className="blur-sm pointer-events-none h-full animate-pulse">
-          {renderContent([], [])}
-        </div>
-
-        {/* Loader overlay */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <GenericLoader />
-        </div>
-      </div>
-    );
-  }
-
-  if (error || !blog || !news) {
-    return (
-      <div className="relative">
-        {/* Blurred skeleton */}
-        <div className="blur-sm pointer-events-none h-full">
-          {renderContent([], [])}
-        </div>
-
-        {/* Loader overlay */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <GenericError message="Couldn't get recent articles. Try again later!" />
-        </div>
-      </div>
-    );
-  }
 
   return renderContent(blog, news);
 };

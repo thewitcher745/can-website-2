@@ -1,4 +1,4 @@
-import { ListedAnalysisPost } from "@src/types";
+import { ListedAnalysis } from "@src/domains/analysis/types";
 import Logo from "@src/shared/ui/Logo";
 
 const PostLogo: React.FC<{ symbol: string }> = ({ symbol }) => {
@@ -12,17 +12,18 @@ const MostRecentAnalysisSelector = ({
   setIsTransitioning,
   timerRef,
 }: {
-  recentAnalysis: ListedAnalysisPost[];
+  recentAnalysis: ListedAnalysis[];
   currentSlide: number;
   setCurrentSlide: (slide: number) => void;
   setIsTransitioning: (transitioning: boolean) => void;
-  timerRef: React.MutableRefObject<NodeJS.Timeout | null>;
+  timerRef: React.RefObject<NodeJS.Timeout | null>;
 }) => {
   return (
     recentAnalysis.length > 1 && (
       <div className="flex lg:flex-col w-full lg:w-auto xl:w-1/4 h-full px-4 justify-around mt-2 space-x-2">
         {recentAnalysis.map((_, index) => (
           <div
+            key={index}
             onClick={() => {
               setIsTransitioning(true);
               if (timerRef.current) {
@@ -48,7 +49,9 @@ const MostRecentAnalysisSelector = ({
               }`}
               aria-label={`Go to slide ${index + 1}`}
             >
-              <PostLogo symbol={recentAnalysis[index].meta.coins[0].toUpperCase()} />
+              <PostLogo
+                symbol={recentAnalysis[index].meta.coins[0].toUpperCase()}
+              />
             </div>
             <div
               className={`flex-col hidden xl:flex transition-all duration-200 ${

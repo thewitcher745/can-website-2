@@ -12,7 +12,8 @@ import CoinDescriptionSection from "@features/coin/CoinDescriptionSection";
 import ClosingPriceHistorySection from "@features/coin/ClosingPriceHistorySection";
 import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
-import { AnalysisPost, CoinCMCInfo, CoinMetaInfo } from "@src/types";
+import { CoinCMCInfo, CoinMetaInfo } from "@src/types";
+import { AnalysisPost } from "@src/domains/analysis/types";
 
 type CoinPageProps = {
   symbol: string;
@@ -91,7 +92,7 @@ const CoinPage: NextPage<CoinPageProps> = ({
 };
 
 export const getServerSideProps: GetServerSideProps<CoinPageProps> = async (
-  ctx
+  ctx,
 ) => {
   const symbolParam = ctx.params?.symbol;
 
@@ -113,8 +114,8 @@ export const getServerSideProps: GetServerSideProps<CoinPageProps> = async (
       fetch(buildApiUrl(`/api/coin_info/cmc?symbol=${symbolParam}`)),
       fetch(
         buildApiUrl(
-          `/api/coin_info/chart?symbol=${symbolParam}&period=${closingPricePeriod}`
-        )
+          `/api/coin_info/chart?symbol=${symbolParam}&period=${closingPricePeriod}`,
+        ),
       ),
     ]);
 
@@ -136,8 +137,7 @@ export const getServerSideProps: GetServerSideProps<CoinPageProps> = async (
         } else {
           closingPricePoints = [];
         }
-      } 
-      else {
+      } else {
         closingPriceError = "Oops! Something went wrong.";
       }
     } catch {
@@ -147,7 +147,7 @@ export const getServerSideProps: GetServerSideProps<CoinPageProps> = async (
 
     try {
       const analysisRes = await fetch(
-        buildApiUrl(`/api/analysis/coin/${symbolParam}`)
+        buildApiUrl(`/api/analysis/coin/${symbolParam}`),
       );
       if (analysisRes.ok) {
         const data = await analysisRes.json();

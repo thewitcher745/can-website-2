@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 
 import Footer from "@shared/ui/Footer";
-import Listings from "@src/features/articles/Listings";
+import Index from "@src/features/articles/Index";
 import { GetStaticProps } from "next";
 import { getNewsPosts } from "@src/domains/articles/api";
 import { createListingGetStaticProps } from "@src/lib/isr/listing";
@@ -10,7 +10,7 @@ import { ListedArticle } from "@src/domains/articles/types";
 
 type NewsIndexProps = { items: ListedArticle[] };
 
-const News: React.FC<NewsIndexProps> = ({ items }) => {
+const News: React.FC<NewsIndexProps> = ({ items: posts }) => {
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
 
   const removeTag = (tag: string) => {
@@ -22,10 +22,10 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
   };
 
   const filteredArticles = filterTags
-    ? items.filter((article) =>
+    ? posts.filter((article) =>
         filterTags?.some((tag) => article.meta.tags.includes(tag)),
       )
-    : items;
+    : posts;
 
   return (
     <>
@@ -59,7 +59,7 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
             Stay updated with the latest news and announcements from CAN
             Trading.
           </p>
-          <Listings
+          <Index
             items={filteredArticles}
             baseHref="/news"
             filterTags={filterTags}

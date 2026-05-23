@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import withAuth from "../../../features/admin/withAuth";
-import { ArticleType, EditorMetadata } from "../../../types";
+import { EditorMetadata } from "@src/types";
 import ImageUpload from "../../../features/admin/components/ImageUpload";
 import { buildApiUrl } from "@src/config";
+import { PostType } from "@src/shared/types/posts";
 
 // Editor.js must be loaded on the client side only
 const Editor = dynamic(
@@ -144,7 +145,7 @@ const EditPost = () => {
       version: "2.29.0",
     };
 
-    if (metadata.type === "high_potential") {
+    if (metadata.type === "high-potential") {
       setMetadata((prev) => ({
         ...prev,
         title: "Solana",
@@ -207,7 +208,7 @@ const EditPost = () => {
             name === "title" &&
             !isEditing &&
             typeof val === "string" &&
-            metadata.type !== "high_potential"
+            metadata.type !== "high-potential"
               ? val
                   .replace(/[^a-zA-Z0-9\s]/g, "")
                   .toLowerCase()
@@ -215,7 +216,7 @@ const EditPost = () => {
               : name === "symbol" &&
                   !isEditing &&
                   typeof val === "string" &&
-                  metadata.type === "high_potential"
+                  metadata.type === "high-potential"
                 ? val
                     .replace(/[^a-zA-Z0-9\s]/g, "")
                     .toLowerCase()
@@ -236,7 +237,7 @@ const EditPost = () => {
   };
 
   const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newType = e.target.value as ArticleType;
+    const newType = e.target.value as PostType;
     setMetadata((prev) => {
       const base = {
         ...prev,
@@ -244,7 +245,7 @@ const EditPost = () => {
       };
 
       // Reset type-specific fields or set defaults
-      if (newType === "high_potential") {
+      if (newType === "high-potential") {
         return {
           ...base,
           title: "",
@@ -421,7 +422,7 @@ const EditPost = () => {
         payload.isVip = metadata.isVip || false;
       }
 
-      if (metadata.type === "high_potential") {
+      if (metadata.type === "high-potential") {
         payload.symbol = metadata.symbol;
         payload.category = metadata.category;
         payload.logo = metadata.logo;
@@ -545,7 +546,7 @@ const EditPost = () => {
             />
           </div>
 
-          {metadata.type === "high_potential" && (
+          {metadata.type === "high-potential" && (
             <>
               <div className="flex flex-col">
                 <label
@@ -723,7 +724,7 @@ const EditPost = () => {
             </>
           )}
 
-          {metadata.type === "high_potential" && (
+          {metadata.type === "high-potential" && (
             <>
               <div className="flex flex-col">
                 <label

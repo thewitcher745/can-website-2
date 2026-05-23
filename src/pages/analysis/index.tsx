@@ -1,140 +1,17 @@
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
 
 import Footer from "@src/shared/ui/Footer";
-import { buildApiUrl } from "@src/config";
-import { ListedAnalysisPost } from "@src/types";
 import MostRecent from "@features/homepage/components/most-recent-analysis/MostRecent";
 import AnalysisListContainer from "@features/analysis/AnalysisListContainer";
 import BannerMini from "@src/features/homepage/components/promotions/BannerMini";
+import { GetStaticProps } from "next";
+import { createListingGetStaticProps } from "@src/lib/isr/listing";
+import { getAnalysisPosts } from "@src/domains/analysis/api";
+import { ListedAnalysis } from "@src/domains/analysis/types";
 
-const Analysis: React.FC = () => {
-  const [posts, setPosts] = useState<ListedAnalysisPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+type AnalysisIndexProps = { items: ListedAnalysis[] };
 
-  useEffect(() => {
-    fetch(buildApiUrl(`/api/analysis`))
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch analysis posts");
-        return res.json();
-      })
-      .then(setPosts)
-      .catch((e) => setError(e.message))
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading)
-    return (
-      <>
-        <Head>
-          <title>Technical Analysis - CAN Trading</title>
-          <meta
-            name="description"
-            content="Latest cryptocurrency technical analysis and market insights from CAN Trading experts"
-          />
-          <meta
-            property="og:title"
-            content="Technical Analysis - CAN Trading"
-          />
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:description"
-            content="Latest cryptocurrency technical analysis and market insights from CAN Trading experts"
-          />
-          <meta property="og:url" content="https://can-trading.com/analysis" />
-          <meta property="og:site_name" content="CAN Trading" />
-          <meta property="og:image" content="/images/showcase/can-banner.png" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta
-            name="twitter:title"
-            content="Technical Analysis - CAN Trading"
-          />
-          <meta
-            name="twitter:description"
-            content="Latest cryptocurrency technical analysis and market insights from CAN Trading experts"
-          />
-          <meta
-            name="twitter:image"
-            content="/images/showcase/can-banner.png"
-          />
-        </Head>
-        <main className="bg-background min-h-screen">
-          <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-primary border-opacity-60 mb-4"></div>
-            <span className="text-text-muted text-lg tracking-wide">
-              Loading...
-            </span>
-          </div>
-        </main>
-        <Footer />
-      </>
-    );
-
-  if (error)
-    return (
-      <>
-        <Head>
-          <title>Technical Analysis - CAN Trading</title>
-          <meta
-            name="description"
-            content="Latest cryptocurrency technical analysis and market insights from CAN Trading experts"
-          />
-          <meta
-            property="og:title"
-            content="Technical Analysis - CAN Trading"
-          />
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:description"
-            content="Latest cryptocurrency technical analysis and market insights from CAN Trading experts"
-          />
-          <meta property="og:url" content="https://can-trading.com/analysis" />
-          <meta property="og:site_name" content="CAN Trading" />
-          <meta property="og:image" content="/images/showcase/can-banner.png" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta
-            name="twitter:title"
-            content="Technical Analysis - CAN Trading"
-          />
-          <meta
-            name="twitter:description"
-            content="Latest cryptocurrency technical analysis and market insights from CAN Trading experts"
-          />
-          <meta
-            name="twitter:image"
-            content="/images/showcase/can-banner.png"
-          />
-        </Head>
-        <main className="bg-background min-h-screen">
-          <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
-            <div className="mb-4">
-              <svg
-                className="w-12 h-12 text-error animate-pulse"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <span className="text-error text-lg tracking-wide font-semibold mb-2">
-              Error
-            </span>
-            <span className="text-text-muted text-base">{error}</span>
-          </div>
-        </main>
-        <Footer />
-      </>
-    );
-
+const Analysis: React.FC<AnalysisIndexProps> = ({ items: posts }) => {
   // Change number of posts based on screen size
   const mostRecentElement = (
     <div>
@@ -192,7 +69,7 @@ const Analysis: React.FC = () => {
         </section>
 
         <section id="all-analysis" className="w-full flex justify-center">
-          <AnalysisListContainer />
+          <AnalysisListContainer posts={posts} />
         </section>
         <div className="w-full flex justify-center mt-8">
           <BannerMini />
@@ -204,3 +81,6 @@ const Analysis: React.FC = () => {
 };
 
 export default Analysis;
+
+export const getStaticProps: GetStaticProps<AnalysisIndexProps> =
+  createListingGetStaticProps(getAnalysisPosts);
