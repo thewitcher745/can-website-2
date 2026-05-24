@@ -12,9 +12,9 @@ import Banner from "@src/features/homepage/components/promotions/BannerMini";
 import { getAnalysisPost, getAnalysisPosts } from "@src/domains/analysis/api";
 import { AnalysisPost } from "@src/domains/analysis/types";
 
-type AnalysisPostProps = { post: AnalysisPost };
+type AnalysisPostProps = { post?: AnalysisPost };
 
-const AnalysisPostPage: React.FC<AnalysisPostProps> = ({ post }) => {
+const AnalysisPostPage = ({ post }: AnalysisPostProps) => {
   const [modalImgSrc, setModalImgSrc] = useState<string | null>(null);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -24,29 +24,60 @@ const AnalysisPostPage: React.FC<AnalysisPostProps> = ({ post }) => {
     modalVisible,
   ]);
 
-  const updates = post.content.updates || [];
+  if (!post) {
+    return (
+      <>
+        <Head>
+          <title>Post Not Found - CAN Trading</title>
+          <meta name="robots" content="noindex" />
+        </Head>
+        <main className="bg-background min-h-screen flex items-center justify-center">
+          <div className="text-center px-4">
+            <h1 className="text-4xl font-bold text-error mb-4">404</h1>
+            <p className="text-text-muted mb-6">
+              This technical analysis couldn't be found or is no longer
+              available.
+            </p>
+            <Link
+              href="/"
+              className="text-primary hover:underline text-sm inline-block"
+            >
+              ← Back to list of Analysis
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
+  const updates = post?.content.updates || [];
 
   return (
     <>
       <Head>
-        <title>{`${post.meta.title} - CAN Trading`}</title>
-        <meta property="og:title" content={post.meta.title} />
+        <title>{`${post?.meta.title} - CAN Trading`}</title>
+        <meta property="og:title" content={post?.meta.title} />
         <meta property="og:type" content="article" />
         <meta
           property="og:description"
-          content={post.meta.description || "Technical analysis by CAN Trading"}
+          content={
+            post?.meta.description || "Technical analysis by CAN Trading"
+          }
         />
         <meta
           property="og:url"
-          content={`https://can-trading.com/analysis/${post.slug}`}
+          content={`https://can-trading.com/analysis/${post?.slug}`}
         />
         <meta property="og:site_name" content="CAN Trading" />
         <meta property="og:image" content="/images/showcase/can-banner.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.meta.title} />
+        <meta name="twitter:title" content={post?.meta.title} />
         <meta
           name="twitter:description"
-          content={post.meta.description || "Technical analysis by CAN Trading"}
+          content={
+            post?.meta.description || "Technical analysis by CAN Trading"
+          }
         />
         <meta name="twitter:image" content="/images/showcase/can-banner.png" />
       </Head>
@@ -61,6 +92,7 @@ const AnalysisPostPage: React.FC<AnalysisPostProps> = ({ post }) => {
           >
             ← Back to Analysis
           </Link>
+
           <MainPost post={post} />
 
           {/* Updates feed */}
@@ -123,7 +155,7 @@ export const getStaticProps: GetStaticProps<AnalysisPostProps> = async (
     };
   } catch {
     return {
-      notFound: true,
+      props: {},
       revalidate: 10,
     };
   }
