@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaBookOpen } from "react-icons/fa";
 import { ChevronRight } from "lucide-react";
 
-import MostRecent from "../components/most-recent-analysis/MostRecent";
+import MostRecent from "../../analysis/most-recent-analysis/MostRecent";
 import { ListedAnalysis } from "@src/domains/analysis/types";
 
 const MostRecentAnalysisSection = ({ posts }: { posts: ListedAnalysis[] }) => {

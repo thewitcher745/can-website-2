@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import Footer from "@src/shared/ui/Footer";
-import MostRecent from "@features/homepage/components/most-recent-analysis/MostRecent";
+import MostRecent from "@src/features/analysis/most-recent-analysis/MostRecent";
 import AnalysisListContainer from "@features/analysis/AnalysisListContainer";
 import BannerMini from "@src/features/homepage/components/promotions/BannerMini";
 import { GetStaticProps } from "next";
