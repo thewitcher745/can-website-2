@@ -1,6 +1,6 @@
 import { BaseMeta, EditorJSBody, Listed } from "@src/shared/types/posts";
 
-type HighPotentialCategory = "bronze" | "silver" | "gold";
+export type HighPotentialCategory = "bronze" | "silver" | "gold";
 
 export interface HighPotentialMeta extends BaseMeta {
   image: string;

@@ -1,4 +1,8 @@
 import { buildApiUrl } from "@src/config";
+import {
+  serverSideVerifyAdminToken,
+  verifyAdminToken,
+} from "@src/domains/admin/api";
 import { v2 as cloudinary } from "cloudinary";
 import { NextApiRequest, NextApiResponse } from "next";
 import { ProxyAgent, fetch as undiciFetch } from "undici";
@@ -32,12 +36,9 @@ export default async function handler(
   }
 
   try {
-    const authRes = await fetchFn(buildApiUrl("/api/v2/auth/me"), {
-      headers: { Authorization: `Bearer ${token}` },
-      signal: AbortSignal.timeout(10000),
-    });
+    const isValid = await serverSideVerifyAdminToken(token);
 
-    if (!authRes.ok) {
+    if (!isValid) {
       console.error("❌ Unauthorized - auth check failed");
       return res.status(401).json({ error: "Unauthorized" });
     }

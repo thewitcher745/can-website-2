@@ -11,6 +11,6 @@ export type ListedAnalysis = Listed<AnalysisMeta>;
 export interface AnalysisPost extends ListedAnalysis {
   content: {
     body: EditorJSBody;
-    updates?: EditorJSBody[];
+    updates: EditorJSBody[];
   };
 }

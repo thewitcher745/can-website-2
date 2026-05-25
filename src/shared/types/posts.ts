@@ -62,7 +62,7 @@ export type EditorJsBlock =
   | ImageBlock;
 
 export type EditorJSBody = {
-  time: number;
+  time: string; // ISO-format datetime string
   version: string;
   blocks: EditorJsBlock[];
 };

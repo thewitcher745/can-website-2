@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { useRouter } from "next/router";
 import { buildApiUrl } from "@src/config";
+import { verifyAdminToken } from "@src/domains/admin/api";
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -36,29 +37,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [router]);
 
   const checkAuth = useCallback(async () => {
-    const token = localStorage.getItem("admin_token");
-    if (!token) {
-      setIsAuthenticated(false);
-      setLoading(false);
-      return;
-    }
-
     try {
-      const res = await fetch(buildApiUrl("/api/v2/auth/me"), {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (res.ok) {
-        setIsAuthenticated(true);
-      } else {
+      const isValid = await verifyAdminToken();
+      if (!isValid) {
         logout();
+      } else {
+        setIsAuthenticated(true);
       }
     } catch (error) {
       console.error("Auth check failed:", error);
-      // Optional: don't logout on network error, but for admin safety we usually do
       logout();
     } finally {
       setLoading(false);

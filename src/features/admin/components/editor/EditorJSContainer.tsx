@@ -8,12 +8,14 @@ interface EditorProps {
   holder?: string;
   data?: OutputData;
   onChange?: (data: OutputData) => void;
+  error?: string;
 }
 
-export default function Editor({
+export default function EditorJSContainer({
   holder = "editorjs-container",
   data,
   onChange,
+  error = "",
 }: EditorProps) {
   const editorRef = useRef<EditorJS | null>(null);
 
@@ -76,6 +78,8 @@ export default function Editor({
   };
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     if (!editorRef.current) {
       const editor = new EditorJS({
         holder: holder,
@@ -120,6 +124,7 @@ export default function Editor({
 
   return (
     <div className="prose max-w-none">
+      {error && <p className="mb-2 text-sm text-error">{error}</p>}
       <div id={holder} className="editorjs-container" />
     </div>
   );

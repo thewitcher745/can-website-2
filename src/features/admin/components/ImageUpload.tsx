@@ -8,6 +8,7 @@ interface ImageUploadProps {
   onChange: (url: string) => void;
   className?: string;
   helperText?: string;
+  error?: string;
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({
@@ -16,6 +17,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   onChange,
   className = "",
   helperText,
+  error = "",
 }) => {
   const [uploading, setUploading] = useState(false);
 
@@ -111,12 +113,15 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   return (
     <div className={`flex flex-col ${className}`}>
       <label className="mb-2 text-sm text-text-muted">{label}</label>
+      {error && <p className="mb-2 text-sm text-error">{error}</p>}
 
       <div
         className={`relative border-2 border-dashed rounded-lg p-4 flex items-center justify-center min-h-[150px] ${
-          value
-            ? "border-primary/50 bg-primary/5"
-            : "border-border hover:border-primary/50"
+          error
+            ? "border-error"
+            : value
+              ? "border-primary/50 bg-primary/5"
+              : "border-border hover:border-primary/50"
         }`}
       >
         {uploading ? (
@@ -165,7 +170,9 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
           value={value || ""}
           onChange={(e) => onChange(e.target.value)}
           placeholder="Or paste an image URL here..."
-          className="w-full p-2 text-sm border rounded border-border bg-background text-text-main"
+          className={`w-full p-2 text-sm border rounded bg-background text-text-main focus:outline-none focus:border-primary transition-colors ${
+            error ? "border-error" : "border-border"
+          }`}
         />
       </div>
     </div>

@@ -1,8 +1,9 @@
 import { API_URL, ApiResponse } from "@src/lib/api/client";
 import { Listed, PostType } from "@src/shared/types/posts";
 import { Admin } from "./types";
+import { getAdminToken } from "./utils";
 
-type AdminGetPostsApiResult<T> = ApiResponse<Admin<Listed<T>>>;
+type AdminGetPostsApiResult<T> = ApiResponse<Admin<Listed<T>>[]>;
 
 type AdminGetPostApiResult<T> = ApiResponse<Admin<T>>;
 
@@ -24,7 +25,6 @@ class AdminApiClient {
         url.searchParams.append(k, String(v)),
       );
     }
-
     const res = await fetch(url.toString(), {
       method: "GET",
       headers: this.getHeaders(),
@@ -43,7 +43,10 @@ class AdminApiClient {
       body: JSON.stringify(body),
     });
 
-    if (!res.ok) throw new Error(`Admin API error: ${res.status}`);
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(JSON.stringify(errorData)); // Or throw structured error
+    }
 
     return res.json();
   }
@@ -56,20 +59,25 @@ class AdminApiClient {
       body: JSON.stringify(body),
     });
 
-    if (!res.ok) throw new Error(`Admin API error: ${res.status}`);
-
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(JSON.stringify(errorData)); // Or throw structured error
+    }
     return res.json();
   }
 
   async put<T>(path: string, body?: unknown): Promise<T> {
     const url = new URL(path, API_URL);
     const res = await fetch(url.toString(), {
-      method: "POST",
+      method: "PUT", // Fix this first
       headers: this.getHeaders(),
       body: JSON.stringify(body),
     });
 
-    if (!res.ok) throw new Error(`Admin API error: ${res.status}`);
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(JSON.stringify(errorData)); // Or throw structured error
+    }
 
     return res.json();
   }
@@ -78,20 +86,60 @@ class AdminApiClient {
 export const adminApi = new AdminApiClient();
 
 /**
+ * Verifies if the current admin token is valid
+ *
+ * @returns Promise<boolean> True if token is valid, false otherwise
+ */
+export const verifyAdminToken = async (): Promise<boolean> => {
+  const token = getAdminToken();
+
+  if (!token) return false;
+
+  try {
+    await adminApi.get<{ username: string }>("/api/v2/auth/me");
+    return true;
+  } catch {
+    return false;
+  }
+};
+/**
+ * Verifies an admin token on the server-side, doesn't use local storage.
+ *
+ * @param token The admin token to verify
+ */
+export const serverSideVerifyAdminToken = async (
+  token: string,
+): Promise<boolean> => {
+  const url = new URL("/api/v2/auth/me", API_URL);
+  try {
+    const res = await fetch(url.toString(), {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!res.ok) throw new Error(`Admin API error: ${res.status}`);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+/**
  * Gets posts for display in the dashboard
  *
  * @param postType Type of posts to list. Typically set to null to return all posts.
  *
  * @returns AdminGetPostsApiResult promise containing the listed posts' data under "data"
  */
-export const getPostsAdmin = <T>({
-  postType,
-}: {
-  postType?: PostType;
-}): Promise<AdminGetPostsApiResult<T>> => {
-  return adminApi.get<AdminGetPostsApiResult<T>>(
-    `/api/v2/admin/posts${postType ? "/" + postType : ""}`,
-  );
+export const getPostsAdmin = <T>(
+  postType?: PostType,
+): Promise<AdminGetPostsApiResult<T>> => {
+  const path = postType
+    ? `/api/v2/admin/posts?type=${postType}`
+    : "/api/v2/admin/posts";
+  return adminApi.get<AdminGetPostsApiResult<T>>(path);
 };
 
 /**
@@ -102,13 +150,10 @@ export const getPostsAdmin = <T>({
  *
  * @returns AdminGetPostApiResult promise containing the post data under "data"
  */
-export const getPostAdmin = <T>({
-  postType,
-  slug,
-}: {
-  postType: PostType;
-  slug: string;
-}): Promise<AdminGetPostApiResult<T>> => {
+export const getPostAdmin = <T>(
+  postType: PostType,
+  slug: string,
+): Promise<AdminGetPostApiResult<T>> => {
   return adminApi.get<AdminGetPostApiResult<T>>(
     `/api/v2/admin/posts/${postType}/${slug}`,
   );
@@ -126,10 +171,7 @@ export const createPost = (
   slug: string,
   postBody: unknown,
 ) => {
-  const response = adminApi.post(
-    `/api/v2/admin/posts/${postType}/${slug}`,
-    postBody,
-  );
+  const response = adminApi.post(`/api/v2/admin/posts/${postType}`, postBody);
 
   return response;
 };

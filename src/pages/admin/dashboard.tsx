@@ -1,26 +1,33 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+
 import withAuth from "@src/features/admin/withAuth";
-import { buildApiUrl } from "@src/config";
+import { ListedHighPotential } from "@src/domains/high-potential/types";
+import { ListedArticle } from "@src/domains/articles/types";
+import { ListedAnalysis } from "@src/domains/analysis/types";
+import { Admin } from "@src/domains/admin/types";
+import { deletePost, getPostsAdmin } from "@src/domains/admin/api";
+import { PostType } from "@src/shared/types/posts";
 
-interface Post {
-  slug: string;
-  type: string;
-  status: "published" | "draft";
-  time: string;
-  lastModifiedTime: number;
-  title: string;
-  isVip: boolean | null;
-}
+type Post =
+  | Admin<ListedAnalysis>
+  | Admin<ListedArticle>
+  | Admin<ListedHighPotential>;
 
-type SortField = "time" | "title" | "lastModifiedTime" | "type";
+type SortField =
+  | "title"
+  | "createdAt"
+  | "publishedAt"
+  | "lastModifiedAt"
+  | "type";
+
 type SortOrder = "asc" | "desc";
 
 const AdminDashboard = () => {
   const router = useRouter();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
-  const [sortField, setSortField] = useState<SortField>("lastModifiedTime");
+  const [sortField, setSortField] = useState<SortField>("lastModifiedAt");
   const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
 
   useEffect(() => {
@@ -29,16 +36,13 @@ const AdminDashboard = () => {
 
   const fetchPosts = async () => {
     setLoading(true);
+
     try {
-      const response = await fetch(buildApiUrl("/api/admin/articles"), {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
-        },
-      });
-      const data = await response.json();
-      if (data.ok) {
-        setPosts(data.items);
-      }
+      const res = await getPostsAdmin();
+
+      const allPosts = res.data as Post[];
+
+      setPosts(allPosts);
     } catch (error) {
       console.error("Error fetching posts:", error);
     } finally {
@@ -59,18 +63,18 @@ const AdminDashboard = () => {
     let aValue: string | number;
     let bValue: string | number;
 
-    if (sortField === "time") {
-      aValue = new Date(a.time).getTime();
-      bValue = new Date(b.time).getTime();
-    } else if (sortField === "lastModifiedTime") {
-      aValue = a.lastModifiedTime;
-      bValue = b.lastModifiedTime;
+    if (sortField === "publishedAt") {
+      aValue = new Date(a.meta.publishedAt || 0).getTime();
+      bValue = new Date(b.meta.publishedAt || 0).getTime();
+    } else if (sortField === "createdAt") {
+      aValue = new Date(a.meta.createdAt || 0).getTime();
+      bValue = new Date(b.meta.createdAt || 0).getTime();
     } else if (sortField === "type") {
       aValue = a.type.toLowerCase();
       bValue = b.type.toLowerCase();
     } else {
-      aValue = a.title.toLowerCase();
-      bValue = b.title.toLowerCase();
+      aValue = a.meta.title.toLowerCase();
+      bValue = b.meta.title.toLowerCase();
     }
 
     if (aValue < bValue) return sortOrder === "asc" ? -1 : 1;
@@ -79,28 +83,21 @@ const AdminDashboard = () => {
   });
 
   const SortIcon = ({ field }: { field: SortField }) => {
-    if (sortField !== field) return <span className="text-text-muted ml-1">⇅</span>;
-    return <span className="text-primary ml-1">{sortOrder === "asc" ? "↑" : "↓"}</span>;
+    if (sortField !== field)
+      return <span className="text-text-muted ml-1">⇅</span>;
+    return (
+      <span className="text-primary ml-1">
+        {sortOrder === "asc" ? "↑" : "↓"}
+      </span>
+    );
   };
 
-  const handleDelete = async (slug: string, type: string) => {
+  const handleDelete = async (slug: string, type: PostType) => {
     if (confirm("Are you sure you want to delete this post?")) {
       try {
-        const response = await fetch(
-          buildApiUrl(`/api/admin/deleteArticle?type=${type}&slug=${slug}`),
-          {
-            method: "DELETE",
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
-            },
-          },
-        );
-        if (response.ok) {
-          setPosts(posts.filter((post) => post.slug !== slug));
-          alert("Post deleted successfully");
-        } else {
-          alert("Failed to delete post");
-        }
+        await deletePost(type, slug);
+
+        alert("Post deleted successfully");
       } catch (error) {
         console.error("Error deleting post:", error);
         alert("Error deleting post");
@@ -117,7 +114,7 @@ const AdminDashboard = () => {
           </h1>
           <button
             className="px-6 py-3 bg-primary hover:bg-primary-dark text-black rounded-lg font-bold cursor-pointer transition-colors"
-            onClick={() => router.push("/admin/edit/new")}
+            onClick={() => router.push("/admin/create")}
           >
             + New Post
           </button>
@@ -146,17 +143,17 @@ const AdminDashboard = () => {
                   </th>
                   <th
                     className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
-                    onClick={() => handleSort("time")}
+                    onClick={() => handleSort("publishedAt")}
                   >
-                    Post Time
-                    <SortIcon field="time" />
+                    Publish time
+                    <SortIcon field="publishedAt" />
                   </th>
                   <th
                     className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
-                    onClick={() => handleSort("lastModifiedTime")}
+                    onClick={() => handleSort("lastModifiedAt")}
                   >
                     Last modified time
-                    <SortIcon field="lastModifiedTime" />
+                    <SortIcon field="lastModifiedAt" />
                   </th>
                   <th className="p-4 text-left border-b border-border">
                     Status
@@ -173,22 +170,33 @@ const AdminDashboard = () => {
                     key={post.slug}
                     className="hover:bg-background/50 transition-colors"
                   >
-                    <td className="p-4 border-b border-border">{post.title}</td>
+                    <td className="p-4 border-b border-border">
+                      {post.meta.title}
+                    </td>
                     <td className="p-4 border-b border-border">
                       <span className="capitalize">
                         {post.type.replace("_", " ")}
                       </span>
                     </td>
                     <td className="p-4 border-b border-border">
-                      {new Date(post.time).toLocaleDateString()}{" "}
-                      {new Date(post.time).toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
+                      {new Date(
+                        post.meta.publishedAt || "",
+                      ).toLocaleDateString()}{" "}
+                      {new Date(post.meta.publishedAt || "").toLocaleTimeString(
+                        [],
+                        {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        },
+                      )}
                     </td>
                     <td className="p-4 border-b border-border">
-                      {new Date(post.lastModifiedTime).toLocaleDateString()}{" "}
-                      {new Date(post.lastModifiedTime).toLocaleTimeString([], {
+                      {new Date(
+                        post.meta.lastModifiedAt || "",
+                      ).toLocaleDateString()}{" "}
+                      {new Date(
+                        post.meta.lastModifiedAt || "",
+                      ).toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
                       })}
@@ -205,9 +213,10 @@ const AdminDashboard = () => {
                       </span>
                     </td>
                     <td className="p-4 border-b border-border">
-                      {post.isVip === true ? (
+                      {(post as Admin<ListedAnalysis>).meta?.isVip === true ? (
                         <span className="text-primary font-bold">YES</span>
-                      ) : post.isVip === false ? (
+                      ) : (post as Admin<ListedAnalysis>).meta?.isVip ===
+                        false ? (
                         <span className="text-text-muted">NO</span>
                       ) : (
                         <span className="text-text-muted italic">-</span>
@@ -219,7 +228,7 @@ const AdminDashboard = () => {
                           className="px-3 py-1.5 bg-secondary hover:bg-secondary-light hover:text-black text-white text-sm rounded transition-colors"
                           onClick={() =>
                             router.push(
-                              `/admin/edit/${post.slug}?type=${post.type}`,
+                              `/admin/edit?slug=${post.slug}&type=${post.type}`,
                             )
                           }
                         >
