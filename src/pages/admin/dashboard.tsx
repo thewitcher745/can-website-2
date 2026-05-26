@@ -107,7 +107,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="pt-20 bg-surface text-text-main rounded-xl shadow-xl border border-border flex justify-center min-h-lvh">
-      <div className="max-w-custom w-full">
+      <div className="max-w-custom w-full px-4">
         <div className="flex justify-between items-center mb-8">
           <h1 className="m-0 text-2xl font-bold text-primary">
             Content Dashboard
