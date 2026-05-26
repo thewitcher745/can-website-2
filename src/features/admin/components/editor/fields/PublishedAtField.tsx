@@ -4,15 +4,11 @@ import { EditorPost } from "@src/domains/admin/types";
 
 export const PublishedAtField = ({
   post,
-  setPost,
-  modified,
-  setModified,
+  modifyPost,
   error = "",
 }: {
   post: EditorPost;
-  setPost: Dispatch<SetStateAction<EditorPost>>;
-  modified: boolean;
-  setModified: Dispatch<SetStateAction<boolean>>;
+  modifyPost: (callback: SetStateAction<EditorPost>) => void;
   error?: string;
 }) => {
   if (!post) return null;
@@ -34,16 +30,18 @@ export const PublishedAtField = ({
         type="datetime-local"
         value={formatDateForInput(post.meta.publishedAt)}
         onChange={(e) => {
-          if (!modified) setModified(true);
-          setPost({
-            ...post,
-            meta: {
-              ...post.meta,
-              publishedAt: e.target.value
-                ? new Date(e.target.value).toISOString()
-                : null,
-            },
-          } as typeof post);
+          modifyPost((prev) => {
+            if (!prev) return prev;
+            return {
+              ...prev,
+              meta: {
+                ...prev.meta,
+                publishedAt: e.target.value
+                  ? new Date(e.target.value).toISOString()
+                  : null,
+              },
+            } as typeof prev;
+          });
         }}
         className={`p-3 rounded-lg border ${error ? "border-error" : "border-border"} bg-background text-text-main focus:outline-none focus:border-primary`}
       />

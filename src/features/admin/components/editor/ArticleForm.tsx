@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { SetStateAction } from "react";
 import dynamic from "next/dynamic";
 
 import { Admin } from "@src/domains/admin/types";
@@ -13,16 +13,12 @@ const EditorJSContainer = dynamic(() => import("./EditorJSContainer"), {
 
 const ArticleForm = ({
   post,
-  setPost,
+  modifyPost,
   invalidFields,
-  modified,
-  setModified,
 }: {
   post: Admin<ArticlePost>;
-  setPost: Dispatch<SetStateAction<Admin<ArticlePost>>>;
+  modifyPost: (callback: SetStateAction<Admin<ArticlePost>>) => void;
   invalidFields: Record<string, string>;
-  modified: boolean;
-  setModified: Dispatch<SetStateAction<boolean>>;
 }) => {
   if (!post) return;
 
@@ -34,8 +30,10 @@ const ArticleForm = ({
           label="Thumbnail"
           value={post.meta.thumbnail}
           onChange={(url) => {
-            if (!modified) setModified(true);
-            setPost({ ...post, meta: { ...post.meta, thumbnail: url } });
+            modifyPost((prev) => ({
+              ...prev,
+              meta: { ...prev.meta, thumbnail: url },
+            }));
           }}
           helperText="Small image as thumbnail"
           error={invalidFields["meta.thumbnail"] || ""}
@@ -49,17 +47,19 @@ const ArticleForm = ({
           <EditorJSContainer
             holder="editorjs-container"
             onChange={(e) => {
-              if (!modified) setModified(true);
-              setPost({
-                ...post,
-                content: {
-                  ...post.content,
-                  body: {
-                    blocks: e.blocks as EditorJsBlock[],
-                    time: e.time?.toString() || "",
-                    version: e.version || "",
+              modifyPost((prev) => {
+                if (!prev) return prev;
+                return {
+                  ...prev,
+                  content: {
+                    ...prev.content,
+                    body: {
+                      blocks: e.blocks as EditorJsBlock[],
+                      time: e.time?.toString() || "",
+                      version: e.version || "",
+                    },
                   },
-                },
+                };
               });
             }}
             data={{

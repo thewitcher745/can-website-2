@@ -1,9 +1,12 @@
-import { Dispatch, SetStateAction } from "react";
+import { SetStateAction } from "react";
 import dynamic from "next/dynamic";
 
 import { Admin } from "@src/domains/admin/types";
 import ImageUpload from "../ImageUpload";
-import { HighPotentialPost } from "@src/domains/high-potential/types";
+import {
+  HighPotentialCategory,
+  HighPotentialPost,
+} from "@src/domains/high-potential/types";
 import { EditorJsBlock } from "@src/shared/types/posts";
 
 // Editor.js must be loaded on the client side only
@@ -13,16 +16,12 @@ const EditorJSContainer = dynamic(() => import("./EditorJSContainer"), {
 
 const HighPotentialForm = ({
   post,
-  setPost,
+  modifyPost,
   invalidFields,
-  modified,
-  setModified,
 }: {
   post: Admin<HighPotentialPost>;
-  setPost: Dispatch<SetStateAction<Admin<HighPotentialPost>>>;
+  modifyPost: (callback: SetStateAction<Admin<HighPotentialPost>>) => void;
   invalidFields: Record<string, string>;
-  modified: boolean;
-  setModified: Dispatch<SetStateAction<boolean>>;
 }) => {
   if (!post) return;
 
@@ -45,11 +44,13 @@ const HighPotentialForm = ({
             type="text"
             value={post.meta.symbol}
             onChange={(e) => {
-              if (!modified) setModified(true);
-              setPost({
-                ...post,
-                meta: { ...post.meta, symbol: e.target.value },
-              } as typeof post);
+              modifyPost((prev) => {
+                if (!prev) return prev;
+                return {
+                  ...prev,
+                  meta: { ...prev.meta, symbol: e.target.value },
+                };
+              });
             }}
             placeholder="Enter symbol (e.g. BTC)"
             className={`p-3 rounded-lg border ${
@@ -65,11 +66,16 @@ const HighPotentialForm = ({
           <select
             value={post.meta.category}
             onChange={(e) => {
-              if (!modified) setModified(true);
-              setPost({
-                ...post,
-                meta: { ...post.meta, category: e.target.value },
-              } as typeof post);
+              modifyPost((prev) => {
+                if (!prev) return prev;
+                return {
+                  ...prev,
+                  meta: {
+                    ...prev.meta,
+                    category: e.target.value as HighPotentialCategory,
+                  },
+                };
+              });
             }}
             className="p-3 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer"
           >
@@ -87,8 +93,10 @@ const HighPotentialForm = ({
             label="Logo"
             value={post.meta.logo}
             onChange={(url) => {
-              if (!modified) setModified(true);
-              setPost({ ...post, meta: { ...post.meta, image: url } });
+              modifyPost((prev) => ({
+                ...prev,
+                meta: { ...prev.meta, logo: url },
+              }));
             }}
             helperText="Link to the logo of the token"
             error={invalidFields["meta.logo"] || ""}
@@ -99,8 +107,10 @@ const HighPotentialForm = ({
             label="Image"
             value={post.meta.image}
             onChange={(url) => {
-              if (!modified) setModified(true);
-              setPost({ ...post, meta: { ...post.meta, image: url } });
+              modifyPost((prev) => ({
+                ...prev,
+                meta: { ...prev.meta, image: url },
+              }));
             }}
             helperText="An image for te token post page"
           />
@@ -114,17 +124,19 @@ const HighPotentialForm = ({
           <EditorJSContainer
             holder="editorjs-container"
             onChange={(e) => {
-              if (!modified) setModified(true);
-              setPost({
-                ...post,
-                content: {
-                  ...post.content,
-                  body: {
-                    blocks: e.blocks as EditorJsBlock[],
-                    time: e.time?.toString() || "",
-                    version: e.version || "",
+              modifyPost((prev) => {
+                if (!prev) return prev;
+                return {
+                  ...prev,
+                  content: {
+                    ...prev.content,
+                    body: {
+                      blocks: e.blocks as EditorJsBlock[],
+                      time: e.time?.toString() || "",
+                      version: e.version || "",
+                    },
                   },
-                },
+                };
               });
             }}
             data={{

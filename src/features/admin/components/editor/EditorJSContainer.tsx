@@ -120,7 +120,7 @@ export default function EditorJSContainer({
         editorRef.current = null;
       }
     };
-  }, []);
+  }, [holder]);
 
   return (
     <div className="prose max-w-none">

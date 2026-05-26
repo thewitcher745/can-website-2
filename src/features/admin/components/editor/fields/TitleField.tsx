@@ -1,18 +1,13 @@
-// TitleField.tsx
-import { Dispatch, SetStateAction } from "react";
+import { SetStateAction } from "react";
 import { EditorPost } from "@src/domains/admin/types";
 
 export const TitleField = ({
   post,
-  setPost,
-  modified,
-  setModified,
+  modifyPost,
   error = "",
 }: {
   post: EditorPost;
-  setPost: Dispatch<SetStateAction<EditorPost>>;
-  modified: boolean;
-  setModified: Dispatch<SetStateAction<boolean>>;
+  modifyPost: (callback: SetStateAction<EditorPost>) => void;
   error?: string;
 }) => {
   if (!post) return null;
@@ -29,11 +24,13 @@ export const TitleField = ({
         type="text"
         value={post.meta.title}
         onChange={(e) => {
-          if (!modified) setModified(true);
-          setPost({
-            ...post,
-            meta: { ...post.meta, title: e.target.value },
-          } as typeof post);
+          modifyPost((prev) => {
+            if (!prev) return prev;
+            return {
+              ...prev,
+              meta: { ...prev.meta, title: e.target.value },
+            } as typeof prev;
+          });
         }}
         placeholder="Enter post title"
         className={`p-3 rounded-lg border ${error ? "border-error" : "border-border"} bg-background text-text-main focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/50`}

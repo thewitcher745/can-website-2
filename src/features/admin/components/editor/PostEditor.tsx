@@ -41,12 +41,13 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
     {},
   );
 
+  const modifyPost = (callback: SetStateAction<EditorPost>) => {
+    if (!modified) setModified(true);
+    setPost(callback);
+  };
+
   const slug = isEditing ? (router.query.slug as string) : undefined;
   const postType = isEditing ? (router.query.type as PostType) : post?.type;
-
-  const meta = post?.meta;
-  const body = post?.content.body;
-  const updates = (post as AnalysisPost)?.content.updates;
 
   const handleSubmit = async () => {
     if (!post) return;
@@ -187,11 +188,13 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
                   <select
                     value={post?.status || "draft"}
                     onChange={(e) => {
-                      setModified(true);
-                      setPost({
-                        ...post,
-                        status: e.target.value as PostStatus,
-                      });
+                      modifyPost(
+                        (prev) =>
+                          ({
+                            ...prev,
+                            status: e.target.value as PostStatus,
+                          }) as typeof prev,
+                      );
                     }}
                     className="p-2 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer"
                   >
@@ -222,12 +225,14 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
                     type="text"
                     value={post?.slug}
                     onChange={(e) => {
-                      if (!modified) setModified(true);
                       setIsSlugManuallyEdited(true);
-                      setPost({
-                        ...post,
-                        slug: e.target.value,
-                      });
+                      modifyPost(
+                        (prev) =>
+                          ({
+                            ...prev,
+                            slug: e.target.value,
+                          }) as typeof prev,
+                      );
                     }}
                     placeholder="post-url-slug"
                     className={`p-2 w-full rounded-lg border ${
@@ -244,37 +249,27 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 pb-8 border-b border-border">
             <TitleField
               post={post}
-              setPost={setPost as Dispatch<SetStateAction<EditorPost>>}
-              modified={modified}
-              setModified={setModified}
+              modifyPost={modifyPost}
               error={invalidFields["meta.title"] || ""}
             />
             <AuthorField
               post={post}
-              setPost={setPost as Dispatch<SetStateAction<EditorPost>>}
-              modified={modified}
-              setModified={setModified}
+              modifyPost={modifyPost}
               error={invalidFields["meta.author"] || ""}
             />
             <PublishedAtField
               post={post}
-              setPost={setPost as Dispatch<SetStateAction<EditorPost>>}
-              modified={modified}
-              setModified={setModified}
+              modifyPost={modifyPost}
               error={invalidFields["meta.publishedAt"] || ""}
             />
             <TagsField
               post={post}
-              setPost={setPost as Dispatch<SetStateAction<EditorPost>>}
-              modified={modified}
-              setModified={setModified}
+              modifyPost={modifyPost}
               error={invalidFields["meta.tags"] || ""}
             />
             <DescriptionField
               post={post}
-              setPost={setPost as Dispatch<SetStateAction<EditorPost>>}
-              modified={modified}
-              setModified={setModified}
+              modifyPost={modifyPost}
               error={invalidFields["meta.description"] || ""}
             />
           </div>
@@ -283,30 +278,34 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
           {postType == "analysis" && (
             <AnalysisForm
               post={post as Admin<AnalysisPost>}
-              setPost={setPost as Dispatch<SetStateAction<Admin<AnalysisPost>>>}
+              modifyPost={
+                modifyPost as (
+                  callback: SetStateAction<Admin<AnalysisPost>>,
+                ) => void
+              }
               invalidFields={invalidFields}
-              modified={modified}
-              setModified={setModified}
             />
           )}
           {(postType == "blog" || postType == "news") && (
             <ArticleForm
               post={post as Admin<ArticlePost>}
-              setPost={setPost as Dispatch<SetStateAction<Admin<ArticlePost>>>}
+              modifyPost={
+                modifyPost as (
+                  callback: SetStateAction<Admin<ArticlePost>>,
+                ) => void
+              }
               invalidFields={invalidFields}
-              modified={modified}
-              setModified={setModified}
             />
           )}
           {postType == "high-potential" && (
             <HighPotentialForm
               post={post as Admin<HighPotentialPost>}
-              setPost={
-                setPost as Dispatch<SetStateAction<Admin<HighPotentialPost>>>
+              modifyPost={
+                modifyPost as (
+                  callback: SetStateAction<Admin<HighPotentialPost>>,
+                ) => void
               }
               invalidFields={invalidFields}
-              modified={modified}
-              setModified={setModified}
             />
           )}
         </div>

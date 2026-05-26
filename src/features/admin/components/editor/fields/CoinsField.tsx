@@ -1,19 +1,15 @@
 // CoinsField.tsx
-import { Dispatch, SetStateAction, useState } from "react";
+import { SetStateAction, useState } from "react";
 import { AnalysisPost } from "@src/domains/analysis/types";
 import { Admin } from "@src/domains/admin/types";
 
 export const CoinsField = ({
   post,
-  setPost,
-  modified,
-  setModified,
+  modifyPost,
   error = "",
 }: {
   post: Admin<AnalysisPost>;
-  setPost: Dispatch<SetStateAction<Admin<AnalysisPost>>>;
-  modified: boolean;
-  setModified: Dispatch<SetStateAction<boolean>>;
+  modifyPost: (callback: SetStateAction<Admin<AnalysisPost>>) => void;
   error?: string;
 }) => {
   const [coinInput, setCoinInput] = useState("");
@@ -31,26 +27,30 @@ export const CoinsField = ({
 
     if (newCoins.length === 0) return;
 
-    if (!modified) setModified(true);
-    setPost({
-      ...post,
-      meta: {
-        ...post.meta,
-        coins: [...post.meta.coins, ...newCoins],
-      },
-    } as typeof post);
+    modifyPost((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        meta: {
+          ...prev.meta,
+          coins: [...prev.meta.coins, ...newCoins],
+        },
+      };
+    });
     setCoinInput("");
   };
 
   const removeCoin = (coinToRemove: string) => {
-    if (!modified) setModified(true);
-    setPost({
-      ...post,
-      meta: {
-        ...post.meta,
-        coins: post.meta.coins.filter((coin) => coin !== coinToRemove),
-      },
-    } as typeof post);
+    modifyPost((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        meta: {
+          ...prev.meta,
+          coins: prev.meta.coins.filter((coin) => coin !== coinToRemove),
+        },
+      };
+    });
   };
 
   return (

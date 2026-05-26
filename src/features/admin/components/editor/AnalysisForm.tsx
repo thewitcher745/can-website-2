@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { SetStateAction } from "react";
 import dynamic from "next/dynamic";
 
 import { Admin } from "@src/domains/admin/types";
@@ -14,16 +14,12 @@ const EditorJSContainer = dynamic(() => import("./EditorJSContainer"), {
 
 const AnalysisForm = ({
   post,
-  setPost,
+  modifyPost,
   invalidFields,
-  modified,
-  setModified,
 }: {
   post: Admin<AnalysisPost>;
-  setPost: Dispatch<SetStateAction<Admin<AnalysisPost>>>;
+  modifyPost: (callback: SetStateAction<Admin<AnalysisPost>>) => void;
   invalidFields: Record<string, string>;
-  modified: boolean;
-  setModified: Dispatch<SetStateAction<boolean>>;
 }) => {
   if (!post) return;
 
@@ -34,51 +30,66 @@ const AnalysisForm = ({
       time: new Date().toISOString(),
       version: "2.31.3",
       blocks: [],
-    };
+    } as EditorJSBody;
 
-    if (!modified) setModified(true);
-
-    setPost({
-      ...post,
-      content: { ...post.content, updates: [...updates, newUpdate] },
+    modifyPost((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        content: {
+          ...prev.content,
+          updates: [...(prev.content.updates || []), newUpdate],
+        },
+      };
     });
   };
 
   const handleUpdateBodyChange = (index: number, data: EditorJSBody) => {
-    if (!modified) setModified(true);
-
-    setPost({
-      ...post,
-      content: {
-        ...post.content,
-        updates: updates.map((u, i) =>
-          i === index ? { ...u, body: data } : u,
-        ),
-      },
+    modifyPost((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        content: {
+          ...prev.content,
+          updates: prev.content.updates.map((u, i) =>
+            i === index
+              ? {
+                  time: u.time,
+                  version: data.version || u.version,
+                  blocks: data.blocks,
+                }
+              : u,
+          ),
+        },
+      };
     });
   };
 
   const handleUpdateTimeChange = (index: number, time: string) => {
-    if (!modified) setModified(true);
-
-    setPost({
-      ...post,
-      content: {
-        ...post.content,
-        updates: updates.map((u, i) => (i === index ? { ...u, time } : u)),
-      },
+    modifyPost((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        content: {
+          ...prev.content,
+          updates: prev.content.updates.map((u, i) =>
+            i === index ? { ...u, time } : u,
+          ),
+        },
+      };
     });
   };
 
   const handleRemoveUpdate = (index: number) => {
-    if (!modified) setModified(true);
-
-    setPost({
-      ...post,
-      content: {
-        ...post.content,
-        updates: updates.filter((_, i) => i !== index),
-      },
+    modifyPost((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        content: {
+          ...prev.content,
+          updates: prev.content.updates.filter((_, i) => i !== index),
+        },
+      };
     });
   };
 
@@ -90,17 +101,17 @@ const AnalysisForm = ({
           label="Main Image"
           value={post.meta.image}
           onChange={(url) => {
-            if (!modified) setModified(true);
-            setPost({ ...post, meta: { ...post.meta, image: url } });
+            modifyPost((prev) => ({
+              ...prev,
+              meta: { ...prev.meta, image: url },
+            }));
           }}
           helperText="High quality analysis chart/image"
           error={invalidFields["meta.image"] || ""}
         />
         <CoinsField
           post={post}
-          setPost={setPost}
-          modified={modified}
-          setModified={setModified}
+          modifyPost={modifyPost}
           error={invalidFields["meta.coins"] || ""}
         />
         <div className="flex items-center gap-2 mt-6">
@@ -110,10 +121,12 @@ const AnalysisForm = ({
             type="checkbox"
             checked={post.meta.isVip || false}
             onChange={(e) => {
-              if (!modified) setModified(true);
-              setPost({
-                ...post,
-                meta: { ...post.meta, isVip: e.target.checked },
+              modifyPost((prev) => {
+                if (!prev) return prev;
+                return {
+                  ...prev,
+                  meta: { ...prev.meta, isVip: e.target.checked },
+                };
               });
             }}
             className="w-4 h-4 rounded border-border bg-background text-primary focus:ring-primary cursor-pointer"
@@ -134,17 +147,19 @@ const AnalysisForm = ({
           <EditorJSContainer
             holder="editorjs-container"
             onChange={(e) => {
-              if (!modified) setModified(true);
-              setPost({
-                ...post,
-                content: {
-                  ...post.content,
-                  body: {
-                    blocks: e.blocks as EditorJsBlock[],
-                    time: e.time?.toString() || "",
-                    version: e.version || "",
+              modifyPost((prev) => {
+                if (!prev) return prev;
+                return {
+                  ...prev,
+                  content: {
+                    ...prev.content,
+                    body: {
+                      blocks: e.blocks as EditorJsBlock[],
+                      time: e.time?.toString() || "",
+                      version: e.version || "",
+                    },
                   },
-                },
+                };
               });
             }}
             data={{
@@ -209,11 +224,12 @@ const AnalysisForm = ({
             </div>
             <div className="bg-white text-black p-6 rounded-lg min-h-[300px] overflow-hidden shadow-inner ring-1 ring-border">
               <EditorJSContainer
+                key={`update-editor-${index}`}
                 holder={`update-editor-${index}`}
                 onChange={(data) =>
                   handleUpdateBodyChange(index, {
-                    time: new Date(data.time || 0).toISOString(),
-                    version: data.version || "3.21.3",
+                    // Don't change the time
+                    ...update,
                     blocks: data.blocks as EditorJsBlock[],
                   })
                 }

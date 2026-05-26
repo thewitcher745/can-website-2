@@ -1,18 +1,13 @@
-// TagsField.tsx
-import { Dispatch, SetStateAction, useState } from "react";
+import { SetStateAction, useState } from "react";
 import { EditorPost } from "@src/domains/admin/types";
 
 export const TagsField = ({
   post,
-  setPost,
-  modified,
-  setModified,
+  modifyPost,
   error = "",
 }: {
   post: EditorPost;
-  setPost: Dispatch<SetStateAction<EditorPost>>;
-  modified: boolean;
-  setModified: Dispatch<SetStateAction<boolean>>;
+  modifyPost: (callback: SetStateAction<EditorPost>) => void;
   error?: string;
 }) => {
   const [tagInput, setTagInput] = useState("");
@@ -30,26 +25,30 @@ export const TagsField = ({
 
     if (newTags.length === 0) return;
 
-    if (!modified) setModified(true);
-    setPost({
-      ...post,
-      meta: {
-        ...post.meta,
-        tags: [...post.meta.tags, ...newTags],
-      },
-    } as typeof post);
+    modifyPost((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        meta: {
+          ...prev.meta,
+          tags: [...prev.meta.tags, ...newTags],
+        },
+      } as typeof prev;
+    });
     setTagInput("");
   };
 
   const removeTag = (tagToRemove: string) => {
-    if (!modified) setModified(true);
-    setPost({
-      ...post,
-      meta: {
-        ...post.meta,
-        tags: post.meta.tags.filter((tag) => tag !== tagToRemove),
-      },
-    } as typeof post);
+    modifyPost((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        meta: {
+          ...prev.meta,
+          tags: prev.meta.tags.filter((tag) => tag !== tagToRemove),
+        },
+      } as typeof prev;
+    });
   };
 
   return (

@@ -4,15 +4,11 @@ import { EditorPost } from "@src/domains/admin/types";
 
 export const DescriptionField = ({
   post,
-  setPost,
-  modified,
-  setModified,
+  modifyPost,
   error = "",
 }: {
   post: EditorPost;
-  setPost: Dispatch<SetStateAction<EditorPost>>;
-  modified: boolean;
-  setModified: Dispatch<SetStateAction<boolean>>;
+  modifyPost: (callback: SetStateAction<EditorPost>) => void;
   error?: string;
 }) => {
   if (!post) return null;
@@ -30,11 +26,13 @@ export const DescriptionField = ({
         name="description"
         value={post.meta.description}
         onChange={(e) => {
-          if (!modified) setModified(true);
-          setPost({
-            ...post,
-            meta: { ...post.meta, description: e.target.value },
-          } as typeof post);
+          modifyPost((prev) => {
+            if (!prev) return prev;
+            return {
+              ...prev,
+              meta: { ...prev.meta, description: e.target.value },
+            } as typeof prev;
+          });
         }}
         placeholder="Enter short description"
         rows={3}
