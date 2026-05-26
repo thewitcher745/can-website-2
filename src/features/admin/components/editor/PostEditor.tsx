@@ -30,6 +30,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
   const [loading, setLoading] = useState(false);
   const [isSlugManuallyEdited, setIsSlugManuallyEdited] = useState(false);
   const [modified, setModified] = useState(false);
+  const [loadedFromCache, setLoadedFromCache] = useState(false);
   const [post, setPost] = useState<EditorPost>(() => {
     if (mode === "create") {
       return createEmptyPost("analysis");
@@ -49,15 +50,46 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
   const slug = isEditing ? (router.query.slug as string) : undefined;
   const postType = isEditing ? (router.query.type as PostType) : post?.type;
 
+  // Load from storage
+  useEffect(() => {
+    let saved;
+    if (post) {
+      if (isEditing) saved = localStorage.getItem(`latest_edit_${post.slug}`);
+      else saved = localStorage.getItem("latest_create");
+    }
+
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      setPost(parsed);
+      setModified(true);
+      setLoadedFromCache(true);
+    }
+  }, []);
+
+  // Save form to localStorage at each re-render
+  useEffect(() => {
+    if (post && modified) {
+      if (isEditing)
+        localStorage.setItem(`latest_edit_${post.slug}`, JSON.stringify(post));
+      else localStorage.setItem("latest_create", JSON.stringify(post));
+    }
+  }, [post, postType, modified, isEditing]);
+
   const handleSubmit = async () => {
     if (!post) return;
 
     try {
       if (isEditing) {
         await updatePost(post.type, post.slug, post);
+
+        localStorage.removeItem(`latest_edit_${post.slug}`);
+
         alert("Post updated successfully.");
       } else {
         await createPost(post.type, post.slug, post);
+
+        localStorage.getItem("latest_create");
+
         alert("Post created successfully.");
       }
       router.push("/admin/dashboard");
@@ -106,7 +138,8 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
   };
 
   useEffect(() => {
-    if (isEditing && slug && postType) fetchPostData(postType, slug);
+    if (!loadedFromCache && isEditing && slug && postType)
+      fetchPostData(postType, slug);
   }, [slug, postType]);
 
   useEffect(() => {
