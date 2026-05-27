@@ -14,6 +14,7 @@ import Footer from "@shared/ui/Footer";
 import { buildApiUrl } from "@src/config";
 import { CoinCMCInfo, CoinMetaInfo } from "@src/types";
 import { AnalysisPost } from "@src/domains/analysis/types";
+import MetaTags from "@src/shared/MetaTags";
 
 type CoinPageProps = {
   symbol: string;
@@ -48,19 +49,17 @@ const CoinPage: NextPage<CoinPageProps> = ({
 
   return (
     <>
-      <Head>
-        <title>{`${
-          meta?.name ?? symbol
-        } (${symbol.toUpperCase()}) - CAN Trading`}</title>
-        <meta
-          name="description"
-          content={
-            meta?.description
-              ? meta.description.slice(0, 150)
-              : `${meta?.name ?? symbol} coin details and metrics`
-          }
-        />
-      </Head>
+      <MetaTags
+        title={`${meta?.name ?? symbol} (${symbol.toUpperCase()})`}
+        description={
+          meta?.description
+            ? meta.description.slice(0, 150)
+            : `${meta?.name ?? symbol} coin details and metrics`
+        }
+        canonicalUrl={`https://can-trading.com/coins/${symbol.toLowerCase()}`}
+        image={meta?.logo || "/images/showcase/can-banner.png"}
+        type="website"
+      />
       <main className="bg-background text-text-main min-h-screen">
         <div className="max-w-custom mx-auto px-4 py-10 space-y-8">
           <CoinPageHeader symbol={symbol} meta={meta} />

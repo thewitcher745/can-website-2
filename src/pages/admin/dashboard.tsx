@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import withAuth from "@src/features/admin/withAuth";
 import { ListedHighPotential } from "@src/domains/high-potential/types";
@@ -106,150 +107,158 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="pt-20 bg-surface text-text-main rounded-xl shadow-xl border border-border flex justify-center min-h-lvh">
-      <div className="max-w-custom w-full px-4">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="m-0 text-2xl font-bold text-primary">
-            Content Dashboard
-          </h1>
-          <button
-            className="px-6 py-3 bg-primary hover:bg-primary-dark text-black rounded-lg font-bold cursor-pointer transition-colors"
-            onClick={() => router.push("/admin/create")}
-          >
-            + New Post
-          </button>
-        </div>
+    <>
+      <Head>
+        <title>Admin Dashboard | CAN Trading</title>
+      </Head>
 
-        <div className="overflow-x-auto">
-          {loading ? (
-            <p className="text-text-muted">Loading posts...</p>
-          ) : (
-            <table className="w-full border-collapse mt-4">
-              <thead>
-                <tr className="bg-background text-text-muted text-xs font-semibold uppercase">
-                  <th
-                    className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
-                    onClick={() => handleSort("title")}
-                  >
-                    Title
-                    <SortIcon field="title" />
-                  </th>
-                  <th
-                    className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
-                    onClick={() => handleSort("type")}
-                  >
-                    Type
-                    <SortIcon field="type" />
-                  </th>
-                  <th
-                    className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
-                    onClick={() => handleSort("publishedAt")}
-                  >
-                    Publish time
-                    <SortIcon field="publishedAt" />
-                  </th>
-                  <th
-                    className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
-                    onClick={() => handleSort("lastModifiedAt")}
-                  >
-                    Last modified time
-                    <SortIcon field="lastModifiedAt" />
-                  </th>
-                  <th className="p-4 text-left border-b border-border">
-                    Status
-                  </th>
-                  <th className="p-4 text-left border-b border-border">VIP</th>
-                  <th className="p-4 text-left border-b border-border">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {sortedPosts.map((post) => (
-                  <tr
-                    key={post.slug}
-                    className="hover:bg-background/50 transition-colors"
-                  >
-                    <td className="p-4 border-b border-border">
-                      {post.meta.title}
-                    </td>
-                    <td className="p-4 border-b border-border">
-                      <span className="capitalize">
-                        {post.type.replace("_", " ")}
-                      </span>
-                    </td>
-                    <td className="p-4 border-b border-border">
-                      {new Date(
-                        post.meta.publishedAt || "",
-                      ).toLocaleDateString()}{" "}
-                      {new Date(post.meta.publishedAt || "").toLocaleTimeString(
-                        [],
-                        {
+      <div className="pt-20 bg-surface text-text-main rounded-xl shadow-xl border border-border flex justify-center min-h-lvh">
+        <div className="max-w-custom w-full px-4">
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="m-0 text-2xl font-bold text-primary">
+              Content Dashboard
+            </h1>
+            <button
+              className="px-6 py-3 bg-primary hover:bg-primary-dark text-black rounded-lg font-bold cursor-pointer transition-colors"
+              onClick={() => router.push("/admin/create")}
+            >
+              + New Post
+            </button>
+          </div>
+
+          <div className="overflow-x-auto">
+            {loading ? (
+              <p className="text-text-muted">Loading posts...</p>
+            ) : (
+              <table className="w-full border-collapse mt-4">
+                <thead>
+                  <tr className="bg-background text-text-muted text-xs font-semibold uppercase">
+                    <th
+                      className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
+                      onClick={() => handleSort("title")}
+                    >
+                      Title
+                      <SortIcon field="title" />
+                    </th>
+                    <th
+                      className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
+                      onClick={() => handleSort("type")}
+                    >
+                      Type
+                      <SortIcon field="type" />
+                    </th>
+                    <th
+                      className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
+                      onClick={() => handleSort("publishedAt")}
+                    >
+                      Publish time
+                      <SortIcon field="publishedAt" />
+                    </th>
+                    <th
+                      className="p-4 text-left border-b border-border cursor-pointer hover:text-primary transition-colors"
+                      onClick={() => handleSort("lastModifiedAt")}
+                    >
+                      Last modified time
+                      <SortIcon field="lastModifiedAt" />
+                    </th>
+                    <th className="p-4 text-left border-b border-border">
+                      Status
+                    </th>
+                    <th className="p-4 text-left border-b border-border">
+                      VIP
+                    </th>
+                    <th className="p-4 text-left border-b border-border">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sortedPosts.map((post) => (
+                    <tr
+                      key={post.slug}
+                      className="hover:bg-background/50 transition-colors"
+                    >
+                      <td className="p-4 border-b border-border">
+                        {post.meta.title}
+                      </td>
+                      <td className="p-4 border-b border-border">
+                        <span className="capitalize">
+                          {post.type.replace("_", " ")}
+                        </span>
+                      </td>
+                      <td className="p-4 border-b border-border">
+                        {new Date(
+                          post.meta.publishedAt || "",
+                        ).toLocaleDateString()}{" "}
+                        {new Date(
+                          post.meta.publishedAt || "",
+                        ).toLocaleTimeString([], {
                           hour: "2-digit",
                           minute: "2-digit",
-                        },
-                      )}
-                    </td>
-                    <td className="p-4 border-b border-border">
-                      {new Date(
-                        post.meta.lastModifiedAt || "",
-                      ).toLocaleDateString()}{" "}
-                      {new Date(
-                        post.meta.lastModifiedAt || "",
-                      ).toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </td>
-                    <td className="p-4 border-b border-border">
-                      <span
-                        className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase ${
-                          post.status === "published"
-                            ? "bg-success/20 text-success border border-success/30"
-                            : "bg-primary-dark/20 text-primary-dark border border-primary-dark/30"
-                        }`}
-                      >
-                        {post.status}
-                      </span>
-                    </td>
-                    <td className="p-4 border-b border-border">
-                      {(post as Admin<ListedAnalysis>).meta?.isVip === true ? (
-                        <span className="text-primary font-bold">YES</span>
-                      ) : (post as Admin<ListedAnalysis>).meta?.isVip ===
-                        false ? (
-                        <span className="text-text-muted">NO</span>
-                      ) : (
-                        <span className="text-text-muted italic">-</span>
-                      )}
-                    </td>
-                    <td className="p-4 border-b border-border">
-                      <div className="flex gap-2">
-                        <button
-                          className="px-3 py-1.5 bg-secondary hover:bg-secondary-light hover:text-black text-white text-sm rounded transition-colors"
-                          onClick={() =>
-                            router.push(
-                              `/admin/edit?slug=${post.slug}&type=${post.type}`,
-                            )
-                          }
+                        })}
+                      </td>
+                      <td className="p-4 border-b border-border">
+                        {new Date(
+                          post.meta.lastModifiedAt || "",
+                        ).toLocaleDateString()}{" "}
+                        {new Date(
+                          post.meta.lastModifiedAt || "",
+                        ).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </td>
+                      <td className="p-4 border-b border-border">
+                        <span
+                          className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase ${
+                            post.status === "published"
+                              ? "bg-success/20 text-success border border-success/30"
+                              : "bg-primary-dark/20 text-primary-dark border border-primary-dark/30"
+                          }`}
                         >
-                          Edit
-                        </button>
-                        <button
-                          className="px-3 py-1.5 bg-error hover:bg-error-light hover:text-black text-white text-sm rounded transition-colors"
-                          onClick={() => handleDelete(post.slug, post.type)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
+                          {post.status}
+                        </span>
+                      </td>
+                      <td className="p-4 border-b border-border">
+                        {(post as Admin<ListedAnalysis>).meta?.isVip ===
+                        true ? (
+                          <span className="text-primary font-bold">YES</span>
+                        ) : (post as Admin<ListedAnalysis>).meta?.isVip ===
+                          false ? (
+                          <span className="text-text-muted">NO</span>
+                        ) : (
+                          <span className="text-text-muted italic">-</span>
+                        )}
+                      </td>
+                      <td className="p-4 border-b border-border">
+                        <div className="flex gap-2">
+                          <button
+                            className="px-3 py-1.5 bg-secondary hover:bg-secondary-light hover:text-black text-white text-sm rounded transition-colors"
+                            onClick={() =>
+                              router.push(
+                                `/admin/edit?slug=${post.slug}&type=${post.type}`,
+                              )
+                            }
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="px-3 py-1.5 bg-error hover:bg-error-light hover:text-black text-white text-sm rounded transition-colors"
+                            onClick={() => handleDelete(post.slug, post.type)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

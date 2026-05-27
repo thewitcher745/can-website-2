@@ -10,6 +10,7 @@ import {
   getHighPotentialPosts,
 } from "@src/domains/high-potential/api";
 import { HighPotentialPost } from "@src/domains/high-potential/types";
+import MetaTags from "@src/shared/MetaTags";
 
 type HighPotentialPostProps = { post?: HighPotentialPost };
 
@@ -42,34 +43,17 @@ const HighPotentialPostPage = ({ post }: HighPotentialPostProps) => {
 
   return (
     <>
-      <Head>
-        <title>{`${post.meta.title} - CAN Trading`}</title>
-        <meta property="og:title" content={post.meta.title} />
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:description"
-          content={
-            post.meta.description ||
-            "High-potential cryptocurrency analysis by CAN Trading"
-          }
-        />
-        <meta
-          property="og:url"
-          content={`https://can-trading.com/high-potential/${post.slug}`}
-        />
-        <meta property="og:site_name" content="CAN Trading" />
-        <meta property="og:image" content="/images/showcase/can-banner.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.meta.title} />
-        <meta
-          name="twitter:description"
-          content={
-            post.meta.description ||
-            "High-potential cryptocurrency analysis by CAN Trading"
-          }
-        />
-        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
-      </Head>
+      <MetaTags
+        title={post.meta.title}
+        description={post.meta.description}
+        canonicalUrl={`https://can-trading.com/high-potential/${post.slug}`}
+        image={post.meta.image}
+        type="article"
+        publishedTime={post.meta.publishedAt || ""}
+        modifiedTime={post.meta.lastModifiedAt || ""}
+        author={post.meta.author}
+        tags={post.meta.tags}
+      />
       <main className="bg-background min-h-screen">
         <section className="w-full flex justify-center pt-6">
           <div className="max-w-custom flex flex-col w-full px-4 gap-4">

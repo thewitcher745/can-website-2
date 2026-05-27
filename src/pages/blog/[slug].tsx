@@ -7,6 +7,7 @@ import ArticleElement from "@src/features/articles/slug/ArticleElement";
 import Banner from "@src/features/homepage/components/promotions/BannerMini";
 import { ArticlePost } from "@src/domains/articles/types";
 import { getBlogPost, getBlogPosts } from "@src/domains/articles/api";
+import MetaTags from "@src/shared/MetaTags";
 
 type BlogPostProps = {
   post?: ArticlePost;
@@ -41,34 +42,17 @@ const BlogPostPage = ({ post }: BlogPostProps) => {
 
   return (
     <>
-      <Head>
-        <title>{`${post?.meta.title} - CAN Trading`}</title>
-        <meta property="og:title" content={post?.meta.title} />
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:description"
-          content={
-            post?.meta.description ||
-            "Trading & Risk Management Insights by CAN Trading"
-          }
-        />
-        <meta
-          property="og:url"
-          content={`https://can-trading.com/blog/${post?.slug}`}
-        />
-        <meta property="og:site_name" content="CAN Trading" />
-        <meta property="og:image" content="/images/showcase/can-banner.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post?.meta.title} />
-        <meta
-          name="twitter:description"
-          content={
-            post?.meta.description ||
-            "Trading & Risk Management Insights by CAN Trading"
-          }
-        />
-        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
-      </Head>
+      <MetaTags
+        title={post.meta.title}
+        description={post.meta.description}
+        canonicalUrl={`https://can-trading.com/high-potential/${post.slug}`}
+        image={post.meta.thumbnail}
+        type="article"
+        publishedTime={post.meta.publishedAt || ""}
+        modifiedTime={post.meta.lastModifiedAt || ""}
+        author={post.meta.author}
+        tags={post.meta.tags}
+      />
       <main className="bg-background min-h-screen flex flex-col items-center">
         <ArticleElement
           article={post}
