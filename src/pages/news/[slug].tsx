@@ -45,7 +45,7 @@ const NewsPostPage = ({ post }: NewsPostProps) => {
       <MetaTags
         title={post.meta.title}
         description={post.meta.description}
-        canonicalUrl={`https://can-trading.com/high-potential/${post.slug}`}
+        canonicalUrl={`https://can-trading.com/news/${post.slug}`}
         image={post.meta.thumbnail}
         type="article"
         publishedTime={post.meta.publishedAt || ""}

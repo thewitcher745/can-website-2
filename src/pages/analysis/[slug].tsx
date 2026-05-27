@@ -59,7 +59,7 @@ const AnalysisPostPage = ({ post }: AnalysisPostProps) => {
       <MetaTags
         title={post.meta.title}
         description={post.meta.description}
-        canonicalUrl={`https://can-trading.com/high-potential/${post.slug}`}
+        canonicalUrl={`https://can-trading.com/analysis/${post.slug}`}
         image={post.meta.image}
         type="article"
         publishedTime={post.meta.publishedAt || ""}
