@@ -59,6 +59,11 @@ const nextConfig = {
         hostname: "res.cloudinary.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "**.coingecko.com",
+        pathname: "/**",
+      },
     ],
     minimumCacheTTL: 2592000,
     dangerouslyAllowSVG: true,
