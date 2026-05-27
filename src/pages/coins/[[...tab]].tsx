@@ -54,7 +54,7 @@ const CoinsTab = () => {
       <MetaTags
         title="Crypto Market Overview"
         description="Real-time cryptocurrency market data: fear & greed index, top gainers & losers, volume leaders, market cap rankings, and interactive heatmaps."
-        canonicalUrl="https://can-trading.com/coins"
+        canonicalUrl={`https://can-trading.com/coins/${currentTab[0]}`}
         image="/images/showcase/can-banner.png"
         type="website"
       />
