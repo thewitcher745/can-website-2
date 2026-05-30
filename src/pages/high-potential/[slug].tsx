@@ -7,7 +7,7 @@ import Footer from "@src/shared/ui/Footer";
 import ArticleElement from "@src/features/high-potential/ArticleElement";
 import {
   getHighPotentialPost,
-  getHighPotentialPosts,
+  getHighPotentialSlugs,
 } from "@src/domains/high-potential/api";
 import { HighPotentialPost } from "@src/domains/high-potential/types";
 import MetaTags from "@src/shared/MetaTags";
@@ -26,7 +26,8 @@ const HighPotentialPostPage = ({ post }: HighPotentialPostProps) => {
           <div className="text-center px-4">
             <h1 className="text-4xl font-bold text-error mb-4">404</h1>
             <p className="text-text-muted mb-6">
-              This high-potential analysis couldn't be found or is no longer available.
+              This high-potential analysis couldn't be found or is no longer
+              available.
             </p>
             <Link
               href="/"
@@ -110,10 +111,10 @@ const HighPotentialPostPage = ({ post }: HighPotentialPostProps) => {
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   try {
-    const res = await getHighPotentialPosts();
+    const res = await getHighPotentialSlugs();
 
-    const paths = res.data.map((post) => ({
-      params: { slug: post.slug },
+    const paths = res.data.map((slug) => ({
+      params: { slug },
     }));
     return { paths, fallback: "blocking" };
   } catch {

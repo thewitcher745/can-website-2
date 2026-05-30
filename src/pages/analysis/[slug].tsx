@@ -9,7 +9,7 @@ import Update from "@src/features/analysis/slug/Update";
 import MainPost from "@src/features/analysis/slug/MainPost";
 import chartHighlighting from "@src/features/analysis/slug/chartHighlighting";
 import Banner from "@src/features/homepage/components/promotions/BannerMini";
-import { getAnalysisPost, getAnalysisPosts } from "@src/domains/analysis/api";
+import { getAnalysisPost, getAnalysisSlugs } from "@src/domains/analysis/api";
 import { AnalysisPost } from "@src/domains/analysis/types";
 import MetaTags from "@src/shared/MetaTags";
 
@@ -115,10 +115,10 @@ const AnalysisPostPage = ({ post }: AnalysisPostProps) => {
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   try {
-    const res = await getAnalysisPosts();
+    const res = await getAnalysisSlugs();
 
-    const paths = res.data.map((post) => ({
-      params: { slug: post.slug },
+    const paths = res.data.map((slug) => ({
+      params: { slug },
     }));
     return { paths, fallback: "blocking" };
   } catch {

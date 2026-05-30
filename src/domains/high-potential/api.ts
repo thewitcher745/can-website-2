@@ -38,3 +38,12 @@ export async function getHighPotentialPost(
     `/api/v2/posts/high-potential/${slug}`,
   );
 }
+
+/**
+ * Gets only the slugs of all high potential posts (optimized for sitemap/paths generation)
+ *
+ * @returns Promise containing array of slugs
+ */
+export async function getHighPotentialSlugs(): Promise<ApiResponse<string[]>> {
+  return apiClient.get<ApiResponse<string[]>>("/api/v2/posts/slugs/high-potential");
+}

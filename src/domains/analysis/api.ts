@@ -37,3 +37,12 @@ export async function getAnalysisPosts(
 export async function getAnalysisPost(slug: string): Promise<GetPostApiResult> {
   return apiClient.get<GetPostApiResult>(`/api/v2/posts/analysis/${slug}`);
 }
+
+/**
+ * Gets only the slugs of all analysis posts (optimized for sitemap/paths generation)
+ *
+ * @returns Promise containing array of slugs
+ */
+export async function getAnalysisSlugs(): Promise<ApiResponse<string[]>> {
+  return apiClient.get<ApiResponse<string[]>>("/api/v2/posts/slugs/analysis");
+}

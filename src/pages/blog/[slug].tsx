@@ -6,7 +6,7 @@ import Footer from "@shared/ui/Footer";
 import ArticleElement from "@src/features/articles/slug/ArticleElement";
 import Banner from "@src/features/homepage/components/promotions/BannerMini";
 import { ArticlePost } from "@src/domains/articles/types";
-import { getBlogPost, getBlogPosts } from "@src/domains/articles/api";
+import { getBlogPost, getBlogSlugs } from "@src/domains/articles/api";
 import MetaTags from "@src/shared/MetaTags";
 
 type BlogPostProps = {
@@ -70,10 +70,10 @@ const BlogPostPage = ({ post }: BlogPostProps) => {
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   try {
-    const res = await getBlogPosts();
+    const res = await getBlogSlugs();
 
-    const paths = res.data.map((post) => ({
-      params: { slug: post.slug },
+    const paths = res.data.map((slug) => ({
+      params: { slug },
     }));
     return { paths, fallback: "blocking" };
   } catch {

@@ -59,3 +59,21 @@ export async function getBlogPost(slug: string): Promise<GetPostApiResult> {
 export async function getNewsPost(slug: string): Promise<GetPostApiResult> {
   return apiClient.get<GetPostApiResult>(`/api/v2/posts/news/${slug}`);
 }
+
+/**
+ * Gets only the slugs of all blog posts (optimized for sitemap/paths generation)
+ *
+ * @returns Promise containing array of slugs
+ */
+export async function getBlogSlugs(): Promise<ApiResponse<string[]>> {
+  return apiClient.get<ApiResponse<string[]>>("/api/v2/posts/slugs/blog");
+}
+
+/**
+ * Gets only the slugs of all news posts (optimized for sitemap/paths generation)
+ *
+ * @returns Promise containing array of slugs
+ */
+export async function getNewsSlugs(): Promise<ApiResponse<string[]>> {
+  return apiClient.get<ApiResponse<string[]>>("/api/v2/posts/slugs/news");
+}
