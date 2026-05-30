@@ -19,7 +19,7 @@ export function createEmptyPost(
   const baseMeta = {
     title: "",
     author: "",
-    publishedAt: null,
+    publishedAt: new Date().toISOString(),
     lastModifiedAt: null,
     createdAt: null,
     description: "",
