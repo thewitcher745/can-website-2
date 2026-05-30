@@ -44,6 +44,14 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
 
   const modifyPost = (callback: SetStateAction<EditorPost>) => {
     if (!modified) setModified(true);
+
+    // Save post to local storage on every modification
+    if (post && modified) {
+      if (isEditing)
+        localStorage.setItem(`latest_edit_${post.slug}`, JSON.stringify(post));
+      else localStorage.setItem("latest_create", JSON.stringify(post));
+    }
+
     setPost(callback);
   };
 
@@ -59,21 +67,13 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
     }
 
     if (saved) {
+      console.log("Loading from storage");
       const parsed = JSON.parse(saved);
       setPost(parsed);
       setModified(true);
       setLoadedFromCache(true);
     }
   }, []);
-
-  // Save form to localStorage at each re-render
-  useEffect(() => {
-    if (post && modified) {
-      if (isEditing)
-        localStorage.setItem(`latest_edit_${post.slug}`, JSON.stringify(post));
-      else localStorage.setItem("latest_create", JSON.stringify(post));
-    }
-  }, [post, postType, modified, isEditing]);
 
   const handleSubmit = async () => {
     if (!post) return;
