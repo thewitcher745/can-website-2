@@ -88,7 +88,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
       } else {
         await createPost(post.type, post.slug, post);
 
-        localStorage.getItem("latest_create");
+        localStorage.removeItem("latest_create");
 
         alert("Post created successfully.");
       }
@@ -123,6 +123,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
     setLoading(true);
     try {
       const res = await getPostAdmin<EditorPost>(postType, postSlug);
+      console.log(res.data);
       setPost(res.data);
     } catch (error) {
       console.error("Error fetching post:", error);
