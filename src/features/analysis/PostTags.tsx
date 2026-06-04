@@ -1,6 +1,10 @@
 import React from "react";
 
-import { PostTagsProps } from "@src/types";
+interface PostTagsProps {
+  tags: string[];
+  hiddenOnMobile?: boolean;
+  className?: string;
+}
 
 const PostTags = ({
   tags,

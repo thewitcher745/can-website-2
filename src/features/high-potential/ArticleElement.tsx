@@ -1,7 +1,7 @@
 import React from "react";
 
-import { HighPotentialPost } from "@src/types";
 import PostBody from "./PostBody";
+import { HighPotentialPost } from "@src/domains/high-potential/types";
 
 const ArticleElement = ({ article }: { article: HighPotentialPost }) => {
   return (
@@ -11,16 +11,22 @@ const ArticleElement = ({ article }: { article: HighPotentialPost }) => {
           {article.meta.title}
         </h1>
         <div className="text-xs text-text-muted mb-4">
-          {new Date(article.meta.time).toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-          })}{" "}
-          {new Date(article.meta.time).toLocaleTimeString(undefined, {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: false,
-          })}
+          {new Date(article.meta.publishedAt || "").toLocaleDateString(
+            undefined,
+            {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+            },
+          )}{" "}
+          {new Date(article.meta.publishedAt || "").toLocaleTimeString(
+            undefined,
+            {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false,
+            },
+          )}
         </div>
         <div className="flex flex-wrap gap-2 mb-6">
           {article.meta.tags.map((tag) => (
@@ -32,7 +38,7 @@ const ArticleElement = ({ article }: { article: HighPotentialPost }) => {
             </span>
           ))}
         </div>
-        <PostBody postBody={article.body}></PostBody>
+        <PostBody postBody={article.content.body}></PostBody>
       </div>
     </div>
   );

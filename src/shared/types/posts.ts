@@ -1,12 +1,12 @@
 export type PostType = "analysis" | "blog" | "news" | "high-potential";
+export type PostStatus = "published" | "draft" | "archived";
 
 export interface BaseMeta {
   title: string;
   author: string;
-  publishedAt: string;
-  lastModifiedAt: string;
-  time: string;
-  createdAt: string;
+  publishedAt: string | null;
+  lastModifiedAt: string | null;
+  createdAt: string | null;
   description: string;
   tags: string[];
 }
@@ -54,15 +54,15 @@ type ImageBlock = {
   };
 };
 
-export type BodyBlock =
+export type EditorJsBlock =
   | HeaderBlock
   | ParagraphBlock
   | ListBlock
   | TableBlock
   | ImageBlock;
 
-export type Body = {
-  time: number;
+export type EditorJSBody = {
+  time: string; // ISO-format datetime string
   version: string;
-  blocks: BodyBlock[];
+  blocks: EditorJsBlock[];
 };

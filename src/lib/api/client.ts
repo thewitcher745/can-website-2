@@ -1,6 +1,4 @@
-export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "127.0.0.1:5000";
+export const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export class ApiError extends Error {
   constructor(
@@ -12,6 +10,13 @@ export class ApiError extends Error {
     this.name = "ApiError";
   }
 }
+
+/**
+ * API response data type which nests the response in a "data" key within.
+ */
+export type ApiResponse<T> = {
+  data: T;
+};
 
 /**
  * Builds the full URL for an API request to the backend.

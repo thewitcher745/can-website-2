@@ -1,15 +1,16 @@
-import Head from "next/head";
 import React, { useState } from "react";
 
 import Footer from "@shared/ui/Footer";
-import { ListedArticle } from "@src/types";
-import Listings from "@src/features/articles/Listings";
+import { ListedArticle } from "@src/domains/articles/types";
+import Index from "@src/features/articles/Index";
 import { GetStaticProps } from "next";
-import { createListingGetStaticProps } from "@src/features/articles/listingIsr";
+import { createListingGetStaticProps } from "@src/lib/isr/listing";
+import { getBlogPosts } from "@src/domains/articles/api";
+import MetaTags from "@src/shared/MetaTags";
 
 type BlogIndexProps = { items: ListedArticle[] };
 
-const Blog: React.FC<BlogIndexProps> = ({ items }) => {
+const Blog: React.FC<BlogIndexProps> = ({ items: posts }) => {
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
 
   const removeTag = (tag: string) => {
@@ -21,42 +22,19 @@ const Blog: React.FC<BlogIndexProps> = ({ items }) => {
   };
 
   const filteredPosts = filterTags
-    ? items.filter((post) =>
+    ? posts.filter((post) =>
         filterTags?.some((tag) => post.meta.tags.includes(tag)),
       )
-    : items;
+    : posts;
 
   return (
     <>
-      <Head>
-        <title>Trading and Risk Management - CAN Trading</title>
-        <meta
-          name="description"
-          content="Insights, news, and analysis about cryptocurrency markets and trading strategies from CAN Trading"
-        />
-        <meta
-          property="og:title"
-          content="Trading and Risk Management - CAN Trading"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:description"
-          content="Insights, news, and analysis about cryptocurrency markets and trading strategies from CAN Trading"
-        />
-        <meta property="og:url" content="https://can-trading.com/blog" />
-        <meta property="og:site_name" content="CAN Trading" />
-        <meta property="og:image" content="/images/showcase/can-banner.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Trading and Risk Management - CAN Trading"
-        />
-        <meta
-          name="twitter:description"
-          content="Insights, news, and analysis about cryptocurrency markets and trading strategies from CAN Trading"
-        />
-        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
-      </Head>
+      <MetaTags
+        title="Trading & Risk Management"
+        description="Learn professional trading strategies, risk management techniques, and market psychology from experienced traders."
+        canonicalUrl="https://can-trading.com/blog"
+        image="/images/showcase/can-banner.png"
+      />
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-6">
           <h1 className="text-3xl font-bold mb-8 text-primary px-2">
@@ -65,7 +43,7 @@ const Blog: React.FC<BlogIndexProps> = ({ items }) => {
           <p className="text-text-main text-xl mb-6 px-2">
             Explore the latest insights and stories from our team of experts.
           </p>
-          <Listings
+          <Index
             items={filteredPosts}
             baseHref="/blog"
             filterTags={filterTags}
@@ -82,4 +60,4 @@ const Blog: React.FC<BlogIndexProps> = ({ items }) => {
 export default Blog;
 
 export const getStaticProps: GetStaticProps<BlogIndexProps> =
-  createListingGetStaticProps("/api/blog");
+  createListingGetStaticProps(getBlogPosts);

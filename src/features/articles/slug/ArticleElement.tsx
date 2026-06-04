@@ -1,8 +1,6 @@
-import React from "react";
 import Link from "next/link";
-import { ArticlePost } from "@src/types";
-import renderBlock from "@src/shared/ui/articles/articleRenderer";
 import PostBody from "./PostBody";
+import { ArticlePost } from "@src/domains/articles/types";
 
 type ArticleElementProps = {
   article: ArticlePost;
@@ -10,12 +8,11 @@ type ArticleElementProps = {
   backText: string;
 };
 
-const ArticleElement: React.FC<ArticleElementProps> = ({
+const ArticleElement = ({
   article,
   backHref,
   backText,
-}) => {
-  const postBody = article.body;
+}: ArticleElementProps) => {
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 pt-6">
       <Link href={backHref} className="text-primary hover:underline text-sm">
@@ -26,16 +23,22 @@ const ArticleElement: React.FC<ArticleElementProps> = ({
           {article.meta.title}
         </h1>
         <div className="text-xs text-text-muted mb-4">
-          {new Date(article.meta.time).toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-          })}{" "}
-          {new Date(article.meta.time).toLocaleTimeString(undefined, {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: false,
-          })}
+          {new Date(article.meta.publishedAt || "").toLocaleDateString(
+            undefined,
+            {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+            },
+          )}{" "}
+          {new Date(article.meta.publishedAt || "").toLocaleTimeString(
+            undefined,
+            {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false,
+            },
+          )}
         </div>
         <div className="flex flex-wrap gap-2 mb-6">
           {article.meta.tags.map((tag) => (
@@ -47,7 +50,7 @@ const ArticleElement: React.FC<ArticleElementProps> = ({
             </span>
           ))}
         </div>
-        <PostBody postBody={article.body}></PostBody>
+        <PostBody postBody={article.content.body}></PostBody>
       </div>
     </div>
   );

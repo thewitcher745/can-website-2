@@ -1,5 +1,7 @@
-import { PostDescriptionProps } from "@src/types";
-import React from "react";
+interface PostDescriptionProps {
+  description: string;
+  className?: string;
+}
 
 const PostDescription = ({
   description,

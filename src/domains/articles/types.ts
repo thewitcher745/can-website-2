@@ -1,11 +1,13 @@
-import { BaseMeta, Body, Listed } from "@src/shared/types/content";
+import { BaseMeta, EditorJSBody, Listed } from "@src/shared/types/posts";
 
 export interface ArticleMeta extends BaseMeta {
   thumbnail: string;
 }
 
-export type ListedArticleMeta = Listed<ArticleMeta>;
+export type ListedArticle = Listed<ArticleMeta>;
 
-export interface ArticlePost extends ListedArticleMeta {
-  body: Body;
+export interface ArticlePost extends ListedArticle {
+  content: {
+    body: EditorJSBody;
+  };
 }

@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { formatRelativeTime } from "@src/utils";
-import { ListedArticleMeta } from "@src/domains/articles/types";
+import { ListedArticle } from "@src/domains/articles/types";
 
 interface TableRowProps {
-  item?: ListedArticleMeta;
+  item?: ListedArticle;
   tableSlug?: string;
   placeholder?: boolean;
   i: number;
@@ -50,7 +50,9 @@ const TableRow = ({
                   {item.meta.title}
                 </h3>
                 <span className="py-1 w-1/4 text-left text-text-muted text-xs">
-                  {formatRelativeTime(item.meta.time, "short")}
+                  {item.meta.publishedAt
+                    ? formatRelativeTime(item.meta.publishedAt, "short")
+                    : ""}
                 </span>
               </div>
             </div>

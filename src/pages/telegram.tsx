@@ -21,7 +21,6 @@ const TelegramRedirect: React.FC = () => {
   useEffect(() => {
     // Fire conversion event when component mounts
     if (typeof window !== "undefined" && window.gtag) {
-      console.log(window.gtag);
       window.gtag("event", "conversion", {
         send_to: "AW-17953959733/8ya1COyMnqwcELXejvFC",
         value: 1.0,

@@ -1,14 +1,16 @@
-import Head from "next/head";
 import React, { useState } from "react";
+
 import Footer from "@shared/ui/Footer";
-import { ListedArticle } from "@src/types";
-import Listings from "@src/features/articles/Listings";
+import Index from "@src/features/articles/Index";
 import { GetStaticProps } from "next";
-import { createListingGetStaticProps } from "@src/features/articles/listingIsr";
+import { getNewsPosts } from "@src/domains/articles/api";
+import { createListingGetStaticProps } from "@src/lib/isr/listing";
+import { ListedArticle } from "@src/domains/articles/types";
+import MetaTags from "@src/shared/MetaTags";
 
 type NewsIndexProps = { items: ListedArticle[] };
 
-const News: React.FC<NewsIndexProps> = ({ items }) => {
+const News: React.FC<NewsIndexProps> = ({ items: posts }) => {
   const [filterTags, setFilterTags] = useState<string[] | null>(null);
 
   const removeTag = (tag: string) => {
@@ -20,36 +22,19 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
   };
 
   const filteredArticles = filterTags
-    ? items.filter((article) =>
+    ? posts.filter((article) =>
         filterTags?.some((tag) => article.meta.tags.includes(tag)),
       )
-    : items;
+    : posts;
 
   return (
     <>
-      <Head>
-        <title>Latest Crypto News - CAN Trading</title>
-        <meta
-          name="description"
-          content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading"
-        />
-        <meta property="og:title" content="Latest Crypto News - CAN Trading" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:description"
-          content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading"
-        />
-        <meta property="og:url" content="https://can-trading.com/news" />
-        <meta property="og:site_name" content="CAN Trading" />
-        <meta property="og:image" content="/images/showcase/can-banner.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Latest Crypto News - CAN Trading" />
-        <meta
-          name="twitter:description"
-          content="Stay updated with the latest cryptocurrency news, market trends, and analysis from CAN Trading"
-        />
-        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
-      </Head>
+      <MetaTags
+        title="Latest Crypto News"
+        description="Latest cryptocurrency news, regulatory updates, and market-moving events. Stay informed with CAN Trading"
+        canonicalUrl="https://can-trading.com/news"
+        image="/images/showcase/can-banner.png"
+      />
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 pt-6 px-4">
           <h1 className="text-3xl font-bold mb-8 text-primary px-2">News</h1>
@@ -57,7 +42,7 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
             Stay updated with the latest news and announcements from CAN
             Trading.
           </p>
-          <Listings
+          <Index
             items={filteredArticles}
             baseHref="/news"
             filterTags={filterTags}
@@ -74,4 +59,4 @@ const News: React.FC<NewsIndexProps> = ({ items }) => {
 export default News;
 
 export const getStaticProps: GetStaticProps<NewsIndexProps> =
-  createListingGetStaticProps("/api/news");
+  createListingGetStaticProps(getNewsPosts);

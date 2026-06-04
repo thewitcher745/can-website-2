@@ -4,17 +4,18 @@ import Link from "next/link";
 import Head from "next/head";
 
 import Footer from "@shared/ui/Footer";
-import { buildApiUrl } from "@src/config";
-import { AnalysisPost, ListedAnalysisPost } from "@src/types";
 import ChartModal from "@src/features/analysis/slug/ChartModal";
 import Update from "@src/features/analysis/slug/Update";
 import MainPost from "@src/features/analysis/slug/MainPost";
 import chartHighlighting from "@src/features/analysis/slug/chartHighlighting";
 import Banner from "@src/features/homepage/components/promotions/BannerMini";
+import { getAnalysisPost, getAnalysisSlugs } from "@src/domains/analysis/api";
+import { AnalysisPost } from "@src/domains/analysis/types";
+import MetaTags from "@src/shared/MetaTags";
 
-type AnalysisPostPageProps = { post: AnalysisPost };
+type AnalysisPostProps = { post?: AnalysisPost };
 
-const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
+const AnalysisPostPage = ({ post }: AnalysisPostProps) => {
   const [modalImgSrc, setModalImgSrc] = useState<string | null>(null);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -24,49 +25,48 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
     modalVisible,
   ]);
 
-  const updates = post.updates || [];
-
-  if (!post)
+  if (!post) {
     return (
       <>
         <Head>
-          <title>Post not found - CAN Trading</title>
+          <title>Post Not Found - CAN Trading</title>
+          <meta name="robots" content="noindex" />
         </Head>
-        <main className="bg-background min-h-screen">
-          <div className="flex flex-col items-center justify-center min-h-[40vh] bg-background">
-            <span className="text-text-muted text-lg tracking-wide">
-              Post not found.
-            </span>
+        <main className="bg-background min-h-screen flex items-center justify-center">
+          <div className="text-center px-4">
+            <h1 className="text-4xl font-bold text-error mb-4">404</h1>
+            <p className="text-text-muted mb-6">
+              This technical analysis couldn't be found or is no longer
+              available.
+            </p>
+            <Link
+              href="/"
+              className="text-primary hover:underline text-sm inline-block"
+            >
+              ← Back to list of Analysis
+            </Link>
           </div>
         </main>
         <Footer />
       </>
     );
+  }
+
+  const updates = post?.content.updates || [];
 
   return (
     <>
-      <Head>
-        <title>{`${post.meta.title} - CAN Trading`}</title>
-        <meta property="og:title" content={post.meta.title} />
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:description"
-          content={post.meta.description || "Technical analysis by CAN Trading"}
-        />
-        <meta
-          property="og:url"
-          content={`https://can-trading.com/analysis/${post.slug}`}
-        />
-        <meta property="og:site_name" content="CAN Trading" />
-        <meta property="og:image" content="/images/showcase/can-banner.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.meta.title} />
-        <meta
-          name="twitter:description"
-          content={post.meta.description || "Technical analysis by CAN Trading"}
-        />
-        <meta name="twitter:image" content="/images/showcase/can-banner.png" />
-      </Head>
+      <MetaTags
+        title={post.meta.title}
+        description={post.meta.description}
+        canonicalUrl={`https://can-trading.com/analysis/${post.slug}`}
+        image={post.meta.image}
+        type="article"
+        publishedTime={post.meta.publishedAt || ""}
+        modifiedTime={post.meta.lastModifiedAt || ""}
+        author={post.meta.author}
+        tags={post.meta.tags}
+      />
       <main className="bg-background flex flex-col items-center min-h-screen">
         <div
           ref={contentRef}
@@ -78,6 +78,7 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
           >
             ← Back to Analysis
           </Link>
+
           <MainPost post={post} />
 
           {/* Updates feed */}
@@ -112,43 +113,37 @@ const AnalysisPostPage: React.FC<AnalysisPostPageProps> = ({ post }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   try {
-    const res = await fetch(buildApiUrl(`/api/analysis`));
-    if (!res.ok) throw new Error("Failed to fetch analysis posts.");
-    const data: ListedAnalysisPost[] = await res.json();
-    const paths = (Array.isArray(data) ? data : []).map((post) => ({
-      params: { slug: post.slug },
-    }));
+    const res = await getAnalysisSlugs();
 
+    const paths = res.data.map((slug) => ({
+      params: { slug },
+    }));
     return { paths, fallback: "blocking" };
   } catch {
     return { paths: [], fallback: "blocking" };
   }
 };
 
-export const getStaticProps: GetStaticProps<AnalysisPostPageProps> = async (
+export const getStaticProps: GetStaticProps<AnalysisPostProps> = async (
   context,
 ) => {
   const slug = context.params?.slug as string;
 
   try {
-    const res = await fetch(buildApiUrl(`/api/analysis/${slug}`));
-    if (!res.ok) {
-      return { notFound: true, revalidate: 60 };
-    }
-    const data = await res.json();
-    if (!data || (!Array.isArray(data) && !data.slug)) {
-      return { notFound: true, revalidate: 60 };
-    }
+    const res = await getAnalysisPost(slug);
     return {
       props: {
-        post: data as AnalysisPost,
+        post: res.data,
       },
-      revalidate: 900,
+      revalidate: 3600,
     };
-  } catch (e) {
-    return { notFound: true, revalidate: 60 };
+  } catch {
+    return {
+      props: {},
+      revalidate: 10,
+    };
   }
 };
 

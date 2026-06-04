@@ -1,19 +1,19 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.URL || 'https://can-trading.com',
+  siteUrl: process.env.URL || "https://can-trading.com",
   generateRobotsTxt: true,
   generateIndexSitemap: true,
-  exclude: ['/server-sitemap.xml', '/admin/*', '/api/*'],
+  exclude: ["/server-sitemap.xml", "/admin/*", "/api/*"],
   robotsTxtOptions: {
     policies: [
       {
-        userAgent: '*',
-        allow: '/',
+        userAgent: "*",
+        allow: "/",
       },
     ],
     additionalSitemaps: [
-      `${process.env.URL || 'https://can-trading.com'}/sitemap-0.xml`,
+      `${process.env.URL || "https://can-trading.com"}/server-sitemap.xml`,
     ],
   },
-  outDir: 'public',
+  outDir: "public",
 };

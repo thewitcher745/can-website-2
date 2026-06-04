@@ -1,8 +1,7 @@
+import { EditorJsBlock } from "@src/shared/types/posts";
 import Image from "next/image";
 
-import { ArticleBlock } from "@src/types";
-
-const renderBlock = (block: ArticleBlock, index: number) => {
+const renderBlock = (block: EditorJsBlock, index: number) => {
   switch (block.type) {
     case "header": {
       const { level, text } = block.data;
