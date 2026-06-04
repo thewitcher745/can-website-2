@@ -13,11 +13,6 @@ export const PublishedAtField = ({
 }) => {
   if (!post) return null;
 
-  const formatDateForInput = (isoString: string | null) => {
-    if (!isoString) return "";
-    return isoString.slice(0, 16);
-  };
-
   return (
     <div className="flex flex-col">
       <label htmlFor="publishedAt" className="mb-2 text-sm text-text-muted">
@@ -28,7 +23,7 @@ export const PublishedAtField = ({
         id="publishedAt"
         name="publishedAt"
         type="datetime-local"
-        value={formatDateForInput(post.meta.publishedAt)}
+        value={post.meta.publishedAt ? post.meta.publishedAt.slice(0, 16) : ""}
         onChange={(e) => {
           modifyPost((prev) => {
             if (!prev) return prev;
