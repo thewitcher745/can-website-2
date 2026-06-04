@@ -11,14 +11,6 @@ const AdminLogin = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Go to the dashboard if a JWT exists
-  useEffect(() => {
-    const token = localStorage.getItem("admin_token");
-    if (token) {
-      router.push("/admin/dashboard");
-    }
-  }, [router]);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
