@@ -46,7 +46,7 @@ const TargetsBarChartBase = ({ data }: { data?: ResultsChartsData | null }) => {
   };
 
   return (
-    <TopTitledChartWrapper title="Target distribution">
+    <TopTitledChartWrapper title="Target Distribution">
       <BarChart
         layout="vertical"
         data={chartData}
@@ -69,7 +69,7 @@ const TargetsBarChartBase = ({ data }: { data?: ResultsChartsData | null }) => {
           tick={{ fill: "var(--color-text-main)", fontSize: 12 }}
           unit="%"
         /> */}
-        <XAxis type="number" />
+        <XAxis type="number" tickFormatter={(value) => `${value}%`} />
         <YAxis
           dataKey="name"
           type="category"
@@ -110,7 +110,7 @@ const TargetsBarChart = ({
 }) => {
   const { data, loading, error } = useChartsDataForMonthYearCategory(
     monthYear,
-    category,
+    category
   );
 
   if (loading) {
