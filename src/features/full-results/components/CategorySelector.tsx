@@ -1,7 +1,8 @@
 import { useCategory, useMonthYear } from "@src/domains/results/context";
 import { useCategoriesForMonthYear } from "@src/domains/results/hooks";
 import { Category } from "@src/domains/results/types";
-import { Lightbulb, Code2 } from "lucide-react";
+import { Lightbulb } from "lucide-react";
+import { FaRobot } from "react-icons/fa6";
 
 const CategorySelector = () => {
   const { currentMonthYear } = useMonthYear();
@@ -44,7 +45,7 @@ const CategorySelector = () => {
     <CategorySelectorButton text="Insights" id="insights" icon={Lightbulb} />
   );
   const AlgorithmSelector = (
-    <CategorySelectorButton text="Algorithm" id="algorithm" icon={Code2} />
+    <CategorySelectorButton text="Algorithm" id="algorithm" icon={FaRobot} />
   );
 
   return (
