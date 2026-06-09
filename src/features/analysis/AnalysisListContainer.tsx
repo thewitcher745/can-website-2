@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 import AnalysisCard from "./AnalysisCard";
-import { FaPlus } from "react-icons/fa6";
 import { ListedAnalysis } from "@src/domains/analysis/types";
 
 type TabType = "all" | "vip";
@@ -83,10 +82,9 @@ const AnalysisListContainer = ({ posts }: { posts: ListedAnalysis[] }) => {
         <div className="flex justify-center mt-4">
           <button
             onClick={addMorePosts}
-            className="flex gap-2 h-16 cursor-pointer items-center text-text-muted px-6 py-3 font-semibold hover:text-primary transition shadow-sm"
+            className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-4 text-lg font-semibold text-text-main transition hover:bg-white/10 hover:text-primary"
           >
-            <FaPlus className="w-6 h-6" />
-            <span className="text-2xl">Load More</span>
+            <span className="text-xl">Load More</span>
           </button>
         </div>
       )}
