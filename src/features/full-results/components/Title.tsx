@@ -15,7 +15,7 @@ const Title = () => {
           <div className="flex flex-col md:flex-row items-center z-2">
             <Crown size={100} className="text-primary p-2 rounded-full" />
             <h1 className="text-7xl font-bold text-text-main text-center md:text-left">
-              Full Monthly Results
+              Analysis Monthly Performance
             </h1>
           </div>
           <br />
@@ -29,7 +29,7 @@ const Title = () => {
                 <Gem className="text-primary bg-gradient-to-b from-primary/25 to-transparent rounded-xl p-2 h-15 w-auto" />
               </div>
               <h4 className="text-md md:text-xl lg:text-2xl text-text-main mx-4 group-hover:text-primary transition-all duration-200">
-                Click here to get started.
+                Join our Community for Free!
               </h4>
             </GlassCard>
           </Link>

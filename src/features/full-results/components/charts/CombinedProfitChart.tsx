@@ -56,10 +56,7 @@ const CombinedProfitChartBase = ({
 
   return (
     <GlassCard className="rounded-xl">
-      <TopTitledChartWrapper
-        title="Cumulative profit for this month"
-        height={500}
-      >
+      <TopTitledChartWrapper title="Gross Profit for this month" height={500}>
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             data={chartData}
@@ -155,7 +152,7 @@ const CombinedProfitChart = () => {
 
   const { data, loading, error } = useChartsDataForMonthYearCategory(
     monthYear,
-    category,
+    category
   );
 
   if (loading) {
