@@ -65,7 +65,7 @@ const Banner = ({ className }: { className?: string }) => {
               Get Full Access to All Our Content for Free!
             </span>
             <p className="text-text-secondary text-wrap mt-4">
-              Make the most out of market movements using our signals. Get the
+              Make the most out of market movements using our insights. Get the
               latest news and analysis, learn risk management and crypto trading
               for free!
             </p>

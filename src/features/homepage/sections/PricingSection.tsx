@@ -3,16 +3,25 @@ import React from "react";
 import { FaCheck } from "react-icons/fa";
 
 const features = [
-  "DAILY SCALP SIGNALS - Accurate signals with small stoploss for daily profits",
-  "SWING SIGNALS - Riding market waves for bigger weekly profits",
-  "BREAKOUT SIGNALS - Jumping into coins making good pumps or dumps",
-  "INSIGHTS - Get informed before investing",
-  "PREMIUM CHAT - Connect with traders, request coin analysis",
-  "ALGO SCALPS - High leveraged signals for quick profit",
-  "RISK MANAGEMENT TIPS - Trade safer with better risk management",
-  "1-3 Manual signals daily",
-  "5-10 Algorithm signals daily",
-  "5 Long term analyses daily",
+  "Daily market commentary and analysis",
+
+  "Short-term trade setups with clearly defined risk parameters",
+
+  "Swing trade ideas and market trend observations",
+
+  "Breakout and momentum watchlists",
+
+  "Risk management and trading psychology resources",
+
+  "Community access for discussion and Q&A",
+
+  "Educational content covering market structure and strategy",
+
+  "Long-form research reports on selected cryptocurrencies",
+
+  "Algorithm-assisted market scans and alerts",
+
+  "Ongoing market updates as conditions evolve",
 ];
 
 const packages = [
@@ -21,28 +30,31 @@ const packages = [
     oldPrice: 100,
     newPrice: 75,
     highlight: false,
-    description: "Best for new members to try all premium features.",
+    description: "Ideal for exploring whether the membership fits your needs.",
   },
   {
     duration: "3 MONTHS",
     oldPrice: 300,
     newPrice: 200,
     highlight: true,
-    description: "Save more by subscribing for a quarter.",
+    description:
+      "A popular option for members who want consistent market coverage.",
   },
   {
     duration: "6 MONTHS",
     oldPrice: 600,
     newPrice: 350,
     highlight: false,
-    description: "Great value for committed traders.",
+    description:
+      "Designed for members seeking longer-term access to research and analysis.",
   },
   {
     duration: "12 MONTHS",
     oldPrice: 1200,
     newPrice: 600,
     highlight: false,
-    description: "Maximize savings for long-term members.",
+    description:
+      "Best value for members who want uninterrupted access throughout the year.",
   },
 ];
 
@@ -54,12 +66,10 @@ const PricingSection: React.FC = () => (
           We Believe in Financial Freedom Through Trading
         </h2>
         <p className="text-lg text-primary-light max-w-2xl mx-auto mb-4">
-          In our hard work to find it, we would like to help others on their
-          trading journey as well.
+          Helping Traders Understand Market Opportunities and Risks.
         </p>
         <h3 className="text-xl font-semibold text-primary mb-2">
-          What CAN you expect from our{" "}
-          <span className="underline">PREMIUM PACKAGE</span>?
+          What CAN You Expect from Joining our Community?
         </h3>
       </div>
       <ul className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-base">
@@ -70,7 +80,10 @@ const PricingSection: React.FC = () => (
           </li>
         ))}
       </ul>
-      <div className="bg-background p-4 rounded-2xl shadow-inner">
+      <div className="bg-background p-4 rounded-2xl shadow-inner flex items-center flex-col">
+        <h2 className="text-3xl font-bold text-text-main my-10">
+          Community Membership Prices
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {packages.map((pkg) => (
             <div
@@ -104,7 +117,7 @@ const PricingSection: React.FC = () => (
                 </span>
               </div>
               <div className="text-xs text-text-muted mb-2 text-center">
-                All premium features included
+                Access all premium trade ideas and community features.
               </div>
               <div className="text-sm text-primary-light text-center mb-4 min-h-[36px]">
                 {pkg.description}
@@ -123,6 +136,18 @@ const PricingSection: React.FC = () => (
               </Link>
             </div>
           ))}
+        </div>
+        <div className="my-4">
+          <h3 className="text-md text-text-muted font-bold">
+            Important notice
+          </h3>
+          <p className="text-sm text-text-muted">
+            All content is provided for educational and informational purposes
+            only and should not be considered financial, investment, or trading
+            advice. Cryptocurrency markets involve substantial risk, and past
+            performance does not guarantee future results. Always conduct your
+            own research before making investment decisions.
+          </p>
         </div>
       </div>
     </div>

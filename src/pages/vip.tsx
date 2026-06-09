@@ -21,7 +21,7 @@ export default function Home() {
         <ServicesSection />
         <ResultsSection />
         <PricingSection />
-        <div className="px-4 w-full">
+        <div className="px-4 w-full flex justify-center">
           <Banner />
         </div>
       </main>
