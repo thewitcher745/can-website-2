@@ -49,17 +49,20 @@ const Footer: React.FC = () => (
         <p className="mb-3 text-text-main">
           CAN began its professional journey in the crypto market in 2020,
           consistently delivering high-quality technical analysis to guide
-          smarter trading decisions — without a single day off.
+          smarter trading decisions, without a single day off.
         </p>
         <p className="mb-3 text-text-main">
-          Our mission is to achieve financial freedom through cryptocurrency
-          trading, and we’re passionate about helping others pursue the same
-          path.
+          Our mission is to attain healthy consistent growth in our lives
+          through cryptocurrency trading, and we’re passionate about helping
+          others pursue the same path.
         </p>
         <p className="mb-3 text-text-main">
-          We rely on a blend of proven technical methods — including Neo Wave,
-          Wyckoff Theory, Price Action, IMF analysis, and more — to provide
+          We rely on a blend of proven technical methods including Neo Wave,
+          Wyckoff Theory, Price Action, IMF analysis, and more to provide
           reliable, in-depth market insights for traders at all levels.
+        </p>
+        <p className="mb-3 text-text-main">
+          All our ANALYSIS and INSIGHTS are published on our Telegram channel.
         </p>
       </div>
       {/* Contact Info */}

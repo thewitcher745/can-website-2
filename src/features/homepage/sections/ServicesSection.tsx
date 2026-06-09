@@ -11,18 +11,25 @@ import {
 const services = [
   {
     icon: <FaBell className="w-8 h-8 text-primary" />,
-    title: "Trading Signals",
-    desc: "Get high-quality signals tailored to your style—daily scalps with tight stoplosses, swing trades for steady weekly gains, and breakout alerts to catch major market moves.",
+    title: "Personal Trading",
+    desc: (
+      <div className="flex flex-col">
+        <p>Get high-quality analysis tailored to your style.</p>
+        <p>Daily Scalps: Tight stoplosses</p>
+        <p>Swing Trades: Steady weekly gains</p>
+        <p>Breakout Trades: Catch major market moves</p>
+      </div>
+    ),
   },
   {
     icon: <FaRobot className="w-8 h-8 text-primary" />,
     title: "Algorithmic Trading",
-    desc: "Algorithmic Trading Signals designed for quick profit with high leverage and tight risk management strategies.",
+    desc: "Algorithmic Trading designed for quick profit with high leverage and tight risk management strategies.",
   },
   {
     icon: <FaShieldAlt className="w-8 h-8 text-primary" />,
     title: "Risk Management",
-    desc: "Comprehensive risk management strategies for different types of signals to reduce your risk exposure in crypto market and minimize potential losses.",
+    desc: "Comprehensive risk management strategies for different styles of trading to reduce your risk exposure in crypto market and minimize potential losses.",
   },
   {
     icon: <FaChartPie className="w-8 h-8 text-primary" />,
@@ -46,7 +53,7 @@ const ServicesSection: React.FC = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4">
-          Our Premium Services
+          Our Services
         </h2>
         <p className="text-lg text-text-muted max-w-3xl mx-auto">
           Comprehensive financial analysis solutions tailored to your trading

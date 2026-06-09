@@ -85,7 +85,7 @@ const ResultsSection: React.FC = () => {
                 href="/results"
                 className="text-center border border-primary text-primary font-semibold px-6 py-3 rounded-lg shadow hover:scale-102 hover:underline duration-100 transition-all text-lg"
               >
-                View all results
+                View All Results
               </Link>
             </div>
           </div>
@@ -95,7 +95,7 @@ const ResultsSection: React.FC = () => {
               href="/results"
               className="text-center border border-primary text-primary font-semibold px-6 py-3 rounded-lg shadow hover:border-primary-light hover:bg-primary-light/20 hover:scale-102 duration-100 transition-all text-lg"
             >
-              View all results
+              View All Results
             </Link>
           </div>
         </div>
