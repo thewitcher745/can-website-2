@@ -19,7 +19,7 @@ const RecentArticlesWidget = ({ className }: { className?: string }) => {
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? N_TABLES - 1 : prevIndex - 1,
+      prevIndex === 0 ? N_TABLES - 1 : prevIndex - 1
     );
   };
 
@@ -57,7 +57,7 @@ const RecentArticlesWidget = ({ className }: { className?: string }) => {
   const renderContent = (blog: ListedArticle[], news: ListedArticle[]) => {
     const tables = [
       {
-        title: "Trading & Risk Management",
+        title: "CAN Magazine",
         data: blog || [],
         slug: "blog",
       },

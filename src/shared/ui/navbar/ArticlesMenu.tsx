@@ -15,7 +15,7 @@ const ArticlesMenuItems = ({ isMobile }: { isMobile: boolean }) => {
         }`}
       >
         <FaPencilAlt className="w-6 h-6" />
-        <span>Trading & Risk Management</span>
+        <span>CAN Magazine</span>
       </Link>
       <Link
         href="/news"

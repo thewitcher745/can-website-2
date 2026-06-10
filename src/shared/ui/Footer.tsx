@@ -95,7 +95,7 @@ const Footer: React.FC = () => (
           <span>Everyday - 24/7</span>
         </div>
         <p className="mt-2 text-xs text-text-main">
-          All our VIP SIGNALS & ANALYSIS are published on our Telegram channel.
+          All our Insights and Analysis are published on our Telegram channel.
         </p>
       </div>
       {/* Socials */}

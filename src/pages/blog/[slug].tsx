@@ -57,7 +57,7 @@ const BlogPostPage = ({ post }: BlogPostProps) => {
         <ArticleElement
           article={post}
           backHref="/blog"
-          backText="Trading and Risk Management"
+          backText="CAN Magazine"
         />
         <div className="px-4 w-full">
           <Banner />
@@ -82,7 +82,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<BlogPostProps> = async (
-  context,
+  context
 ) => {
   const slug = context.params?.slug as string;
 
