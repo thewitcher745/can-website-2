@@ -39,7 +39,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
   });
 
   const [invalidFields, setInvalidFields] = useState<Record<string, string>>(
-    {},
+    {}
   );
 
   const modifyPost = (callback: SetStateAction<EditorPost>) => {
@@ -204,7 +204,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
                   className="p-2 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer"
                 >
                   <option value="analysis">Technical Analysis</option>
-                  <option value="blog">Trading & Risk Management</option>
+                  <option value="blog">CAN Magazine</option>
                   <option value="news">News</option>
                   <option value="high-potential">High Potential</option>
                 </select>
@@ -227,7 +227,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
                           ({
                             ...prev,
                             status: e.target.value as PostStatus,
-                          }) as typeof prev,
+                          } as typeof prev)
                       );
                     }}
                     className="p-2 rounded-lg border border-border bg-background text-text-main focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer"
@@ -265,7 +265,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
                           ({
                             ...prev,
                             slug: e.target.value,
-                          }) as typeof prev,
+                          } as typeof prev)
                       );
                     }}
                     placeholder="post-url-slug"
@@ -314,7 +314,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
               post={post as Admin<AnalysisPost>}
               modifyPost={
                 modifyPost as (
-                  callback: SetStateAction<Admin<AnalysisPost>>,
+                  callback: SetStateAction<Admin<AnalysisPost>>
                 ) => void
               }
               invalidFields={invalidFields}
@@ -325,7 +325,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
               post={post as Admin<ArticlePost>}
               modifyPost={
                 modifyPost as (
-                  callback: SetStateAction<Admin<ArticlePost>>,
+                  callback: SetStateAction<Admin<ArticlePost>>
                 ) => void
               }
               invalidFields={invalidFields}
@@ -336,7 +336,7 @@ const PostEditor = ({ mode }: { mode: "edit" | "create" }) => {
               post={post as Admin<HighPotentialPost>}
               modifyPost={
                 modifyPost as (
-                  callback: SetStateAction<Admin<HighPotentialPost>>,
+                  callback: SetStateAction<Admin<HighPotentialPost>>
                 ) => void
               }
               invalidFields={invalidFields}
