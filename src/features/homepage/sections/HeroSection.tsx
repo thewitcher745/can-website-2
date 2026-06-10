@@ -4,9 +4,10 @@ import { FaTelegram } from "react-icons/fa6";
 
 const heroImages = [
   "/images/showcase/can-banner.png",
-  "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-  "https://images.unsplash.com/photo-1651341050677-24dba59ce0fd?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2ZpdHxlbnwwfHwwfHx8MA%3D%3D",
+  "/images/showcase/1.png",
+  "/images/showcase/2.png",
+  "/images/showcase/3.png",
+  "/images/showcase/4.png",
 ];
 
 const SLIDE_DURATION = 5000; // ms
