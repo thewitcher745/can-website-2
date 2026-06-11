@@ -23,9 +23,16 @@ const AnalysisListContainer = ({ posts }: { posts: ListedAnalysis[] }) => {
     setNPostsToShow((prev) => prev + 12);
   };
 
-  const nonVipPosts = posts.filter((post) => !post.meta.isVip);
-  const vipPosts = posts.filter((post) => post.meta.isVip);
+  const getSortTime = (post: ListedAnalysis) => {
+    return new Date(post.meta.publishedAt || "").getTime();
+  };
 
+  const sortedPosts = [...posts].sort(
+    (a, b) => getSortTime(b) - getSortTime(a)
+  );
+
+  const nonVipPosts = sortedPosts.filter((post) => !post.meta.isVip);
+  const vipPosts = sortedPosts.filter((post) => post.meta.isVip);
   const postsToShow = activeTab == "vip" ? vipPosts : nonVipPosts;
 
   return (
