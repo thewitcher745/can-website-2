@@ -51,7 +51,7 @@ const MobileNav = ({
             Technical Analysis
           </Link>
           <Link
-            href="/vip"
+            href="/services"
             className="flex justify-center sm:justify-start text-text-main hover:text-orange py-2 text-base font-medium"
             onClick={closeMenu}
           >

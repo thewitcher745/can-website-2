@@ -72,7 +72,7 @@ const DesktopNav = () => {
       <NavDesktopLink href="/analysis">
         <span className="text-center">Technical Analysis</span>
       </NavDesktopLink>
-      <NavDesktopLink href="/vip">
+      <NavDesktopLink href="/services">
         <span className="text-center">CAN Services</span>
       </NavDesktopLink>
       <NavDesktopLink href="/results">
