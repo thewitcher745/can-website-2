@@ -62,7 +62,7 @@ const CoinOverviewSection = ({
             href="/vip"
             className="inline-flex justify-center items-center rounded-full bg-primary text-black px-6 py-3 font-semibold hover:bg-primary-soft transition"
           >
-            Get VIP Signals
+            Get Trading Setups
           </Link>
           <span className="text-xs text-text-muted text-center">
             Stay ahead with CAN Trading research.
