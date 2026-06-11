@@ -20,6 +20,7 @@ export default function Home() {
         <ResultsSection />
         <PricingSection />
         <div className="px-4 w-full flex justify-center">
+        <div className="px-4 w-full flex justify-center">
           <Banner />
         </div>
       </main>
