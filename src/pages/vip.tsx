@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <>
       <MetaTags
-        title="VIP Trading Signals"
-        description="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team"
+        title="CAN Services"
+        description="Access exclusive cryptocurrency trading setups and analysis from CAN Trading's expert team"
         canonicalUrl="https://can-trading.com/vip"
         image="/images/showcase/can-banner.png"
         type="website"

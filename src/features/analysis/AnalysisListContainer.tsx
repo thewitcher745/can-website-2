@@ -51,7 +51,7 @@ const AnalysisListContainer = ({ posts }: { posts: ListedAnalysis[] }) => {
                 : "text-primary/40 hover:text-primary/80"
             }`}
           >
-            🔥VIP Analysis
+            🔥Trading Setups
           </h2>
         </div>
       </div>
@@ -64,7 +64,7 @@ const AnalysisListContainer = ({ posts }: { posts: ListedAnalysis[] }) => {
       )}
       {activeTab === "vip" && (
         <p className="text-text-main text-xl mb-6">
-          Exclusive VIP analysis with in-depth market insights and premium
+          Exclusive Trading Setups with in-depth market insights and premium
           trading strategies.
         </p>
       )}
