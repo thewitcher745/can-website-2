@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 import ServicesSection from "@features/homepage/sections/ServicesSection";
 import ResultsSection from "@features/homepage/sections/ResultsSection";
 import PricingSection from "@features/homepage/sections/PricingSection";
@@ -13,7 +11,7 @@ export default function Home() {
       <MetaTags
         title="CAN Services"
         description="Access exclusive cryptocurrency trading setups and analysis from CAN Trading's expert team"
-        canonicalUrl="https://can-trading.com/vip"
+        canonicalUrl="https://can-trading.com/services"
         image="/images/showcase/can-banner.png"
         type="website"
       />

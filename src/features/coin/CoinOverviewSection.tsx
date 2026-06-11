@@ -59,7 +59,7 @@ const CoinOverviewSection = ({
 
         <div className="flex flex-col gap-3">
           <Link
-            href="/vip"
+            href="/services"
             className="inline-flex justify-center items-center rounded-full bg-primary text-black px-6 py-3 font-semibold hover:bg-primary-soft transition"
           >
             Get Trading Setups

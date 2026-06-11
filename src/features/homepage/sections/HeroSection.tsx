@@ -63,7 +63,7 @@ const HeroSection: React.FC = () => {
                 </div>
               </Link>
               <Link
-                href="/vip"
+                href="/services"
                 className="text-primary flex py-2 my-1 justify-center items-center px-4 border-2 border-primary rounded-full font-semibold hover:bg-primary/60 hover:text-text-main hover:border-primary/60 transition shadow-lg shadow-primary/50"
               >
                 <span className="text-center w-full">Analysis Results</span>
@@ -117,7 +117,7 @@ const HeroSection: React.FC = () => {
               </div>
             </Link>
             <Link
-              href="/vip"
+              href="/services"
               className="text-primary flex py-2 my-1 justify-center items-center px-4 border-2 border-primary rounded-full font-semibold hover:bg-primary/60 hover:text-text-main hover:border-primary/60 transition shadow-lg shadow-primary/50"
             >
               <span className="text-center w-full">Analysis Results</span>
