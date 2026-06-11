@@ -77,7 +77,6 @@ const DesktopNav = () => {
       </NavDesktopLink>
       <NavDesktopLink href="/results">
         <span className="text-center">Analysis Results</span>
-        <span className="text-center">Analysis Results</span>
       </NavDesktopLink>
       <NavDesktopLink
         isLink={false}
