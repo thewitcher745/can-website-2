@@ -11,14 +11,14 @@ const ImageElement = ({ post }: { post: ListedAnalysis }) => {
       className={"relative overflow-hidden rounded-xl flex flex-col mb-2"}
     >
       <div className="relative w-full shadow-xl">
-        <div className="absolute left-0 bottom-0 rounded-full overflow-hidden m-5 w-12 h-12 md:h-18 md:w-18 opacity-70">
+        <div className="absolute left-0 bottom-0 rounded-full overflow-hidden m-5 w-12 h-12 md:h-18 md:w-18 opacity-70 z-999">
           <Logo
             symbol={post.meta.coins[0].toUpperCase()}
             size="full"
             padding="1"
           />
         </div>
-        <div className="w-full aspect-[1631/760] relative">
+        <div className="w-full aspect-[1631/760] relative z-0">
           <Image
             fill
             src={post.meta.image}
