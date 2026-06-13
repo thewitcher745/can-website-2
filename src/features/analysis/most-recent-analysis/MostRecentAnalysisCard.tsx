@@ -43,7 +43,7 @@ const CaptionElement = ({
 
   const PostTags = () => {
     return (
-      <div className="flex gap-1">
+      <div className="flex gap-1 hidden xs:block">
         {tags.map((tag, index) => (
           <span key={tag} className="py-1 text-primary text-xs rounded-full">
             {`${tag}${index === tags.length - 1 ? "" : ","}`}
