@@ -23,7 +23,7 @@ const MonthYearSelector = () => {
         </label>
         <select
           id="year-select"
-          className="w-full sm:w-auto min-w-[140px] border-b-2 px-4 py-2.5 
+          className="w-full text-center sm:w-auto min-w-[140px] border-b-2 px-4 py-2.5 
           text-base bg-transparent text-text-main shadow-sm hover:border-primary 
           transition-colors cursor-pointer"
           value={selectedYear}
@@ -45,7 +45,7 @@ const MonthYearSelector = () => {
         </label>
         <select
           id="month-select"
-          className="w-full sm:w-auto min-w-[140px] border-b-2 px-4 py-2.5 
+          className="w-full text-center sm:w-auto min-w-[140px] border-b-2 px-4 py-2.5 
           bg-transparent text-text-main hover:border-primary 
           transition-colors cursor-pointer"
           value={currentMonthYear}

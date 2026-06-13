@@ -14,12 +14,12 @@ const Title = () => {
         <div className="z-3 flex flex-col items-center p-10 md:items-start rounded-xl md:bg-transparent gap-4">
           <div className="flex flex-col md:flex-row items-center z-2">
             <Crown size={100} className="text-primary p-2 rounded-full" />
-            <h1 className="text-7xl font-bold text-text-main text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-main text-center md:text-left">
               Analysis Monthly Performance
             </h1>
           </div>
           <br />
-          <p className="text-2xl font-semibold text-center md:text-left text-text-main md:text-text-muted max-w-md z-2">
+          <p className="text-lg md:text-xl lg:text-2xl font-semibold text-center md:text-left text-text-main md:text-text-muted max-w-md z-2">
             Browse through the full gallery of our results and review our
             performance in prior periods.
           </p>
