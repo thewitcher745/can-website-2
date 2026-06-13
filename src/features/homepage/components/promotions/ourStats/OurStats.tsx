@@ -24,7 +24,7 @@ const OurStats = () => {
         />
         <StatBox
           icon={<Users />}
-          stat="10k+"
+          stat="12k+"
           caption="Followers and members across our public channels and communities."
         />
       </div>
