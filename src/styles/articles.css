@@ -101,6 +101,16 @@ ol {
 }
 
 /* --------------------- Blog and news section styles */
+/* Homepage widget title scrolling */
+
+@keyframes scroll-widget-title {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* tune to container width */
+}
+
+.group\/title:hover .scroll-on-hover {
+  animation: scroll-widget-title 8s linear infinite;
+}
 
 .blog-news-article {
   padding: 1rem 0;
