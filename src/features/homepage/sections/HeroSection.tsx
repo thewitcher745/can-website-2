@@ -44,8 +44,7 @@ const HeroSection: React.FC = () => {
             </h1>
             {/* Description with fade-in */}
             <p className="text-center md:text-left text-lg text-primary-light mb-8 animate-fade-in-delay-2">
-              Providing accurate and reliable cryptocurrency trading signals and
-              risk management strategies for individuals.
+              Providing accurate and reliable cryptocurrency technical analysis with proper educational strategies for risk management.
             </p>
             {/* Desktop CTA buttons */}
             <div className="hidden md:flex flex-wrap justify-center gap-2 animate-fade-in-delay-3">
@@ -58,7 +57,7 @@ const HeroSection: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <FaTelegram className="w-6 h-6" />
                   <span className="text-center w-full">
-                    Get access to all analysis
+                    Full Access to All Analysis
                   </span>
                 </div>
               </Link>
