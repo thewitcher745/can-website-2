@@ -53,8 +53,9 @@ const ResultsPage: React.FC = () => {
               </CategoryProvider>
             </MonthYearProvider>
           </div>
-
-          <Banner />
+          <div className="my-4">
+            <Banner />
+          </div>
         </div>
       </main>
       <Footer />

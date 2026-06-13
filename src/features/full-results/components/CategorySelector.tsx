@@ -25,7 +25,7 @@ const CategorySelector = () => {
       <button
         onClick={() => setCategory(id)}
         className={`
-          flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-base
+          flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3 rounded-lg font-medium text-base
           transition-all duration-200 ease-in-out
           ${
             isActive
@@ -49,7 +49,7 @@ const CategorySelector = () => {
   );
 
   return (
-    <div className="flex items-center gap-2 mb-8 bg-surface/50 rounded-lg p-1 w-fit mx-auto">
+    <div className="flex flex-wrap items-center items-center gap-2 mb-8 bg-surface/50 rounded-lg p-1 w-fit mx-auto">
       {availableCategories.includes("insights") ? InsightsSelector : null}
       {availableCategories.includes("algorithm") ? AlgorithmSelector : null}
     </div>
