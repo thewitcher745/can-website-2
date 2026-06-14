@@ -1,4 +1,5 @@
-import { getServerSideSitemap, ISitemapField } from "next-sitemap";
+// 1. IMPORT THE LEGACY FUNCTION FOR PAGES ROUTER
+import { getServerSideSitemapLegacy, ISitemapField } from "next-sitemap";
 import { getAnalysisSlugs } from "@src/domains/analysis/api";
 import { getBlogSlugs, getNewsSlugs } from "@src/domains/articles/api";
 import { getHighPotentialSlugs } from "@src/domains/high-potential/api";
@@ -8,7 +9,6 @@ export const getServerSideProps = async (ctx: any) => {
   const fallbackDate = new Date().toISOString();
 
   try {
-    // Gracefully catch individual API failures so the whole page doesn't hang
     const [analysisSlugs, blogSlugs, newsSlugs, highPotentialSlugs] =
       await Promise.all([
         getAnalysisSlugs().catch((err) => {
@@ -45,8 +45,7 @@ export const getServerSideProps = async (ctx: any) => {
     addFields(highPotentialSlugs?.data, "high-potential");
   } catch (globalError) {
     console.error("Critical Sitemap Crash:", globalError);
-    // Prevents the page from hanging indefinitely
-    return getServerSideSitemap(ctx, []);
+    return getServerSideSitemapLegacy(ctx, []);
   }
 
   // Set headers so it renders as XML instead of HTML text
@@ -56,7 +55,7 @@ export const getServerSideProps = async (ctx: any) => {
     "public, s-maxage=3600, stale-while-revalidate=59",
   );
 
-  return getServerSideSitemap(ctx, fields);
+  return getServerSideSitemapLegacy(ctx, fields);
 };
 
 export default function SitemapPage() {
