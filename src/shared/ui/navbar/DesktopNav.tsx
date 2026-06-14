@@ -72,11 +72,11 @@ const DesktopNav = () => {
       <NavDesktopLink href="/analysis">
         <span className="text-center">Technical Analysis</span>
       </NavDesktopLink>
-      <NavDesktopLink href="/vip">
-        <span className="text-center">VIP Signals</span>
+      <NavDesktopLink href="/services">
+        <span className="text-center">CAN Services</span>
       </NavDesktopLink>
       <NavDesktopLink href="/results">
-        <span className="text-center">VIP Results</span>
+        <span className="text-center">Analysis Results</span>
       </NavDesktopLink>
       <NavDesktopLink
         isLink={false}

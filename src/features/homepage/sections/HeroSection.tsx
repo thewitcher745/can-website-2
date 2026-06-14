@@ -4,9 +4,10 @@ import { FaTelegram } from "react-icons/fa6";
 
 const heroImages = [
   "/images/showcase/can-banner.png",
-  "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-  "https://images.unsplash.com/photo-1651341050677-24dba59ce0fd?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2ZpdHxlbnwwfHwwfHx8MA%3D%3D",
+  "/images/showcase/1.png",
+  "/images/showcase/2.png",
+  "/images/showcase/3.png",
+  "/images/showcase/4.png",
 ];
 
 const SLIDE_DURATION = 5000; // ms
@@ -43,8 +44,7 @@ const HeroSection: React.FC = () => {
             </h1>
             {/* Description with fade-in */}
             <p className="text-center md:text-left text-lg text-primary-light mb-8 animate-fade-in-delay-2">
-              Providing accurate and reliable cryptocurrency trading signals and
-              risk management strategies for individuals.
+              Providing accurate and reliable cryptocurrency technical analysis with proper educational strategies for risk management.
             </p>
             {/* Desktop CTA buttons */}
             <div className="hidden md:flex flex-wrap justify-center gap-2 animate-fade-in-delay-3">
@@ -57,15 +57,15 @@ const HeroSection: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <FaTelegram className="w-6 h-6" />
                   <span className="text-center w-full">
-                    Get access to all analysis
+                    Full Access to All Analysis
                   </span>
                 </div>
               </Link>
               <Link
-                href="/vip"
+                href="/services"
                 className="text-primary flex py-2 my-1 justify-center items-center px-4 border-2 border-primary rounded-full font-semibold hover:bg-primary/60 hover:text-text-main hover:border-primary/60 transition shadow-lg shadow-primary/50"
               >
-                <span className="text-center w-full">VIP Results</span>
+                <span className="text-center w-full">Analysis Results</span>
               </Link>
             </div>
           </div>
@@ -116,10 +116,10 @@ const HeroSection: React.FC = () => {
               </div>
             </Link>
             <Link
-              href="/vip"
+              href="/services"
               className="text-primary flex py-2 my-1 justify-center items-center px-4 border-2 border-primary rounded-full font-semibold hover:bg-primary/60 hover:text-text-main hover:border-primary/60 transition shadow-lg shadow-primary/50"
             >
-              <span className="text-center w-full">VIP Results</span>
+              <span className="text-center w-full">Analysis Results</span>
             </Link>
           </div>
         </div>

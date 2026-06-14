@@ -30,7 +30,7 @@ const Blog: React.FC<BlogIndexProps> = ({ items: posts }) => {
   return (
     <>
       <MetaTags
-        title="Trading & Risk Management"
+        title="CAN Magazine"
         description="Learn professional trading strategies, risk management techniques, and market psychology from experienced traders."
         canonicalUrl="https://can-trading.com/blog"
         image="/images/showcase/can-banner.png"
@@ -38,7 +38,7 @@ const Blog: React.FC<BlogIndexProps> = ({ items: posts }) => {
       <main className="bg-background min-h-screen">
         <div className="max-w-4xl xl:max-w-6xl mx-auto py-8 px-4 pt-6">
           <h1 className="text-3xl font-bold mb-8 text-primary px-2">
-            Trading & Risk Management
+            CAN Magazine
           </h1>
           <p className="text-text-main text-xl mb-6 px-2">
             Explore the latest insights and stories from our team of experts.

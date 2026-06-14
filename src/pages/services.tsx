@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 import ServicesSection from "@features/homepage/sections/ServicesSection";
 import ResultsSection from "@features/homepage/sections/ResultsSection";
 import PricingSection from "@features/homepage/sections/PricingSection";
@@ -11,9 +9,9 @@ export default function Home() {
   return (
     <>
       <MetaTags
-        title="VIP Trading Signals"
-        description="Access exclusive VIP cryptocurrency trading signals and analysis from CAN Trading's expert team"
-        canonicalUrl="https://can-trading.com/vip"
+        title="CAN Services"
+        description="Access exclusive cryptocurrency trading setups and analysis from CAN Trading's expert team"
+        canonicalUrl="https://can-trading.com/services"
         image="/images/showcase/can-banner.png"
         type="website"
       />
@@ -21,7 +19,7 @@ export default function Home() {
         <ServicesSection />
         <ResultsSection />
         <PricingSection />
-        <div className="px-4 w-full">
+        <div className="px-4 w-full flex justify-center">
           <Banner />
         </div>
       </main>

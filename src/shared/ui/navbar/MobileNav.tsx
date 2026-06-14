@@ -51,18 +51,18 @@ const MobileNav = ({
             Technical Analysis
           </Link>
           <Link
-            href="/vip"
+            href="/services"
             className="flex justify-center sm:justify-start text-text-main hover:text-orange py-2 text-base font-medium"
             onClick={closeMenu}
           >
-            VIP Signals
+            CAN Services
           </Link>
           <Link
             href="/results"
             className="flex justify-center sm:justify-start text-text-main hover:text-orange py-2 text-base font-medium"
             onClick={closeMenu}
           >
-            VIP Results
+            Analysis Results
           </Link>
           <Link
             href="/coins/overview"

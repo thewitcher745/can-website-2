@@ -15,11 +15,14 @@ const SummaryItem = ({
 }) => {
   return (
     <div
-      className={`flex justify-between items-center min-w-xxs xs:min-w-sm w-full p-6`}
+      className={`flex w-full justify-between items-center min-w-xxs xs:min-w-sm w-full p-6`}
     >
       <div className="flex flex-col">
         <span className="text-text-main text-lg ">{title}</span>
-        <span style={{ color: valueColor }} className="font-bold text-4xl">
+        <span
+          style={{ color: valueColor }}
+          className="font-bold text-3xl sm:text-4xl"
+        >
           {valueStr}
         </span>
       </div>

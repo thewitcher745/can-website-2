@@ -10,14 +10,17 @@ import { useCategory, useMonthYear } from "@src/domains/results/context";
 const Summary = () => {
   const { currentMonthYear: monthYear } = useMonthYear();
   const { category } = useCategory();
-  const { data, loading, error } = useSummaryForMonthYearCategory(monthYear, category);
+  const { data, loading, error } = useSummaryForMonthYearCategory(
+    monthYear,
+    category
+  );
 
   const winrate = `${data?.winrate.toFixed(2) || 75.1}%`;
   const grossProfit = `+${data?.grossProfit.toFixed(2) || 674.3}%`;
   const drawdown = `-${data?.drawdown.toFixed(2) || 15.2}%`;
 
   const summaryElement = (
-    <div className="w-full divide-y-2 divide-x-2 divide-white/10 grid grid-cols-1 lg:grid-cols-3 rounded-xl">
+    <div className="w-full divide-y-2 divide-x-2 divide-white/10 grid grid-cols-1 xl:grid-cols-3 rounded-xl">
       <SummaryItem
         title="Winrate"
         valueStr={winrate}

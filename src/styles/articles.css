@@ -8,7 +8,16 @@
     }
 }
 
-/* Gradient that matches card background on hover */
+@keyframes scroll-down {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%)
+    }
+}
+
+/* Gradients that matches card background on hover */
 .card-hover .tags-gradient {
   background: linear-gradient(to left, var(--color-background), transparent);
 }
@@ -17,12 +26,28 @@
   background: linear-gradient(to left, color-mix(in srgb, var(--color-surface) 60%, var(--color-background)), transparent);
 }
 
+.card-hover .card-title-gradient {
+  background: linear-gradient(to top, var(--color-background), transparent);
+}
+
+.card-hover:hover .card-title-gradient {
+  background: linear-gradient(to top, color-mix(in srgb, var(--color-surface) 60%, var(--color-background)), transparent);
+}
+
 .tags-scroll {
   animation: none;
 }
 
 .group:hover .tags-scroll {
   animation: scroll-right 8s linear infinite;
+}
+
+.title-scroll {
+  animation: none;
+}
+
+.group:hover .title-scroll {
+  animation: scroll-down 4s linear forwards;
 }
 
 .analysis-article {
@@ -76,6 +101,16 @@ ol {
 }
 
 /* --------------------- Blog and news section styles */
+/* Homepage widget title scrolling */
+
+@keyframes scroll-widget-title {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* tune to container width */
+}
+
+.group\/title:hover .scroll-on-hover {
+  animation: scroll-widget-title 8s linear infinite;
+}
 
 .blog-news-article {
   padding: 1rem 0;

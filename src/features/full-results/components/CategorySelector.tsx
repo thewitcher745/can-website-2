@@ -1,7 +1,8 @@
 import { useCategory, useMonthYear } from "@src/domains/results/context";
 import { useCategoriesForMonthYear } from "@src/domains/results/hooks";
 import { Category } from "@src/domains/results/types";
-import { Lightbulb, Code2 } from "lucide-react";
+import { Lightbulb } from "lucide-react";
+import { FaRobot } from "react-icons/fa6";
 
 const CategorySelector = () => {
   const { currentMonthYear } = useMonthYear();
@@ -24,7 +25,7 @@ const CategorySelector = () => {
       <button
         onClick={() => setCategory(id)}
         className={`
-          flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-base
+          flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3 rounded-lg font-medium text-base
           transition-all duration-200 ease-in-out
           ${
             isActive
@@ -44,11 +45,11 @@ const CategorySelector = () => {
     <CategorySelectorButton text="Insights" id="insights" icon={Lightbulb} />
   );
   const AlgorithmSelector = (
-    <CategorySelectorButton text="Algorithm" id="algorithm" icon={Code2} />
+    <CategorySelectorButton text="Algorithm" id="algorithm" icon={FaRobot} />
   );
 
   return (
-    <div className="flex items-center gap-2 mb-8 bg-surface/50 rounded-lg p-1 w-fit mx-auto">
+    <div className="flex flex-wrap items-center items-center gap-2 mb-8 bg-surface/50 rounded-lg p-1 w-fit mx-auto">
       {availableCategories.includes("insights") ? InsightsSelector : null}
       {availableCategories.includes("algorithm") ? AlgorithmSelector : null}
     </div>

@@ -10,22 +10,22 @@ const OurStats = () => {
         <StatBox
           icon={<BadgeCheck />}
           stat="2000+"
-          caption="Our VIP platform has been tested by more than 2000 users."
+          caption="Members who have tested additional features, insights, and community benefits since the beginning."
         />
         <StatBox
           icon={<CalendarCheck />}
-          stat="100+"
-          caption="More than 100 annual subscription renewals."
+          stat="250+"
+          caption="Annual Users who continue their access to premium platform features."
         />
         <StatBox
           icon={<Handshake />}
-          stat="6"
-          caption="6 years of constant support for our valued VIP members."
+          stat="6+ years"
+          caption="Supporting our community and continuously improving our technical analysis since launch."
         />
         <StatBox
           icon={<Users />}
-          stat="10k+"
-          caption="More than 10k public channel members."
+          stat="12k+"
+          caption="Followers and members across our public channels and communities."
         />
       </div>
     </section>

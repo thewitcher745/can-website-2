@@ -12,14 +12,17 @@ const TopHalf: React.FC<{ post: ListedAnalysis; isVip: boolean }> = ({
   isVip,
 }) => {
   return (
-    <div className="flex gap-2 py-6 items-center h-full md:h-1/3 md:mb-6 relative">
+    <div className="flex items-center md:items-start gap-2 py-6 md:py-0 items-center h-36 md:h-24 md:h-1/3 md:mb-6 relative">
       <Logo
         symbol={post.meta.coins[0].toUpperCase()}
         fixedLogoUrl={"/images/logos/default.png"}
         size="20"
         padding="1"
       />
-      <PostTitle isVip={isVip} title={post.meta.title} slug={post.slug} />
+      <div className="relative overflow-y-hidden h-full">
+        <PostTitle isVip={isVip} title={post.meta.title} slug={post.slug} />
+        <div className="card-title-gradient absolute bottom-0 left-o w-full h-10 bg-red-500" />
+      </div>
     </div>
   );
 };
@@ -30,7 +33,7 @@ const BottomHalf: React.FC<{ post: ListedAnalysis }> = ({ post }) => {
       <PostDescription description={post.meta.description} />
       <div className="w-full flex md:flex-col flex-wrap justify-between md:items-start items-center">
         <div className="relative w-full">
-          <PostTags tags={post.meta.tags} className="tags-container" />
+          <PostTags tags={post.meta.tags} />
           <div className="tags-gradient absolute right-0 top-0 w-10 h-full transition-all duration-200" />
         </div>
         <PostTime

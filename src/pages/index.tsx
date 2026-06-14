@@ -41,7 +41,7 @@ export default function Home({
           <MostRecentAnalysisSection posts={analysisPosts} />
           <TopMarketCapCoinsSection />
           <VideosSection />
-          <HighPotentialTokensSection />
+          {/* <HighPotentialTokensSection /> */}
           <HeatmapSection />
           <OurStats />
           <div className="w-full sm:pt-0 flex justify-center">
@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
         getBlogPosts(10),
         getNewsPosts(10),
         getHighPotentialPosts(10),
-      ],
+      ]
     );
 
     return {
