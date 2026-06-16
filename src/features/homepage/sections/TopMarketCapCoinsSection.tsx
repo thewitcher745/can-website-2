@@ -99,10 +99,10 @@ const TopMarketCapCoinsSection = () => {
       className="w-full bg-background flex justify-start sm:justify-center"
     >
       <div className="max-w-custom p-4 py-8 rounded radius-6 w-full">
+        <h2 className="text-2xl mb-4 font-bold text-text-main cursor-default">
+          Top Market Cap Coins
+        </h2>
         <div ref={tableContainerRef} className="overflow-x-auto relative">
-          <h2 className="text-2xl mb-4 font-bold text-text-main cursor-default">
-            Top Market Cap Coins
-          </h2>
           <table className="text-text-main w-full min-w-lg table-fixed">
             <thead>
               <tr>
