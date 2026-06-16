@@ -51,7 +51,7 @@ const AnalysisCard: React.FC<{ post: ListedAnalysis; isVip: boolean }> = ({
 }) => {
   return (
     <Link
-      href={isVip ? `/vip_analysis/${post.slug}` : `/analysis/${post.slug}`}
+      href={`/analysis/${post.slug}`}
     >
       <div
         key={post.slug}
