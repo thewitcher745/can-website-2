@@ -59,10 +59,13 @@ const ResultsSection: React.FC = () => {
   }, [selectedYear, selectedMonth]);
 
   return (
-    <section id="results" className="py-4 bg-background">
+    <section
+      id="results"
+      className="w-full overflow-x-scroll py-4 bg-background"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader />
-        <div className="flex flex-col md:flex-row gap-8 md:items-start min-h-[600px] md:h-[600px]">
+        <div className="flex flex-col md:flex-row gap-8 py-8 md:items-start min-h-[600px] md:h-[600px]">
           <div>
             <Selectors
               allYears={allYears}
