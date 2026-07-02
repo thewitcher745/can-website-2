@@ -6,14 +6,18 @@ import { buildApiUrl } from "@src/config";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
-const TableTitle = ({ title, link }: { title: string; link: string }) => {
+const TableTitle = ({ title, link = "" }: { title: string; link?: string }) => {
   return (
-    <Link href={link}>
+    <Link href={link} className={link ? "" : "cursor-auto"}>
       <div className="flex items-center h-12 gap-2">
-        <h2 className="text-text-main text-xl underline title-hover font-semibold mb-2">
+        <h2
+          className={`text-text-main text-xl font-semibold mb-2 ${
+            link ? "underline title-hover" : ""
+          }`}
+        >
           {title}
         </h2>
-        <ChevronRight className="w-6 h-6 text-text-muted" />
+        {link ? <ChevronRight className="w-6 h-6 text-text-muted" /> : null}
       </div>
     </Link>
   );
@@ -57,7 +61,7 @@ const SmallTables = () => {
         <SmallTable dataLoading={loading} coins={trending} />
       </div>
       <div className="sm:flex flex-col hidden">
-        <TableTitle title="Top Volume" link="/coins/volume" />
+        <TableTitle title="Top Volume" />
         <SmallTable dataLoading={loading} coins={topVolumeCoins} />
       </div>
     </>
