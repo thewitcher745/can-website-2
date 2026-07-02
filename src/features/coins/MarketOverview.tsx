@@ -10,7 +10,7 @@ const MarketOverview = () => {
       <SmallTablesSection />
       <GlobalMarketDataSection />
       <LongShortRatioSection />
-      {/* <CryptoHeatmapSection /> */}
+      <CryptoHeatmapSection />
       <HistoricalFearAndGreedSection />
     </>
   );

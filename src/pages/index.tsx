@@ -42,7 +42,7 @@ export default function Home({
           <TopMarketCapCoinsSection />
           <VideosSection />
           {/* <HighPotentialTokensSection /> */}
-          {/* <HeatmapSection /> */}
+          <HeatmapSection />
           <OurStats />
           <div className="w-full sm:pt-0 flex justify-center">
             <Banner />
