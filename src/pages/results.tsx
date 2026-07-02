@@ -21,7 +21,7 @@ const ResultsPage: React.FC = () => {
     <>
       <MetaTags
         title="Trading Results"
-        description="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading signals and analysis outcomes."
+        description="View our verified cryptocurrency trading results and performance metrics. Transparent reporting of our trading insights and analysis outcomes."
         canonicalUrl="https://can-trading.com/results"
         image="/images/showcase/can-banner.png"
         type="website"
