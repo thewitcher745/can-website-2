@@ -19,10 +19,15 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
   }
 
   return (
-    <div id="waterfall-chart" className="w-full h-full">
+    <div
+      id="waterfall-chart"
+      className={`min-w-md md:min-w-auto scale-[0.7] xs:scale-[0.8] sm:scale-[0.9] md:scale-[1] lg:scale-[1.3] `}
+    >
       <BarChart
         dataset={dataset as any}
         skipAnimation={true}
+        width={500}
+        height={400}
         xAxis={[
           {
             dataKey: "idx",

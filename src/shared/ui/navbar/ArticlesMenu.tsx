@@ -5,7 +5,13 @@ import { BiNews } from "react-icons/bi";
 import { TbChartCandle } from "react-icons/tb";
 import { FaPencilAlt } from "react-icons/fa";
 
-const ArticlesMenuItems = ({ isMobile }: { isMobile: boolean }) => {
+const ArticlesMenuItems = ({
+  isMobile,
+  onItemClick,
+}: {
+  isMobile: boolean;
+  onItemClick?: () => void;
+}) => {
   return (
     <>
       <Link
@@ -13,6 +19,7 @@ const ArticlesMenuItems = ({ isMobile }: { isMobile: boolean }) => {
         className={`text-nowrap flex items-center gap-2 text-text-main hover:text-orange px-3 py-4 text-sm font-medium transition-all hover:text-primary ${
           isMobile ? "justify-center sm:justify-start" : ""
         }`}
+        onClick={onItemClick}
       >
         <FaPencilAlt className="w-6 h-6" />
         <span>CAN Magazine</span>
@@ -22,6 +29,7 @@ const ArticlesMenuItems = ({ isMobile }: { isMobile: boolean }) => {
         className={`text-nowrap flex items-center gap-2 text-text-main hover:text-orange px-3 py-4 text-sm font-medium transition-all hover:text-primary ${
           isMobile ? "justify-center sm:justify-start" : ""
         }`}
+        onClick={onItemClick}
       >
         <BiNews className="w-6 h-6" />
         <span>News</span>
@@ -32,8 +40,10 @@ const ArticlesMenuItems = ({ isMobile }: { isMobile: boolean }) => {
 
 const MobileArticlesMenu = ({
   articlesMenuOpen,
+  onItemClick,
 }: {
   articlesMenuOpen: boolean;
+  onItemClick?: () => void;
 }) => {
   return (
     <div
@@ -43,7 +53,7 @@ const MobileArticlesMenu = ({
           : "relative h-0 pointer-events-none opacity-0 -translate-y-[20%]"
       }`}
     >
-      <ArticlesMenuItems isMobile={true} />
+      <ArticlesMenuItems isMobile={true} onItemClick={onItemClick} />
     </div>
   );
 };
@@ -66,7 +76,13 @@ const DesktopArticlesMenu = ({
   );
 };
 
-export const ArticlesMenuButton = ({ isMobile }: { isMobile: boolean }) => {
+export const ArticlesMenuButton = ({
+  isMobile,
+  onItemClick,
+}: {
+  isMobile: boolean;
+  onItemClick?: () => void;
+}) => {
   const [articlesMenuOpen, setArticlesMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -93,7 +109,10 @@ export const ArticlesMenuButton = ({ isMobile }: { isMobile: boolean }) => {
             }`}
           />
         </div>
-        <MobileArticlesMenu articlesMenuOpen={articlesMenuOpen} />
+        <MobileArticlesMenu
+          articlesMenuOpen={articlesMenuOpen}
+          onItemClick={onItemClick}
+        />
       </div>
     );
   }

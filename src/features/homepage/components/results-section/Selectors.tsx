@@ -25,7 +25,7 @@ const Selectors = ({
   selectedMonth,
   setSelectedMonth,
 }: SelectorsProps) => (
-  <div>
+  <>
     <div className="mb-4">
       <label
         htmlFor="year-select-mobile"
@@ -72,7 +72,7 @@ const Selectors = ({
         ))}
       </select>
     </div>
-  </div>
+  </>
 );
 
 export default Selectors;

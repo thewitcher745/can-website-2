@@ -71,7 +71,7 @@ const MobileNav = ({
           >
             Cryptocurrencies
           </Link>
-          <ArticlesMenuButton isMobile={true} />
+          <ArticlesMenuButton isMobile={true} onItemClick={closeMenu} />
           <Link
             href="/telegram"
             rel="noopener noreferrer"

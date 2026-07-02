@@ -50,12 +50,10 @@ const AnalysisCard: React.FC<{ post: ListedAnalysis; isVip: boolean }> = ({
   isVip,
 }) => {
   return (
-    <Link
-      href={isVip ? `/vip_analysis/${post.slug}` : `/analysis/${post.slug}`}
-    >
+    <Link href={`/analysis/${post.slug}`}>
       <div
         key={post.slug}
-        className="group border border-border rounded p-2 flex flex-col h-auto md:h-80 min-w-xxs card-hover bg-background"
+        className="group border border-border rounded p-4 flex flex-col h-auto md:h-80 min-w-xxs card-hover bg-background"
       >
         <TopHalf isVip={isVip} post={post} />
         <BottomHalf post={post} />
