@@ -1,7 +1,14 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import Script from "next/script";
 
 const Tags = () => {
+  // Don't render anything on admin pages. We don't want tracking on those.
+  const router = useRouter();
+  const isAdminPage = router.pathname.startsWith("/admin");
+
+  if (isAdminPage) return null;
+
   return (
     <>
       {/* X Pixel */}
