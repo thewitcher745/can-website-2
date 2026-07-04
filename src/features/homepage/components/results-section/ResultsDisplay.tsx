@@ -1,9 +1,9 @@
-import WaterfallChart from "./WaterfallChart";
+import CombinedProfitChart from "@src/features/full-results/components/charts/CombinedProfitChart";
 
-const ResultsDisplay = ({ monthYearName }: { monthYearName: string }) => {
+const ResultsDisplay = () => {
   return (
-    <div className="flex flex-col items-center justify-start h-100 md:h-150 md:w-3/4 w-full">
-      <WaterfallChart monthYearName={monthYearName} />
+    <div className="flex flex-col items-center justify-start w-full">
+      <CombinedProfitChart />
     </div>
   );
 };
