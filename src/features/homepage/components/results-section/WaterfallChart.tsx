@@ -32,7 +32,7 @@ const WaterfallChart = ({ monthYearName }: { monthYearName: string }) => {
           {
             dataKey: "idx",
             scaleType: "band",
-            label: "Signal Number",
+            label: "Trade Number",
             valueFormatter: (idx, context) => `${idx}`,
           },
         ]}

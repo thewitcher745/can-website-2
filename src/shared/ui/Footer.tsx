@@ -120,6 +120,19 @@ const Footer: React.FC = () => (
         </div>
       </div>
     </div>
+    <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/10">
+      <p className="text-xs text-text-muted">
+        All content is provided for educational and informational purposes
+        only and should not be considered financial, investment, or trading
+        advice. Cryptocurrency markets involve substantial risk, and past
+        performance does not guarantee future results. Always conduct your
+        own research before making investment decisions.
+      </p>
+      {/* <p className="text-xs text-text-muted mt-2">
+        [NEEDS: legal entity name and jurisdiction from owner] &middot;
+        Contact: cryptoanalysis.can@gmail.com
+      </p> */}
+    </div>
   </footer>
 );
 

@@ -28,7 +28,7 @@ export default function Home({
     >
       <MetaTags
         title="CAN Trading"
-        description="Professional cryptocurrency trading insights, technical analysis, news, and high-potential opportunities. Join CAN Trading for expert market analysis."
+        description="Professional cryptocurrency trading insights, technical analysis, and market news. Join CAN Trading for expert market analysis."
         canonicalUrl="https://can-trading.com"
         image="/images/showcase/can-banner.png"
         type="website"

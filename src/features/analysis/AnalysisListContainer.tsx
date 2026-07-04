@@ -58,21 +58,21 @@ const AnalysisListContainer = ({ posts }: { posts: ListedAnalysis[] }) => {
                 : "text-primary/40 hover:text-primary/80"
             }`}
           >
-            🔥Trading Setups
+            Premium Analysis
           </h2>
         </div>
       </div>
 
       {activeTab !== "vip" && (
         <p className="text-text-main text-xl mb-6">
-          You can find our reliable, accurate and profitable premium analysis
-          for different coins here.
+          You can find our reliable premium analysis for different coins
+          here.
         </p>
       )}
       {activeTab === "vip" && (
         <p className="text-text-main text-xl mb-6">
-          Exclusive Trading Setups with in-depth market insights and premium
-          trading strategies.
+          Premium Analysis with in-depth market insights and trading
+          strategies.
         </p>
       )}
 
