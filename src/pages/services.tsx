@@ -4,6 +4,10 @@ import PricingSection from "@features/homepage/sections/PricingSection";
 import Footer from "@shared/ui/Footer";
 import Banner from "@src/features/homepage/components/promotions/Banner";
 import MetaTags from "@src/shared/MetaTags";
+import {
+  MonthYearProvider,
+  CategoryProvider,
+} from "@src/domains/results/context";
 
 export default function Home() {
   return (
@@ -17,7 +21,11 @@ export default function Home() {
       />
       <main className="pb-16 pt-4 bg-background flex flex-col items-center">
         <ServicesSection />
-        <ResultsSection />
+        <MonthYearProvider>
+          <CategoryProvider>
+            <ResultsSection />
+          </CategoryProvider>
+        </MonthYearProvider>
         <PricingSection />
         <div className="px-4 w-full flex justify-center">
           <Banner />

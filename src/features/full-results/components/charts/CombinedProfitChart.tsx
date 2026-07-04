@@ -55,81 +55,80 @@ const CombinedProfitChartBase = ({
   };
 
   return (
-    <GlassCard className="rounded-xl">
+    <GlassCard className="rounded-xl w-full">
       <TopTitledChartWrapper title="Gross Profit for this month" height={500}>
-        <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart
-            data={chartData}
-            margin={{ top: 20, right: 20, left: 20, bottom: 5 }}
-          >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              vertical={false}
-              stroke="rgba(255,255,255,0.1)"
-            />
+        <ComposedChart
+          data={chartData}
+          margin={{ top: 20, right: 20, left: 20, bottom: 5 }}
+        >
+          <CartesianGrid
+            strokeDasharray="3 3"
+            vertical={false}
+            stroke="rgba(255,255,255,0.1)"
+          />
 
-            <XAxis
-              dataKey="name"
-              stroke="var(--color-text-main)"
-              fontSize={12}
-              tickLine={false}
-            />
+          <XAxis
+            dataKey="name"
+            stroke="var(--color-text-main)"
+            fontSize={12}
+            tickLine={false}
+          />
 
-            {/* Left Y-Axis for Waterfall (%) */}
-            <YAxis
-              yAxisId="left"
-              orientation="left"
-              // stroke="#22c55e"
-              fontSize={12}
-              tickLine={false}
-              unit="%"
-            />
+          {/* Left Y-Axis for Waterfall (%) */}
+          <YAxis
+            yAxisId="left"
+            orientation="left"
+            // stroke="#22c55e"
+            fontSize={12}
+            tickLine={false}
+            unit="%"
+          />
 
-            {/* Right Y-Axis for Cumulative Profit ($) */}
-            <YAxis
-              yAxisId="right"
-              orientation="right"
-              // stroke="#3b82f6"
-              fontSize={12}
-              tickLine={false}
-              unit="$"
-            />
+          {/* Right Y-Axis for Cumulative Profit ($) */}
+          <YAxis
+            yAxisId="right"
+            orientation="right"
+            // stroke="#3b82f6"
+            fontSize={12}
+            tickLine={false}
+            unit="$"
+          />
 
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "#1e293b",
-                border: "none",
-                borderRadius: "8px",
-                color: "#fff",
-              }}
-              itemStyle={{ color: "#fff" }}
-              cursor={{ fill: "rgba(255,255,255,0.05)" }}
-              formatter={(value: any, name: any, entry: any) => {
-                // entry.payload contains the original object from the chartData array
+          <Tooltip
+            contentStyle={{
+              backgroundColor: "#1e293b",
+              border: "none",
+              borderRadius: "8px",
+              color: "#fff",
+            }}
+            itemStyle={{ color: "#fff" }}
+            cursor={{ fill: "rgba(255,255,255,0.05)" }}
+            formatter={(value: any, name: any, entry: any) => {
+              // entry.payload contains the original object from the chartData array
 
-                if (name === "Trade Change (%)") {
-                  return [`${entry.payload.delta.toFixed(1)}%`, name];
-                }
-              }}
-            />
+              if (name === "Trade Change (%)") {
+                return [`${entry.payload.delta.toFixed(1)}%`, name];
+              }
+            }}
+          />
 
-            <ReferenceLine
-              yAxisId="left"
-              y={0}
-              stroke="var(--color-text-main)"
-              strokeWidth={1}
-            />
+          <ReferenceLine
+            yAxisId="left"
+            y={0}
+            stroke="var(--color-text-main)"
+            strokeWidth={1}
+          />
 
-            {/* Waterfall Bars mapped to Left Axis */}
-            <Bar
-              yAxisId="left"
-              dataKey="displayRange"
-              shape={renderWaterfallBar}
-              name="Trade Change (%)"
-            />
+          {/* Waterfall Bars mapped to Left Axis */}
+          <Bar
+            yAxisId="left"
+            dataKey="displayRange"
+            shape={renderWaterfallBar}
+            name="Trade Change (%)"
+          />
 
-            {/* Cumulative Line mapped to Right Axis */}
-            {/* <Line
+          {/* Cumulative Line mapped to Right Axis */}
+          {/* <Line
             yAxisId="right"
             type="basis"
             dataKey="cumulativeUSD"
@@ -139,8 +138,7 @@ const CombinedProfitChartBase = ({
             activeDot={{ r: 6 }}
             name="Total Profit ($)"
           /> */}
-          </ComposedChart>
-        </ResponsiveContainer>
+        </ComposedChart>
       </TopTitledChartWrapper>
     </GlassCard>
   );
@@ -152,7 +150,7 @@ const CombinedProfitChart = () => {
 
   const { data, loading, error } = useChartsDataForMonthYearCategory(
     monthYear,
-    category
+    category,
   );
 
   if (loading) {
