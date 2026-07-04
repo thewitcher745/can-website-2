@@ -20,8 +20,7 @@ const Title = () => {
           </div>
           <br />
           <p className="text-lg md:text-xl lg:text-2xl font-semibold text-center md:text-left text-text-main md:text-text-muted max-w-md z-2">
-            Browse through the full gallery of our results and review our
-            performance in prior periods.
+            Review our community's performance each month.
           </p>
           <Link href="/telegram" className="cursor-pointer group z-2">
             <GlassCard className="flex backdrop-blur-sm items-center rounded-xl bg-surface/40 h-15">
