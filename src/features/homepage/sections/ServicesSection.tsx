@@ -24,7 +24,7 @@ const services = [
   {
     icon: <FaRobot className="w-8 h-8 text-primary" />,
     title: "Algorithmic Trading",
-    desc: "Algorithmic Trading designed for quick profit with high leverage and tight risk management strategies.",
+    desc: "Algorithmic Trading designed for high leverage and tight risk management strategies.",
   },
   {
     icon: <FaShieldAlt className="w-8 h-8 text-primary" />,
@@ -34,12 +34,12 @@ const services = [
   {
     icon: <FaChartPie className="w-8 h-8 text-primary" />,
     title: "Crypto Market Insight",
-    desc: "In-depth market analysis and insights to help you make informed trading decisions and ride the market in the right direction.",
+    desc: "In-depth market analysis and insights to help you make informed trading decisions.",
   },
   {
     icon: <FaBalanceScale className="w-8 h-8 text-primary" />,
-    title: "Portfolio Optimization",
-    desc: "Strategically diversify your capital between Futures trading and Spot trading to maximize your profit while balancing risk.",
+    title: "Capital Allocation Strategy",
+    desc: "Strategically diversify your capital between Futures trading and Spot trading while balancing risk.",
   },
   {
     icon: <FaGraduationCap className="w-8 h-8 text-primary" />,

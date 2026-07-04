@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <MetaTags
         title="CAN Services"
-        description="Access exclusive cryptocurrency trading setups and analysis from CAN Trading's expert team"
+        description="Access cryptocurrency trading analysis from CAN Trading's expert team"
         canonicalUrl="https://can-trading.com/services"
         image="/images/showcase/can-banner.png"
         type="website"
