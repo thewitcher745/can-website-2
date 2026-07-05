@@ -19,7 +19,7 @@ const RecentArticlesWidget = ({ className }: { className?: string }) => {
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? N_TABLES - 1 : prevIndex - 1
+      prevIndex === 0 ? N_TABLES - 1 : prevIndex - 1,
     );
   };
 
@@ -45,23 +45,45 @@ const RecentArticlesWidget = ({ className }: { className?: string }) => {
   const renderTableRows = (items: ListedArticle[], tableSlug: string) => {
     const rows = [] as React.ReactNode[];
 
-    for (let i = 0; i < N_POSTS; i++) {
-      const item = items[i];
+    // Fallback in case there are fewer than N_POSTS
+    const limit = Math.min(N_POSTS, items.length);
 
-      rows.push(<TableRow item={item} tableSlug={tableSlug} i={i} />);
+    for (let i = 0; i < limit; i++) {
+      const item = items[i];
+      rows.push(
+        <TableRow
+          key={item.slug || i}
+          item={item}
+          tableSlug={tableSlug}
+          i={i}
+        />,
+      );
     }
 
     return rows;
   };
 
   const renderContent = (blog: ListedArticle[], news: ListedArticle[]) => {
+    const sortRecentFirst = (items: ListedArticle[]) => {
+      if (!items) return [];
+      return [...items].sort(
+        (a, b) =>
+          new Date(b?.meta?.publishedAt || 0).getTime() -
+          new Date(a?.meta?.publishedAt || 0).getTime(),
+      );
+    };
+
     const tables = [
       {
         title: "CAN Magazine",
-        data: blog || [],
+        data: sortRecentFirst(blog),
         slug: "blog",
       },
-      { title: "Recent News", data: news || [], slug: "news" },
+      {
+        title: "Recent News",
+        data: sortRecentFirst(news),
+        slug: "news",
+      },
     ];
 
     return (
