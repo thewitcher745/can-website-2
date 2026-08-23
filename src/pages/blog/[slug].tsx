@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import Footer from "@shared/ui/Footer";
 import ArticleElement from "@src/features/articles/slug/ArticleElement";
-import Banner from "@src/features/homepage/components/promotions/BannerMini";
+import Banner from "@src/features/homepage/components/promotions/Banner";
 import { ArticlePost } from "@src/domains/articles/types";
 import { getBlogPost, getBlogSlugs } from "@src/domains/articles/api";
 import MetaTags from "@src/shared/MetaTags";
@@ -59,7 +59,7 @@ const BlogPostPage = ({ post }: BlogPostProps) => {
           backHref="/blog"
           backText="CAN Magazine"
         />
-        <div className="px-4 w-full">
+        <div className="py-4 flex justify-center">
           <Banner />
         </div>
       </main>

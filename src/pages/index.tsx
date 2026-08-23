@@ -44,9 +44,7 @@ export default function Home({
           {/* <HighPotentialTokensSection /> */}
           <HeatmapSection />
           <OurStats />
-          <div className="w-full sm:pt-0 flex justify-center">
-            <Banner />
-          </div>
+          <Banner />
         </div>
       </main>
       <Footer />

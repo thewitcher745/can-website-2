@@ -7,6 +7,7 @@ import { getNewsPosts } from "@src/domains/articles/api";
 import { createListingGetStaticProps } from "@src/lib/isr/listing";
 import { ListedArticle } from "@src/domains/articles/types";
 import MetaTags from "@src/shared/MetaTags";
+import Banner from "@src/features/homepage/components/promotions/Banner";
 
 type NewsIndexProps = { items: ListedArticle[] };
 
@@ -49,6 +50,9 @@ const News: React.FC<NewsIndexProps> = ({ items: posts }) => {
             onRemoveTag={removeTag}
             onClearFilters={() => setFilterTags(null)}
           />
+        </div>
+        <div className="py-4 flex justify-center">
+          <Banner />
         </div>
       </main>
       <Footer />

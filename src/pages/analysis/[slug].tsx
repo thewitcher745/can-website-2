@@ -8,7 +8,7 @@ import ChartModal from "@src/features/analysis/slug/ChartModal";
 import Update from "@src/features/analysis/slug/Update";
 import MainPost from "@src/features/analysis/slug/MainPost";
 import chartHighlighting from "@src/features/analysis/slug/chartHighlighting";
-import Banner from "@src/features/homepage/components/promotions/BannerMini";
+import Banner from "@src/features/homepage/components/promotions/Banner";
 import { getAnalysisPost, getAnalysisSlugs } from "@src/domains/analysis/api";
 import { AnalysisPost } from "@src/domains/analysis/types";
 import MetaTags from "@src/shared/MetaTags";
@@ -99,7 +99,9 @@ const AnalysisPostPage = ({ post }: AnalysisPostProps) => {
             </div>
           )}
 
-          <Banner />
+          <div className="py-4 flex justify-center">
+            <Banner />
+          </div>
         </div>
         {modalImgSrc && modalVisible && (
           <ChartModal
@@ -127,7 +129,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<AnalysisPostProps> = async (
-  context,
+  context
 ) => {
   const slug = context.params?.slug as string;
 

@@ -7,6 +7,7 @@ import { GetStaticProps } from "next";
 import { createListingGetStaticProps } from "@src/lib/isr/listing";
 import { getBlogPosts } from "@src/domains/articles/api";
 import MetaTags from "@src/shared/MetaTags";
+import Banner from "@src/features/homepage/components/promotions/Banner";
 
 type BlogIndexProps = { items: ListedArticle[] };
 
@@ -23,7 +24,7 @@ const Blog: React.FC<BlogIndexProps> = ({ items: posts }) => {
 
   const filteredPosts = filterTags
     ? posts.filter((post) =>
-        filterTags?.some((tag) => post.meta.tags.includes(tag)),
+        filterTags?.some((tag) => post.meta.tags.includes(tag))
       )
     : posts;
 
@@ -50,6 +51,9 @@ const Blog: React.FC<BlogIndexProps> = ({ items: posts }) => {
             onRemoveTag={removeTag}
             onClearFilters={() => setFilterTags(null)}
           />
+        </div>
+        <div className="py-4 flex justify-center">
+          <Banner />
         </div>
       </main>
       <Footer />

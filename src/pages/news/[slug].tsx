@@ -4,9 +4,13 @@ import Link from "next/link";
 
 import Footer from "@shared/ui/Footer";
 import ArticleElement from "@src/features/articles/slug/ArticleElement";
-import Banner from "@src/features/homepage/components/promotions/BannerMini";
+import Banner from "@src/features/homepage/components/promotions/Banner";
 import { ArticlePost } from "@src/domains/articles/types";
-import { getNewsPost, getNewsPosts, getNewsSlugs } from "@src/domains/articles/api";
+import {
+  getNewsPost,
+  getNewsPosts,
+  getNewsSlugs,
+} from "@src/domains/articles/api";
 import MetaTags from "@src/shared/MetaTags";
 
 type NewsPostProps = {
@@ -55,7 +59,7 @@ const NewsPostPage = ({ post }: NewsPostProps) => {
       />
       <main className="bg-background min-h-screen flex flex-col items-center">
         <ArticleElement article={post} backHref="/news" backText="News" />
-        <div className="px-4 w-full">
+        <div className="px-4 py-4 w-full">
           <Banner />
         </div>
       </main>
@@ -78,7 +82,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<NewsPostProps> = async (
-  context,
+  context
 ) => {
   const slug = context.params?.slug as string;
 

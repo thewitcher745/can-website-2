@@ -3,7 +3,7 @@ import Head from "next/head";
 import Footer from "@src/shared/ui/Footer";
 import MostRecent from "@src/features/analysis/most-recent-analysis/MostRecent";
 import AnalysisListContainer from "@features/analysis/AnalysisListContainer";
-import BannerMini from "@src/features/homepage/components/promotions/BannerMini";
+import Banner from "@src/features/homepage/components/promotions/Banner";
 import { GetStaticProps } from "next";
 import { createListingGetStaticProps } from "@src/lib/isr/listing";
 import { getAnalysisPosts } from "@src/domains/analysis/api";
@@ -56,7 +56,7 @@ const Analysis: React.FC<AnalysisIndexProps> = ({ items: posts }) => {
           <AnalysisListContainer posts={posts} />
         </section>
         <div className="w-full flex justify-center mt-8">
-          <BannerMini />
+          <Banner />
         </div>
       </main>
       <Footer />
