@@ -22,7 +22,6 @@ const IndexCard = ({
   return (
     <Link
       href={`${baseHref}/${article.slug}`}
-      key={article.slug}
       className="flex flex-row flex-grow sm:flex-col p-2 sm:p-0 h-26 sm:h-70 md:h-100 rounded-sm sm:rounded-lg card-hover"
     >
       <div className="h-full relative p-2 w-30 sm:w-full sm:h-1/2 overflow-hidden rounded-sm sm:rounded-t-sm mb-2">
@@ -70,9 +69,16 @@ const Index: React.FC<ListingsProps> = ({
   onRemoveTag,
   onClearFilters,
 }) => {
+  // Sort items newest first, assuming the date is stashed in meta.publishedAt
+  const sortedItems = [...items].sort((a, b) => {
+    const dateA = new Date(a.meta?.publishedAt || 0).getTime();
+    const dateB = new Date(b.meta?.publishedAt || 0).getTime();
+    return dateB - dateA;
+  });
+
   return (
     <>
-      {filterTags && (
+      {filterTags && filterTags.length > 0 && (
         <div className="mb-6 flex gap-2 flex-wrap flex-col items-start sm:flex-row">
           {filterTags.map((tag) => (
             <button
@@ -93,11 +99,15 @@ const Index: React.FC<ListingsProps> = ({
       )}
 
       <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
-        {items.length === 0 ? (
+        {sortedItems.length === 0 ? (
           <div className="text-center text-text-muted">No articles found.</div>
         ) : (
-          items.map((article) => (
-            <IndexCard article={article} baseHref={baseHref} />
+          sortedItems.map((article) => (
+            <IndexCard
+              key={article.slug}
+              article={article}
+              baseHref={baseHref}
+            />
           ))
         )}
       </div>

@@ -37,7 +37,7 @@ const Analysis: React.FC<AnalysisIndexProps> = ({ items: posts }) => {
   return (
     <>
       <MetaTags
-        title="Latest Technical Analysis"
+        title="Latest Technical Insights"
         description="In-depth technical analysis of Bitcoin, Ethereum, and altcoins. Stay ahead with CAN Trading's expert insights."
         canonicalUrl="https://can-trading.com/analysis"
         image="/images/showcase/can-banner.png"
@@ -46,7 +46,7 @@ const Analysis: React.FC<AnalysisIndexProps> = ({ items: posts }) => {
         <section id="most-recent" className="w-full flex justify-center pt-4">
           <div className="max-w-[100rem] w-full flex flex-col self-start sm:text-left">
             <h2 className="text-xl md:text-3xl font-bold mb-2 text-primary hover:text-primary-light transition-colors duration-200">
-              Latest Technical Analysis
+              Latest Technical Insights
             </h2>
             {mostRecentElement}
           </div>

@@ -40,11 +40,12 @@ const HeroSection: React.FC = () => {
                 display: "inline-block",
               }}
             >
-              CAN Trading Signals
+              CAN Trading Insights
             </h1>
             {/* Description with fade-in */}
             <p className="text-center md:text-left text-lg text-primary-light mb-8 animate-fade-in-delay-2">
-              Providing accurate and reliable cryptocurrency technical analysis with proper educational strategies for risk management.
+              Providing accurate and reliable cryptocurrency technical analysis
+              with proper educational strategies for risk management.
             </p>
             {/* Desktop CTA buttons */}
             <div className="hidden md:flex flex-wrap justify-center gap-2 animate-fade-in-delay-3">
