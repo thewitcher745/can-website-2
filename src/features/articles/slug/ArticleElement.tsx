@@ -14,7 +14,7 @@ const ArticleElement = ({
   backText,
 }: ArticleElementProps) => {
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4 pt-6">
+    <div className="max-w-4xl mx-auto px-4 pt-6">
       <Link href={backHref} className="text-primary hover:underline text-sm">
         ← Back to {backText}
       </Link>
@@ -29,7 +29,7 @@ const ArticleElement = ({
               year: "numeric",
               month: "2-digit",
               day: "2-digit",
-            },
+            }
           )}{" "}
           {new Date(article.meta.publishedAt || "").toLocaleTimeString(
             undefined,
@@ -37,7 +37,7 @@ const ArticleElement = ({
               hour: "2-digit",
               minute: "2-digit",
               hour12: false,
-            },
+            }
           )}
         </div>
         <div className="flex flex-wrap gap-2 mb-6">

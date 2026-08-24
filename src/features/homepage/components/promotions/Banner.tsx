@@ -51,7 +51,7 @@ const Banner = () => {
         <div className="pointer-events-none absolute w-full h-full bg-[linear-gradient(225deg,color-mix(in_srgb,var(--color-primary)_20%,transparent)_0%,transparent_40%,transparent_100%)]" />{" "}
         <div className="pointer-events-none absolute w-full h-full bg-[linear-gradient(45deg,color-mix(in_srgb,var(--color-primary)_20%,transparent)_0%,transparent_40%,transparent_100%)]" />{" "}
         {/* Mobile bottom part with gradient */}
-        <div className="absolute block sm:hidden z-51 bottom-0 bg-[linear-gradient(to_bottom,transparent_0%,var(--color-background)_50%,var(--color-background)_100%)] w-full h-180"></div>
+        <div className="absolute block sm:hidden z-51 bottom-0 bg-[linear-gradient(to_bottom,transparent_0%,var(--color-background)_50%,var(--color-background)_100%)] w-full h-150"></div>
         {/* Graphical section */}
         <div className="absolute w-full h-full sm:w-[35%]">
           {/* Yellow circle */}
@@ -67,7 +67,7 @@ const Banner = () => {
           <Image
             alt="phone"
             src="/images/banner-phone.png"
-            className="absolute z-50 top-85 left-1/2 -translate-x-1/2 w-70
+            className="absolute z-50 top-75 left-1/2 -translate-x-1/2 w-70
             sm:left-5 sm:top-15 sm:w-40 sm:left-auto sm:translate-x-0
             md:top-10 md:left-15 md:w-50
             drop-shadow-xl/75  shadow-background"

@@ -59,7 +59,7 @@ const BlogPostPage = ({ post }: BlogPostProps) => {
           backHref="/blog"
           backText="CAN Magazine"
         />
-        <div className="py-4 flex justify-center">
+        <div className="px-4 pb-4 flex justify-center w-full">
           <Banner />
         </div>
       </main>

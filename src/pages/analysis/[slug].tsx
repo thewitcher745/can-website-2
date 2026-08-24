@@ -99,7 +99,7 @@ const AnalysisPostPage = ({ post }: AnalysisPostProps) => {
             </div>
           )}
 
-          <div className="py-4 flex justify-center">
+          <div className="pt-8 flex justify-center">
             <Banner />
           </div>
         </div>

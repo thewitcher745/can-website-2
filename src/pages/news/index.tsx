@@ -24,7 +24,7 @@ const News: React.FC<NewsIndexProps> = ({ items: posts }) => {
 
   const filteredArticles = filterTags
     ? posts.filter((article) =>
-        filterTags?.some((tag) => article.meta.tags.includes(tag)),
+        filterTags?.some((tag) => article.meta.tags.includes(tag))
       )
     : posts;
 
@@ -51,7 +51,7 @@ const News: React.FC<NewsIndexProps> = ({ items: posts }) => {
             onClearFilters={() => setFilterTags(null)}
           />
         </div>
-        <div className="py-4 flex justify-center">
+        <div className="pb-2 flex justify-center">
           <Banner />
         </div>
       </main>

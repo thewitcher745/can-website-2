@@ -59,7 +59,7 @@ const NewsPostPage = ({ post }: NewsPostProps) => {
       />
       <main className="bg-background min-h-screen flex flex-col items-center">
         <ArticleElement article={post} backHref="/news" backText="News" />
-        <div className="px-4 py-4 w-full">
+        <div className="px-4 pb-4 flex justify-center w-full">
           <Banner />
         </div>
       </main>

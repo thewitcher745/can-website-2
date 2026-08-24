@@ -55,7 +55,7 @@ const Analysis: React.FC<AnalysisIndexProps> = ({ items: posts }) => {
         <section id="all-analysis" className="w-full flex justify-center">
           <AnalysisListContainer posts={posts} />
         </section>
-        <div className="w-full flex justify-center mt-8">
+        <div className="w-full flex justify-center py-4">
           <Banner />
         </div>
       </main>
