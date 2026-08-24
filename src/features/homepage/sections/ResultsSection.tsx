@@ -11,7 +11,7 @@ const ResultsSection: React.FC = () => {
   return (
     <section
       id="results"
-      className="w-full overflow-x-scroll py-4 bg-background"
+      className="w-full overflow-x-scroll sm:overflow-x-hidden py-4 bg-background"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader />
