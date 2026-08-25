@@ -11,8 +11,8 @@ import { ApiResponse } from "../api/client";
  */
 export function createListingGetStaticProps<T>(
   getItemsFunction: () => Promise<ApiResponse<T[]>>,
-  ttl: number = 1800,
-  fallbackTtl: number = 180,
+  ttl: number = 600,
+  fallbackTtl: number = 180
 ): GetStaticProps<{ items: T[] }> {
   return async () => {
     try {
