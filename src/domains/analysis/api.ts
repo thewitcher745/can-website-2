@@ -24,7 +24,20 @@ export async function getAnalysisPosts(
   if (isVip !== null) params.vip = isVip ? "true" : "false";
   if (coin !== null) params.coin = coin;
 
-  return apiClient.get<GetPostsApiResult>("/api/v2/posts/analysis", params);
+  const res = await apiClient.get<GetPostsApiResult>(
+    "/api/v2/posts/analysis",
+    params,
+  );
+
+  return {
+    ...res,
+    data: [...res.data].sort((a, b) => {
+      const aTime = new Date(a.meta.publishedAt || "").getTime();
+      const bTime = new Date(b.meta.publishedAt || "").getTime();
+
+      return bTime - aTime;
+    }),
+  };
 }
 
 /**
