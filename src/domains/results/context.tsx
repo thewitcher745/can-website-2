@@ -6,7 +6,7 @@ import { Category, CategoryStateData, MonthYearStateData } from "./types";
 const initialMonthYearState: MonthYearStateData = {
   years: [],
   months: [],
-  
+
   selectedYear: "",
   setSelectedYear: () => {},
 
@@ -15,7 +15,7 @@ const initialMonthYearState: MonthYearStateData = {
 };
 
 const MonthYearContext = createContext<MonthYearStateData>(
-  initialMonthYearState,
+  initialMonthYearState
 );
 
 export function MonthYearProvider({ children }: { children: ReactNode }) {
@@ -40,8 +40,14 @@ const initialCategoryState: CategoryStateData = {
 
 const CategoryContext = createContext<CategoryStateData>(initialCategoryState);
 
-export function CategoryProvider({ children }: { children: ReactNode }) {
-  const [category, setCategory] = useState<Category>("insights");
+export function CategoryProvider({
+  children,
+  defaultCategory = "insights",
+}: {
+  children: ReactNode;
+  defaultCategory?: Category;
+}) {
+  const [category, setCategory] = useState<Category>(defaultCategory);
 
   return (
     <CategoryContext.Provider value={{ category, setCategory }}>
