@@ -56,10 +56,10 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
   try {
     const [analysisRes, blogRes, newsRes, highPotentialRes] = await Promise.all(
       [
-        getAnalysisPosts(10),
-        getBlogPosts(10),
-        getNewsPosts(10),
-        getHighPotentialPosts(10),
+        getAnalysisPosts(),
+        getBlogPosts(),
+        getNewsPosts(),
+        getHighPotentialPosts(),
       ]
     );
 
